@@ -24,16 +24,15 @@ Møte-bilder ligger i `images/` som WebP og navngis med løpenummer + person:
 
 | Fil | Brukes til |
 | --- | --- |
-| `images/01-start.webp` | Startbildet (to søsken finner den lysende boken) |
+| `images/00-start.webp` | Startbildet (to søsken finner den lysende boken) |
 | `images/02-abel.webp` | Abel (gjeteren med sauene) |
 | `images/03-kain.webp` | Kain (i kornåkeren) |
 | `images/04-noah.webp` | Noah *(låst – mangler)* |
 | `images/05-abraham.webp` | Abraham *(låst – mangler)* |
 
-Startbildet og de to første møtene (Abel/Kain) ligger foreløpig også
-inline som base64 i `index.html`, slik at filen kan deles frittstående.
-Når flere personer legges til, bruk `images/`-filene direkte (se Noah/Abraham
-som mal med `img:"images/04-noah.webp"`).
+Alle bildene refereres direkte fra `images/`-mappen (ingen base64 i
+`index.html` lenger). Mangler et bilde, viser spillet et pent
+plassholder-felt med filstien – så det er lett å se hva som skal legges inn.
 
 ## Legge til en ny person
 Legg bildet i `images/` og legg til et objekt i `PERSONS`-listen i `index.html`
