@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Bibelreisen">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1b3a4b"/>
+      <stop offset="1" stop-color="#0f2530"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f2b76a"/>
+      <stop offset="1" stop-color="#e0a458"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+  <!-- open book -->
+  <path d="M256 150c-40-30-104-34-150-20v224c46-14 110-10 150 20 40-30 104-34 150-20V130c-46-14-110-10-150 20z"
+        fill="#eaf3f5" opacity="0.95"/>
+  <path d="M256 150v224" stroke="#1b3a4b" stroke-width="10" stroke-linecap="round"/>
+  <!-- dotted journey path -->
+  <path d="M150 250c40 0 60-40 106-40s66 40 106 40" fill="none"
+        stroke="url(#gold)" stroke-width="9" stroke-linecap="round" stroke-dasharray="2 26"/>
+  <!-- star -->
+  <path d="M256 70l11 26 28 3-21 19 6 28-24-15-24 15 6-28-21-19 28-3z" fill="url(#gold)"/>
+</svg>
