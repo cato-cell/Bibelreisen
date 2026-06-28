@@ -507,14 +507,11 @@ function renderProlog(i){
 function topBar(){
   return `<div class="top">
     <button class="topbtn" onclick="renderJourney()">${ic('compass')} Reisen</button>
-    <button class="topbtn" onclick="renderFriends()">${ic('friends')} Mine venner</button></div>`;
+    <button class="topbtn" onclick="renderFriends()">${ic('friends')} Vi har truffet</button></div>`;
 }
-/* Rundt venn-emblem: portrett + side-merke (hjerte = venn, gaffel = dårlig eksempel, stjerne = fakta) */
+/* Rundt emblem: kun personens portrett (side vises av hvilken seksjon det ligger i) */
 function emblemHTML(p){
-  const sd=p.side;
-  const col = sd==='jehova'?'var(--jehova)':sd==='slange'?'var(--violet)':'var(--gold-deep)';
-  const badge = sd==='jehova'?ic('heart'):sd==='slange'?ic('fork'):ic('star');
-  return `<div class="emblem"><img src="${p.img}" alt="${p.name||''}" style="object-position:${p.imgFocus||'center'};" onerror="this.style.display='none';this.parentNode.classList.add('noimg');"><span class="emblem-badge" style="color:${col}">${badge}</span></div>`;
+  return `<div class="emblem"><img src="${p.img}" alt="${p.name||''}" style="object-position:${p.imgFocus||'center'};" onerror="this.style.display='none';this.parentNode.classList.add('noimg');"></div>`;
 }
 
 /* ---------- Kartet (atlas) ---------- */
@@ -593,7 +590,7 @@ function renderStep(){
   } else if(s.t==='guess'){
     const opts=shuffle([p.name,...p.guessWrong]);
     const btns=opts.map(o=>`<button class="opt" onclick="answerGuess(this,'${esc(o)}')">${ic('search')} ${o}</button>`).join('');
-    render(`${head}<div class="pad fade">${sceneImg(p.img,'Hvem skjuler seg her?',true)}<div class="eyebrow" style="margin-top:14px;">${ic('search')} Gjett hvem</div>
+    render(`${head}<div class="pad fade">${sceneImg(p.img,'Møtet')}<div class="eyebrow" style="margin-top:14px;">${ic('search')} Gjett hvem</div>
       <h3 style="font-size:1.25rem;margin:8px 0 14px;">Hvem tror du dette er?</h3>${btns}
       <p id="fb" style="font-weight:700;min-height:24px;"></p></div>`);
   } else if(s.t==='reveal'){
@@ -630,7 +627,7 @@ function renderStep(){
       <button class="btn btn-primary" id="rnext" style="display:none;margin-top:10px;" onclick="next()">Videre →</button></div>`);
   } else if(s.t==='side'){
     render(`${head}<div class="pad fade"><div class="eyebrow">${ic('scales')} Velg side</div>
-      <h3 style="font-size:1.3rem;margin:8px 0 4px;">${p.sideQ}</h3>
+      <h3 style="font-size:1.3rem;margin:8px 0 4px;">Hvilken side valgte ${p.name} å stille seg på?</h3>
       <p class="hint">Dra ${p.name} til den siden du tror – eller trykk på en side.</p>
       <div class="sidearena" id="sidearena">
         <button class="sidezone zone-j" id="zone-j" aria-label="Velg Jehovas side">
@@ -652,7 +649,7 @@ function renderStep(){
     render(`${head}<div class="pad fade reward">${emblemHTML(p)}<h2 style="margin:12px 0 6px;">${heading}</h2>
       <div class="lessonbox">${p.lesson}</div>
       <button class="btn btn-primary" onclick="renderJourney()">Tilbake til reisen →</button>
-      <button class="btn btn-soft" style="margin-top:10px;" onclick="renderFriends()">Se Mine venner</button></div>`);
+      <button class="btn btn-soft" style="margin-top:10px;" onclick="renderFriends()">Se hvem vi har truffet</button></div>`);
   }
 }
 function answerGuess(el,nameGuess){ const p=STATE.person, fb=document.getElementById('fb');
@@ -872,8 +869,8 @@ function renderFriends(){
   const friends = PERSONS.filter(p=>!p.locked && p.side==='jehova');
   const badEx   = PERSONS.filter(p=>!p.locked && p.side==='slange');
   const facts   = PERSONS.filter(p=>!p.locked && p.side==='fakta');
-  render(`${topBar()}<div class="pad fade"><div class="eyebrow">${ic('friends')} Mine venner</div>
-    <h2 style="margin:8px 0 2px;">Vennene på reisen</h2>
+  render(`${topBar()}<div class="pad fade"><div class="eyebrow">${ic('friends')} Vi har truffet</div>
+    <h2 style="margin:8px 0 2px;">Vi har truffet</h2>
     <p class="hint">Fullfør et stopp for å samle vennen – eller huske et dårlig eksempel.</p>
     ${section('good','Mine venner','Disse valgte Jehovas side.',friends)}
     ${section('bad','Dårlige eksempler','Disse valgte ikke Jehovas side – vi lærer av feilene deres.',badEx)}

@@ -94,14 +94,14 @@ Unntaket gjelder **kun** dette lærdoms-spørsmålet. Alle andre verskort
 - Legg inn skriftsteder **alle steder der det er naturlig og underbygger det vi
   skal lære** — men alltid i tråd med Skriftstedsregelen over (person-spesifikt)
   og 100 % ordrett NV.
-- **Ingen spoiler i puslespill/gjettelek (oppdatert, godkjent av Cato):**
-  Møte-motivet skal **ikke røpe identitet** før avsløringen. Både puslebrikkene
-  og gjette-skjermen viser et **slørt** motiv (ansiktet er ikke gjenkjennelig).
-  - Puslespill: sløret er **bakt inn i pikslene** via canvas (`obscureImage()`),
-    så det ferdige bildet forblir uidentifiserbart. Gjette-skjermen bruker
-    `sceneImg(src, caption, true)` (CSS-klassen `.scene.obscure`).
+- **Ingen spoiler under puslespillet (godkjent av Cato):**
+  Mens man pusler skal motivet **ikke røpe identitet**. Sløret er **bakt inn i
+  pikslene** via canvas (`obscureImage()`), så det ferdige puslebildet forblir
+  uidentifiserbart.
   - Ved «Ferdig! Godt jobbet!» vises **kun nøytral ros + CTA** «Hvem tror du
     dette er? →». **Ingen navngivende vers her.**
+  - **Gjette-skjermen viser det klare bildet** (man har nettopp pusla det fram):
+    `sceneImg(src, caption)` uten slør. Man gjetter navnet ut fra bildet.
 - **Navngivende verskort:** det person-spesifikke verset (`verse:{ t, ref }`)
   vises **etter avsløringen** (i `reveal`-steget, `.versecard`), når identiteten
   allerede er kjent. Person-spesifikt + 100 % ordrett NV som ellers.
@@ -113,19 +113,21 @@ Unntaket gjelder **kun** dette lærdoms-spørsmålet. Alle andre verskort
 
 1. Ankomsthint (**uten navn**)
 2. Puslespill (slørt motiv; ved ferdig: kun nøytral ros + CTA)
-3. Gjettelek (4 valg; slørt motiv)
+3. Gjettelek (4 valg; **klart** bilde – nettopp pusla fram)
 4. Avsløring + hilsen (+ navngivende verskort her)
 5. Fortelling
 6. Quiz (tilfeldig rekkefølge)
 7. Refleksjonsspørsmål
 8. Velg side (utelates ved faktastopp)
-9. Venn-belønning: personens **emblem** (portrett + side-merke) legges i
-   **Mine venner** — Jehovas side = «Mine venner», slangens side = «Dårlige
-   eksempler», faktastopp = «Visste du?». (Erstatter tidligere perle/troférom.)
+9. Belønning: personens **emblem** (kun portrett, intet side-merke) legges i
+   samlingen **«Vi har truffet»** — delt i seksjoner: «Mine venner» (Jehovas
+   side), «Dårlige eksempler» (slangens side), «Visste du?» (faktastopp).
+   Seksjonen viser siden; emblemet selv er bare portrettet. (Erstatter tidligere
+   perle/troférom.)
 
 **Refleksjonsspørsmålet er alltid:** «Hva forteller denne historien om
 Jehova?» — med trykk-for-å-avsløre-svar. Bibelreferanser vises på
-refleksjonsskjermen og i venn-modalen (Mine venner).
+refleksjonsskjermen og i emblem-modalen («Vi har truffet»).
 
 ---
 
@@ -187,8 +189,8 @@ struktur, kodemønster og kommentarstil.
   hjerte/gaffel)
 - Stiplet "rød tråd"-sti + kompassrose
 - Komplett tilpasset **SVG-ikonsett** (erstatter alle emoji)
-- **Mine venner**-samling (ikke perler/troférom): ferdige stopp gir et venn-emblem
-  (portrett + hjerte/gaffel/stjerne), delt i venner / dårlige eksempler / fakta
+- **«Vi har truffet»**-samling (ikke perler/troférom): ferdige stopp gir et
+  emblem (kun portrett), delt i seksjoner: venner / dårlige eksempler / fakta
 - Tilfeldig quizrekkefølge, korrekt hover-tilstand, synlig CTA ved
   puslespillferdigstilling
 
