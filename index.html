@@ -670,8 +670,54 @@ const PERSONS = [
     verse:{ t:"Jakob hadde tolv sønner.", ref:"1. Mosebok 35:22" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
     lesson:"Visste du? Jakobs tolv sønner ble til Israels tolv stammer – grunnmuren i hele folket Jehova valgte. Og gjennom Juda-stammen kom til slutt Jesus."
   },
-  { id:"juda", name:"Juda", eraDate:"f. ca. 1770 f.v.t.", img:"images/19-juda.webp", imgFocus:"60% 18%", side:"jehova", bolk:3, locked:true },
-  { id:"josef", name:"Josef", eraDate:"f. 1767 f.v.t.", img:"images/20-josef.webp", imgFocus:"60% 16%", side:"jehova", bolk:3, locked:true },
+  {
+    id:"juda", name:"Juda", eraDate:"f. ca. 1770 f.v.t.", img:"images/19-juda.webp", imgFocus:"60% 18%", side:"jehova", bolk:3,
+    puzzle:true, guessWrong:["Ruben","Levi","Josef"],
+    arrival:"Tråden tar dere til brødreflokken i Egypt. En av brødrene trer fram foran den mektige styreren og tilbyr seg selv i stedet for den yngste broren – modig og helhjertet …",
+    greet:"Jeg heter Juda, en av Jakobs sønner. Jeg lærte at det viktigste ikke er å tenke på seg selv – og gjennom slekten min skal noe stort komme.",
+    story:[
+      "Juda var den fjerde av Jakobs tolv sønner. Som ung var han med på å gjøre galt mot broren Josef. Men senere viste han et helt annet hjerte.",
+      "Da den yngste broren, Benjamin, sto i fare for å bli holdt igjen i Egypt, gikk Juda modig fram og tilbød seg selv som slave i stedet – for å spare faren for sorg. Det viste mot, ansvar og kjærlighet.",
+      "Jehova valgte nettopp Juda sin slekt til noe helt spesielt: kongelinjen. Jakob lovte at «septeret ikke skal vike fra Juda» før den lovede kongen kommer. Gjennom Juda-stammen kom kong David – og til slutt Jesus, den evige Kongen."
+    ],
+    quiz:[
+      { q:"Hva gjorde Juda da Benjamin var i fare?", options:["Han tilbød seg selv som slave i stedet","Han rømte sin vei","Han anklaget brødrene"], correct:0,
+        verseAfter:{ t:"La meg bli igjen som slave for min herre i stedet for gutten, så gutten kan dra tilbake sammen med brødrene sine.", ref:"1. Mosebok 44:33" } }, // verifisert mot NV (nwt_N.pdf)
+      { q:"Hva var spesielt med slekten til Juda?", options:["Kongelinjen – Messias skulle komme fra den","De ble de rikeste","De ble egyptiske prester"], correct:0,
+        verseAfter:{ t:"Septeret skal ikke vike fra Juda … før Sjilo kommer, og ham skal folkene adlyde.", ref:"1. Mosebok 49:10" } }, // verifisert mot NV (nwt_N.pdf)
+      { q:"Hva lærer vi om Jehova?", options:["Han fører løftet sitt videre gjennom dem han velger","Han bryr seg ikke om slekt","Han velger bare de feilfrie"], correct:0,
+        verseAfter:{ t:"Juda, dine brødre kommer til å lovprise deg. … Din fars sønner skal bøye seg ned for deg.", ref:"1. Mosebok 49:8" } } // verifisert mot NV (nwt_N.pdf)
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova kan forandre et hjerte og bruke ufullkomne mennesker i sin hensikt. Han valgte Juda-stammen til kongelinjen – tråden som førte helt fram til Jesus, den evige Kongen." },
+    refs:"1. Mosebok 29:35; 44:18–34; 49:8–10",
+    verse:{ t:"Denne gangen skal jeg lovprise Jehova. Derfor ga hun ham navnet Juda.", ref:"1. Mosebok 29:35" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
+    sideQ:"Hvem sin side endte Juda på?",
+    lesson:"Juda valgte Jehovas side. Lærdom: Jehova kan forandre hjertet vårt og bruke oss i sin store hensikt – fra Juda-stammen kom kong David og til slutt Jesus."
+  },
+  {
+    id:"josef", name:"Josef", eraDate:"f. 1767 f.v.t.", img:"images/20-josef.webp", imgFocus:"60% 16%", side:"jehova", bolk:3,
+    puzzle:true, guessWrong:["Daniel","David","Benjamin"],
+    arrival:"Tråden tar dere til Egypt, til et hus med en mektig styrer. En ung mann i utenlandske klær styrer alt med klokskap – men dere aner at han har vært gjennom mye vondt for å komme hit …",
+    greet:"Hei! Jeg heter Josef. Brødrene mine solgte meg som slave til Egypt – men Jehova var med meg hele veien, og nå kan jeg redde mange fra sult.",
+    story:[
+      "Josef var en av Jakobs tolv sønner, og faren var ekstra glad i ham. Men brødrene ble misunnelige og gjorde noe forferdelig: de solgte ham som slave til Egypt. Likevel ga ikke Josef opp – for Jehova var med ham.",
+      "I Egypt holdt Josef seg trofast mot Jehova, selv når han ble fristet til å gjøre galt og til og med ble kastet i fengsel for noe han ikke hadde gjort. Jehova velsignet alt han gjorde, og til slutt gjorde farao ham til den nest mektigste mannen i hele landet.",
+      "Da det ble hungersnød, kom brødrene til Egypt for å kjøpe mat – uten å vite at det var Josef de sto foran. Josef tilga dem og sa at det var Gud som hadde sendt ham i forveien for å redde liv. Slik vernet Jehova hele familien – ætten som Jesus skulle komme fra."
+    ],
+    quiz:[
+      { q:"Hva gjorde Josef da han ble fristet til å gjøre galt i Egypt?", options:["Han nektet – han ville ikke synde mot Gud","Han gjorde som alle andre","Han rømte hjem til faren"], correct:0,
+        verseAfter:{ t:"Hvordan skulle jeg da kunne gjøre noe så ondt og … synde mot Gud?", ref:"1. Mosebok 39:9" } }, // verifisert mot NV (nwt_N.pdf)
+      { q:"Hvorfor gikk det likevel godt med Josef i Egypt?", options:["Jehova var med ham","Han var sterkest","Han var bare heldig"], correct:0,
+        verseAfter:{ t:"Men Jehova var med Josef. Han ble derfor framgangsrik …", ref:"1. Mosebok 39:2" } }, // verifisert mot NV (nwt_N.pdf)
+      { q:"Hva sa Josef da han møtte brødrene som hadde sveket ham?", options:["At Gud hadde sendt ham i forveien for å redde liv","At han aldri ville tilgi dem","At de måtte straffes"], correct:0,
+        verseAfter:{ t:"Gud har nemlig sendt meg i forveien for å redde liv.", ref:"1. Mosebok 45:5" } } // verifisert mot NV (nwt_N.pdf)
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova er med dem som holder seg trofaste, selv når andre er onde mot dem. Han kan vende det vonde til noe godt – og slik vernet han ætten som Jesus skulle komme fra." },
+    refs:"1. Mosebok 37; 39; 45:4–8; 50:20",
+    verse:{ t:"Jeg er Josef, broren deres, som dere solgte til Egypt.", ref:"1. Mosebok 45:4" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
+    sideQ:"Hvem holdt Josef seg trofast mot?",
+    lesson:"Josef valgte Jehovas side. Lærdom: Når vi holder oss trofaste mot Jehova selv i vanskelige tider, er han med oss – og kan bruke oss i sin store hensikt."
+  },
   { id:"potifarskone", name:"Potifars kone", eraDate:"ca. 1750 f.v.t.", img:"images/21-potifars-kone.webp", imgFocus:"55% 22%", side:"slange", bolk:3, locked:true },
   { id:"job", name:"Job", eraDate:"før 1613 f.v.t.", img:"images/22-job.webp", imgFocus:"60% 20%", side:"jehova", bolk:3, locked:true },
 ];
