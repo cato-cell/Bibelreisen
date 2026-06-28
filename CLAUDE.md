@@ -96,8 +96,10 @@ Unntaket gjelder **kun** dette lærdoms-spørsmålet. Alle andre verskort
   og 100 % ordrett NV.
 - **Ingen spoiler under puslespillet (godkjent av Cato):**
   Mens man pusler skal motivet **ikke røpe identitet**. Sløret er **bakt inn i
-  pikslene** via canvas (`obscureImage()`), så det ferdige puslebildet forblir
-  uidentifiserbart.
+  pikslene** via canvas (`obscureFromImage()` — nedskaler→oppskaler, virker i
+  alle nettlesere inkl. Safari), så det ferdige puslebildet forblir
+  uidentifiserbart. **Puslebrettet matcher bildets høyde-forhold** (klem 4:3–16:9)
+  så hele motivet vises, inkl. toppen/hodene.
   - Ved «Ferdig! Godt jobbet!» vises **kun nøytral ros + CTA** «Hvem tror du
     dette er? →». **Ingen navngivende vers her.**
   - **Gjette-skjermen viser det klare bildet** (man har nettopp pusla det fram):
