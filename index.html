@@ -718,8 +718,49 @@ const PERSONS = [
     sideQ:"Hvem holdt Josef seg trofast mot?",
     lesson:"Josef valgte Jehovas side. Lærdom: Når vi holder oss trofaste mot Jehova selv i vanskelige tider, er han med oss – og kan bruke oss i sin store hensikt."
   },
-  { id:"potifarskone", name:"Potifars kone", eraDate:"ca. 1750 f.v.t.", img:"images/21-potifars-kone.webp", imgFocus:"55% 22%", side:"slange", bolk:3, locked:true },
-  { id:"job", name:"Job", eraDate:"før 1613 f.v.t.", img:"images/22-job.webp", imgFocus:"60% 20%", side:"jehova", bolk:3, locked:true },
+  {
+    id:"potifarskone", name:"Potifars kone", eraDate:"ca. 1750 f.v.t.", img:"images/21-potifars-kone.webp", imgFocus:"55% 22%", side:"slange", bolk:3,
+    puzzle:true, guessWrong:["Sara","Rebekka","Mirjam"],
+    arrival:"Tråden tar dere til et fornemt hus i Egypt. En kvinne med makt og fine klær prøver å få den unge tjeneren Josef til å gjøre noe galt – men han vil ikke …",
+    greet:"Jeg var kona til Potifar, en mektig mann i Egypt. Jeg ville at Josef skulle gjøre noe som var galt – men han nektet og løp sin vei.",
+    story:[
+      "Josef arbeidet i huset til den egyptiske herren Potifar. Kona til Potifar ville få Josef til å gjøre noe som var galt mot Jehova og mot sin herre. Igjen og igjen forsøkte hun.",
+      "Men Josef sa nei hver gang. Til slutt grep hun tak i kappen hans – men Josef slapp kappen og flyktet ut. Han ville heller miste alt enn å synde mot Jehova."
+    ],
+    quiz:[
+      { q:"Hva gjorde Josef da Potifars kone ville få ham til å gjøre galt?", options:["Han nektet og flyktet","Han ble med på det","Han ble sint og slo henne"], correct:0,
+        verseAfter:{ t:"… han lot kappen bli igjen i hånden hennes og flyktet ut.", ref:"1. Mosebok 39:12" } } // verifisert mot NV (nwt_N.pdf)
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova ser når noen prøver å lokke oss til å gjøre galt. Han er glad i dem som – som Josef – sier nei og flykter fra det gale, uansett hva det koster." },
+    refs:"1. Mosebok 39:7–12",
+    verse:{ t:"Etter dette begynte hans herres kone å kaste lengselsfulle blikk etter Josef …", ref:"1. Mosebok 39:7" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
+    sideQ:"Hvilken side var Potifars kone på?",
+    lesson:"Potifars kone var på slangens side. Lærdom: Det er aldri verdt å lokke andre – eller la oss selv lokkes – til å gjøre det Jehova hater."
+  },
+  {
+    id:"job", name:"Job", eraDate:"før 1613 f.v.t.", img:"images/22-job.webp", imgFocus:"60% 20%", side:"jehova", bolk:3,
+    puzzle:true, guessWrong:["Noah","Abraham","Daniel"],
+    arrival:"Tråden tar dere til landet Us. En god og rik mann har plutselig mistet ALT – buskap, barn og helse – og sitter i dyp sorg. Men han holder fast ved noe ingen kan ta fra ham …",
+    greet:"Jeg heter Job. Jeg mistet nesten alt jeg eide – men jeg ville aldri vende Jehova ryggen. Han er verdt å være trofast mot.",
+    story:[
+      "Job var en rettferdig mann som elsket Jehova. Satan – slangen – påsto at Job bare tjente Jehova fordi han hadde det godt. Derfor lot Jehova Satan sette Job på prøve.",
+      "På kort tid mistet Job buskapen, barna og helsen sin. Det gjorde forferdelig vondt. Både kona og vennene hans mente han burde gi opp – men Job nektet å vende Jehova ryggen.",
+      "Job holdt lojaliteten gjennom hele den tunge prøven. Slik beviste han at Satan tok feil: et menneske KAN elske Jehova av hele sitt hjerte, også når alt er vondt. Til slutt velsignet Jehova Job rikere enn før."
+    ],
+    quiz:[
+      { q:"Hva gjorde Job da han mistet alt?", options:["Han syndet ikke og vendte ikke Jehova ryggen","Han ga opp med en gang","Han ble sint på Jehova"], correct:0,
+        verseAfter:{ t:"Gjennom alt dette syndet ikke Job, og han anklaget ikke Gud for å ha gjort noe galt.", ref:"Job 1:22" } }, // verifisert mot NV (nwt_N.pdf)
+      { q:"Hvor bestemt var Job på å være trofast?", options:["Helt til han døde ville han bevare sin integritet","Bare så lenge han var rik","Bare når det var lett"], correct:0,
+        verseAfter:{ t:"Helt til jeg dør, skal jeg bevare min integritet!", ref:"Job 27:5" } }, // verifisert mot NV (nwt_N.pdf)
+      { q:"Hva lærer vi om Jehova?", options:["Han belønner dem som holder ut i lojalitet","Han glemmer dem som lider","Han liker bare de rike"], correct:0,
+        verseAfter:{ t:"Jehova velsignet den siste delen av Jobs liv mer enn den første …", ref:"Job 42:12" } } // verifisert mot NV (nwt_N.pdf)
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova legger merke til dem som holder ut i trofasthet, selv i den hardeste prøven. Job beviste at Satan tok feil – og Jehova glemte aldri sin lojale venn." },
+    refs:"Job 1; 2; 27:5; 42:10–17",
+    verse:{ t:"I landet Us bodde det en mann som het Job. Han var en rettferdig mann, en mann med integritet.", ref:"Job 1:1" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
+    sideQ:"Hvem holdt Job seg trofast mot?",
+    lesson:"Job valgte Jehovas side. Lærdom: Selv i den hardeste prøven kan vi holde fast ved Jehova – og bevise at slangen tar feil. Jehova glemmer aldri sine lojale."
+  },
 ];
 
 const STATE = { collected:{}, steps:[], i:0, person:null, started:false, bolk:1 };
