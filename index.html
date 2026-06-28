@@ -236,13 +236,13 @@ const PERSONS = [
     ],
     quiz:[
       { q:"Hva jobbet Abel med?", options:["Han var gjeter og passet sauer","Han var fisker","Han var snekker"], correct:0 },
-      { q:"Hvorfor ble Jehova glad i gaven?", options:["Den var gitt av kjærlighet, fra hjertet","Den var størst","Abel var eldst"], correct:0 },
+      { q:"Hvorfor ble Jehova glad i gaven?", options:["Den var gitt av kjærlighet, fra hjertet","Den var størst","Abel var eldst"], correct:0,
+        verseAfter:{ t:"På grunn av sin tro fikk han en bekreftelse på at han var rettferdig, for Gud godkjente hans gaver.", ref:"Hebreerne 11:4" } }, // ordlyd oppgitt av Cato
       { q:"Hva lærer vi om Jehova?", options:["Han ser på hjertet vårt","Han teller gavene","Han liker bare store gaver"], correct:0 }
     ],
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova bryr seg om hjertet vårt. Han ser når vi gir og gjør ting av kjærlighet – ikke for å vise oss fram." },
     refs:"1. Mosebok 4:1–8; Hebreerne 11:4",
-    verse:{ t:"Ved tro bar Abel fram et offer som var mer verdt for Gud enn det Kain bar fram.", ref:"Hebreerne 11:4" }, // MÅ BEKREFTES mot jw.org
-    quizVerse:{ t:"Abel kom med noen av de førstefødte fra småfeet sitt … Jehova så med velvilje på Abel og offeret hans.", ref:"1. Mosebok 4:4" }, // MÅ BEKREFTES mot jw.org (utdrag, annet vers enn reveal)
+    verse:{ t:"Abel kom med noen av de førstefødte fra småfeet sitt … Jehova så med velvilje på Abel og offeret hans.", ref:"1. Mosebok 4:4" }, // navngivende vers ved avsløring (utdrag). // MÅ BEKREFTES mot jw.org
     sideQ:"Hvem lyttet Abel til?",
     lesson:"Abel valgte Jehovas side. Lærdom: Jehova ser til hjertet – gi av kjærlighet."
   },
@@ -523,7 +523,8 @@ function renderStep(){
       <div class="progress" style="margin:8px 0 14px;"><i style="width:${(s.idx+1)/n*100}%"></i></div>
       <h3 style="font-size:1.25rem;margin:0 0 14px;">${q.q}</h3>${opts}
       <p id="fb" style="font-weight:700;color:var(--jehova);min-height:24px;"></p>
-      ${(s.idx===0 && p.quizVerse)?`<div class="versecard" style="margin-top:6px;"><div class="q">${ic('book')} «${p.quizVerse.t}»</div><div class="ref">${p.quizVerse.ref}</div></div>`:''}</div>`);
+      ${q.verseAfter?`<div id="qverse" class="versecard" style="display:none;margin-top:6px;"><div class="q">${ic('book')} «${q.verseAfter.t}»</div><div class="ref">${q.verseAfter.ref}</div></div>
+      <button id="qnext" class="btn btn-primary" style="display:none;margin-top:12px;" onclick="next()">Videre →</button>`:''}</div>`);
   } else if(s.t==='reflect'){
     render(`${head}<div class="pad fade"><div class="eyebrow">${ic('bulb')} Tenk og snakk sammen</div>
       <div class="heartbox"><div class="q">${ic('bulb')} ${p.reflect.q}</div>
@@ -549,7 +550,14 @@ function renderStep(){
 function answerGuess(el,nameGuess){ const p=STATE.person, fb=document.getElementById('fb');
   if(nameGuess===p.name){ el.classList.add('right'); fb.style.color='var(--jehova)'; fb.textContent='Riktig!'; setTimeout(next,800); }
   else { el.classList.add('wrong'); fb.style.color='var(--thread-deep)'; fb.textContent='Ikke helt – se godt på bildet og prøv igjen.'; } }
-function answerQuiz(el,isCorrect){ if(isCorrect){ el.classList.add('right'); document.getElementById('fb').textContent='Riktig!'; setTimeout(next,800); }
+function answerQuiz(el,isCorrect){ if(isCorrect){ el.classList.add('right'); const fb=document.getElementById('fb'); if(fb) fb.textContent='Riktig!';
+    const qv=document.getElementById('qverse');
+    if(qv){                                                          // bekreftende skriftsted etter svar, så «Videre» (ikke auto-videre)
+      document.querySelectorAll('.quizopt').forEach(b=>b.disabled=true);
+      qv.style.display='block'; qv.classList.add('fade');
+      const qn=document.getElementById('qnext'); if(qn){ qn.style.display='block'; qn.classList.add('pulse'); }
+      setTimeout(()=>qv.scrollIntoView({behavior:'smooth',block:'center'}),140);
+    } else { setTimeout(next,800); } return; }
   else { el.classList.add('wrong'); document.getElementById('fb').textContent='Ikke helt – prøv en gang til.'; } }
 function chooseSide(side){ const p=STATE.person, fb=document.getElementById('fb');
   if(side===p.side){ fb.style.color='var(--jehova)'; fb.textContent=side==='jehova'?'Ja! '+p.name+' lyttet til Jehova.':'Stemmer – '+p.name+' lyttet ikke til Jehova.'; setTimeout(next,1100); }
