@@ -80,6 +80,12 @@ sentrum.
   på med urelaterte vers.
 - Faktastopp-karakterer (f.eks. Metusjalah): kun vers som **direkte nevner dem.**
 
+**Godkjent unntak (av Cato):** På lærdoms-quizspørsmålet «Hva lærer vi om
+Jehova?» kan det brukes ett **generelt prinsippvers** selv om det ikke nevner
+personen — f.eks. **2. Korinter 9:7** («Gud elsker en glad giver») for Abel.
+Unntaket gjelder **kun** dette lærdoms-spørsmålet. Alle andre verskort
+(avsløring, øvrige quizvers, refleksjon) forblir person-spesifikke.
+
 ---
 
 ## Sitater i spillet (skriftsteder)
