@@ -796,6 +796,13 @@ const PERSONS = [
   { id:"josva", name:"Josva", eraDate:"fra 1473 f.v.t.", img:"images/30-josva.webp", imgFocus:"55% 20%", side:"jehova", bolk:5, locked:true },
   { id:"kaleb", name:"Kaleb", eraDate:"1473 f.v.t.", img:"images/31-kaleb.webp", imgFocus:"55% 20%", side:"jehova", bolk:5, locked:true },
   { id:"rahab", name:"Rahab", eraDate:"1473 f.v.t.", img:"images/32-rahab.webp", imgFocus:"60% 22%", side:"jehova", bolk:5, locked:true },
+  /* ===== BOLK 6 – Dommertiden (kart 6). Låst ramme; fylles ett kort av gangen. ===== */
+  { id:"debora", name:"Debora", eraDate:"ca. 1300-t f.v.t.", img:"images/34-debora.webp", imgFocus:"55% 20%", side:"jehova", bolk:6, locked:true },
+  { id:"gideon", name:"Gideon", eraDate:"ca. 1200-t f.v.t.", img:"images/35-gideon.webp", imgFocus:"55% 20%", side:"jehova", bolk:6, locked:true },
+  { id:"abimelek", name:"Abimelek", eraDate:"ca. 1100-t f.v.t.", img:"images/36-abimelek.webp", imgFocus:"55% 22%", side:"slange", bolk:6, locked:true },
+  { id:"samson", name:"Samson", eraDate:"ca. 1100-t f.v.t.", img:"images/37-samson.webp", imgFocus:"55% 20%", side:"jehova", bolk:6, locked:true },
+  { id:"delila", name:"Delila", eraDate:"ca. 1100-t f.v.t.", img:"images/38-delila.webp", imgFocus:"55% 22%", side:"slange", bolk:6, locked:true },
+  { id:"rut", name:"Rut", eraDate:"ca. 1100-t f.v.t.", img:"images/39-rut.webp", imgFocus:"60% 22%", side:"jehova", bolk:6, locked:true },
 ];
 
 const STATE = { collected:{}, steps:[], i:0, person:null, started:false, bolk:1 };
@@ -906,7 +913,9 @@ const BOLK = {
   4:{ eyebrow:'Bolk 4 · Ut av Egypt', h2:'Jehova befrir folket sitt', hint:'Befrieren står fram – Moses → Aron → … → mot den lovede Frelseren.',
       intro:['thread','Egypt','SLAVERIET · ca. 1600 f.v.t.'], back:[3,'← Egypt & Job'], gw:['Mot Sinai','Bolk 5 · Loven & landet'] },
   5:{ eyebrow:'Bolk 5 · Sinai → landet', h2:'En hellig nasjon for Jehova', hint:'Loven verner ætten – Sinai → det lovede land → mot Frelseren.',
-      intro:['thread','Sinai','LOVPAKTEN · 1513 f.v.t.'], back:[4,'← Ut av Egypt'] },
+      intro:['thread','Sinai','LOVPAKTEN · 1513 f.v.t.'], back:[4,'← Ut av Egypt'], gw:['Tiden uten konge','Bolk 6 · Dommerne'] },
+  6:{ eyebrow:'Bolk 6 · Dommertiden', h2:'Jehova reiser opp befriere', hint:'Folket faller, Jehova redder – befrierne peker fram mot Jesus.',
+      intro:['thread','Det lovede land','UTEN KONGE · ca. 1350 f.v.t.'], back:[5,'← Sinai → landet'] },
 };
 function renderJourney(b){
   if(b){ STATE.bolk=b; saveState(); }

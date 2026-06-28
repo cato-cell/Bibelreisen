@@ -254,6 +254,42 @@ hentet **ordrett** fra `nwt_N.pdf` (lokal, `.gitignore`-et).
 
 ---
 
+## Bolk 6 – Dommertiden
+
+**Hovedtema:** Jehova er tålmodig og reiser alltid opp en befrier — men hver
+enkelt må selv velge side. Folket faller fra gang på gang, og Jehova redder dem
+gjennom dommere. Befrierne peker fram mot den endelige Befrieren, Jesus. Den
+røde tråden (1. Mos 3:15 → Jesus → paradiset) føres videre: Rut, en utlending
+som velger Jehovas side, blir oldemor til kong David (Rut 4:17) – rett inn i
+Jesu slektslinje.
+
+### Rekkefølge, tid (JV-kronologi) og side
+| # | Karakter | Tid | Side | Status |
+|---|---|---|---|---|
+| 1 | Debora | ca. 1300-t f.v.t. | Jehovas side | 🔒 ramme |
+| 2 | Gideon | ca. 1200-t f.v.t. | Jehovas side | 🔒 ramme |
+| 3 | Abimelek | ca. 1100-t f.v.t. | Slangens side (grep makten ved svik) | 🔒 ramme |
+| 4 | Samson | ca. 1100-t f.v.t. | Jehovas side | 🔒 ramme |
+| 5 | Delila | ca. 1100-t f.v.t. | Slangens side (forrådte Samson for sølv) | 🔒 ramme |
+| 6 | Rut | ca. 1100-t f.v.t. | Jehovas side (utlending → Davids/Jesu ætt) | 🔒 ramme |
+
+### Fokus per kort
+- **Debora:** modig profetinne og dommer; ledet folket i tro.
+- **Gideon:** «for lite, ikke for mye» — Jehova frelser med få.
+- **Abimelek:** grep makten ved svik for å gjøre seg til konge.
+- **Samson:** stor styrke **fra Jehova** (ikke fra ham selv); sterk, men menneskelig.
+- **Delila:** valgte sølv framfor troskap; forrådte Samson.
+- **Rut:** utlending som valgte Jehovas side; kom inn i Jesu slektslinje — SIDE
+  betyr valg, ikke blodlinje.
+
+### Doktrineregel (viktig)
+**Abimelek og Delila** har voldelig/mørkt stoff. Hold **både bilde og tekst på
+VALGET, ikke utfallet/straffen** («vi viser valget, ikke dommen»). For **Samson:**
+fremhev at styrken kom **fra Jehova**. Versregelen gjelder (person-spesifikt,
+ordrett NV); **Delila/Abimelek** har få vers → hold kortene korte.
+
+---
+
 ## Bilder
 
 - Møte-bilder ligger i `images/` som **WebP**, navngitt med løpenummer + person.
