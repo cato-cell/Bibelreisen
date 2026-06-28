@@ -820,7 +820,28 @@ const PERSONS = [
     sideQ:"Hvem stolte Debora på?",
     lesson:"Debora valgte Jehovas side. Lærdom: Når vi stoler på Jehova, gir han oss mot til å gjøre det rette – og han holder alltid det han lover."
   },
-  { id:"gideon", name:"Gideon", eraDate:"ca. 1200-t f.v.t.", img:"images/35-gideon.webp", imgFocus:"55% 20%", side:"jehova", bolk:6, locked:true },
+  {
+    id:"gideon", name:"Gideon", eraDate:"ca. 1200-t f.v.t.", img:"images/35-gideon.webp", imgFocus:"55% 20%", side:"jehova", bolk:6,
+    puzzle:true, guessWrong:["Josva","Samson","David"],
+    arrival:"Tråden tar dere til en mann som står klar til kamp med en stor hær bak seg – men Jehova ber ham om å sende nesten alle hjem igjen …",
+    greet:"Hei! Jeg heter Gideon. Jehova ba meg redde folket – og han viste meg at det ikke er hæren som teller, men HAN.",
+    story:[
+      "På Gideons tid plaget en hard fiende Israel. Jehova valgte Gideon til å lede folket, og mange tusen menn samlet seg til kamp.",
+      "Men Jehova sa at de var for mange. Hvis Israel vant med en stor hær, ville de tro at de hadde klart det helt selv. Så Jehova lot Gideon sende de fleste hjem – helt til bare 300 menn var igjen.",
+      "Med bare 300 mann og Jehovas hjelp vant Gideon en stor seier. Slik viste Jehova at det ikke er antallet eller vår egen styrke som teller – det er HAN som frelser."
+    ],
+    quiz:[
+      { q:"Hvorfor ba Jehova Gideon sende de fleste soldatene hjem?", options:["Så folket ikke skulle tro at de vant på egen hånd","Fordi de var late","Fordi det var for varmt"], correct:0,
+        verseAfter:{ t:"Jehova sa nå til Gideon: «Du har for mange menn med deg til at jeg kan la dem beseire Midjan. For da ville Israel kanskje skryte … ‘Jeg har beseiret dem på egen hånd.’»", ref:"Dommerne 7:2" } }, // verifisert mot NV (nwt_N.pdf)
+      { q:"Hvor mange menn brukte Jehova til slutt?", options:["Bare 300","Hele hæren","Tusen ryttere"], correct:0 },
+      { q:"Hva lærer vi om Jehova?", options:["Han kan frelse med få – det er han som teller","Han trenger alltid en stor hær","Han hjelper bare de mange"], correct:0 }
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova trenger ikke mange eller sterke for å redde – han frelser med dem som stoler på ham. Da blir det tydelig at æren er hans, ikke vår." },
+    refs:"Dommerne 7:2, 7",
+    verse:{ t:"Jehova sa nå til Gideon: «Jeg skal redde dere med de 300 mennene … og jeg skal gi Midjan i din hånd.»", ref:"Dommerne 7:7" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
+    sideQ:"Hvem ga Gideon seieren?",
+    lesson:"Gideon valgte Jehovas side. Lærdom: Jehova kan gjøre store ting med små midler – det viktigste er at vi stoler på ham, ikke på vår egen styrke."
+  },
   { id:"abimelek", name:"Abimelek", eraDate:"ca. 1100-t f.v.t.", img:"images/36-abimelek.webp", imgFocus:"55% 22%", side:"slange", bolk:6, locked:true },
   { id:"samson", name:"Samson", eraDate:"ca. 1100-t f.v.t.", img:"images/37-samson.webp", imgFocus:"55% 20%", side:"jehova", bolk:6, locked:true },
   { id:"dalila", name:"Dalila", eraDate:"ca. 1100-t f.v.t.", img:"images/38-dalila.webp", imgFocus:"55% 22%", side:"slange", bolk:6, locked:true },
