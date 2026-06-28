@@ -23,7 +23,7 @@ blodlinje.
 - **Sitater skal være 100 % ordrett** etter NV — aldri parafrasert, aldri
   blandet med andre oversettelser. Kilde/fasit: **jw.org / wol.jw.org**.
   - Er du i tvil om eksakt ordlyd, eller får du ikke bekreftet teksten mot
-    jw.org → **ikke gjett.** Marker verset som «må bekreftes» og spør Cato.
+    jw.org → **ikke gjett.** Marker verset «// MÅ BEKREFTES» og spør Cato.
   - (Merk: i enkelte arbeidsmiljøer er jw.org nettverksblokkert. Da er Cato
     fasit på ordlyden.)
 - Alt bibelsk/åndelig innhold forankres i **jw.org** og JV-publikasjoner.
@@ -38,18 +38,36 @@ blodlinje.
 
 ---
 
+## Skriftstedsregel (ufravikelig)
+
+Alle skriftsteder som brukes for en karakter **må handle direkte om nettopp
+den personen.** Bruk kun vers der personen selv nevnes, omtales eller står i
+sentrum.
+
+- **IKKE** bruk vers som "passer tematisk" men ikke handler om personen.
+- **IKKE** hent generelle prinsippvers bare fordi de er tilgjengelige.
+- Eksempel Enok: bruk vers som faktisk sier noe om Enok (1. Mos 5:21–24,
+  Hebr 11:5, Judas 14–15) — ikke et generelt vers om tro eller lydighet som
+  "kunne passet".
+- Er det skrevet lite om personen: bruk det lille som finnes, og **ikke** fyll
+  på med urelaterte vers.
+- Faktastopp-karakterer (f.eks. Metusjalah): kun vers som **direkte nevner dem.**
+
+---
+
 ## Sitater i spillet (skriftsteder)
 
 - Hele spillet skal alltid kunne **underbygges av bibelske sannheter**.
 - Legg inn skriftsteder **alle steder der det er naturlig og underbygger det vi
-  skal lære** (NV, 100 % ordrett — se doktrinereglene).
+  skal lære** — men alltid i tråd med Skriftstedsregelen over (person-spesifikt)
+  og 100 % ordrett NV.
 - **Verskort i puslespill-seksjonen:** når brikkene er ferdige, vises et pent
   verskort. **Plassering (godkjent av Cato):** rett etter «Ferdig! Godt
   jobbet!», før «Hvem tror du dette er?»-knappen — fyller tomrommet.
   - Implementert via valgfritt felt `verse:{ t:"…", ref:"…" }` per person,
     rendret i `jigsawDone()` (`.versecard`).
-  - **Ikke-spoiler-regel:** puslespillet kommer FØR gjetteleken, så verset må
-    passe temaet/lærdommen **uten å nevne personens navn.**
+  - Verset hentes fra personens egne `refs` (person-spesifikt). Det ferdige
+    puslebildet røper allerede scenen, så et person-spesifikt vers her er greit.
 - Refleksjonsskjermen og trofé-modalen viser bibelreferanser (`refs`).
 
 ---
@@ -119,10 +137,11 @@ struktur, kodemønster og kommentarstil.
 - **Norske kodekommentarer**
 - Selvstendige filer
 
-### Estetikk (v5, fungerende build)
+### Estetikk (v5, fungerende build) — IKKE ØDELEGG DISSE
 - Ekte interlåsende puslespillformer (tabs/blanks, ingen ghost-guide)
 - **Puslebrettet fyller nesten hele bredden;** skuff-brikkene skaleres ned så de
   får plass, og vokser til full størrelse når de løftes
+- Verskort vises når puslespillet er ferdig (`.versecard`)
 - Atlas/pergament-estetikk
 - Voksseglmedaljonger på kartet; faktastopp får **gull-stjerne** (ikke
   hjerte/gaffel)
@@ -146,7 +165,9 @@ struktur, kodemønster og kommentarstil.
 - **Én oppgave / én fil av gangen.** Ikke prøv å lese eller endre hele
   prosjektet i én forespørsel — det kutter svaret.
 - **Ikke gjett struktur.** Følg Abel/Kain-malen.
-- **Ikke gjett skriftsteder.** Bekreft mot jw.org, ellers spør Cato.
+- **Ikke gjett skriftsteder.** Person-spesifikt + 100 % ordrett NV; bekreft mot
+  jw.org, ellers marker «// MÅ BEKREFTES» og spør Cato.
+- **Ikke ødelegg design-endringene** (se Estetikk over).
 - **Lever koden, ikke lange forklaringer.** Cato committer direkte.
 - Korte, praktiske svar. Konklusjon først.
 - Bildegenerering: bruk **filtervennlig språk** — unngå volds-/panikkord.
@@ -168,7 +189,7 @@ INNHOLD:
 - Fortelling: [...]
 - Quiz (3–4 spm + svar): [...]
 - Refleksjon → svar: [...]
-- Skriftsted til verskort (NV, 100 % ordrett, uten å røpe navnet): [...]
+- Skriftsted til verskort (NV, 100 % ordrett, PERSON-SPESIFIKt): [...]
 - Bibelreferanse(r): [...]
 - Hilsen ved avsløring: [...]
 
