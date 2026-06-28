@@ -134,16 +134,19 @@
     border:1px solid var(--line);box-shadow:var(--shadow);touch-action:none;user-select:none;}
   .sidezone{position:absolute;top:0;bottom:0;width:50%;border:none;cursor:pointer;display:flex;flex-direction:column;
     align-items:center;justify-content:flex-start;gap:9px;padding:20px 10px;transition:background .18s ease, box-shadow .18s ease;}
-  .zone-j{left:0;background:linear-gradient(180deg,#EAF6EE,#D8EDDE);}
+  .zone-j{left:0;background:linear-gradient(180deg,#EAF6EE,#D8EDDE);}     /* fallback-farge til bildet er lastet */
   .zone-s{right:0;background:linear-gradient(180deg,#EBE4F3,#DCD2EC);}
-  .sidezone .sidezone-ic{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:var(--shadow-sm);}
-  .zone-j .sidezone-ic{background:linear-gradient(160deg,#62B97E,var(--jehova));}
-  .zone-s .sidezone-ic{background:linear-gradient(160deg,#A99CC0,var(--other));}
-  .sidezone .sidezone-ic svg{width:26px;height:26px;}
-  .sidezone-label{font-family:'Fredoka';font-weight:600;font-size:1.02rem;color:var(--ink);}
-  .zone-j.hot{background:linear-gradient(180deg,#CFEED9,#BCE4C8);box-shadow:inset 0 0 0 3px var(--jehova);}
-  .zone-s.hot{background:linear-gradient(180deg,#DFD2F0,#CDBBE6);box-shadow:inset 0 0 0 3px var(--violet);}
-  .zone-j.confirm{box-shadow:inset 0 0 0 4px var(--jehova);} .zone-s.confirm{box-shadow:inset 0 0 0 4px var(--violet);}
+  .zone-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:0;}
+  .zone-s .zone-bg{object-position:66% center;filter:saturate(.8) brightness(1.04) contrast(.94);}  /* viser slangehodet + nærmer akvarell-stilen */
+  .zone-tint{position:absolute;inset:0;z-index:1;transition:background .18s ease, box-shadow .18s ease;}
+  .zone-j .zone-tint{background:linear-gradient(180deg, rgba(126,202,156,.22), rgba(78,158,106,.42));}
+  .zone-s .zone-tint{background:linear-gradient(180deg, rgba(140,110,180,.26), rgba(70,52,100,.50));}
+  .sidezone-label{position:relative;z-index:2;font-family:'Fredoka';font-weight:600;font-size:1rem;
+    background:var(--panel);padding:7px 14px;border-radius:999px;box-shadow:var(--shadow-sm);border:1px solid var(--line);}
+  .zone-j .sidezone-label{color:#2F6B45;} .zone-s .sidezone-label{color:var(--violet);}
+  .zone-j.hot .zone-tint{background:linear-gradient(180deg, rgba(126,202,156,.35), rgba(78,158,106,.58));box-shadow:inset 0 0 0 3px var(--jehova);}
+  .zone-s.hot .zone-tint{background:linear-gradient(180deg, rgba(140,110,180,.40), rgba(70,52,100,.62));box-shadow:inset 0 0 0 3px var(--violet);}
+  .zone-j.confirm .zone-tint{box-shadow:inset 0 0 0 4px var(--jehova);} .zone-s.confirm .zone-tint{box-shadow:inset 0 0 0 4px var(--violet);}
   .sidedivider{position:absolute;left:50%;top:12px;bottom:12px;width:2px;margin-left:-1px;
     background:repeating-linear-gradient(180deg,#B9A887 0 7px, transparent 7px 15px);}
   .sidetoken{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);width:88px;height:88px;border-radius:50%;
@@ -631,9 +634,11 @@ function renderStep(){
       <p class="hint">Dra ${p.name} til den siden du tror – eller trykk på en side.</p>
       <div class="sidearena" id="sidearena">
         <button class="sidezone zone-j" id="zone-j" aria-label="Velg Jehovas side">
-          <span class="sidezone-ic">${ic('heart')}</span><span class="sidezone-label">Jehovas side</span></button>
+          <img class="zone-bg" src="assets/side-jehova-sm.webp" srcset="assets/side-jehova-sm.webp 853w, assets/side-jehova-lg.webp 1350w" sizes="50vw" width="853" height="480" loading="lazy" decoding="async" alt="Akvarell av en lys himmel med solstråler – Jehovas side.">
+          <span class="zone-tint"></span><span class="sidezone-label">Jehovas side</span></button>
         <button class="sidezone zone-s" id="zone-s" aria-label="Velg slangens side">
-          <span class="sidezone-ic">${ic('fork')}</span><span class="sidezone-label">Slangens side</span></button>
+          <img class="zone-bg" src="assets/side-slangen-sm.webp" srcset="assets/side-slangen-sm.webp 853w, assets/side-slangen-lg.webp 1350w" sizes="50vw" width="853" height="480" loading="lazy" decoding="async" alt="Foto av en grønn slange som bukter seg i et tre – Slangens side.">
+          <span class="zone-tint"></span><span class="sidezone-label">Slangens side</span></button>
         <div class="sidedivider"></div>
         <div class="sidetoken" id="sidetoken" title="Dra meg">
           <img src="${p.img}" alt="${p.name}" style="object-position:${p.imgFocus||'center'};" onerror="this.style.display='none';this.parentNode.classList.add('noimg');">
