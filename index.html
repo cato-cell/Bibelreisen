@@ -419,7 +419,29 @@ const PERSONS = [
     lesson:"Noah valgte Jehovas side – sammen med hele familien. Lærdom: Når vi lytter til Jehova og holder sammen som familie, passer han på oss."
   },
   /* ===== BOLK 2 – Etter flommen → patriarkene (kart 2). Ramme; fylles ett kort av gangen. ===== */
-  { id:"nimrod",     name:"Nimrod",     eraDate:"ca. 2200 f.v.t.",       img:"images/09-nimrod.webp",     side:"slange", bolk:2, locked:true },
+  {
+    id:"nimrod", name:"Nimrod", eraDate:"ca. 2200 f.v.t.", img:"images/09-nimrod.webp", imgFocus:"74% 18%", side:"slange", bolk:2,
+    puzzle:true, guessWrong:["Farao","Goliat","Esau"],
+    arrival:"Tråden tar dere til en svær, travel byggeplass lenge etter vannflommen. Et kjempetårn vokser mot himmelen, og en mektig mann står stolt og ser opp på alt han har satt i gang …",
+    greet:"Jeg er Nimrod! Se på tårnet mitt – det skal nå helt opp til himmelen. Her er det JEG som bestemmer.",
+    story:[
+      "Lenge etter vannflommen levde en sterk og modig mann som het Nimrod. Men han brukte ikke styrken til å glede Jehova – han ville at alle skulle se opp til HAM.",
+      "Nimrod fikk folk til å bygge en stor by og et kjempetårn i Babel. «Vi skal gjøre oss et navn!» sa de – som om de ikke trengte Jehova i det hele tatt.",
+      "Men Jehova så alt fra himmelen. Han gjorde at de plutselig snakket forskjellige språk, så de ikke lenger forsto hverandre. Da måtte de slutte å bygge, og det Nimrod var så stolt av, falt fra hverandre."
+    ],
+    quiz:[
+      { q:"Hva var Nimrod kjent for?", options:["Han var en mektig jeger som satte seg opp mot Jehova","Han var en snill gjeter","Han bygde en ark"], correct:0,
+        verseAfter:{ t:"Han viste seg som en mektig jeger som satte seg opp mot Jehova.", ref:"1. Mosebok 10:9" } }, // MÅ BEKREFTES mot jw.org
+      { q:"Hvorfor bygde de tårnet i Babel?", options:["For å gjøre seg et navn, uten å bry seg om Jehova","For å takke Jehova","For å gjemme seg for regnet"], correct:0,
+        verseAfter:{ t:"Begynnelsen på riket hans var Babel … i landet Sinear.", ref:"1. Mosebok 10:10" } }, // MÅ BEKREFTES mot jw.org
+      { q:"Hva lærer vi om Jehova?", options:["Han er størst – ingen stolt plan kan stå seg mot ham","Han liker høye tårn","Han bryr seg ikke"], correct:0,
+        verseAfter:{ t:"Gud står de stolte imot, men de ydmyke viser han ufortjent godhet.", ref:"Jakob 4:6" } } // prinsippvers (lærdoms-unntak). // MÅ BEKREFTES mot jw.org
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova er mye større enn noen stolt konge eller noe høyt tårn. Når mennesker tror de klarer seg uten ham, kan ingen plan stå seg mot ham – men de ydmyke er han glad i." },
+    refs:"1. Mosebok 10:8–10; 11:1–9",
+    verse:{ t:"Kusj ble far til Nimrod. Han var den første som ble en mektig mann på jorden.", ref:"1. Mosebok 10:8" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
+    lesson:"Nimrod valgte slangens side. Lærdom: Å gjøre seg stor på egen hånd fører ingen vei – bare Jehova fortjener et stort navn."
+  },
   { id:"abraham",    name:"Abraham",    eraDate:"f. 2018 f.v.t.",        img:"images/10-abraham.webp",    side:"jehova", bolk:2, locked:true },
   { id:"sara",       name:"Sara",       eraDate:"f. ca. 2008 f.v.t.",    img:"images/11-sara.webp",       side:"jehova", bolk:2, locked:true },
   { id:"melkisedek", name:"Melkisedek", eraDate:"møter Abraham ~1933 f.v.t.", img:"images/12-melkisedek.webp", side:"jehova", bolk:2, locked:true },
