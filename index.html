@@ -136,6 +136,7 @@
   .hero-lead{color:var(--ink-soft);max-width:24em;margin:0 auto;}
   .introverse{background:linear-gradient(180deg,#FFF6E6,#FBEFD9);border-color:#EBD5A8;margin-top:18px;}
   .introverse .q{color:var(--thread-deep);} .introverse .q .ic{color:var(--thread);} .introverse .ref{color:var(--ink-soft);}
+  .introverse-note{margin-top:10px;padding-top:10px;border-top:1px dashed #EBD5A8;font-size:.92rem;line-height:1.5;font-weight:600;color:#6E5A3E;}
 
   .scrim{position:fixed;inset:0;background:rgba(58,46,34,.55);display:flex;align-items:center;justify-content:center;padding:18px;z-index:50;opacity:0;pointer-events:none;transition:opacity .25s;}
   .scrim.open{opacity:1;pointer-events:auto;} .modal{background:var(--panel);border-radius:22px;padding:22px;max-width:420px;width:100%;text-align:center;border:1px solid var(--line);}
@@ -348,13 +349,14 @@ function renderStart(){
       </div>
     </div>
     <div class="versecard introverse">
-      <div class="q">${ic('thread')} «… mellom ditt avkom og hennes avkom. Han skal knuse hodet ditt …»</div>
+      <div class="q">${ic('thread')} «Jeg skal sette fiendskap mellom deg og kvinnen og mellom ditt avkom og hennes avkom.»</div>
       <div class="ref">1. Mosebok 3:15</div>
+      <p class="introverse-note">Helt fra starten lovte Jehova at det blir to sider – hans side og slangens side. Det er den røde tråden gjennom hele Bibelen, og til slutt er det Jehova som vinner og ordner opp i alt.</p>
     </div>
     <div class="spacer" style="height:22px;"></div>
     ${primary}
     ${secondary}</div>`);
-  // Verskort over: utdrag av 1. Mos 3:15 (den røde tråden – Jehovas side vs. Slangens side). // MÅ BEKREFTES mot jw.org
+  // Verskort over: utdrag av 1. Mos 3:15 – fremhever fiendskapet (de to sidene). // MÅ BEKREFTES mot jw.org
 }
 function renderProlog(i){
   markStarted();
