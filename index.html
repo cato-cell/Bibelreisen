@@ -649,7 +649,27 @@ const PERSONS = [
     lesson:"Jakob valgte Jehovas side. Lærdom: Når vi setter Jehovas ting høyt, blir vi en del av løftet – tråden som fører fram til Jesus og paradiset."
   },
   /* ===== BOLK 3 – Ned til Egypt → Job (kart 3). Låst ramme; fylles ett kort av gangen. ===== */
-  { id:"jakobs12", name:"Jakobs 12 sønner", eraDate:"ca. 1770 f.v.t.", img:"images/18-jakobs-12-sonner.webp", imgFocus:"50% 30%", side:"fakta", noSide:true, bolk:3, locked:true },
+  {
+    id:"jakobs12", name:"Jakobs 12 sønner", eraDate:"ca. 1770 f.v.t.", img:"images/18-jakobs-12-sonner.webp", imgFocus:"50% 38%", side:"fakta", noSide:true, bolk:3,
+    puzzle:true, guessWrong:["Jesu 12 apostler","Noahs familie","Israels dommere"],
+    arrival:"Tråden tar dere til en stor teltleir. En gammel far står midt blant en hel flokk voksne sønner – så mange at det nesten ser ut som begynnelsen på et helt folk …",
+    greet:"Vi er sønnene til Jakob – tolv brødre! Faren vår blir også kalt Israel, og fra oss skal det vokse fram et helt folk.",
+    story:[
+      "Jakob – som Jehova også ga navnet Israel – fikk tolv sønner: Ruben, Simeon, Levi, Juda, Dan, Naftali, Gad, Asjer, Jissakar, Sebulon, Josef og Benjamin.",
+      "Fra disse tolv brødrene vokste det fram Israels tolv stammer – et helt folk som Jehova gjorde til sitt. Det som begynte som én familie, ble til en hel nasjon, akkurat som Jehova hadde lovet Abraham.",
+      "Og midt i denne flokken gikk den røde tråden videre: gjennom én av sønnene, Juda, skulle løftet føres helt fram til Jesus."
+    ],
+    quiz:[
+      { q:"Hvor mange sønner hadde Jakob?", options:["Tolv","Sju","Tjuefire"], correct:0,
+        verseAfter:{ t:"Sønnene med Lea var Ruben, Jakobs førstefødte, så Simeon, Levi, Juda, Jissakar og Sebulon.", ref:"1. Mosebok 35:23" } }, // verifisert mot NV (nwt_N.pdf)
+      { q:"Hva ble de tolv sønnene til?", options:["Israels tolv stammer – et helt folk","Tolv konger i hvert sitt land","Tolv egyptiske prester"], correct:0,
+        verseAfter:{ t:"Fra disse kommer Israels tolv stammer …", ref:"1. Mosebok 49:28" } } // verifisert mot NV (nwt_N.pdf)
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova holdt løftet sitt til Abraham og bygde et helt folk av én familie. Steg for steg førte han den røde tråden videre – gjennom Juda-stammen helt fram mot Jesus." },
+    refs:"1. Mosebok 35:22–26; 49:28",
+    verse:{ t:"Jakob hadde tolv sønner.", ref:"1. Mosebok 35:22" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
+    lesson:"Visste du? Jakobs tolv sønner ble til Israels tolv stammer – grunnmuren i hele folket Jehova valgte. Og gjennom Juda-stammen kom til slutt Jesus."
+  },
   { id:"juda", name:"Juda", eraDate:"f. ca. 1770 f.v.t.", img:"images/19-juda.webp", imgFocus:"60% 18%", side:"jehova", bolk:3, locked:true },
   { id:"josef", name:"Josef", eraDate:"f. 1767 f.v.t.", img:"images/20-josef.webp", imgFocus:"60% 16%", side:"jehova", bolk:3, locked:true },
   { id:"potifarskone", name:"Potifars kone", eraDate:"ca. 1750 f.v.t.", img:"images/21-potifars-kone.webp", imgFocus:"55% 22%", side:"slange", bolk:3, locked:true },
