@@ -442,13 +442,164 @@ const PERSONS = [
     verse:{ t:"Kusj ble far til Nimrod. Han var den første som ble en mektig mann på jorden.", ref:"1. Mosebok 10:8" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
     lesson:"Nimrod valgte slangens side. Lærdom: Å gjøre seg stor på egen hånd fører ingen vei – bare Jehova fortjener et stort navn."
   },
-  { id:"abraham",    name:"Abraham",    eraDate:"f. 2018 f.v.t.",        img:"images/10-abraham.webp",    side:"jehova", bolk:2, locked:true },
-  { id:"sara",       name:"Sara",       eraDate:"f. ca. 2008 f.v.t.",    img:"images/11-sara.webp",       side:"jehova", bolk:2, locked:true },
-  { id:"melkisedek", name:"Melkisedek", eraDate:"møter Abraham ~1933 f.v.t.", img:"images/12-melkisedek.webp", side:"jehova", bolk:2, locked:true },
-  { id:"lot",        name:"Lot",        eraDate:"ca. 1919 f.v.t.",       img:"images/13-lot.webp",        side:"jehova", bolk:2, locked:true },
-  { id:"lotskone",   name:"Lots kone",  eraDate:"ca. 1919 f.v.t.",       img:"images/14-lots-kone.webp",  side:"slange", bolk:2, locked:true },
-  { id:"isak",       name:"Isak",       eraDate:"f. 1918 f.v.t.",        img:"images/15-isak.webp",       side:"jehova", bolk:2, locked:true },
-  { id:"rebekka",    name:"Rebekka",    eraDate:"gift 1878 f.v.t.",      img:"images/16-rebekka.webp",    side:"jehova", bolk:2, locked:true },
+  {
+    id:"abraham", name:"Abraham", eraDate:"f. 2018 f.v.t.", img:"images/10-abraham.webp", imgFocus:"72% 16%", side:"jehova", bolk:2,
+    puzzle:true, guessWrong:["Noah","Moses","David"],
+    arrival:"Tråden fører dere til en stor teltleir under en stjerneklar himmel. En gammel mann står utenfor teltet og ser opp på alle stjernene – som om Noen nettopp har gitt ham et stort løfte …",
+    greet:"Velkommen! Jeg heter Abraham. Jehova ba meg forlate hjemmet mitt og reise til et land han ville vise meg – og jeg stolte på ham.",
+    story:[
+      "Abraham bodde i en by der folk tilba avguder. Men Abraham elsket Jehova. Da Jehova sa: «Reis til et land jeg skal vise deg», pakket Abraham sammen og dro – uten å vite nøyaktig hvor han skulle. Han stolte helt på Jehova.",
+      "Jehova ga Abraham et stort LØFTE: at slekten hans skulle bli til et stort folk, og at gjennom ætten hans skulle alle familier på jorden bli velsignet. Dette er en del av den røde tråden – for fra Abrahams slekt skulle Redningsmannen, Jesus, en gang komme.",
+      "Abraham måtte vente lenge, og Jehova ba ham om vanskelige ting. Men Abraham adlød hver gang, fordi han trodde Jehova alltid holder det han lover."
+    ],
+    quiz:[
+      { q:"Hva gjorde Abraham da Jehova ba ham reise?", options:["Han stolte på Jehova og dro av sted","Han ble hjemme","Han ba om en annen plan"], correct:0,
+        verseAfter:{ t:"Så dro Abram av sted, slik Jehova hadde sagt til ham.", ref:"1. Mosebok 12:4" } }, // MÅ BEKREFTES mot jw.org
+      { q:"Hva lovte Jehova Abraham?", options:["At alle familier på jorden skulle bli velsignet gjennom ætten hans","At han skulle bli rikest av alle","At han aldri skulle bli gammel"], correct:0,
+        verseAfter:{ t:"Og ved ditt avkom skal alle jordens nasjoner velsigne seg, fordi du adlød min røst.", ref:"1. Mosebok 22:18" } }, // LØFTET – MÅ BEKREFTES mot jw.org
+      { q:"Hva lærer vi om Jehova?", options:["Han holder alltid løftene sine og belønner tro","Han glemmer det han lover","Han liker bare de sterke"], correct:0,
+        verseAfter:{ t:"Ved tro adlød Abraham da han ble kalt … og han dro ut uten å vite hvor han skulle.", ref:"Hebreerne 11:8" } } // MÅ BEKREFTES mot jw.org
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova legger store planer og holder alltid løftene sine. Han la merke til Abrahams tro og gjorde ham til en del av den viktigste slekten i historien – den som Jesus kom fra, og som fører fram mot paradiset." },
+    refs:"1. Mosebok 12:1–4; 22:15–18; Hebreerne 11:8",
+    verse:{ t:"Jehova sa til Abram: «Dra ut fra landet ditt … til det landet som jeg skal vise deg.»", ref:"1. Mosebok 12:1" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
+    lesson:"Abraham valgte Jehovas side. Lærdom: Når vi stoler på Jehova og adlyder, blir vi en del av hans store hensikt – løftet som fører fram til Jesus og paradiset."
+  },
+  {
+    id:"sara", name:"Sara", eraDate:"f. ca. 2008 f.v.t.", img:"images/11-sara.webp", imgFocus:"72% 18%", side:"jehova", bolk:2,
+    puzzle:true, guessWrong:["Eva","Rakel","Mirjam"],
+    arrival:"Tråden tar dere til samme teltleir. En eldre kvinne ler stille for seg selv ved teltdøren – som om hun nettopp har hørt noe nesten for godt til å være sant …",
+    greet:"Hei! Jeg er Sara, Abrahams kone. Jeg er gammel nå – men Jehova lovte oss en sønn, og Jehova kan gjøre det umulige!",
+    story:[
+      "Sara var Abrahams kone og fulgte ham på hele den lange reisen. De ønsket seg så inderlig et barn, men Sara fikk ingen – og årene gikk.",
+      "Da Sara var blitt veldig gammel, lovte Jehova at hun skulle få en sønn. Sara lo nesten – kunne det virkelig skje? Men Jehova spurte: «Er noe for vanskelig for Jehova?»",
+      "Og akkurat som Jehova hadde lovet, fikk Sara sønnen Isak. Det umulige ble mulig – fordi Jehova alltid holder ord."
+    ],
+    quiz:[
+      { q:"Hva lovte Jehova den gamle Sara?", options:["At hun skulle få en sønn","At hun skulle bli dronning","At hun skulle få mye gull"], correct:0,
+        verseAfter:{ t:"Er noe for vidunderlig for Jehova? … På den fastsatte tiden skal Sara ha en sønn.", ref:"1. Mosebok 18:14" } }, // MÅ BEKREFTES mot jw.org
+      { q:"Hvorfor kunne Sara stole på løftet?", options:["Fordi hun mente at Jehova er trofast","Fordi hun var sterk","Fordi hun var ung"], correct:0,
+        verseAfter:{ t:"Ved tro fikk også Sara kraft til å bli gravid … for hun mente at han som hadde gitt løftet, var trofast.", ref:"Hebreerne 11:11" } }, // MÅ BEKREFTES mot jw.org
+      { q:"Hva lærer vi om Jehova?", options:["Ingenting er umulig for ham","Han glemmer gamle mennesker","Han liker ikke når noen ler"], correct:0,
+        verseAfter:{ t:"For ingenting vil være umulig for Gud.", ref:"Lukas 1:37" } } // prinsippvers (lærdoms-unntak). // MÅ BEKREFTES mot jw.org
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"For Jehova finnes det ingenting som er umulig. Han holdt løftet til Sara selv når det så helt håpløst ut – og slik førte han den røde tråden videre mot Jesus." },
+    refs:"1. Mosebok 18:9–14; 21:1–7; Hebreerne 11:11",
+    verse:{ t:"Sara ble gravid og fødte Abraham en sønn i hans alderdom, på den fastsatte tiden som Gud hadde nevnt.", ref:"1. Mosebok 21:2" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
+    lesson:"Sara valgte Jehovas side. Lærdom: Når Jehova lover noe, kan vi stole på det – selv når det ser helt umulig ut."
+  },
+  {
+    id:"melkisedek", name:"Melkisedek", eraDate:"møter Abraham ~1933 f.v.t.", img:"images/12-melkisedek.webp", imgFocus:"72% 15%", side:"jehova", bolk:2,
+    puzzle:true, guessWrong:["Noah","Job","Set"],
+    arrival:"Tråden fører dere til porten i en by som heter Salem – «Fredens by». En verdig gammel konge i fine klær kommer ut for å møte noen, med brød og noe å drikke i hendene …",
+    greet:"Vær hilset! Jeg er Melkisedek, konge i Salem og prest for Den Høyeste Gud. Jeg kom for å velsigne Abraham etter en stor dag.",
+    story:[
+      "Melkisedek var noe helt spesielt: han var BÅDE konge OG prest for Den Høyeste Gud – Jehova. Han styrte byen Salem, et navn som betyr «fred».",
+      "En dag kom Abraham forbi etter å ha reddet slektningen sin Lot. Melkisedek gikk ut med brød og vin og velsignet Abraham: «Velsignet være Abraham av Den Høyeste Gud!»",
+      "Abraham ga Melkisedek en tiendedel av alt. Lenge etterpå viser Bibelen at Melkisedek var et bilde på Jesus – som også skal være både Konge og Prest, for alltid."
+    ],
+    quiz:[
+      { q:"Hva var Melkisedek?", options:["Både konge og prest for Den Høyeste Gud","Bare en vanlig kjøpmann","En soldat"], correct:0,
+        verseAfter:{ t:"Han velsignet ham og sa: «Velsignet være Abram av Den Høyeste Gud …»", ref:"1. Mosebok 14:19" } }, // MÅ BEKREFTES mot jw.org
+      { q:"Hva gjorde Abraham for Melkisedek?", options:["Ga ham en tiendedel av alt","Tok byen hans","Ba ham om penger"], correct:0,
+        verseAfter:{ t:"Og Abram ga ham en tiendedel av alt.", ref:"1. Mosebok 14:20" } }, // MÅ BEKREFTES mot jw.org
+      { q:"Hva lærer vi om Jehova?", options:["Han forbereder alt i sin hensikt – fram mot Jesus","At han liker store byer","At han ikke trenger noen"], correct:0,
+        verseAfter:{ t:"Du er prest for evig på Melkisedeks vis.", ref:"Salme 110:4" } } // peker mot Jesus. // MÅ BEKREFTES mot jw.org
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova lot Melkisedek være et lite forhåndsbilde på Jesus – en konge og prest som bringer fred. Slik peker hele Bibelen, ledd for ledd, fram mot Jesus." },
+    refs:"1. Mosebok 14:18–20; Salme 110:4; Hebreerne 7:1–3",
+    verse:{ t:"Melkisedek, kongen i Salem, kom ut med brød og vin. Han var prest for Den Høyeste Gud.", ref:"1. Mosebok 14:18" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
+    lesson:"Melkisedek valgte Jehovas side. Lærdom: Jehova forbereder alt i sin hensikt – Melkisedek var et bilde på Jesus, vår Konge og Prest."
+  },
+  {
+    id:"lot", name:"Lot", eraDate:"ca. 1919 f.v.t.", img:"images/13-lot.webp", imgFocus:"72% 16%", side:"jehova", bolk:2,
+    puzzle:true, guessWrong:["Noah","Job","Jonas"],
+    arrival:"Tråden tar dere til en by der mange mennesker gjør stygge ting. Midt iblant dem bor en mann som prøver å leve rett – og snart må han skynde seg ut …",
+    greet:"Jeg heter Lot, Abrahams nevø. Det var tungt å bo i Sodoma blant alt det vonde – men jeg ville holde meg til det Jehova liker.",
+    story:[
+      "Lot var Abrahams nevø. Han kom til å bo i byen Sodoma, der folk gjorde mye vondt. Det plaget Lot dag etter dag – men han ga ikke etter; han ville leve slik Jehova liker.",
+      "Til slutt skulle Jehova rydde opp i de onde byene. Han sendte engler for å hjelpe Lot og familien hans ut: «Skynd dere, og ikke se dere tilbake!»",
+      "Lot adlød og kom seg trygt unna i tide. Jehova husket den rettferdige Lot og berget ham – fordi Lot hadde holdt seg ren."
+    ],
+    quiz:[
+      { q:"Hvordan hadde Lot det i Sodoma?", options:["Det vonde rundt ham plaget ham hver dag","Han syntes det var helt fint","Han gjorde det samme som de andre"], correct:0,
+        verseAfter:{ t:"… den rettferdige mannen plaget dag etter dag sin rettferdige sjel på grunn av deres lovløse gjerninger.", ref:"2. Peter 2:8" } }, // MÅ BEKREFTES mot jw.org
+      { q:"Hva gjorde Jehova for Lot?", options:["Han førte ham trygt ut før byen ble ødelagt","Han glemte ham","Han lot ham bli igjen"], correct:0,
+        verseAfter:{ t:"Gud husket Abraham og førte Lot ut … da han ødela byene.", ref:"1. Mosebok 19:29" } }, // MÅ BEKREFTES mot jw.org
+      { q:"Hva lærer vi om Jehova?", options:["Han vet å redde dem som er trofaste mot ham","Han bryr seg ikke om hvem som er god","Han redder bare de rike"], correct:0,
+        verseAfter:{ t:"Jehova vet hvordan han skal utfri gudfryktige mennesker av prøvelser.", ref:"2. Peter 2:9" } } // prinsippvers (lærdoms-unntak). // MÅ BEKREFTES mot jw.org
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova ser dem som prøver å leve rett selv når alle andre gjør det vonde – og han vet hvordan han skal redde dem ut av vanskeligheter." },
+    refs:"1. Mosebok 19:1–29; 2. Peter 2:7–9",
+    verse:{ t:"… og han reddet den rettferdige Lot, som ble sterkt plaget av de lovløses utsvevende liv.", ref:"2. Peter 2:7" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
+    lesson:"Lot valgte Jehovas side. Lærdom: Vi kan holde oss rene og trofaste selv når alle rundt oss gjør det vonde – og Jehova redder dem som gjør det."
+  },
+  {
+    id:"lotskone", name:"Lots kone", eraDate:"ca. 1919 f.v.t.", img:"images/14-lots-kone.webp", imgFocus:"60% 20%", side:"slange", bolk:2,
+    puzzle:true, guessWrong:["Sara","Rebekka","Eva"],
+    arrival:"Tråden tar dere tilbake til natten da Sodoma skulle ødelegges. En familie skynder seg ut av byen – men én av dem klarer ikke å slippe taket i alt de forlater …",
+    greet:"Jeg var Lots kone. Jeg var nesten trygt ute av Sodoma … men hjertet mitt ville ikke slippe alt jeg lot bak meg.",
+    story:[
+      "Lots kone fikk være med ut av Sodoma sammen med mannen og døtrene sine. Englene sa det tydelig: «Ikke se dere tilbake!»",
+      "Men hjertet hennes var fremdeles i byen, hos alt hun eide. Hun stoppet og så seg tilbake – og kom aldri i sikkerhet. Senere sa Jesus: «Husk Lots kone.»"
+    ],
+    quiz:[
+      { q:"Hva gjorde Lots kone galt?", options:["Hun så seg tilbake mot byen i stedet for å adlyde","Hun gikk for fort","Hun hjalp for mange"], correct:0,
+        verseAfter:{ t:"Husk Lots kone.", ref:"Lukas 17:32" } }, // MÅ BEKREFTES mot jw.org
+      { q:"Hva lærer vi om Jehova?", options:["Han vil at hjertet vårt skal være helt med ham","At det holder å være nesten lydig","At han liker gamle byer"], correct:0,
+        verseAfter:{ t:"Ingen som har lagt hånden på plogen og ser seg tilbake, er vel skikket for Guds rike.", ref:"Lukas 9:62" } } // prinsippvers (lærdoms-unntak). // MÅ BEKREFTES mot jw.org
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova vil at vi skal stole helt på ham og ikke henge fast i det gamle. Han hadde reddet henne – men hjertet hennes ble igjen i Sodoma." },
+    refs:"1. Mosebok 19:15–26; Lukas 17:28–32",
+    verse:{ t:"Men Lots kone, som gikk bak ham, så seg tilbake, og hun ble til en saltstøtte.", ref:"1. Mosebok 19:26" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
+    lesson:"Lots kone valgte slangens side. Lærdom: Det hjelper ikke å komme nesten helt fram – vi må følge Jehova av hele hjertet og ikke se oss tilbake."
+  },
+  {
+    id:"isak", name:"Isak", eraDate:"f. 1918 f.v.t.", img:"images/15-isak.webp", imgFocus:"72% 16%", side:"jehova", bolk:2,
+    puzzle:true, guessWrong:["Josef","Samuel","David"],
+    arrival:"Tråden fører dere til Abrahams leir igjen, noen år senere. En ung mann går rolig og lydig ved siden av faren sin opp en fjellsti – han stoler helt på faren og på Jehova …",
+    greet:"Hei! Jeg er Isak, sønn av Abraham og Sara – sønnen Jehova lovte. Jeg vil følge Jehova slik faren min gjorde.",
+    story:[
+      "Isak var løftets sønn – den Jehova hadde lovet Abraham og Sara. En dag ba Jehova Abraham om noe svært vanskelig, for å prøve troen hans.",
+      "Isak var en ung, sterk mann, men han satte seg ikke imot. Han lot faren binde ham og legge ham på alteret – han stolte på Jehova. I siste øyeblikk stoppet Jehova det hele og skaffet et offer i stedet.",
+      "Senere gjentok Jehova LØFTET til Isak: gjennom ætten hans skulle alle folk på jorden bli velsignet. Slik gikk den røde tråden videre, fra Abraham til Isak – mot Jesus."
+    ],
+    quiz:[
+      { q:"Hvordan reagerte Isak da han skulle bindes?", options:["Han satte seg ikke imot, men stolte på Jehova","Han løp sin vei","Han ble sint på faren"], correct:0,
+        verseAfter:{ t:"… og han bandt sin sønn Isak og la ham på alteret, oppå veden.", ref:"1. Mosebok 22:9" } }, // MÅ BEKREFTES mot jw.org
+      { q:"Hvilket løfte gjentok Jehova til Isak?", options:["At alle folk på jorden skulle bli velsignet gjennom ætten hans","At han skulle bli den sterkeste","At han aldri skulle bli gammel"], correct:0,
+        verseAfter:{ t:"… og ved ditt avkom skal alle jordens nasjoner velsigne seg.", ref:"1. Mosebok 26:4" } }, // LØFTET gjentatt – MÅ BEKREFTES mot jw.org
+      { q:"Hva lærer vi om Jehova?", options:["Han fører løftet sitt trygt videre, slekt etter slekt","At han ombestemmer seg ofte","At han bare bryr seg om de voksne"], correct:0,
+        verseAfter:{ t:"Ved tro velsignet Isak … med tanke på det som skulle komme.", ref:"Hebreerne 11:20" } } // MÅ BEKREFTES mot jw.org
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova fører hensikten sin videre, ledd for ledd. Isaks ydmyke tillit minner om Jesus, som villig ga seg selv – og løftet om velsignelse gikk videre mot ham." },
+    refs:"1. Mosebok 21:1–3; 22:1–14; 26:3–4; Hebreerne 11:20",
+    verse:{ t:"Abraham ga sønnen som ble født ham, … navnet Isak.", ref:"1. Mosebok 21:3" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
+    lesson:"Isak valgte Jehovas side. Lærdom: Ydmyk tillit til Jehova fører løftet videre – helt fram mot Jesus og paradiset."
+  },
+  {
+    id:"rebekka", name:"Rebekka", eraDate:"gift 1878 f.v.t.", img:"images/16-rebekka.webp", imgFocus:"65% 18%", side:"jehova", bolk:2,
+    puzzle:true, guessWrong:["Sara","Rakel","Mirjam"],
+    arrival:"Tråden tar dere til en brønn i skumringen. En vennlig ung kvinne kommer for å hente vann – og tilbyr seg straks å gi vann til ti tørste kameler også …",
+    greet:"Hei! Jeg heter Rebekka. En mann ba om litt vann, og jeg ville gjerne hjelpe. Nå skal jeg gifte meg med Isak – og jeg sa: «Ja, jeg vil dra!»",
+    story:[
+      "Abraham ville at sønnen Isak skulle få en kone som elsket Jehova. Han sendte tjeneren sin langt av sted for å lete, og tjeneren ba Jehova om hjelp til å finne den rette.",
+      "Ved en brønn møtte han Rebekka. Hun var både vennlig og arbeidsom – hun ga ham vann og tilbød seg å gi vann til alle kamelene også. Det var akkurat det tegnet tjeneren hadde bedt Jehova om!",
+      "Da de spurte om Rebekka ville reise langt av sted for å gifte seg med Isak, var hun modig og sa: «Ja, jeg vil dra.» Slik ble hun en del av løftets familie."
+    ],
+    quiz:[
+      { q:"Hva viste at Rebekka hadde et godt hjerte?", options:["Hun ga vann både til mannen og til alle kamelene","Hun ville ha betalt","Hun gjemte seg"], correct:0,
+        verseAfter:{ t:"Jeg skal også trekke opp vann til kamelene dine, til de har drukket nok.", ref:"1. Mosebok 24:19" } }, // MÅ BEKREFTES mot jw.org
+      { q:"Hva svarte Rebekka da hun ble spurt om å reise?", options:["«Ja, jeg vil dra»","«Nei, jeg blir hjemme»","«Spør meg senere»"], correct:0,
+        verseAfter:{ t:"«Vil du dra med denne mannen?» Hun svarte: «Ja, jeg vil dra.»", ref:"1. Mosebok 24:58" } }, // MÅ BEKREFTES mot jw.org
+      { q:"Hva lærer vi om Jehova?", options:["Han leder dem som vil følge ham","At han bare hjelper de rike","At han ikke hører bønner"], correct:0,
+        verseAfter:{ t:"Tenk på ham i alt du gjør, så skal han gjøre stiene dine rette.", ref:"Ordspråkene 3:6" } } // prinsippvers (lærdoms-unntak). // MÅ BEKREFTES mot jw.org
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova hører bønner og leder dem som vil tjene ham. Rebekkas vennlighet og mot gjorde henne til en viktig del av løftets familie – tråden mot Jesus." },
+    refs:"1. Mosebok 24:15–20, 58, 67",
+    verse:{ t:"… kom Rebekka ut med vannkrukken sin på skulderen.", ref:"1. Mosebok 24:15" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
+    lesson:"Rebekka valgte Jehovas side. Lærdom: Vennlighet og mot til å si «ja» til Jehova gjør oss til en del av hans hensikt."
+  },
   { id:"jakob",      name:"Jakob",      eraDate:"f. ca. 1858 f.v.t.",    img:"images/17-jakob.webp",      side:"jehova", bolk:2, locked:true },
 ];
 
