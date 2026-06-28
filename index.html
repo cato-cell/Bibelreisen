@@ -121,6 +121,7 @@
   .seal.locked{background:radial-gradient(circle at 36% 30%, #C2BBCC, #8C8499 72%);color:#F2EFF6;cursor:default;}
   .seal.eden{width:62px;height:62px;background:radial-gradient(circle at 36% 30%, #71C285, #3E8E5A 72%);color:#EAF8EE;}
   .seal.eden .ic svg{width:26px;height:26px;}
+  .seal.gateway{background:radial-gradient(circle at 36% 30%, #E8B45A, #B07D26 72%);color:#3A2810;animation:pulseBtn 1.9s ease infinite;}
   .seal .badge{position:absolute;right:-4px;bottom:-4px;width:28px;height:28px;border-radius:50%;background:#fff;
     display:flex;align-items:center;justify-content:center;box-shadow:0 3px 7px rgba(0,0,0,.22);}
   .seal .badge .ic svg{width:16px;height:16px;}
@@ -417,16 +418,26 @@ const PERSONS = [
     sideQ:"Hvem lyttet Noah og familien til?",
     lesson:"Noah valgte Jehovas side – sammen med hele familien. Lærdom: Når vi lytter til Jehova og holder sammen som familie, passer han på oss."
   },
-  { id:"abraham", name:"Abraham", eraDate:"ca. 2000 f.v.t.", img:"images/08-abraham.webp", locked:true },
+  /* ===== BOLK 2 – Etter flommen → patriarkene (kart 2). Ramme; fylles ett kort av gangen. ===== */
+  { id:"nimrod",     name:"Nimrod",     eraDate:"ca. 2200 f.v.t.",       img:"images/09-nimrod.webp",     side:"slange", bolk:2, locked:true },
+  { id:"abraham",    name:"Abraham",    eraDate:"f. 2018 f.v.t.",        img:"images/10-abraham.webp",    side:"jehova", bolk:2, locked:true },
+  { id:"sara",       name:"Sara",       eraDate:"f. ca. 2008 f.v.t.",    img:"images/11-sara.webp",       side:"jehova", bolk:2, locked:true },
+  { id:"melkisedek", name:"Melkisedek", eraDate:"møter Abraham ~1933 f.v.t.", img:"images/12-melkisedek.webp", side:"jehova", bolk:2, locked:true },
+  { id:"lot",        name:"Lot",        eraDate:"ca. 1919 f.v.t.",       img:"images/13-lot.webp",        side:"jehova", bolk:2, locked:true },
+  { id:"lotskone",   name:"Lots kone",  eraDate:"ca. 1919 f.v.t.",       img:"images/14-lots-kone.webp",  side:"slange", bolk:2, locked:true },
+  { id:"isak",       name:"Isak",       eraDate:"f. 1918 f.v.t.",        img:"images/15-isak.webp",       side:"jehova", bolk:2, locked:true },
+  { id:"rebekka",    name:"Rebekka",    eraDate:"gift 1878 f.v.t.",      img:"images/16-rebekka.webp",    side:"jehova", bolk:2, locked:true },
+  { id:"jakob",      name:"Jakob",      eraDate:"f. ca. 1858 f.v.t.",    img:"images/17-jakob.webp",      side:"jehova", bolk:2, locked:true },
 ];
 
-const STATE = { collected:{}, steps:[], i:0, person:null, started:false };
+const STATE = { collected:{}, steps:[], i:0, person:null, started:false, bolk:1 };
+function bolkPersons(b){ return PERSONS.filter(p=>(p.bolk||1)===b); }   // bolk 1 = før flommen, bolk 2 = patriarkene
 
 /* ---------- Fremdrift (localStorage) ---------- */
 const SAVE_KEY = 'rodetraad.v1';
-function saveState(){ try{ localStorage.setItem(SAVE_KEY, JSON.stringify({ collected:STATE.collected, started:STATE.started })); }catch(e){} }
+function saveState(){ try{ localStorage.setItem(SAVE_KEY, JSON.stringify({ collected:STATE.collected, started:STATE.started, bolk:STATE.bolk })); }catch(e){} }
 function loadState(){ try{ const r=JSON.parse(localStorage.getItem(SAVE_KEY)||'{}');
-  if(r && typeof r==='object'){ STATE.collected=r.collected||{}; STATE.started=!!r.started; } }catch(e){} }
+  if(r && typeof r==='object'){ STATE.collected=r.collected||{}; STATE.started=!!r.started; STATE.bolk=r.bolk||1; } }catch(e){} }
 function markStarted(){ if(!STATE.started){ STATE.started=true; saveState(); } }   // husk at spilleren har begynt
 function hasProgress(){ return STATE.started || Object.keys(STATE.collected).length>0; }
 
@@ -515,11 +526,18 @@ function emblemHTML(p){
 }
 
 /* ---------- Kartet (atlas) ---------- */
-function renderJourney(){
+function renderJourney(b){
+  if(b){ STATE.bolk=b; saveState(); }
   markStarted();
-  render(`${topBar()}<div class="pad fade"><div class="eyebrow">${ic('compass')} Følg den røde tråden</div>
-    <h2 style="margin:8px 0 4px;">Hvem skjuler seg på neste stopp?</h2>
-    <p class="hint">Pusle fram bildet for å finne det ut.</p>
+  const bolk=STATE.bolk||1;
+  const back = bolk===2 ? `<button class="topbtn" style="flex:0 0 auto;align-self:flex-start;margin-bottom:12px;" onclick="renderJourney(1)">${ic('compass')} ← Før flommen</button>` : '';
+  const eyebrow = bolk===1 ? 'Følg den røde tråden' : 'Bolk 2 · Etter flommen';
+  const h2 = bolk===1 ? 'Hvem skjuler seg på neste stopp?' : 'Veien mot løftet';
+  const hint = bolk===1 ? 'Pusle fram bildet for å finne det ut.'
+                        : 'Løftet fra Eden føres videre – Abraham → Isak → Jakob → … → paradiset.';
+  render(`${topBar()}<div class="pad fade">${back}<div class="eyebrow">${ic('compass')} ${eyebrow}</div>
+    <h2 style="margin:8px 0 4px;">${h2}</h2>
+    <p class="hint">${hint}</p>
     <div id="journey"><div class="grain"></div><svg id="thread" preserveAspectRatio="none"></svg>
       <svg class="compass" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3">
         <circle cx="50" cy="50" r="44"/><circle cx="50" cy="50" r="34" stroke-width="1.5"/>
@@ -531,24 +549,28 @@ function renderJourney(){
 }
 function buildJourney(){
   const j=document.getElementById('journey'); if(!j) return;
+  const bolk=STATE.bolk||1, list=bolkPersons(bolk);
   const svg=document.getElementById('thread');
   j.querySelectorAll('.seal,.ribbon').forEach(e=>e.remove());
   const W=j.clientWidth||520, cx=W/2, off=Math.min(W*0.22,104);
-  const top=100, gap=164, H=top+(PERSONS.length-1)*gap+104; j.style.height=H+'px';
-  const pts=PERSONS.map((p,k)=>({x:cx+(k%2?off:-off),y:top+k*gap}));
+  const top=100, gap=164, transY=top+list.length*gap, H=transY+96; j.style.height=H+'px';
+  const pts=list.map((p,k)=>({x:cx+(k%2?off:-off),y:top+k*gap}));
   let d=`M ${cx} 44 L ${pts[0].x} ${pts[0].y} `;
   for(let k=0;k<pts.length-1;k++){const a=pts[k],b=pts[k+1],my=(a.y+b.y)/2; d+=`C ${a.x} ${my}, ${b.x} ${my}, ${b.x} ${b.y} `;}
+  const lastP=pts[pts.length-1], tmy=(lastP.y+transY)/2;     // tråden fortsetter ned til overgangsfeltet
+  d+=`C ${lastP.x} ${tmy}, ${cx} ${tmy}, ${cx} ${transY} `;
   svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
   svg.innerHTML=`<path d="${d}" fill="none" stroke="rgba(216,68,58,.22)" stroke-width="14" stroke-linecap="round"/>
     <path d="${d}" fill="none" stroke="#D8443A" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="1 13"/>`;
 
-  // Eden-segl (start)
-  const eden=document.createElement('div'); eden.className='seal eden'; eden.style.left=cx+'px'; eden.style.top='44px';
-  eden.innerHTML=ic('leaf'); j.appendChild(eden);
-  const er=document.createElement('div'); er.className='ribbon'; er.style.left=cx+'px'; er.style.top='84px';
-  er.innerHTML=`Eden<small>SKAPELSEN · 4026 f.v.t.</small>`; j.appendChild(er);
+  // Intro-segl (bolk-avhengig): Eden for bolk 1, «Etter flommen» for bolk 2
+  const intro=document.createElement('div'); intro.className='seal eden'; intro.style.left=cx+'px'; intro.style.top='44px';
+  intro.innerHTML = bolk===1 ? ic('leaf') : ic('thread'); j.appendChild(intro);
+  const ir=document.createElement('div'); ir.className='ribbon'; ir.style.left=cx+'px'; ir.style.top='84px';
+  ir.innerHTML = bolk===1 ? `Eden<small>SKAPELSEN · 4026 f.v.t.</small>` : `Etter flommen<small>NY START · 2370 f.v.t.</small>`;
+  j.appendChild(ir);
 
-  PERSONS.forEach((p,k)=>{
+  list.forEach((p,k)=>{
     const done=!!STATE.collected[p.id];
     const seal=document.createElement('button');
     seal.className='seal'+(p.locked?' locked':(done?' done':''));
@@ -562,6 +584,19 @@ function buildJourney(){
     const rb=document.createElement('div'); rb.className='ribbon'; rb.style.left=pts[k].x+'px'; rb.style.top=(pts[k].y+52)+'px';
     rb.innerHTML=`${done?p.name:(p.locked?'?':'???')}<small>${p.locked?'KOMMER SNART':p.eraDate}</small>`; j.appendChild(rb);
   });
+
+  // Overgangsfelt nederst
+  if(bolk===1){
+    const g=document.createElement('button'); g.className='seal gateway'; g.style.left=cx+'px'; g.style.top=transY+'px';
+    g.innerHTML=ic('thread'); g.onclick=()=>renderJourney(2); j.appendChild(g);
+    const gr=document.createElement('div'); gr.className='ribbon'; gr.style.left=cx+'px'; gr.style.top=(transY+52)+'px';
+    gr.innerHTML=`Etter flommen →<small>BOLK 2 · PATRIARKENE</small>`; j.appendChild(gr);
+  } else {
+    const g=document.createElement('div'); g.className='seal locked'; g.style.left=cx+'px'; g.style.top=transY+'px';
+    g.innerHTML=ic('lock'); j.appendChild(g);
+    const gr=document.createElement('div'); gr.className='ribbon'; gr.style.left=cx+'px'; gr.style.top=(transY+52)+'px';
+    gr.innerHTML=`?<small>FORTSETTELSE FØLGER</small>`; j.appendChild(gr);
+  }
 }
 
 /* ---------- Møte-sløyfe ---------- */

@@ -135,6 +135,7 @@ refleksjonsskjermen og i emblem-modalen («Vi har truffet»).
 
 ## Karakterstatus
 
+### Bolk 1 – Før flommen (kart 1)
 | Karakter | Side | Løkke | Status |
 |---|---|---|---|
 | Abel | Jehovas side | Full | ✅ Implementert — **malformat** |
@@ -143,12 +144,60 @@ refleksjonsskjermen og i emblem-modalen («Vi har truffet»).
 | Metusjalah | Faktastopp | Uten sidevelger | ✅ Implementert (gull-stjerne) |
 | Nefilim | Slangens side | Kort | ✅ Implementert |
 | Noah | Jehovas side | Full | ✅ Implementert (familien vektlagt) |
-| Abraham | — | — | 🔒 Låst — neste karakter |
 
 **Abel og Kain er malen.** Alle nye karakterer skal følge nøyaktig samme
 struktur, kodemønster og kommentarstil.
 
-**Neste:** Abraham → deretter kronologisk videre.
+**Neste:** Bolk 2 (kart 2) — se egen seksjon under.
+
+---
+
+## Bolk 2 – Etter flommen → patriarkene
+
+**Hovedtema:** Jehovas hensikt og veien til at paradiset skal komme tilbake.
+Løftet fra **1. Mosebok 3:15** (avkommet som skal knuse slangen) får i denne
+bolken en **konkret familie**: fra Abraham føres løftet videre, ledd for ledd
+(**Abraham → Isak → Jakob**), mot Jesus og til slutt et gjenopprettet paradis.
+Den røde tråden går gjennom hele bolken.
+
+**Eget kart (kart 2):** samme atlas/pergament-stil som kart 1. Siste stopp på
+kart 1 (Noah) leder til et **«Etter flommen»-overgangsfelt** som åpner kart 2 –
+spilleren opplever det som **én sammenhengende reise**. All mekanikk og
+fremdriftslagring beholdes (`STATE.bolk` husker hvilket kart man er på).
+
+### Rekkefølge, tid (JV-kronologi) og side
+| # | Karakter | Tid | Side | Status |
+|---|---|---|---|---|
+| 1 | Nimrod | ca. 2200 f.v.t. | Slangens side (valgte feil) | 🔒 ramme |
+| 2 | Abraham | født 2018 f.v.t. | Jehovas side | 🔒 ramme |
+| 3 | Sara | født ca. 2008 f.v.t. | Jehovas side | 🔒 ramme |
+| 4 | Melkisedek | møter Abraham ~1933 f.v.t. | Jehovas side | 🔒 ramme |
+| 5 | Lot | ca. 1919 f.v.t. | Jehovas side | 🔒 ramme |
+| 6 | Lots kone | ca. 1919 f.v.t. | Slangens side (valgte feil) | 🔒 ramme |
+| 7 | Isak | født 1918 f.v.t. | Jehovas side | 🔒 ramme |
+| 8 | Rebekka | giftet 1878 f.v.t. | Jehovas side | 🔒 ramme |
+| 9 | Jakob | født ca. 1858 f.v.t. | Jehovas side (kun tidlig liv) | 🔒 ramme |
+
+### Fokus per kort
+- **Nimrod:** trasset Jehova, bygde Babel for å «gjøre seg et navn».
+- **Abraham:** tro/lydighet + **LØFTET** (1. Mos 12:2–3; 22:18).
+- **Sara:** tro tross det umulige (1. Mos 18:11–14).
+- **Melkisedek:** konge-prest for Den Høyeste, velsignet Abraham (1. Mos 14:18–20).
+- **Lot:** holdt seg ren, ble reddet ut av Sodoma (2. Pet 2:7–8).
+- **Lots kone:** så seg tilbake, hjertet var i Sodoma (1. Mos 19:26; Luk 17:32).
+- **Isak:** ydmyk, lot seg villig binde; **LØFTET gjentatt** (1. Mos 26:3–4).
+- **Rebekka:** «jeg vil gå», mot og gjestfrihet (1. Mos 24).
+- **Jakob:** verdsatte hellige ting; **LØFTET gjentatt ved Betel** (1. Mos 28:13–14).
+  Kun tidlig liv – hovedscenene spares til neste bolk.
+
+### Patriark-regel (ufravikelig)
+På **Abraham, Isak og Jakob** skal **både** forholdet til Jehova **og** det
+spesielle løftet (ætten → Jesus → paradiset) komme fram på kortet.
+
+### Versregel
+Som ellers (jf. Skriftstedsregelen): verifiser at hvert vers handler **direkte**
+om personen, 100 % ordrett NV, ingen gjenbruk i samme løkke, ellers
+`// MÅ BEKREFTES`. **Lots kone** har få vers → hold kortet kort.
 
 ---
 
