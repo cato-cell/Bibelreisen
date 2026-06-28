@@ -308,7 +308,7 @@ const PERSONS = [
     lesson:"Kain valgte slangens side. Lærdom: Jehova advarer oss fordi han er glad i oss – men vi velger selv."
   },
   {
-    id:"enok", name:"Enok", eraDate:"ca. 3400 f.v.t.", img:"images/04-enok.webp", side:"jehova",
+    id:"enok", name:"Enok", eraDate:"ca. 3400 f.v.t.", img:"images/04-enok.webp", imgFocus:"54% 15%", side:"jehova",
     puzzle:true, guessWrong:["Noah","Abraham","Moses"],
     arrival:"Tråden tar dere til en stille sti i morgenlys. En eldre mann går der, ser opp og snakker varmt – som med en god venn.",
     greet:"Hei! Jeg heter Enok. Jeg liker å vandre og snakke med Jehova – han er den beste vennen min.",
@@ -318,8 +318,10 @@ const PERSONS = [
       "Enok ble 365 år. Da fiender ville skade ham, lot Jehova ham sovne stille inn – så han slapp å lide. Jehova passet på vennen sin helt til slutt."
     ],
     quiz:[
-      { q:"Hva betyr det at Enok «vandret med Jehova»?", options:["Han var Jehovas nære venn og gjorde det Jehova liker","Han gikk lange turer alene","Han bodde i en stor hage"], correct:0 },
-      { q:"Hva gjorde Enok da folk ble sinte på budskapet?", options:["Han var modig og fortsatte","Han ga opp med en gang","Han gjemte seg for alltid"], correct:0 }
+      { q:"Hva betyr det at Enok «vandret med Jehova»?", options:["Han var Jehovas nære venn og gjorde det Jehova liker","Han gikk lange turer alene","Han bodde i en stor hage"], correct:0,
+        verseAfter:{ t:"… han hadde fått det vitnesbyrdet at han hadde behaget Gud.", ref:"Hebreerne 11:5" } }, // MÅ BEKREFTES mot jw.org
+      { q:"Hva gjorde Enok da folk ble sinte på budskapet?", options:["Han var modig og fortsatte","Han ga opp med en gang","Han gjemte seg for alltid"], correct:0,
+        verseAfter:{ t:"Også Enok, den sjuende i rekken fra Adam, profeterte om dem …", ref:"Judas 14" } } // MÅ BEKREFTES mot jw.org
     ],
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova legger merke til dem som vil være vennene hans, selv når alle andre gjør det onde – og han passer på dem." },
     refs:"1. Mosebok 5:21–24; Hebreerne 11:5; Judas 14, 15",
