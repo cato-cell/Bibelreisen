@@ -122,6 +122,10 @@
   .jig-piece{position:absolute;background-repeat:no-repeat;touch-action:none;cursor:grab;filter:drop-shadow(0 3px 4px rgba(0,0,0,.3));}
   .jig-piece.placed{filter:none;cursor:default;}
   .jdone{display:none;text-align:center;font-family:'Fredoka';font-weight:700;color:var(--jehova);font-size:1.15rem;margin-top:8px;display:none;align-items:center;justify-content:center;gap:8px;}
+  .versecard{background:var(--jehova-soft);border:2px solid #CDE6D3;border-radius:16px;padding:15px 17px;margin-top:14px;text-align:left;}
+  .versecard .q{font-family:'Fredoka';font-weight:600;font-size:1.06rem;color:#2F6B45;line-height:1.42;display:flex;gap:10px;}
+  .versecard .q .ic{color:var(--jehova);flex:0 0 auto;margin-top:2px;}
+  .versecard .ref{margin-top:8px;font-family:'Fredoka';font-weight:600;font-size:.85rem;color:var(--ink-soft);text-align:right;}
 
   .scrim{position:fixed;inset:0;background:rgba(58,46,34,.55);display:flex;align-items:center;justify-content:center;padding:18px;z-index:50;opacity:0;pointer-events:none;transition:opacity .25s;}
   .scrim.open{opacity:1;pointer-events:auto;} .modal{background:var(--panel);border-radius:22px;padding:22px;max-width:420px;width:100%;text-align:center;border:1px solid var(--line);}
@@ -191,6 +195,7 @@ const PERSONS = [
     ],
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova bryr seg om hjertet vårt. Han ser når vi gir og gjør ting av kjærlighet – ikke for å vise oss fram." },
     refs:"1. Mosebok 4:1–8; Hebreerne 11:4",
+    verse:{ t:"Mennesker ser det som er foran øynene, men Jehova ser hva som er i hjertet.", ref:"1. Samuel 16:7" },
     sideQ:"Hvem lyttet Abel til?",
     lesson:"Abel valgte Jehovas side. Lærdom: Jehova ser til hjertet – gi av kjærlighet."
   },
@@ -207,6 +212,7 @@ const PERSONS = [
     quiz:[ { q:"Hva ville Jehova at Kain skulle gjøre?", options:["Velge det gode og slutte å være sint","Fortsette å være sint","Gi en større gave"], correct:0 } ],
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Selv da Kain var på vei til å velge feil, advarte Jehova ham FØRST – for å hjelpe ham. Jehova gir oss alltid en sjanse til å velge rett." },
     refs:"1. Mosebok 4:1–16",
+    verse:{ t:"Legg av deg sinne, og vis ikke raseri.", ref:"Salme 37:8" },
     sideQ:"Hvem lyttet Kain til?",
     lesson:"Kain valgte slangens side. Lærdom: Jehova advarer oss fordi han er glad i oss – men vi velger selv."
   },
@@ -226,6 +232,7 @@ const PERSONS = [
     ],
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova legger merke til dem som vil være vennene hans, selv når alle andre gjør det onde – og han passer på dem." },
     refs:"1. Mosebok 5:21–24; Hebreerne 11:5; Judas 14, 15",
+    verse:{ t:"Nærm dere Gud, så skal han nærme seg dere.", ref:"Jakob 4:8" },
     sideQ:"Hvem lyttet Enok til?",
     lesson:"Enok valgte Jehovas side. Lærdom: Vi kan være Jehovas nære venn selv når ingen andre er det."
   },
@@ -245,6 +252,7 @@ const PERSONS = [
     ],
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova lot menneskene leve lenge i begynnelsen. Men selv et langt liv er ikke nok uten Jehova – det er han som gir liv som varer." },
     refs:"1. Mosebok 5:21–27",
+    verse:{ t:"For hos deg er livets kilde.", ref:"Salme 36:9" },
     lesson:"Visste du? Metusjalah levde i 969 år – lengst av alle i Bibelen, og helt til flommen kom. Tråden går fra Enok, gjennom ham, videre til Noah."
   },
   {
@@ -261,6 +269,7 @@ const PERSONS = [
     ],
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova ser når de sterke gjør de svake vondt. Han lar ikke ondskapen vare for alltid – og snart skulle han gjøre noe med det." },
     refs:"1. Mosebok 6:1–5",
+    verse:{ t:"Ikke ved makt og ikke ved kraft, men ved min ånd, sier hærstyrkenes Jehova.", ref:"Sakarja 4:6" },
     sideQ:"Hvilken side var nefilim på?",
     lesson:"Nefilim var på slangens side. Lærdom: Å være stor og sterk betyr ingenting hvis hjertet er slemt."
   },
@@ -281,6 +290,7 @@ const PERSONS = [
     ],
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova advarer på forhånd og redder dem som lytter til ham. Han ville at HELE familien skulle holde sammen og bli reddet – ikke bare Noah. Jehova holder alltid løftene sine." },
     refs:"1. Mosebok 6:9–22; 7:1; Hebreerne 11:7",
+    verse:{ t:"Men jeg og min husstand, vi vil tjene Jehova.", ref:"Josva 24:15" },
     sideQ:"Hvem lyttet Noah og familien til?",
     lesson:"Noah valgte Jehovas side – sammen med hele familien. Lærdom: Når vi lytter til Jehova og holder sammen som familie, passer han på oss."
   },
@@ -563,7 +573,13 @@ function jigsawDone(){
   if(stage){ const board=stage.querySelector('.jig-board'), line=stage.querySelector('.jig-tray-line');
     if(line) line.style.display='none';
     if(board) stage.style.height=(board.offsetHeight+6)+'px'; }       // fjern tomt skuff-felt
-  const n=document.getElementById('jnext'); if(n){ n.classList.add('pulse'); setTimeout(()=>n.scrollIntoView({behavior:'smooth',block:'center'}),120); }
+  const p=STATE.person, n=document.getElementById('jnext');
+  if(p && p.verse && n && !document.getElementById('jverse')){        // fyll tomrommet med et skriftsted
+    const v=document.createElement('div'); v.className='versecard'; v.id='jverse';
+    v.innerHTML=`<div class="q">${ic('book')} «${p.verse.t}»</div><div class="ref">${p.verse.ref}</div>`;
+    n.parentNode.insertBefore(v,n);
+  }
+  if(n){ n.classList.add('pulse'); setTimeout(()=>n.scrollIntoView({behavior:'smooth',block:'center'}),120); }
 }
 
 /* ---------- Troférom ---------- */
