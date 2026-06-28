@@ -767,6 +767,12 @@ const PERSONS = [
   { id:"moses", name:"Moses", eraDate:"f. 1593 f.v.t.", img:"images/25-moses.webp", imgFocus:"55% 20%", side:"jehova", bolk:4, locked:true },
   { id:"aron", name:"Aron", eraDate:"f. 1597 f.v.t.", img:"images/26-aron.webp", imgFocus:"55% 20%", side:"jehova", bolk:4, locked:true },
   { id:"farao", name:"Farao", eraDate:"ca. 1513 f.v.t.", img:"images/27-farao.webp", imgFocus:"55% 22%", side:"slange", bolk:4, locked:true },
+  /* ===== BOLK 5 – Sinai → inntoget i det lovede land (kart 5). Låst ramme; fylles ett kort av gangen. ===== */
+  { id:"mosessinai", name:"Moses ved Sinai", eraDate:"1513 f.v.t.", img:"images/28-moses-sinai.webp", imgFocus:"55% 22%", side:"jehova", bolk:5, locked:true },
+  { id:"korah", name:"Korah", eraDate:"ca. 1512 f.v.t.", img:"images/29-korah.webp", imgFocus:"55% 22%", side:"slange", bolk:5, locked:true },
+  { id:"josva", name:"Josva", eraDate:"fra 1473 f.v.t.", img:"images/30-josva.webp", imgFocus:"55% 20%", side:"jehova", bolk:5, locked:true },
+  { id:"kaleb", name:"Kaleb", eraDate:"1473 f.v.t.", img:"images/31-kaleb.webp", imgFocus:"55% 20%", side:"jehova", bolk:5, locked:true },
+  { id:"rahab", name:"Rahab", eraDate:"1473 f.v.t.", img:"images/32-rahab.webp", imgFocus:"60% 22%", side:"jehova", bolk:5, locked:true },
 ];
 
 const STATE = { collected:{}, steps:[], i:0, person:null, started:false, bolk:1 };
@@ -875,7 +881,9 @@ const BOLK = {
   3:{ eyebrow:'Bolk 3 · Ned til Egypt', h2:'Ætten føres videre i Egypt', hint:'Linjen til Jesus vernes – Jakobs sønner → Juda → Josef → … → paradiset.',
       intro:['thread','Jakobs hus','ÆTTEN VOKSER · ca. 1795 f.v.t.'], back:[2,'← Patriarkene'], gw:['Ut av Egypt','Bolk 4 · Befrielsen'] },
   4:{ eyebrow:'Bolk 4 · Ut av Egypt', h2:'Jehova befrir folket sitt', hint:'Befrieren står fram – Moses → Aron → … → mot den lovede Frelseren.',
-      intro:['thread','Egypt','SLAVERIET · ca. 1600 f.v.t.'], back:[3,'← Egypt & Job'] },
+      intro:['thread','Egypt','SLAVERIET · ca. 1600 f.v.t.'], back:[3,'← Egypt & Job'], gw:['Mot Sinai','Bolk 5 · Loven & landet'] },
+  5:{ eyebrow:'Bolk 5 · Sinai → landet', h2:'En hellig nasjon for Jehova', hint:'Loven verner ætten – Sinai → det lovede land → mot Frelseren.',
+      intro:['thread','Sinai','LOVPAKTEN · 1513 f.v.t.'], back:[4,'← Ut av Egypt'] },
 };
 function renderJourney(b){
   if(b){ STATE.bolk=b; saveState(); }

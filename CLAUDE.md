@@ -198,6 +198,45 @@ Som ellers (jf. Skriftstedsregelen): verifiser at hvert vers handler **direkte**
 om personen, 100 % ordrett NV, ingen gjenbruk i samme løkke, ellers
 `// MÅ BEKREFTES`. **Lots kone** har få vers → hold kortet kort.
 
+> **Merk:** Bolk 3 (Ned til Egypt → Job) og Bolk 4 (Ut av Egypt) er allerede
+> implementert i koden (kart 3 og kart 4) med PDF-verifiserte vers.
+
+---
+
+## Bolk 5 – Sinai → inntoget i det lovede land
+
+**Hovedtema:** Jehova verner ætten gjennom en hellig nasjon. Ved Sinai gir
+Jehova folket steintavlene og inngår **LOVPAKTEN** — Israel blir hans
+«spesielle eiendom», et folk satt til side. Loven holdt nasjonen ren og
+atskilt og pekte fram mot Messias. Deretter føres folket inn i det lovede land
+som løftet pekte mot. Tro belønnes, opprør faller. Den røde tråden
+(1. Mos 3:15 → Jesus → paradiset) går videre: landet og folket gjøres klart
+for at ætten skal vokse fram mot Frelseren.
+
+### Rekkefølge, tid (JV-kronologi) og side
+| # | Karakter | Tid | Side | Status |
+|---|---|---|---|---|
+| 1 | Moses ved Sinai | 1513 f.v.t. | Jehovas side (Moses' 2. kort: PAKTEN) | 🔒 ramme |
+| 2 | Korah | ca. 1512 f.v.t. | Slangens side (opprør mot ordningen) | 🔒 ramme |
+| 3 | Josva | fra 1473 f.v.t. | Jehovas side | 🔒 ramme |
+| 4 | Kaleb | 1473 f.v.t. | Jehovas side | 🔒 ramme |
+| 5 | Rahab | 1473 f.v.t. | Jehovas side (utlending → Jesu ætt) | 🔒 ramme |
+
+### Fokus per kort
+- **Moses/Sinai:** tavlene + lovpakten; Israel = Jehovas spesielle eiendom,
+  hellig nasjon. Verner ætten, peker mot Kristus.
+- **Korah:** gjorde opprør mot Jehovas valgte ordning.
+- **Josva:** trofast, modig; ledet folket inn i landet.
+- **Kaleb:** «vi kan klare det» — tro mot de ti redde speiderne.
+- **Rahab:** utlending som valgte Jehovas side; kom inn i Jesu slektslinje
+  (Matt 1:5) — viser at SIDE betyr valg, ikke blodlinje.
+
+### Ætt-regel og versregel
+Patriark-/ætt-regelen videreføres: der det er relevant (**Moses, Rahab**) skal
+koblingen til Jehovas hensikt og ætten mot Jesus komme fram. Versregelen
+(skriftstedsregelen) gjelder: hvert vers må handle **direkte** om personen,
+hentet **ordrett** fra `nwt_N.pdf` (lokal, `.gitignore`-et).
+
 ---
 
 ## Bilder
