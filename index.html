@@ -842,10 +842,89 @@ const PERSONS = [
     sideQ:"Hvem ga Gideon seieren?",
     lesson:"Gideon valgte Jehovas side. Lærdom: Jehova kan gjøre store ting med små midler – det viktigste er at vi stoler på ham, ikke på vår egen styrke."
   },
-  { id:"abimelek", name:"Abimelek", eraDate:"ca. 1100-t f.v.t.", img:"images/36-abimelek.webp", imgFocus:"55% 22%", side:"slange", bolk:6, locked:true },
-  { id:"samson", name:"Samson", eraDate:"ca. 1100-t f.v.t.", img:"images/37-samson.webp", imgFocus:"55% 20%", side:"jehova", bolk:6, locked:true },
-  { id:"dalila", name:"Dalila", eraDate:"ca. 1100-t f.v.t.", img:"images/38-dalila.webp", imgFocus:"55% 22%", side:"slange", bolk:6, locked:true },
-  { id:"rut", name:"Rut", eraDate:"ca. 1100-t f.v.t.", img:"images/39-rut.webp", imgFocus:"60% 22%", side:"jehova", bolk:6, locked:true },
+  {
+    id:"abimelek", name:"Abimelek", eraDate:"ca. 1100-t f.v.t.", img:"images/36-abimelek.webp", imgFocus:"55% 22%", side:"slange", bolk:6,
+    puzzle:true, guessWrong:["Gideon","Saul","Farao"],
+    arrival:"Tråden tar dere til en mann som vil bli konge – ikke fordi Jehova har valgt ham, men fordi han selv vil ha all makten …",
+    greet:"Jeg heter Abimelek. Jeg ville bli hersker over folket – og jeg brukte alle slags knep for å få makten jeg ville ha.",
+    story:[
+      "Abimelek var sønn av dommeren Gideon. Men i stedet for å vente på Jehova, ville Abimelek gjøre seg selv til konge.",
+      "Han brukte svik og lokket folk i byen Sikem til å følge seg, så han kunne gripe makten for seg selv. Han tenkte mer på sin egen ære enn på Jehova og på det som var rett."
+    ],
+    quiz:[
+      { q:"Hva ville Abimelek?", options:["Gjøre seg selv til hersker og få all makten","Hjelpe folket å tjene Jehova","Bli en god gjeter"], correct:0,
+        verseAfter:{ t:"«… Hva er best for dere, at alle de 70 sønnene til Jerubbaal hersker over dere, eller at én mann hersker over dere? Husk at jeg er deres eget kjøtt og blod.»", ref:"Dommerne 9:2" } } // verifisert mot NV (nwt_N.pdf)
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova ser hjertet. Den som griper etter makt og ære for seg selv – i stedet for å la Jehova bestemme – velger slangens side. Bare Jehova har rett til å avgjøre hvem som skal lede." },
+    refs:"Dommerne 9:1–2",
+    verse:{ t:"Med tiden dro Abimelek, Jerubbaals sønn, til sin mors brødre i Sikem …", ref:"Dommerne 9:1" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
+    sideQ:"Hvilken side valgte Abimelek?",
+    lesson:"Abimelek var på slangens side. Lærdom: Å gripe makt og ære for seg selv, i stedet for å følge Jehova, fører aldri til noe godt."
+  },
+  {
+    id:"samson", name:"Samson", eraDate:"ca. 1100-t f.v.t.", img:"images/37-samson.webp", imgFocus:"55% 20%", side:"jehova", bolk:6,
+    puzzle:true, guessWrong:["Gideon","David","Goliat"],
+    arrival:"Tråden tar dere til en mann kjent for kjempekrefter – men styrken hans kom ikke fra ham selv …",
+    greet:"Hei! Jeg heter Samson. Folk snakker om kreftene mine – men sannheten er at all styrken kom fra Jehova.",
+    story:[
+      "Allerede før Samson ble født, fortalte en engel at Jehova hadde en spesiell oppgave til ham: å begynne å redde Israel fra fiendene.",
+      "Jehova ga Samson kjempekrefter. Men det viktige er HVOR styrken kom fra: ikke fra Samson selv, men fra Jehovas ånd som virket på ham.",
+      "Samson var et menneske med både styrke og svakheter. Men hver gang han stolte på Jehova og ba om hjelp, fikk han kraft – for styrken var alltid Jehovas gave."
+    ],
+    quiz:[
+      { q:"Hvor kom Samsons store styrke fra?", options:["Fra Jehovas ånd","Fra musklene hans alene","Fra et magisk belte"], correct:0,
+        verseAfter:{ t:"Med tiden begynte Jehovas ånd å virke på ham i Mahane-Dan, mellom Sora og Esjtaol.", ref:"Dommerne 13:25" } }, // verifisert mot NV (nwt_N.pdf)
+      { q:"Hva gjorde Samson da han trengte styrke?", options:["Han ba Jehova om hjelp","Han stolte bare på seg selv","Han ga opp"], correct:0,
+        verseAfter:{ t:"Samson ropte nå til Jehova: «Suverene Herre Jehova, husk på meg og gi meg styrke, det ber jeg deg om …»", ref:"Dommerne 16:28" } }, // verifisert mot NV (nwt_N.pdf) – siterer kun bønnen om styrke
+      { q:"Hva lærer vi om Jehova?", options:["Han er kilden til all ekte styrke","Han liker bare sterke mennesker","Han hjelper aldri"], correct:0 }
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"All ekte styrke kommer fra Jehova. Også når vi er svake eller gjør feil, hjelper han oss når vi vender oss til ham og ber om kraft." },
+    refs:"Dommerne 13:24–25; 16:28",
+    verse:{ t:"Kvinnen fødte senere en sønn og ga ham navnet Samson, og Jehova velsignet gutten mens han vokste opp.", ref:"Dommerne 13:24" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
+    sideQ:"Hvem ga Samson styrken hans?",
+    lesson:"Samson valgte Jehovas side. Lærdom: Styrken vår kommer fra Jehova – ikke fra oss selv. Når vi ber ham om hjelp, gir han oss kraft til å gjøre det rette."
+  },
+  {
+    id:"dalila", name:"Dalila", eraDate:"ca. 1100-t f.v.t.", img:"images/38-dalila.webp", imgFocus:"55% 22%", side:"slange", bolk:6,
+    puzzle:true, guessWrong:["Rut","Rebekka","Mirjam"],
+    arrival:"Tråden tar dere til en kvinne som får et fristende tilbud: mye sølv – hvis hun bare vil svikte en som stoler på henne …",
+    greet:"Jeg het Dalila. Noen mektige menn tilbød meg mye sølv hvis jeg forrådte Samson – og jeg valgte sølvet.",
+    story:[
+      "Dalila var en kvinne som Samson var glad i. Men fiendene hans kom til henne med et tilbud: hvis hun hjalp dem å overvinne Samson, skulle hver av dem gi henne 1100 sølvstykker.",
+      "Dalila valgte sølvet framfor troskap. Hun lot pengene bety mer enn å være trofast mot en som stolte på henne."
+    ],
+    quiz:[
+      { q:"Hvorfor sviktet Dalila Samson?", options:["For å få mye sølv","Fordi hun var redd","Fordi Jehova ba henne"], correct:0,
+        verseAfter:{ t:"«Du må lokke ut av ham hva det er som gir ham så stor styrke … For dette skal hver av oss gi deg 1100 sølvstykker.»", ref:"Dommerne 16:5" } } // verifisert mot NV (nwt_N.pdf)
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova vil at vi skal være trofaste og ikke la penger eller ting bety mer enn å gjøre det rette. Den som svikter for egen vinning, velger slangens side." },
+    refs:"Dommerne 16:4–5",
+    verse:{ t:"Etter dette ble han forelsket i en kvinne i Sorek-dalen. Hun het Dalila.", ref:"Dommerne 16:4" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
+    sideQ:"Hvilken side valgte Dalila?",
+    lesson:"Dalila var på slangens side. Lærdom: Ingenting – ikke engang mye penger – er verdt å svikte det som er rett. Vær trofast mot Jehova og mot andre."
+  },
+  {
+    id:"rut", name:"Rut", eraDate:"ca. 1100-t f.v.t.", img:"images/39-rut.webp", imgFocus:"60% 22%", side:"jehova", bolk:6,
+    puzzle:true, guessWrong:["Noomi","Debora","Sara"],
+    arrival:"Tråden tar dere til en ung utenlandsk kvinne som nettopp har mistet mannen sin – men som likevel nekter å forlate svigermoren og hennes Gud …",
+    greet:"Hei! Jeg heter Rut. Jeg kom fra et annet land, men jeg valgte å følge Jehova av hele mitt hjerte.",
+    story:[
+      "Rut var ikke født israelitt – hun kom fra Moab. Da mannen hennes døde, ville svigermoren Noomi reise tilbake til Israel. Rut kunne blitt igjen i hjemlandet sitt, men hun valgte å bli med.",
+      "Rut sa de vakre ordene: «Ditt folk skal være mitt folk, og din Gud skal være min Gud.» Hun valgte Jehovas side, selv om hun var en utlending.",
+      "Jehova velsignet Rut for valget hennes. Hun ble oldemor til kong David – og dermed en del av slekten som Jesus kom fra. Det viser at SIDE betyr hvem man velger å følge, ikke hvilket folk man er født inn i."
+    ],
+    quiz:[
+      { q:"Hva valgte Rut da hun kunne blitt igjen i hjemlandet?", options:["Å følge Noomi og tjene Jehova","Å bli igjen i Moab","Å reise til Egypt"], correct:0 },
+      { q:"Hva ble Rut en del av da Jehova velsignet henne?", options:["Slekten som kong David og Jesus kom fra","En stor hær","Et kongerike i Moab"], correct:0,
+        verseAfter:{ t:"De kalte ham Obed. Han er far til Isai, Davids far.", ref:"Rut 4:17" } }, // verifisert mot NV (nwt_N.pdf)
+      { q:"Hva lærer vi om Jehova?", options:["Han tar imot alle som velger hans side, uansett hvor de kommer fra","Han hjelper bare israelitter","Han bryr seg ikke om utlendinger"], correct:0 }
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova tar imot alle som av hele sitt hjerte velger å følge ham – uansett hvor de kommer fra. Rut, en utlending, ble en del av slekten Jesus kom fra. Side betyr valg, ikke blodlinje." },
+    refs:"Rut 1:16; 4:17",
+    verse:{ t:"Men Rut sa: «… Ditt folk skal være mitt folk, og din Gud skal være min Gud.»", ref:"Rut 1:16" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
+    sideQ:"Hvem valgte Rut å følge?",
+    lesson:"Rut valgte Jehovas side. Lærdom: Det er valget vårt som teller, ikke hvor vi kommer fra. Alle som velger Jehova av hjertet, hører til hos ham."
+  },
 ];
 
 const STATE = { collected:{}, steps:[], i:0, person:null, started:false, bolk:1 };
