@@ -94,16 +94,15 @@ Unntaket gjelder **kun** dette lærdoms-spørsmålet. Alle andre verskort
 - Legg inn skriftsteder **alle steder der det er naturlig og underbygger det vi
   skal lære** — men alltid i tråd med Skriftstedsregelen over (person-spesifikt)
   og 100 % ordrett NV.
-- **Ingen spoiler under puslespillet (godkjent av Cato):**
-  Mens man pusler skal motivet **ikke røpe identitet**. Sløret er **bakt inn i
-  pikslene** via canvas (`obscureFromImage()` — nedskaler→oppskaler, virker i
-  alle nettlesere inkl. Safari), så det ferdige puslebildet forblir
-  uidentifiserbart. **Puslebrettet matcher bildets høyde-forhold** (klem 4:3–16:9)
-  så hele motivet vises, inkl. toppen/hodene.
+- **Klart bilde på puslespillet (godkjent av Cato):**
+  Brikkene viser det **ekte, klare møte-bildet** mens man pusler — bakgrunnen
+  settes direkte (`url(p.img)`), **ikke** noe slør. (Tidligere ble motivet sløret
+  via `obscureFromImage()`; det er fjernet.) **Puslebrettet matcher bildets
+  høyde-forhold** (klem 4:3–16:9) så hele motivet vises, inkl. toppen/hodene.
   - Ved «Ferdig! Godt jobbet!» vises **kun nøytral ros + CTA** «Hvem tror du
     dette er? →». **Ingen navngivende vers her.**
   - **Gjette-skjermen viser det klare bildet** (man har nettopp pusla det fram):
-    `sceneImg(src, caption)` uten slør. Man gjetter navnet ut fra bildet.
+    `sceneImg(src, caption)`. Man gjetter navnet ut fra bildet.
 - **Navngivende verskort:** det person-spesifikke verset (`verse:{ t, ref }`)
   vises **etter avsløringen** (i `reveal`-steget, `.versecard`), når identiteten
   allerede er kjent. Person-spesifikt + 100 % ordrett NV som ellers.
@@ -114,7 +113,7 @@ Unntaket gjelder **kun** dette lærdoms-spørsmålet. Alle andre verskort
 ## Møteløkke per karakter (fast rekkefølge)
 
 1. Ankomsthint (**uten navn**)
-2. Puslespill (slørt motiv; ved ferdig: kun nøytral ros + CTA)
+2. Puslespill (klart møte-bilde; ved ferdig: kun nøytral ros + CTA)
 3. Gjettelek (4 valg; **klart** bilde – nettopp pusla fram)
 4. Avsløring + hilsen (+ navngivende verskort her)
 5. Fortelling
@@ -233,7 +232,7 @@ om personen, 100 % ordrett NV, ingen gjenbruk i samme løkke, ellers
 - Ekte interlåsende puslespillformer (tabs/blanks, ingen ghost-guide)
 - **Puslebrettet fyller nesten hele bredden;** skuff-brikkene skaleres ned så de
   får plass, og vokser til full størrelse når de løftes
-- Slørt møte-motiv i puslespill/gjettelek (ingen spoiler); navngivende verskort
+- Klart møte-bilde i puslespill/gjettelek; navngivende verskort
   vises først ved avsløring (`.versecard`)
 - Atlas/pergament-estetikk
 - Voksseglmedaljonger på kartet; faktastopp får **gull-stjerne** (ikke
