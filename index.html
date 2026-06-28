@@ -270,16 +270,16 @@ const PERSONS = [
     arrival:"Tråden lyser fram til en diger trekasse under bygging. Dere hører hamring og saging – en hel familie jobber sammen.",
     greet:"Hei! Jeg heter Noah. Dette er familien min – kona mi, sønnene Sem, Kam og Jafet, og konene deres. Jehova har bedt oss bygge denne store arken. Vil dere hjelpe til?",
     story:[
-      "Jehova fortalte Noah at en stor vannflom skulle komme fordi jorden var full av vold. Men han ville redde dem som elsket ham.",
-      "Noah og hele familien – åtte personer – bygde arken sammen i mange, mange år. De saget, hamret og bar tunge planker, side om side.",
-      "Folk lo av dem og trodde ikke på flommen. Men familien lyttet til Jehova og ga aldri opp. Derfor ble de reddet."
+      "Jehova så at jorden var full av vold. Men han var glad i Noah og hele familien hans, og ville redde dem alle sammen.",
+      "Jehova ga familien en stor jobb: å bygge en kjempestor ark. Noah, kona hans, de tre sønnene Sem, Kam og Jafet, og konene deres – åtte personer – jobbet sammen i mange, mange år. De saget, hamret og bar tunge planker, side om side.",
+      "Folk lo av dem og trodde ikke på flommen. Men hele familien stolte på Jehova og ga aldri opp. Til slutt reddet Jehova alle åtte – og dyrene også."
     ],
     quiz:[
       { q:"Hvem bygde arken sammen med Noah?", options:["Hele familien hans – åtte personer","Han bygde den helt alene","Naboene i byen"], correct:0 },
       { q:"Hvorfor ble Noah og familien reddet?", options:["De lyttet til Jehova og adlød","De var sterkest","De bygde raskest"], correct:0 },
       { q:"Hva gjorde folk rundt dem?", options:["De lo og trodde ikke på flommen","De hjalp ivrig til","De bygde sine egne arker"], correct:0 }
     ],
-    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova advarer på forhånd og redder dem som lytter til ham. Han holder alltid løftene sine." },
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova advarer på forhånd og redder dem som lytter til ham. Han ville at HELE familien skulle holde sammen og bli reddet – ikke bare Noah. Jehova holder alltid løftene sine." },
     refs:"1. Mosebok 6:9–22; 7:1; Hebreerne 11:7",
     sideQ:"Hvem lyttet Noah og familien til?",
     lesson:"Noah valgte Jehovas side – sammen med hele familien. Lærdom: Når vi lytter til Jehova og holder sammen som familie, passer han på oss."
@@ -470,14 +470,14 @@ function buildJigsaw(url){
   const stage=document.getElementById('jstage'); if(!stage) return;
   const cols=4, rows=2, gap=6;
   const stageW=stage.clientWidth||340;
-  let boardW=Math.round(Math.min(stageW*0.58, 280));
+  let boardW=Math.round(Math.min(stageW*0.72, 340));
   let boardH=Math.round(boardW*9/16);
   let w=boardW/cols, h=boardH/rows;
-  let t=Math.round(0.26*Math.max(w,h));          // tapp-margin (rommer formene)
+  let t=Math.round(0.20*Math.max(w,h));          // tapp-margin (rommer formene)
   let box=w+2*t;
   let trayW=cols*box+(cols-1)*gap;
   if(trayW>stageW){ const sc=stageW/trayW; boardW=Math.round(boardW*sc); boardH=Math.round(boardW*9/16);
-    w=boardW/cols; h=boardH/rows; t=Math.round(0.26*Math.max(w,h)); box=w+2*t; trayW=cols*box+(cols-1)*gap; }
+    w=boardW/cols; h=boardH/rows; t=Math.round(0.20*Math.max(w,h)); box=w+2*t; trayW=cols*box+(cols-1)*gap; }
   const boardLeft=Math.round((stageW-boardW)/2);
   const sep=Math.max(34,t+16), trayTop=boardH+sep, trayLeft=Math.round((stageW-trayW)/2);
   stage.style.height=(trayTop+rows*box+(rows-1)*gap+8)+'px';
