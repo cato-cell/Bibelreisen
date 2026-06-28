@@ -47,7 +47,7 @@
   @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
 
   .eyebrow{font-family:'Fredoka';font-weight:600;letter-spacing:.13em;text-transform:uppercase;font-size:.72rem;color:var(--thread-deep);display:inline-flex;align-items:center;gap:7px;}
-  .lead{font-size:1.12rem;line-height:1.62;font-weight:500;letter-spacing:.005em;max-width:36em;} .hint{font-size:.9rem;color:var(--ink-soft);font-weight:700;}
+  .lead{font-size:1.12rem;line-height:1.62;font-weight:500;letter-spacing:.005em;max-width:36em;} p.lead + p.lead{margin-top:.7em;} .hint{font-size:.9rem;color:var(--ink-soft);font-weight:700;}
   .chip{display:inline-flex;align-items:center;gap:7px;background:var(--panel);color:var(--thread-deep);font-family:'Fredoka';font-weight:600;font-size:.82rem;padding:6px 13px;border-radius:999px;box-shadow:var(--shadow-sm);border:1px solid var(--line);}
   .speech{background:var(--panel);border:2px solid var(--ink);border-radius:18px;padding:14px 16px;font-family:'Fredoka';font-weight:600;font-size:1.12rem;position:relative;margin-top:14px;}
   .speech::after{content:"";position:absolute;left:30px;bottom:-14px;border:8px solid transparent;border-top-color:var(--ink);}
@@ -185,19 +185,23 @@ function ic(name, cls){ return `<span class="ic ${cls||''}">${ICONS[name]||''}</
    Hver slide har et passende skriftsted (utdrag, NV) + kort forklaring. // ALLE vers MÅ BEKREFTES mot jw.org */
 const PROLOG = [
   { title:"Jehova skaper alt",
-    body:"Helt i begynnelsen var det bare Jehova. Han lagde stjernene og solen, jorden og havet, blomster, fugler og alle dyrene. Han gjorde det fordi han er kjærlig og gledet seg til å dele alt det fine.",
+    body:["Helt i begynnelsen var det bare Jehova. Han lagde stjernene og solen, jorden og havet, blomster, fugler og alle dyrene.",
+          "Han gjorde det fordi han er kjærlig og gledet seg til å dele alt det fine."],
     verse:{ t:"I begynnelsen skapte Gud himmelen og jorden.", ref:"1. Mosebok 1:1" },
     note:"Alt det fine rundt oss kommer fra Jehova. Han er Skaperen som lager alt – fordi han er glad i oss." },
   { title:"Mennesker i et paradis",
-    body:"Så skapte Jehova de første menneskene, en mann og en kvinne, og ga dem et nydelig hjem – hagen Eden. Hensikten hans var at de skulle være vennene hans, ta vare på jorden og leve lykkelig i et paradis for alltid.",
+    body:["Så skapte Jehova de første menneskene, en mann og en kvinne, og ga dem et nydelig hjem – hagen Eden.",
+          "Hensikten hans var at de skulle være vennene hans, ta vare på jorden og leve lykkelig i et paradis for alltid."],
     verse:{ t:"Vær fruktbare og bli mange, fyll jorden …", ref:"1. Mosebok 1:28" },
     note:"Jehovas hensikt var tydelig: hele jorden skulle bli et paradis, fullt av mennesker som elsker ham og lever lykkelig for alltid." },
   { title:"Noe trist skjer",
-    body:"Men en dag valgte menneskene å høre på slangen i stedet for på Jehova, og gjorde det han hadde sagt de ikke skulle. Det ødela det fredelige vennskapet – og fra da av ble mennesker syke, gamle og døde.",
+    body:["Men en dag valgte menneskene å høre på slangen i stedet for på Jehova, og gjorde det han hadde sagt de ikke skulle.",
+          "Det ødela det fredelige vennskapet – og fra da av ble mennesker syke, gamle og døde."],
     verse:{ t:"… hun tok av frukten og spiste.", ref:"1. Mosebok 3:6" },
     note:"De valgte å høre på slangen i stedet for på Jehova. Det brøt vennskapet – men Jehova sluttet aldri å være glad i menneskene." },
   { title:"Et stort løfte",
-    body:"Med en gang ga Jehova et løfte om hvordan alt skulle bli godt igjen. Han sa at det fra nå av ville være to sider, og at en redningsmann en dag skulle ordne opp i alt det vonde slangen hadde laget.",
+    body:["Med en gang ga Jehova et løfte om hvordan alt skulle bli godt igjen.",
+          "Han sa at det fra nå av ville være to sider, og at en redningsmann en dag skulle ordne opp i alt det vonde slangen hadde laget."],
     verse:{ t:"Jeg skal sette fiendskap mellom deg og kvinnen og mellom ditt avkom og hennes avkom.", ref:"1. Mosebok 3:15" },
     note:"Dette er den røde tråden gjennom hele Bibelen. Fra nå av finnes to sider – Jehovas og slangens. Til slutt vinner Jehovas side, og alt blir godt igjen." },
 ];
@@ -377,7 +381,7 @@ function renderProlog(i){
   const p=PROLOG[i], last=i===PROLOG.length-1;
   render(`<div class="pad fade"><div class="eyebrow">Slik begynner alt &middot; ${i+1}/${PROLOG.length}</div>
     <div class="progress" style="margin-top:10px;"><i style="width:${(i+1)/PROLOG.length*100}%"></i></div>
-    <h2 style="font-size:1.9rem;margin:14px 0 12px;">${p.title}</h2><p class="lead">${p.body}</p>
+    <h2 style="font-size:1.9rem;margin:14px 0 12px;">${p.title}</h2>${(Array.isArray(p.body)?p.body:[p.body]).map(par=>`<p class="lead">${par}</p>`).join('')}
     ${p.verse?`<div class="versecard introverse" style="margin-top:16px;">
       <div class="q">${ic('book')} «${p.verse.t}»</div>
       <div class="ref">${p.verse.ref}</div>
