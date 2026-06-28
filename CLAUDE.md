@@ -105,7 +105,7 @@ Unntaket gjelder **kun** dette lærdoms-spørsmålet. Alle andre verskort
 - **Navngivende verskort:** det person-spesifikke verset (`verse:{ t, ref }`)
   vises **etter avsløringen** (i `reveal`-steget, `.versecard`), når identiteten
   allerede er kjent. Person-spesifikt + 100 % ordrett NV som ellers.
-- Refleksjonsskjermen og trofé-modalen viser bibelreferanser (`refs`).
+- Refleksjonsskjermen og venn-modalen (Mine venner) viser bibelreferanser (`refs`).
 
 ---
 
@@ -119,11 +119,13 @@ Unntaket gjelder **kun** dette lærdoms-spørsmålet. Alle andre verskort
 6. Quiz (tilfeldig rekkefølge)
 7. Refleksjonsspørsmål
 8. Velg side (utelates ved faktastopp)
-9. Perlebelønning
+9. Venn-belønning: personens **emblem** (portrett + side-merke) legges i
+   **Mine venner** — Jehovas side = «Mine venner», slangens side = «Dårlige
+   eksempler», faktastopp = «Visste du?». (Erstatter tidligere perle/troférom.)
 
 **Refleksjonsspørsmålet er alltid:** «Hva forteller denne historien om
 Jehova?» — med trykk-for-å-avsløre-svar. Bibelreferanser vises på
-refleksjonsskjermen og i trofé-modal.
+refleksjonsskjermen og i venn-modalen (Mine venner).
 
 ---
 
@@ -184,7 +186,9 @@ struktur, kodemønster og kommentarstil.
 - Voksseglmedaljonger på kartet; faktastopp får **gull-stjerne** (ikke
   hjerte/gaffel)
 - Stiplet "rød tråd"-sti + kompassrose
-- Komplett tilpasset **SVG-ikonsett** (erstatter alle emoji), korrekt perle-ikon
+- Komplett tilpasset **SVG-ikonsett** (erstatter alle emoji)
+- **Mine venner**-samling (ikke perler/troférom): ferdige stopp gir et venn-emblem
+  (portrett + hjerte/gaffel/stjerne), delt i venner / dårlige eksempler / fakta
 - Tilfeldig quizrekkefølge, korrekt hover-tilstand, synlig CTA ved
   puslespillferdigstilling
 

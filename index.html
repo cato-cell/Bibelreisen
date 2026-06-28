@@ -172,6 +172,27 @@
   .tcard.empty{background:#F1E6CC;color:#BCAC8A;box-shadow:none;cursor:default;border-style:dashed;}
   .tcard .ic{color:var(--gold);} .tcard .ic svg{width:30px;height:30px;} .tcard small{font-size:.72rem;color:var(--ink-soft);}
 
+  /* ===== Mine venner: emblemer ===== */
+  .emblem{position:relative;width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:3px solid var(--gold);
+    box-shadow:0 5px 12px rgba(58,46,34,.20);background:#EADFCB;}
+  .emblem img{width:100%;height:100%;object-fit:cover;display:block;}
+  .emblem.placeholder{display:flex;align-items:center;justify-content:center;border-style:dashed;border-color:var(--line);background:#F1E6CC;}
+  .emblem.placeholder .qm{font-family:'Fredoka';font-weight:700;font-size:1.7rem;color:#BCAC8A;}
+  .emblem .emblem-badge{position:absolute;right:0;bottom:0;width:34%;height:34%;min-width:22px;min-height:22px;border-radius:50%;
+    background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,.22);border:2px solid var(--paper);}
+  .emblem .emblem-badge svg{width:60%;height:60%;}
+  .friend-section{margin-top:20px;}
+  .friend-section-h{font-family:'Fredoka';font-weight:600;font-size:1.14rem;}
+  .friend-section.good .friend-section-h{color:var(--jehova);}
+  .friend-section.bad .friend-section-h{color:var(--violet);}
+  .friend-section.fact .friend-section-h{color:var(--gold-deep);}
+  .friend-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:10px;}
+  .friendcard{border:none;background:transparent;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:7px;padding:0;}
+  .friendcard.empty{cursor:default;}
+  .friend-name{font-family:'Fredoka';font-weight:600;font-size:.92rem;color:var(--ink);text-align:center;line-height:1.1;}
+  .reward .emblem{width:128px;margin:0 auto;animation:pop .5s;}
+  .modal-emblem .emblem{width:88px;margin:0 auto;}
+
   /* ===== Puslespill ===== */
   .jig-stage{position:relative;margin-top:12px;touch-action:none;user-select:none;}
   .jig-board{position:absolute;top:0;border-radius:12px;background:#EFE2C6;
@@ -236,6 +257,7 @@ const ICONS = {
   bulb:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 18h5"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.7.6 1 1.3 1 2.5h6c0-1.2.3-1.9 1-2.5A6 6 0 0 0 12 3Z"/></svg>`,
   star:`<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 3l2.6 5.5L21 9.3l-4.5 4.2L17.8 21 12 17.6 6.2 21l1.3-7.5L3 9.3l6.4-.8L12 3Z"/></svg>`,
   book:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h6v16H6a2 2 0 0 0-2 2Z"/><path d="M20 5a2 2 0 0 0-2-2h-6v16h6a2 2 0 0 1 2 2Z"/></svg>`,
+  friends:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><path d="M16 6.6a3 3 0 0 1 0 5.4"/><path d="M17.5 14.6a5.5 5.5 0 0 1 3 5.4"/></svg>`,
 };
 function ic(name, cls){ return `<span class="ic ${cls||''}">${ICONS[name]||''}</span>`; }
 
@@ -479,11 +501,17 @@ function renderProlog(i){
     <button class="btn btn-primary" onclick="${last?'renderJourney()':'renderProlog('+(i+1)+')'}">${last?"Følg tråden →":"Neste →"}</button>
     ${i>0?`<button class="btn btn-soft" style="margin-top:10px;" onclick="renderProlog(${i-1})">← Tilbake</button>`:''}</div>`);
 }
-function topBar(){ const n=Object.keys(STATE.collected).length;
+function topBar(){
   return `<div class="top">
     <button class="topbtn" onclick="renderJourney()">${ic('compass')} Reisen</button>
-    <button class="topbtn count">${ic('pearl')} ${n}</button>
-    <button class="topbtn" onclick="renderTrophy()">${ic('trophy')} Troférom</button></div>`;
+    <button class="topbtn" onclick="renderFriends()">${ic('friends')} Mine venner</button></div>`;
+}
+/* Rundt venn-emblem: portrett + side-merke (hjerte = venn, gaffel = dårlig eksempel, stjerne = fakta) */
+function emblemHTML(p){
+  const sd=p.side;
+  const col = sd==='jehova'?'var(--jehova)':sd==='slange'?'var(--violet)':'var(--gold-deep)';
+  const badge = sd==='jehova'?ic('heart'):sd==='slange'?ic('fork'):ic('star');
+  return `<div class="emblem"><img src="${p.img}" alt="${p.name||''}" style="object-position:${p.imgFocus||'center'};" onerror="this.style.display='none';this.parentNode.classList.add('noimg');"><span class="emblem-badge" style="color:${col}">${badge}</span></div>`;
 }
 
 /* ---------- Kartet (atlas) ---------- */
@@ -527,10 +555,7 @@ function buildJourney(){
     seal.style.left=pts[k].x+'px'; seal.style.top=pts[k].y+'px';
     if(p.locked) seal.innerHTML=ic('lock');
     else if(done){ const sd=STATE.collected[p.id].side;
-      const badge = sd==='jehova' ? `<span class="badge" style="color:var(--jehova)">${ic('heart')}</span>`
-                  : sd==='slange' ? `<span class="badge" style="color:var(--other)">${ic('fork')}</span>`
-                  : `<span class="badge" style="color:var(--gold-deep)">${ic('star')}</span>`;
-      seal.innerHTML=ic('pearl')+badge; }
+      seal.innerHTML = sd==='slange' ? ic('fork') : sd==='fakta' ? ic('star') : ic('heart'); }
     else seal.innerHTML=`<span class="qm">?</span>`;
     if(!p.locked) seal.onclick=()=>startPerson(p.id);
     j.appendChild(seal);
@@ -617,11 +642,12 @@ function renderStep(){
       <p id="fb" style="font-weight:700;min-height:24px;margin-top:12px;text-align:center;"></p></div>`);
     buildSideChoice();
   } else if(s.t==='reward'){
-    STATE.collected[p.id]={side:p.side,lesson:p.lesson,name:p.name,refs:p.refs}; saveState();
-    render(`${head}<div class="pad fade reward"><span class="gem">${ic('pearl')}</span><h2 style="margin:6px 0;">Du fikk en perle!</h2>
+    STATE.collected[p.id]={side:p.side,lesson:p.lesson,name:p.name,refs:p.refs,img:p.img,imgFocus:p.imgFocus||''}; saveState();
+    const heading = p.side==='jehova' ? 'Du fikk en ny venn!' : p.side==='slange' ? 'Et eksempel å lære av' : 'Lagt til i samlingen';
+    render(`${head}<div class="pad fade reward">${emblemHTML(p)}<h2 style="margin:12px 0 6px;">${heading}</h2>
       <div class="lessonbox">${p.lesson}</div>
       <button class="btn btn-primary" onclick="renderJourney()">Tilbake til reisen →</button>
-      <button class="btn btn-soft" style="margin-top:10px;" onclick="renderTrophy()">Se troférommet</button></div>`);
+      <button class="btn btn-soft" style="margin-top:10px;" onclick="renderFriends()">Se Mine venner</button></div>`);
   }
 }
 function answerGuess(el,nameGuess){ const p=STATE.person, fb=document.getElementById('fb');
@@ -830,26 +856,31 @@ function jigsawDone(){
   if(n){ n.classList.add('pulse'); setTimeout(()=>n.scrollIntoView({behavior:'smooth',block:'center'}),120); }
 }
 
-/* ---------- Troférom ---------- */
-function renderTrophy(){
-  const ids=PERSONS.filter(p=>!p.locked).map(p=>p.id);
-  const cells=ids.map(id=>{ const c=STATE.collected[id];
-    if(c) return `<button class="tcard" onclick="showLesson('${id}')">${ic('pearl')}${c.name}<small>${c.side==='jehova'?'Jehovas side':c.side==='slange'?'Slangens side':'Kul fakta'}</small></button>`;
-    return `<div class="tcard empty"><span class="qm" style="font-family:Fredoka;font-weight:700;font-size:1.6rem;">?</span></div>`;
-  }).join('');
-  const n=Object.keys(STATE.collected).length;
-  render(`${topBar()}<div class="pad fade"><div class="eyebrow">${ic('trophy')} Dine skatter</div>
-    <h2 style="margin:8px 0 2px;">Troférommet</h2><p class="hint">${n} ${n===1?'perle':'perler'} samlet. Trykk på en for å repetere.</p>
-    <div class="trophy-grid">${cells}</div>
+/* ---------- Mine venner ---------- */
+function renderFriends(){
+  const card = p => {
+    if(STATE.collected[p.id]) return `<button class="friendcard" onclick="showLesson('${p.id}')">${emblemHTML(p)}<span class="friend-name">${p.name}</span></button>`;
+    return `<div class="friendcard empty"><div class="emblem placeholder"><span class="qm">?</span></div></div>`;
+  };
+  const section = (kind, title, sub, list) => list.length
+    ? `<div class="friend-section ${kind}"><div class="friend-section-h">${title}</div><p class="hint">${sub}</p><div class="friend-grid">${list.map(card).join('')}</div></div>` : '';
+  const friends = PERSONS.filter(p=>!p.locked && p.side==='jehova');
+  const badEx   = PERSONS.filter(p=>!p.locked && p.side==='slange');
+  const facts   = PERSONS.filter(p=>!p.locked && p.side==='fakta');
+  render(`${topBar()}<div class="pad fade"><div class="eyebrow">${ic('friends')} Mine venner</div>
+    <h2 style="margin:8px 0 2px;">Vennene på reisen</h2>
+    <p class="hint">Fullfør et stopp for å samle vennen – eller huske et dårlig eksempel.</p>
+    ${section('good','Mine venner','Disse valgte Jehovas side.',friends)}
+    ${section('bad','Dårlige eksempler','Disse valgte ikke Jehovas side – vi lærer av feilene deres.',badEx)}
+    ${section('fact','Visste du?','Faktastopp på reisen.',facts)}
     <div class="spacer" style="height:24px;"></div>
     <button class="btn btn-primary" onclick="renderJourney()">Tilbake til reisen →</button></div>`);
 }
-function showLesson(id){ const c=STATE.collected[id];
-  modal.innerHTML=`<span class="gem" style="color:var(--gold);display:inline-flex;">${ic('pearl')}</span><h2 style="margin:6px 0;">${c.name}</h2>
+function showLesson(id){ const c=STATE.collected[id]; const p=PERSONS.find(x=>x.id===id)||c;
+  modal.innerHTML=`<div class="modal-emblem">${emblemHTML(p)}</div><h2 style="margin:10px 0 6px;">${c.name}</h2>
     <div class="lessonbox" style="text-align:left;">${c.lesson}</div>
     ${c.refs?`<p class="refline" style="justify-content:center;">${ic('book')} ${c.refs}</p>`:''}
     <button class="btn btn-primary" onclick="closeModal()">Lukk</button>`;
-  modal.querySelector('.gem svg').style.width='52px'; modal.querySelector('.gem svg').style.height='52px';
   scrim.classList.add('open'); }
 function closeModal(){ scrim.classList.remove('open'); }
 scrim.addEventListener('click',e=>{ if(e.target===scrim) closeModal(); });
