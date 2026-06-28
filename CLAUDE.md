@@ -17,6 +17,33 @@ blodlinje.
 
 ---
 
+## Den store hensikten (fundamentet for hele spillet)
+
+Hele spillet har ett gjennomgående fokus: **Jehovas hensikt.** Alt innhold skal
+underbygge denne røde tråden:
+
+- Jehovas opprinnelige hensikt var et **paradis på jorden**, fylt av mennesker
+  som elsker ham og lever lykkelig for alltid.
+- I Eden gjorde Adam og Eva opprør og var ulydige. **Først da** kommer 1. Mosebok
+  3:15 inn — profetien om hvordan Jehova skal **ordne opp i konsekvensene av
+  opprøret** og til slutt gjenopprette paradiset.
+- Derfor er **3:15 alltid avslutningen på innledningen**, aldri en teaser før
+  ulydigheten. Verset røpes først i det øyeblikket synden kommer inn.
+- Sluttmålet: Jehova skal lage **et paradis igjen som aldri mer kan ødelegges.**
+  Alle personene søsknene møter på reisen er **brikker i denne tråden** frem mot
+  det gjenopprettede paradiset.
+
+**Hvorfor «velg side» betyr noe:** Gjennom hele Bibelen er det mange mennesker
+som **frivillig valgte Jehovas side** — ikke slangens. Nettopp fordi valget er
+**frivillig**, beviser det at **slangen tok feil** i Eden. Hver person som velger
+Jehova av eget hjerte, er et levende motbevis mot slangens påstand.
+
+Dette fundamentet skal gjennomsyre tekst, vers og refleksjon på alle stopp:
+ikke bare «hva skjedde», men **hvordan personen er en brikke i Jehovas hensikt,
+og hvordan deres frie valg viser at slangen tok feil.**
+
+---
+
 ## Doktrineregler (ufravikelige)
 
 - Bruk **alltid Ny verden-oversettelsen (NV)** for bibelsitater.
