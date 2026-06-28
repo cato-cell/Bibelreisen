@@ -290,7 +290,7 @@ const PERSONS = [
     lesson:"Abel valgte Jehovas side. Lærdom: Jehova ser til hjertet – gi av kjærlighet."
   },
   {
-    id:"kain", name:"Kain", eraDate:"ca. 3900 f.v.t.", img:IMG.kain, side:"slange",
+    id:"kain", name:"Kain", eraDate:"ca. 3900 f.v.t.", img:IMG.kain, imgFocus:"78% 16%", side:"slange",
     puzzle:true, guessWrong:["Abraham","Josef","Jonas"],
     arrival:"Tråden lyser videre til en åker full av korn. Noen står og arbeider hardt i jorden.",
     greet:"Jeg heter Kain. Jeg dyrker jorden, og dette feltet er mitt. (Han ser knapt opp.)",
@@ -299,7 +299,8 @@ const PERSONS = [
       "Kain ble misunnelig på broren sin, og sint. Jehova så det, og advarte ham vennlig: «Pass på – du kan velge å gjøre det gode.»",
       "Men Kain ville ikke høre på Jehova. Han lot sinnet styre seg, og gjorde noe veldig galt."
     ],
-    quiz:[ { q:"Hva ville Jehova at Kain skulle gjøre?", options:["Velge det gode og slutte å være sint","Fortsette å være sint","Gi en større gave"], correct:0 } ],
+    quiz:[ { q:"Hva ville Jehova at Kain skulle gjøre?", options:["Velge det gode og slutte å være sint","Fortsette å være sint","Gi en større gave"], correct:0,
+      verseAfter:{ t:"Hvorfor er du så sint, og hvorfor er ansiktet ditt så nedslått?", ref:"1. Mosebok 4:6" } } ], // person-spesifikt (annet enn reveal 4:7). // MÅ BEKREFTES mot jw.org
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Selv da Kain var på vei til å velge feil, advarte Jehova ham FØRST – for å hjelpe ham. Jehova gir oss alltid en sjanse til å velge rett." },
     refs:"1. Mosebok 4:1–16",
     verse:{ t:"Synden ligger og lurer ved døren, og den vil ha deg. Men vil du få makt over den?", ref:"1. Mosebok 4:7" }, // MÅ BEKREFTES mot jw.org
