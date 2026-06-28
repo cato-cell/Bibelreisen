@@ -330,7 +330,7 @@ const PERSONS = [
     lesson:"Enok valgte Jehovas side. Lærdom: Vi kan være Jehovas nære venn selv når ingen andre er det."
   },
   {
-    id:"metusjalah", name:"Metusjalah", eraDate:"ca. 3300 f.v.t.", img:"images/05-metusjalah.webp", side:"fakta", noSide:true,
+    id:"metusjalah", name:"Metusjalah", eraDate:"ca. 3300 f.v.t.", img:"images/05-metusjalah.webp", imgFocus:"38% 14%", side:"fakta", noSide:true,
     puzzle:true, guessWrong:["Enok","Noah","Adam"],
     arrival:"Tråden lyser fram til en svært, svært gammel mann som sitter utenfor et telt, omgitt av mange slektninger.",
     greet:"Hei, små venner! Jeg er Metusjalah. Jeg har levd LENGER enn noe annet menneske som har levd – kan dere gjette hvor lenge?",
@@ -340,12 +340,14 @@ const PERSONS = [
       "Metusjalah døde akkurat det året den store vannflommen kom. Et langt liv – men det viser at alle mennesker trenger Jehova."
     ],
     quiz:[
-      { q:"Hvor gammel ble Metusjalah?", options:["969 år","100 år","500 år"], correct:0 },
-      { q:"Hvem var Metusjalah i slekt med?", options:["Han var Enoks sønn og Noahs oldefar","Han var Abels bror","Han var en konge"], correct:0 }
+      { q:"Hvor gammel ble Metusjalah?", options:["969 år","100 år","500 år"], correct:0,
+        verseAfter:{ t:"Metusjalah levde i alt 969 år. Så døde han.", ref:"1. Mosebok 5:27" } }, // MÅ BEKREFTES mot jw.org
+      { q:"Hvem var Metusjalah i slekt med?", options:["Han var Enoks sønn og Noahs oldefar","Han var Abels bror","Han var en konge"], correct:0,
+        verseAfter:{ t:"Da Enok hadde levd i 65 år, ble han far til Metusjalah.", ref:"1. Mosebok 5:21" } } // MÅ BEKREFTES mot jw.org
     ],
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova lot menneskene leve lenge i begynnelsen. Men selv et langt liv er ikke nok uten Jehova – det er han som gir liv som varer." },
     refs:"1. Mosebok 5:21–27",
-    verse:{ t:"Metusjalah levde i alt 969 år. Så døde han.", ref:"1. Mosebok 5:27" }, // MÅ BEKREFTES mot jw.org
+    verse:{ t:"Da Metusjalah hadde levd i 187 år, ble han far til Lamek.", ref:"1. Mosebok 5:25" }, // navngivende vers ved avsløring (alder-verset flyttet til quiz). // MÅ BEKREFTES mot jw.org
     lesson:"Visste du? Metusjalah levde i 969 år – lengst av alle i Bibelen, og helt til flommen kom. Tråden går fra Enok, gjennom ham, videre til Noah."
   },
   {
