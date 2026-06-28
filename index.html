@@ -7,7 +7,7 @@
 <meta name="description" content="En reise gjennom Bibelen for barn – bli kjent med Jehova." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   /* ===== Atlas/pergament-tema (designløft) ===== */
   :root{
@@ -23,7 +23,7 @@
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;margin:0;padding:0;}
   html,body{height:100%;}
-  body{font-family:'Nunito',system-ui,sans-serif;color:var(--ink);
+  body{font-family:'Nunito',system-ui,sans-serif;font-weight:500;color:var(--ink);
     background:linear-gradient(180deg,var(--paper),var(--paper2));min-height:100dvh;overflow-x:hidden;}
   #app{max-width:560px;margin:0 auto;min-height:100dvh;display:flex;flex-direction:column;}
   .pad{padding:18px 18px calc(24px + env(safe-area-inset-bottom));}
@@ -47,7 +47,7 @@
   @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
 
   .eyebrow{font-family:'Fredoka';font-weight:600;letter-spacing:.13em;text-transform:uppercase;font-size:.72rem;color:var(--thread-deep);display:inline-flex;align-items:center;gap:7px;}
-  .lead{font-size:1.08rem;line-height:1.5;font-weight:600;} .hint{font-size:.9rem;color:var(--ink-soft);font-weight:700;}
+  .lead{font-size:1.12rem;line-height:1.62;font-weight:500;letter-spacing:.005em;max-width:36em;} .hint{font-size:.9rem;color:var(--ink-soft);font-weight:700;}
   .chip{display:inline-flex;align-items:center;gap:7px;background:var(--panel);color:var(--thread-deep);font-family:'Fredoka';font-weight:600;font-size:.82rem;padding:6px 13px;border-radius:999px;box-shadow:var(--shadow-sm);border:1px solid var(--line);}
   .speech{background:var(--panel);border:2px solid var(--ink);border-radius:18px;padding:14px 16px;font-family:'Fredoka';font-weight:600;font-size:1.12rem;position:relative;margin-top:14px;}
   .speech::after{content:"";position:absolute;left:30px;bottom:-14px;border:8px solid transparent;border-top-color:var(--ink);}
@@ -122,8 +122,8 @@
   .jig-piece{position:absolute;background-repeat:no-repeat;touch-action:none;cursor:grab;filter:drop-shadow(0 3px 4px rgba(0,0,0,.3));}
   .jig-piece.placed{filter:none;cursor:default;}
   .jdone{display:none;text-align:center;font-family:'Fredoka';font-weight:700;color:var(--jehova);font-size:1.15rem;margin-top:8px;display:none;align-items:center;justify-content:center;gap:8px;}
-  .versecard{background:var(--jehova-soft);border:2px solid #CDE6D3;border-radius:16px;padding:15px 17px;margin-top:14px;text-align:left;}
-  .versecard .q{font-family:'Fredoka';font-weight:600;font-size:1.06rem;color:#2F6B45;line-height:1.42;display:flex;gap:10px;}
+  .versecard{background:var(--jehova-soft);border:2px solid #CDE6D3;border-radius:16px;padding:17px 19px;margin-top:14px;text-align:left;}
+  .versecard .q{font-family:'Fredoka';font-weight:600;font-size:1.06rem;color:#2F6B45;line-height:1.52;display:flex;gap:10px;}
   .versecard .q .ic{color:var(--jehova);flex:0 0 auto;margin-top:2px;}
   .versecard .ref{margin-top:8px;font-family:'Fredoka';font-weight:600;font-size:.85rem;color:var(--ink-soft);text-align:right;}
 
@@ -136,7 +136,7 @@
   .hero-lead{color:var(--ink-soft);max-width:24em;margin:0 auto;}
   .introverse{background:linear-gradient(180deg,#FFF6E6,#FBEFD9);border-color:#EBD5A8;margin-top:18px;}
   .introverse .q{color:var(--thread-deep);} .introverse .q .ic{color:var(--thread);} .introverse .ref{color:var(--ink-soft);}
-  .introverse-note{margin-top:10px;padding-top:10px;border-top:1px dashed #EBD5A8;font-size:.92rem;line-height:1.5;font-weight:600;color:#6E5A3E;}
+  .introverse-note{margin-top:11px;padding-top:11px;border-top:1px dashed #EBD5A8;font-size:.96rem;line-height:1.58;font-weight:500;color:#6E5A3E;}
 
   .scrim{position:fixed;inset:0;background:rgba(58,46,34,.55);display:flex;align-items:center;justify-content:center;padding:18px;z-index:50;opacity:0;pointer-events:none;transition:opacity .25s;}
   .scrim.open{opacity:1;pointer-events:auto;} .modal{background:var(--panel);border-radius:22px;padding:22px;max-width:420px;width:100%;text-align:center;border:1px solid var(--line);}
