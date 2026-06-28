@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Den røde tråden – en reise gjennom Bibelen</title>
+<meta name="description" content="En reise gjennom Bibelen for barn – bli kjent med Jehova." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* ===== Atlas/pergament-tema (designløft) ===== */
+  :root{
+    --paper:#FBF0DA; --paper2:#F4E6C9; --panel:#FFF8EC;
+    --thread:#D8443A; --thread-deep:#A92F27;
+    --ink:#3A2E22; --ink-soft:#8A7A63;
+    --jehova:#4E9E6A; --jehova-soft:#E8F3EA;
+    --other:#9A8DAC; --other-soft:#EFEAF3;
+    --gold:#D9A23B; --gold-deep:#A9781F; --violet:#7B5EA7;
+    --line:#E6D3AE;
+    --shadow:0 12px 30px rgba(58,46,34,.16);
+    --shadow-sm:0 6px 16px rgba(58,46,34,.12);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;margin:0;padding:0;}
+  html,body{height:100%;}
+  body{font-family:'Nunito',system-ui,sans-serif;color:var(--ink);
+    background:linear-gradient(180deg,var(--paper),var(--paper2));min-height:100dvh;overflow-x:hidden;}
+  #app{max-width:560px;margin:0 auto;min-height:100dvh;display:flex;flex-direction:column;}
+  .pad{padding:18px 18px calc(24px + env(safe-area-inset-bottom));}
+  h1,h2,h3{font-family:'Fredoka';line-height:1.06;color:var(--ink);}
+  .fade{animation:fade .35s ease;} @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .spacer{flex:1;}
+  .ic{display:inline-flex;align-items:center;justify-content:center;} .ic svg{width:1.12em;height:1.12em;}
+
+  .scene{width:100%;aspect-ratio:16/9;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);background:#EADFCB;border:1px solid var(--line);}
+  .scene img{width:100%;height:100%;object-fit:cover;display:block;}
+  .ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:8px;padding:14px;color:#9A8763;background:repeating-linear-gradient(135deg,#F3E8D2,#F3E8D2 16px,#ECDFC2 16px,#ECDFC2 32px);}
+  .ph .qm{font-family:'Fredoka';font-weight:700;font-size:2.4rem;color:var(--thread);}
+  .ph b{font-family:'Fredoka';color:#6E6149;font-size:1rem;} .ph span{font-size:.85rem;} .ph code{font-size:.76rem;background:#fff;padding:2px 7px;border-radius:6px;color:var(--thread-deep);}
+
+  .btn{display:block;width:100%;border:none;cursor:pointer;font-family:'Fredoka';font-weight:600;font-size:1.15rem;padding:16px;border-radius:16px;min-height:58px;}
+  .btn-primary{background:linear-gradient(160deg,#E8584C,var(--thread));color:#fff;box-shadow:0 6px 0 var(--thread-deep);}
+  .btn-primary:active{transform:translateY(4px);box-shadow:0 2px 0 var(--thread-deep);}
+  .btn-soft{background:var(--panel);color:var(--ink);box-shadow:var(--shadow-sm);border:1px solid var(--line);}
+  .opt{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:var(--panel);border:2px solid var(--line);border-radius:14px;padding:15px 16px;margin-bottom:10px;font-family:'Nunito';font-weight:700;font-size:1.02rem;color:#4A3A28;cursor:pointer;}
+  .opt:active{background:#FFF1D9;} .opt.wrong{border-color:#E7B4AE;background:#FBEDEB;animation:shake .35s;} .opt.right{border-color:var(--jehova);background:var(--jehova-soft);}
+  @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+
+  .eyebrow{font-family:'Fredoka';font-weight:600;letter-spacing:.13em;text-transform:uppercase;font-size:.72rem;color:var(--thread-deep);display:inline-flex;align-items:center;gap:7px;}
+  .lead{font-size:1.08rem;line-height:1.5;font-weight:600;} .hint{font-size:.9rem;color:var(--ink-soft);font-weight:700;}
+  .chip{display:inline-flex;align-items:center;gap:7px;background:var(--panel);color:var(--thread-deep);font-family:'Fredoka';font-weight:600;font-size:.82rem;padding:6px 13px;border-radius:999px;box-shadow:var(--shadow-sm);border:1px solid var(--line);}
+  .speech{background:var(--panel);border:2px solid var(--ink);border-radius:18px;padding:14px 16px;font-family:'Fredoka';font-weight:600;font-size:1.12rem;position:relative;margin-top:14px;}
+  .speech::after{content:"";position:absolute;left:30px;bottom:-14px;border:8px solid transparent;border-top-color:var(--ink);}
+
+  /* ===== Toppbar ===== */
+  .top{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:14px 18px 0;}
+  .topbtn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:7px;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:10px 8px;box-shadow:var(--shadow-sm);font-family:'Fredoka';font-weight:600;cursor:pointer;font-size:.92rem;color:var(--ink);}
+  .topbtn .ic svg{width:18px;height:18px;}
+  .topbtn.count{color:var(--ink);}
+
+  /* ===== Kartet (atlas) ===== */
+  #journey{position:relative;margin-top:12px;border-radius:22px;overflow:hidden;
+    background:
+      radial-gradient(70% 50% at 22% 8%, rgba(122,162,210,.35), transparent 60%),
+      radial-gradient(60% 55% at 85% 75%, rgba(160,196,120,.4), transparent 60%),
+      radial-gradient(70% 60% at 50% 120%, rgba(214,164,90,.35), transparent 60%),
+      linear-gradient(180deg,#F7ECCF,#EFE0BE);
+    box-shadow:inset 0 0 0 2px rgba(166,135,80,.35), inset 0 0 0 7px rgba(255,248,233,.6), var(--shadow);}
+  .grain{position:absolute;inset:0;opacity:.05;pointer-events:none;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+  #thread{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+  .compass{position:absolute;right:12px;bottom:12px;width:62px;height:62px;opacity:.5;pointer-events:none;color:#A9781F;}
+
+  .seal{position:absolute;transform:translate(-50%,-50%);width:80px;height:80px;border-radius:50%;border:none;cursor:pointer;z-index:2;
+    background:radial-gradient(circle at 36% 30%, #C6483C, #8E2F27 72%);color:#FBEFD9;
+    box-shadow:0 7px 16px rgba(58,46,34,.32), inset 0 2px 6px rgba(255,255,255,.3), inset 0 -5px 9px rgba(0,0,0,.28);
+    display:flex;align-items:center;justify-content:center;}
+  .seal::before{content:"";position:absolute;inset:7px;border-radius:50%;border:2px dashed rgba(255,255,255,.3);}
+  .seal .qm{font-family:'Fredoka';font-weight:700;font-size:2rem;}
+  .seal .ic svg{width:34px;height:34px;}
+  .seal.done{background:radial-gradient(circle at 36% 30%, #F2C961, #C9912F 72%);color:#6B4A12;}
+  .seal.locked{background:radial-gradient(circle at 36% 30%, #C2BBCC, #8C8499 72%);color:#F2EFF6;cursor:default;}
+  .seal.eden{width:62px;height:62px;background:radial-gradient(circle at 36% 30%, #71C285, #3E8E5A 72%);color:#EAF8EE;}
+  .seal.eden .ic svg{width:26px;height:26px;}
+  .seal .badge{position:absolute;right:-4px;bottom:-4px;width:28px;height:28px;border-radius:50%;background:#fff;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 3px 7px rgba(0,0,0,.22);}
+  .seal .badge .ic svg{width:16px;height:16px;}
+
+  .ribbon{position:absolute;transform:translateX(-50%);z-index:2;background:var(--panel);border:1.5px solid var(--line);
+    border-radius:11px;padding:5px 13px;box-shadow:var(--shadow-sm);text-align:center;font-family:'Fredoka';font-weight:600;font-size:.92rem;color:#4A3A28;white-space:nowrap;}
+  .ribbon small{display:block;font-size:.64rem;letter-spacing:.04em;color:var(--thread-deep);font-weight:700;}
+
+  /* ===== Velg side ===== */
+  .sides{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;}
+  .side{border:none;cursor:pointer;border-radius:18px;padding:20px 12px;font-family:'Fredoka';font-weight:600;font-size:1.05rem;color:#fff;min-height:124px;display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:center;}
+  .side .ic svg{width:38px;height:38px;}
+  .side-j{background:linear-gradient(160deg,#62B97E,var(--jehova));} .side-s{background:linear-gradient(160deg,#A99CC0,var(--other));}
+
+  .reward{text-align:center;} .reward .gem{color:var(--gold);animation:pop .5s;display:inline-flex;} .reward .gem svg{width:74px;height:74px;}
+  @keyframes pop{0%{transform:scale(0)}70%{transform:scale(1.2)}100%{transform:scale(1)}}
+  .lessonbox{background:#FFF4DC;border:2px solid #F0DDAE;border-radius:16px;padding:14px 16px;margin:14px 0;font-weight:700;color:#5A3F22;line-height:1.45;}
+  .heartbox{background:var(--other-soft);border:2px solid #DCD0EE;border-radius:16px;padding:14px 16px;margin-top:12px;line-height:1.45;font-weight:600;}
+  .heartbox .q{font-family:'Fredoka';color:var(--violet);margin-bottom:6px;display:flex;align-items:center;gap:8px;}
+  .reflectbox{background:var(--panel);border:2px solid var(--line);border-radius:16px;padding:14px 16px;margin-bottom:12px;}
+  .reflectbox .q{font-family:'Fredoka';font-weight:600;font-size:1.08rem;color:var(--ink);display:flex;align-items:center;gap:8px;}
+  .reflectbox .q .ic{color:var(--thread);}
+  .reflectbox .ans{margin-top:8px;font-weight:600;line-height:1.45;color:#5A3F22;}
+  .reflectbox .reveal{margin-top:10px;background:transparent;border:none;color:var(--thread-deep);font-family:'Fredoka';font-weight:600;font-size:.95rem;cursor:pointer;padding:0;text-decoration:underline;}
+  .refline{margin-top:14px;display:flex;align-items:center;gap:8px;color:var(--ink-soft);font-weight:700;font-size:.86rem;}
+  .refline .ic{color:var(--thread);}
+
+  .trophy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:8px;}
+  .tcard{aspect-ratio:1;border:none;border-radius:16px;background:var(--panel);box-shadow:var(--shadow-sm);border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;font-family:'Fredoka';font-weight:600;color:var(--ink);}
+  .tcard.empty{background:#F1E6CC;color:#BCAC8A;box-shadow:none;cursor:default;border-style:dashed;}
+  .tcard .ic{color:var(--gold);} .tcard .ic svg{width:30px;height:30px;} .tcard small{font-size:.72rem;color:var(--ink-soft);}
+
+  /* ===== Puslespill ===== */
+  .jig-stage{position:relative;margin-top:12px;touch-action:none;user-select:none;}
+  .jig-board{position:absolute;top:0;border-radius:12px;background:#EFE2C6;
+    box-shadow:inset 0 0 0 2px rgba(166,135,80,.3), inset 0 5px 14px rgba(58,46,34,.1);}
+  .jig-tray-line{position:absolute;left:0;right:0;border-top:2px dashed var(--line);}
+  .jig-piece{position:absolute;background-repeat:no-repeat;touch-action:none;cursor:grab;filter:drop-shadow(0 3px 4px rgba(0,0,0,.3));}
+  .jig-piece.placed{filter:none;cursor:default;}
+  .jdone{display:none;text-align:center;font-family:'Fredoka';font-weight:700;color:var(--jehova);font-size:1.15rem;margin-top:8px;display:none;align-items:center;justify-content:center;gap:8px;}
+  .versecard{background:var(--jehova-soft);border:2px solid #CDE6D3;border-radius:16px;padding:15px 17px;margin-top:14px;text-align:left;}
+  .versecard .q{font-family:'Fredoka';font-weight:600;font-size:1.06rem;color:#2F6B45;line-height:1.42;display:flex;gap:10px;}
+  .versecard .q .ic{color:var(--jehova);flex:0 0 auto;margin-top:2px;}
+  .versecard .ref{margin-top:8px;font-family:'Fredoka';font-weight:600;font-size:.85rem;color:var(--ink-soft);text-align:right;}
+
+  .scrim{position:fixed;inset:0;background:rgba(58,46,34,.55);display:flex;align-items:center;justify-content:center;padding:18px;z-index:50;opacity:0;pointer-events:none;transition:opacity .25s;}
+  .scrim.open{opacity:1;pointer-events:auto;} .modal{background:var(--panel);border-radius:22px;padding:22px;max-width:420px;width:100%;text-align:center;border:1px solid var(--line);}
+  .progress{height:7px;border-radius:99px;background:#E7D6B4;overflow:hidden;margin:14px 0 4px;} .progress>i{display:block;height:100%;background:var(--thread);border-radius:99px;transition:width .3s;}
+  .footnote{text-align:center;color:var(--ink-soft);font-size:.78rem;font-weight:600;margin-top:14px;}
+  @keyframes pulseBtn{0%,100%{transform:none}50%{transform:scale(1.03)}}
+  .pulse{animation:pulseBtn 1.1s ease infinite;}
+</style>
+</head>
+<body>
+  <div id="app"></div>
+  <div class="scrim" id="scrim"><div class="modal" id="modal"></div></div>
+<script>
+/* ===================================================================
+   DEN RØDE TRÅDEN – v5
+   - Designløft: atlas/pergament, egne ikoner (ingen emoji), segl-kart
+   - Puslespill-bug fikset: brikker holder seg innenfor området
+   =================================================================== */
+
+const START_IMG = "images/00-start.webp";
+const IMG = { abel:"images/02-abel.webp", kain:"images/03-kain.webp" };
+
+/* ---------- Egne ikoner (SVG) ---------- */
+const ICONS = {
+  compass:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2.2 4.8-4.8 2.2 2.2-4.8z" fill="currentColor" stroke="none"/></svg>`,
+  trophy:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10v5a5 5 0 0 1-10 0Z"/><path d="M7 5H4v1a3 3 0 0 0 3 3"/><path d="M17 5h3v1a3 3 0 0 1-3 3"/><path d="M9.5 14h5l-.5 3h-4Z"/><path d="M8 20h8M12 17v3"/></svg>`,
+  gem:`<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M6 3h12l3.2 5.3L12 21.5 2.8 8.3 6 3Z"/><path d="M2.8 8.3h18.4M12 3.2 9 8.3l3 13.2 3-13.2L12 3.2Z" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1"/></svg>`,
+  lock:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>`,
+  leaf:`<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M4 20c0-9 7-15 16-15 0 9-7 15-16 15Z"/><path d="M4.5 19.5c4-5 9-8 13-9" fill="none" stroke="rgba(255,255,255,.65)" stroke-width="1.6" stroke-linecap="round"/></svg>`,
+  heart:`<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 21S3 14.5 3 8.8C3 5.6 5.4 4 7.6 4 9.4 4 11 5.1 12 6.6 13 5.1 14.6 4 16.4 4 18.6 4 21 5.6 21 8.8 21 14.5 12 21 12 21Z"/></svg>`,
+  fork:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-6"/><path d="M12 15c0-4-6-3-6-8V4"/><path d="M12 15c0-4 6-3 6-8V4"/></svg>`,
+  check:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 6"/></svg>`,
+  puzzle:`<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M10 3.4a2 2 0 0 1 4 0c0 .9.8 1.3 1.6 1 .9-.3 2.4 0 2.4 1.3V8c1-.3 2.6-.5 2.6 1.4S19 11.3 18 11v2.4c0 1.3-1.5 1.6-2.4 1.3-.8-.3-1.6.1-1.6 1a2 2 0 0 1-4 0c0-.9-.8-1.3-1.6-1-.9.3-2.4 0-2.4-1.3V11c-1 .3-2.6.4-2.6-1.5S5 7.7 6 8V5.7C6 4.4 7.5 4.1 8.4 4.4c.8.3 1.6-.1 1.6-1Z"/></svg>`,
+  scales:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M6 20h12M12 6 5 8.5M12 6l7 2.5"/><path d="M5 8.5 2.6 13a2.6 2.6 0 0 0 4.8 0L5 8.5ZM19 8.5 16.6 13a2.6 2.6 0 0 0 4.8 0L19 8.5Z"/></svg>`,
+  clock:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 2"/></svg>`,
+  search:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg>`,
+  thread:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5c5 0 5 4 10 4s5-4 6-4"/><path d="M4 12c5 0 5 4 10 4s5-4 6-4"/><path d="M4 19c5 0 5-4 10-4"/></svg>`,
+  pearl:`<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="#ECDDE9" stroke="#C9AEC4" stroke-width="0.8"/><ellipse cx="9.2" cy="9" rx="3" ry="2" fill="#ffffff" opacity=".85"/><circle cx="15.4" cy="15" r="1.5" fill="#ffffff" opacity=".4"/></svg>`,
+  bulb:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 18h5"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.7.6 1 1.3 1 2.5h6c0-1.2.3-1.9 1-2.5A6 6 0 0 0 12 3Z"/></svg>`,
+  star:`<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 3l2.6 5.5L21 9.3l-4.5 4.2L17.8 21 12 17.6 6.2 21l1.3-7.5L3 9.3l6.4-.8L12 3Z"/></svg>`,
+  book:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h6v16H6a2 2 0 0 0-2 2Z"/><path d="M20 5a2 2 0 0 0-2-2h-6v16h6a2 2 0 0 1 2 2Z"/></svg>`,
+};
+function ic(name, cls){ return `<span class="ic ${cls||''}">${ICONS[name]||''}</span>`; }
+
+const PROLOG = [
+  { title:"Jehova lager alt", body:"Jehova lagde stjernene, havet, dyrene – og de første menneskene. Han gjorde det fordi han er kjærlig og ville dele livet. Han ønsket at vi skulle leve lykkelig for alltid, som vennene hans." },
+  { title:"Venner med Jehova", body:"De første menneskene bodde i en vakker hage. De var venner med Jehova og snakket med ham hver dag." },
+  { title:"Noe gikk galt", body:"En dag valgte de å høre på slangen i stedet for på Jehova. Det var trist – men Jehova ga ikke opp menneskene." },
+  { title:"Et stort løfte", body:"Med en gang lovte Jehova at det skulle komme en som ordner opp i alt. Det løftet er en rød tråd gjennom HELE Bibelen. Nå skal dere følge den tråden – og finne ut hvem dere møter underveis!" },
+];
+
+const PERSONS = [
+  {
+    id:"abel", name:"Abel", eraDate:"ca. 3900 f.v.t.", img:IMG.abel, side:"jehova",
+    puzzle:true, guessWrong:["Noah","Moses","David"],
+    arrival:"Den røde tråden tar dere med til en grønn eng for lenge, lenge siden. Dere hører sauer som breker. Noen passer på dem …",
+    greet:"Hei! Jeg heter Abel, og jeg passer på sauene mine her. Vil dere bli med litt?",
+    story:[
+      "Abel var en av de aller første menneskene på jorden. Han elsket Jehova av hele sitt hjerte.",
+      "En dag ville Abel gi Jehova en gave. Han valgte det aller fineste han hadde, og ga det med kjærlighet.",
+      "Jehova ble glad i gaven – ikke fordi den var stor, men fordi den kom fra et godt hjerte."
+    ],
+    quiz:[
+      { q:"Hva jobbet Abel med?", options:["Han var gjeter og passet sauer","Han var fisker","Han var snekker"], correct:0 },
+      { q:"Hvorfor ble Jehova glad i gaven?", options:["Den var gitt av kjærlighet, fra hjertet","Den var størst","Abel var eldst"], correct:0 },
+      { q:"Hva lærer vi om Jehova?", options:["Han ser på hjertet vårt","Han teller gavene","Han liker bare store gaver"], correct:0 }
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova bryr seg om hjertet vårt. Han ser når vi gir og gjør ting av kjærlighet – ikke for å vise oss fram." },
+    refs:"1. Mosebok 4:1–8; Hebreerne 11:4",
+    verse:{ t:"Ved tro bar Abel fram et offer som var mer verdt for Gud enn det Kain bar fram.", ref:"Hebreerne 11:4" }, // MÅ BEKREFTES mot jw.org
+    sideQ:"Hvem lyttet Abel til?",
+    lesson:"Abel valgte Jehovas side. Lærdom: Jehova ser til hjertet – gi av kjærlighet."
+  },
+  {
+    id:"kain", name:"Kain", eraDate:"ca. 3900 f.v.t.", img:IMG.kain, side:"slange",
+    puzzle:true, guessWrong:["Abraham","Josef","Jonas"],
+    arrival:"Tråden lyser videre til en åker full av korn. Noen står og arbeider hardt i jorden.",
+    greet:"Jeg heter Kain. Jeg dyrker jorden, og dette feltet er mitt. (Han ser knapt opp.)",
+    story:[
+      "Kain ga også Jehova en gave. Men hjertet hans var ikke helt med.",
+      "Kain ble misunnelig på broren sin, og sint. Jehova så det, og advarte ham vennlig: «Pass på – du kan velge å gjøre det gode.»",
+      "Men Kain ville ikke høre på Jehova. Han lot sinnet styre seg, og gjorde noe veldig galt."
+    ],
+    quiz:[ { q:"Hva ville Jehova at Kain skulle gjøre?", options:["Velge det gode og slutte å være sint","Fortsette å være sint","Gi en større gave"], correct:0 } ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Selv da Kain var på vei til å velge feil, advarte Jehova ham FØRST – for å hjelpe ham. Jehova gir oss alltid en sjanse til å velge rett." },
+    refs:"1. Mosebok 4:1–16",
+    verse:{ t:"Synden ligger og lurer ved døren, og den vil ha deg. Men vil du få makt over den?", ref:"1. Mosebok 4:7" }, // MÅ BEKREFTES mot jw.org
+    sideQ:"Hvem lyttet Kain til?",
+    lesson:"Kain valgte slangens side. Lærdom: Jehova advarer oss fordi han er glad i oss – men vi velger selv."
+  },
+  {
+    id:"enok", name:"Enok", eraDate:"ca. 3400 f.v.t.", img:"images/04-enok.webp", side:"jehova",
+    puzzle:true, guessWrong:["Noah","Abraham","Moses"],
+    arrival:"Tråden tar dere til en stille sti i morgenlys. En eldre mann går der, ser opp og snakker varmt – som med en god venn.",
+    greet:"Hei! Jeg heter Enok. Jeg liker å vandre og snakke med Jehova – han er den beste vennen min.",
+    story:[
+      "Enok levde i en verden full av slemme mennesker. Men han var annerledes – han «vandret med Jehova». Det betyr at han var Jehovas nære venn og gjorde alt for å glede ham.",
+      "Jehova ga Enok en modig jobb: å si fra til folk at all ondskapen måtte ta slutt. Mange ble sinte, men Enok var modig og fortsatte.",
+      "Enok ble 365 år. Da fiender ville skade ham, lot Jehova ham sovne stille inn – så han slapp å lide. Jehova passet på vennen sin helt til slutt."
+    ],
+    quiz:[
+      { q:"Hva betyr det at Enok «vandret med Jehova»?", options:["Han var Jehovas nære venn og gjorde det Jehova liker","Han gikk lange turer alene","Han bodde i en stor hage"], correct:0 },
+      { q:"Hva gjorde Enok da folk ble sinte på budskapet?", options:["Han var modig og fortsatte","Han ga opp med en gang","Han gjemte seg for alltid"], correct:0 }
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova legger merke til dem som vil være vennene hans, selv når alle andre gjør det onde – og han passer på dem." },
+    refs:"1. Mosebok 5:21–24; Hebreerne 11:5; Judas 14, 15",
+    verse:{ t:"Enok fortsatte å vandre med den sanne Gud. Så var han ikke mer, for Gud tok ham.", ref:"1. Mosebok 5:24" }, // MÅ BEKREFTES mot jw.org
+    sideQ:"Hvem lyttet Enok til?",
+    lesson:"Enok valgte Jehovas side. Lærdom: Vi kan være Jehovas nære venn selv når ingen andre er det."
+  },
+  {
+    id:"metusjalah", name:"Metusjalah", eraDate:"ca. 3300 f.v.t.", img:"images/05-metusjalah.webp", side:"fakta", noSide:true,
+    puzzle:true, guessWrong:["Enok","Noah","Adam"],
+    arrival:"Tråden lyser fram til en svært, svært gammel mann som sitter utenfor et telt, omgitt av mange slektninger.",
+    greet:"Hei, små venner! Jeg er Metusjalah. Jeg har levd LENGER enn noe annet menneske som har levd – kan dere gjette hvor lenge?",
+    story:[
+      "Metusjalah ble 969 år gammel – ingen i hele Bibelen har levd lenger!",
+      "Han var sønn av Enok og oldefar til Noah. Slik går den gode tråden videre, fra Enok mot Noah.",
+      "Metusjalah døde akkurat det året den store vannflommen kom. Et langt liv – men det viser at alle mennesker trenger Jehova."
+    ],
+    quiz:[
+      { q:"Hvor gammel ble Metusjalah?", options:["969 år","100 år","500 år"], correct:0 },
+      { q:"Hvem var Metusjalah i slekt med?", options:["Han var Enoks sønn og Noahs oldefar","Han var Abels bror","Han var en konge"], correct:0 }
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova lot menneskene leve lenge i begynnelsen. Men selv et langt liv er ikke nok uten Jehova – det er han som gir liv som varer." },
+    refs:"1. Mosebok 5:21–27",
+    verse:{ t:"Metusjalah levde i alt 969 år. Så døde han.", ref:"1. Mosebok 5:27" }, // MÅ BEKREFTES mot jw.org
+    lesson:"Visste du? Metusjalah levde i 969 år – lengst av alle i Bibelen, og helt til flommen kom. Tråden går fra Enok, gjennom ham, videre til Noah."
+  },
+  {
+    id:"nefilim", name:"Nefilim", eraDate:"før vannflommen", img:"images/06-nefilim.webp", side:"slange",
+    puzzle:true, guessWrong:["Vanlige menn","Soldater","Bønder"],
+    arrival:"Tråden tar dere til en tid da verden var blitt farlig. Bak en stor stein ser dere noen kjempestore menn …",
+    greet:"Disse kjempene kalles nefilim. De var kjempestore og kjempesterke – men de brukte styrken til å være slemme og skremme alle rundt seg.",
+    story:[
+      "Nefilim var mye større og sterkere enn vanlige mennesker. Men i stedet for å hjelpe andre, plaget de folk og fylte jorden med vold.",
+      "De var en trussel mot alle som elsket Jehova og ville gjøre det gode. Verden ble et farlig sted å leve."
+    ],
+    quiz:[
+      { q:"Hvordan brukte nefilim styrken sin?", options:["Til å være slemme og skremme andre","Til å hjelpe folk","Til å bygge fine hus"], correct:0 }
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova ser når de sterke gjør de svake vondt. Han lar ikke ondskapen vare for alltid – og snart skulle han gjøre noe med det." },
+    refs:"1. Mosebok 6:1–5",
+    verse:{ t:"På den tiden var nefilimene på jorden — datidens veldige menn, de navngjetne mennene.", ref:"1. Mosebok 6:4" }, // MÅ BEKREFTES mot jw.org
+    sideQ:"Hvilken side var nefilim på?",
+    lesson:"Nefilim var på slangens side. Lærdom: Å være stor og sterk betyr ingenting hvis hjertet er slemt."
+  },
+  {
+    id:"noah", name:"Noah", eraDate:"ca. 2400 f.v.t.", img:"images/07-noah.webp", side:"jehova",
+    puzzle:true, guessWrong:["Abraham","Moses","David"],
+    arrival:"Tråden lyser fram til en diger trekasse under bygging. Dere hører hamring og saging – en hel familie jobber sammen.",
+    greet:"Hei! Jeg heter Noah. Dette er familien min – kona mi, sønnene Sem, Kam og Jafet, og konene deres. Jehova har bedt oss bygge denne store arken. Vil dere hjelpe til?",
+    story:[
+      "Jehova så at jorden var full av vold. Men han var glad i Noah og hele familien hans, og ville redde dem alle sammen.",
+      "Jehova ga familien en stor jobb: å bygge en kjempestor ark. Noah, kona hans, de tre sønnene Sem, Kam og Jafet, og konene deres – åtte personer – jobbet sammen i mange, mange år. De saget, hamret og bar tunge planker, side om side.",
+      "Folk lo av dem og trodde ikke på flommen. Men hele familien stolte på Jehova og ga aldri opp. Til slutt reddet Jehova alle åtte – og dyrene også."
+    ],
+    quiz:[
+      { q:"Hvem bygde arken sammen med Noah?", options:["Hele familien hans – åtte personer","Han bygde den helt alene","Naboene i byen"], correct:0 },
+      { q:"Hvorfor ble Noah og familien reddet?", options:["De lyttet til Jehova og adlød","De var sterkest","De bygde raskest"], correct:0 },
+      { q:"Hva gjorde folk rundt dem?", options:["De lo og trodde ikke på flommen","De hjalp ivrig til","De bygde sine egne arker"], correct:0 }
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova advarer på forhånd og redder dem som lytter til ham. Han ville at HELE familien skulle holde sammen og bli reddet – ikke bare Noah. Jehova holder alltid løftene sine." },
+    refs:"1. Mosebok 6:9–22; 7:1; Hebreerne 11:7",
+    verse:{ t:"Gå inn i arken, du og hele din husstand, for deg har jeg sett som rettferdig framfor meg i denne generasjonen.", ref:"1. Mosebok 7:1" }, // MÅ BEKREFTES mot jw.org
+    sideQ:"Hvem lyttet Noah og familien til?",
+    lesson:"Noah valgte Jehovas side – sammen med hele familien. Lærdom: Når vi lytter til Jehova og holder sammen som familie, passer han på oss."
+  },
+  { id:"abraham", name:"Abraham", eraDate:"ca. 2000 f.v.t.", img:"images/08-abraham.webp", locked:true },
+];
+
+const STATE = { collected:{}, steps:[], i:0, person:null };
+const app=document.getElementById('app'), scrim=document.getElementById('scrim'), modal=document.getElementById('modal');
+function render(html){ app.innerHTML=html; app.firstElementChild?.classList.add('fade'); window.scrollTo(0,0); }
+function esc(s){ return (s||'').replace(/'/g,"\\'"); }
+function shuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+function sceneImg(src, caption){
+  if(src && src.startsWith('data:')) return `<div class="scene"><img src="${src}" alt="${caption}"></div>`;
+  return `<div class="scene"><img src="${src}" alt="${caption}"
+    onerror="this.parentNode.innerHTML='<div class=&quot;ph&quot;><span class=&quot;qm&quot;>?</span><b>${esc(caption)}</b><span>Legg møte-bildet her:</span><code>${src}</code></div>'"></div>`;
+}
+
+/* ---------- Start ---------- */
+function renderStart(){
+  render(`<div class="pad fade">
+    <div class="scene" style="aspect-ratio:4/3;"><img src="${START_IMG}" alt="To søsken finner den lysende boken"></div>
+    <div style="text-align:center;margin-top:18px;"><div class="eyebrow">${ic('thread')} En reise gjennom Bibelen</div>
+      <h1 style="font-size:2.5rem;margin:10px 0;">Den røde tråden</h1>
+      <p class="lead" style="color:var(--ink-soft);max-width:24em;margin:0 auto;">Bli med to søsken som reiser gjennom hele Bibelen – og bli kjent med Jehova.</p></div>
+    <div class="spacer" style="height:24px;"></div>
+    <button class="btn btn-primary" onclick="renderProlog(0)">Begynn reisen →</button></div>`);
+}
+function renderProlog(i){
+  const p=PROLOG[i], last=i===PROLOG.length-1;
+  render(`<div class="pad fade"><div class="eyebrow">Slik begynner alt &middot; ${i+1}/${PROLOG.length}</div>
+    <div class="progress" style="margin-top:10px;"><i style="width:${(i+1)/PROLOG.length*100}%"></i></div>
+    <h2 style="font-size:1.9rem;margin:14px 0 12px;">${p.title}</h2><p class="lead">${p.body}</p>
+    <div class="spacer" style="height:30px;"></div>
+    <button class="btn btn-primary" onclick="${last?'renderJourney()':'renderProlog('+(i+1)+')'}">${last?"Følg tråden →":"Neste →"}</button>
+    ${i>0?`<button class="btn btn-soft" style="margin-top:10px;" onclick="renderProlog(${i-1})">← Tilbake</button>`:''}</div>`);
+}
+function topBar(){ const n=Object.keys(STATE.collected).length;
+  return `<div class="top">
+    <button class="topbtn" onclick="renderJourney()">${ic('compass')} Reisen</button>
+    <button class="topbtn count">${ic('pearl')} ${n}</button>
+    <button class="topbtn" onclick="renderTrophy()">${ic('trophy')} Troférom</button></div>`;
+}
+
+/* ---------- Kartet (atlas) ---------- */
+function renderJourney(){
+  render(`${topBar()}<div class="pad fade"><div class="eyebrow">${ic('compass')} Følg den røde tråden</div>
+    <h2 style="margin:8px 0 4px;">Hvem skjuler seg på neste stopp?</h2>
+    <p class="hint">Pusle fram bildet for å finne det ut.</p>
+    <div id="journey"><div class="grain"></div><svg id="thread" preserveAspectRatio="none"></svg>
+      <svg class="compass" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3">
+        <circle cx="50" cy="50" r="44"/><circle cx="50" cy="50" r="34" stroke-width="1.5"/>
+        <path d="M50 10 58 50 50 90 42 50z" fill="currentColor" stroke="none" opacity=".8"/>
+        <path d="M10 50 50 42 90 50 50 58z" fill="currentColor" stroke="none" opacity=".4"/></svg>
+    </div>
+    <p class="footnote">Tidene følger Bibelens kronologi (omtrentlige år).</p></div>`);
+  buildJourney();
+}
+function buildJourney(){
+  const j=document.getElementById('journey'); if(!j) return;
+  const svg=document.getElementById('thread');
+  j.querySelectorAll('.seal,.ribbon').forEach(e=>e.remove());
+  const W=j.clientWidth||520, cx=W/2, off=Math.min(W*0.22,104);
+  const top=100, gap=164, H=top+(PERSONS.length-1)*gap+104; j.style.height=H+'px';
+  const pts=PERSONS.map((p,k)=>({x:cx+(k%2?off:-off),y:top+k*gap}));
+  let d=`M ${cx} 44 L ${pts[0].x} ${pts[0].y} `;
+  for(let k=0;k<pts.length-1;k++){const a=pts[k],b=pts[k+1],my=(a.y+b.y)/2; d+=`C ${a.x} ${my}, ${b.x} ${my}, ${b.x} ${b.y} `;}
+  svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+  svg.innerHTML=`<path d="${d}" fill="none" stroke="rgba(216,68,58,.22)" stroke-width="14" stroke-linecap="round"/>
+    <path d="${d}" fill="none" stroke="#D8443A" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="1 13"/>`;
+
+  // Eden-segl (start)
+  const eden=document.createElement('div'); eden.className='seal eden'; eden.style.left=cx+'px'; eden.style.top='44px';
+  eden.innerHTML=ic('leaf'); j.appendChild(eden);
+  const er=document.createElement('div'); er.className='ribbon'; er.style.left=cx+'px'; er.style.top='84px';
+  er.innerHTML=`Eden<small>SKAPELSEN · 4026 f.v.t.</small>`; j.appendChild(er);
+
+  PERSONS.forEach((p,k)=>{
+    const done=!!STATE.collected[p.id];
+    const seal=document.createElement('button');
+    seal.className='seal'+(p.locked?' locked':(done?' done':''));
+    seal.style.left=pts[k].x+'px'; seal.style.top=pts[k].y+'px';
+    if(p.locked) seal.innerHTML=ic('lock');
+    else if(done){ const sd=STATE.collected[p.id].side;
+      const badge = sd==='jehova' ? `<span class="badge" style="color:var(--jehova)">${ic('heart')}</span>`
+                  : sd==='slange' ? `<span class="badge" style="color:var(--other)">${ic('fork')}</span>`
+                  : `<span class="badge" style="color:var(--gold-deep)">${ic('star')}</span>`;
+      seal.innerHTML=ic('pearl')+badge; }
+    else seal.innerHTML=`<span class="qm">?</span>`;
+    if(!p.locked) seal.onclick=()=>startPerson(p.id);
+    j.appendChild(seal);
+    const rb=document.createElement('div'); rb.className='ribbon'; rb.style.left=pts[k].x+'px'; rb.style.top=(pts[k].y+52)+'px';
+    rb.innerHTML=`${done?p.name:(p.locked?'?':'???')}<small>${p.locked?'KOMMER SNART':p.eraDate}</small>`; j.appendChild(rb);
+  });
+}
+
+/* ---------- Møte-sløyfe ---------- */
+function startPerson(id){
+  const p=PERSONS.find(x=>x.id===id); STATE.person=p; STATE.i=0;
+  const steps=[{t:'arrival'}];
+  if(p.puzzle) steps.push({t:'jigsaw'});
+  steps.push({t:'guess'},{t:'reveal'});
+  (p.story||[]).forEach((_,idx)=>steps.push({t:'story',idx}));
+  (p.quiz||[]).forEach((_,idx)=>steps.push({t:'quiz',idx}));
+  if(p.reflect) steps.push({t:'reflect'});
+  if(!p.noSide) steps.push({t:'side'});
+  steps.push({t:'reward'});
+  STATE.steps=steps; renderStep();
+}
+function next(){ STATE.i++; renderStep(); }
+function renderStep(){
+  const p=STATE.person, s=STATE.steps[STATE.i], head=topBar(), img=sceneImg(p.img,'Møtet');
+  if(s.t==='arrival'){
+    render(`${head}<div class="pad fade"><div style="margin-bottom:10px;"><span class="chip">${ic('clock')} ${p.eraDate}</span></div>
+      <div class="scene"><div class="ph"><span class="qm">?</span><b>Hvem skjuler seg her?</b><span>Pusle bildet for å finne det ut</span></div></div>
+      <p class="lead" style="margin-top:16px;">${p.arrival}</p>
+      <div class="spacer" style="height:24px;"></div>
+      <button class="btn btn-primary" onclick="next()">Pusle fram hvem dere møter →</button></div>`);
+  } else if(s.t==='jigsaw'){ renderJigsaw();
+  } else if(s.t==='guess'){
+    const opts=shuffle([p.name,...p.guessWrong]);
+    const btns=opts.map(o=>`<button class="opt" onclick="answerGuess(this,'${esc(o)}')">${ic('search')} ${o}</button>`).join('');
+    render(`${head}<div class="pad fade">${img}<div class="eyebrow" style="margin-top:14px;">${ic('search')} Gjett hvem</div>
+      <h3 style="font-size:1.25rem;margin:8px 0 14px;">Hvem tror du dette er?</h3>${btns}
+      <p id="fb" style="font-weight:700;min-height:24px;"></p></div>`);
+  } else if(s.t==='reveal'){
+    render(`${head}<div class="pad fade">${img}
+      <div style="text-align:center;margin-top:12px;"><span class="chip" style="color:var(--jehova);">${ic('check')} Det er ${p.name}!</span></div>
+      <div class="speech">${p.greet}</div>
+      <div class="spacer" style="height:22px;"></div>
+      <button class="btn btn-primary" onclick="next()">Hør historien →</button></div>`);
+  } else if(s.t==='story'){
+    const n=(p.story||[]).length;
+    render(`${head}<div class="pad fade">${img}<div class="eyebrow" style="margin-top:14px;">Historien &middot; ${s.idx+1}/${n}</div>
+      <p class="lead" style="margin-top:8px;">${p.story[s.idx]}</p>
+      <div class="spacer" style="height:24px;"></div>
+      <button class="btn btn-primary" onclick="next()">Videre →</button></div>`);
+  } else if(s.t==='quiz'){
+    const q=p.quiz[s.idx];
+    const items=shuffle(q.options.map((o,k)=>({o,correct:k===q.correct})));
+    const opts=items.map(it=>`<button class="opt" onclick="answerQuiz(this,${it.correct})">${it.o}</button>`).join('');
+    render(`${head}<div class="pad fade"><div class="eyebrow">Spørsmål ${s.idx+1}/${p.quiz.length}</div>
+      <h3 style="font-size:1.25rem;margin:8px 0 14px;">${q.q}</h3>${opts}
+      <p id="fb" style="font-weight:700;color:var(--jehova);min-height:24px;"></p></div>`);
+  } else if(s.t==='reflect'){
+    render(`${head}<div class="pad fade"><div class="eyebrow">${ic('bulb')} Tenk og snakk sammen</div>
+      <div class="heartbox"><div class="q">${ic('bulb')} ${p.reflect.q}</div>
+        <div id="ans" style="display:none;margin-top:8px;">${p.reflect.a}</div></div>
+      ${p.refs?`<p class="refline">${ic('book')} Les selv: ${p.refs}</p>`:''}
+      <div class="spacer" style="height:18px;"></div>
+      <button class="btn btn-soft" id="rev" onclick="document.getElementById('ans').style.display='block';this.style.display='none';document.getElementById('rnext').style.display='block';">Tenk litt … vis et forslag</button>
+      <button class="btn btn-primary" id="rnext" style="display:none;margin-top:10px;" onclick="next()">Videre →</button></div>`);
+  } else if(s.t==='side'){
+    render(`${head}<div class="pad fade"><div class="eyebrow">${ic('scales')} Velg side</div>
+      <h3 style="font-size:1.3rem;margin:8px 0 4px;">${p.sideQ}</h3><p class="hint">Plasser ${p.name} der du tror han hører hjemme.</p>
+      <div class="sides"><button class="side side-j" onclick="chooseSide('jehova')">${ic('heart')} Jehovas side</button>
+        <button class="side side-s" onclick="chooseSide('slange')">${ic('fork')} Slangens side</button></div>
+      <p id="fb" style="font-weight:700;min-height:24px;margin-top:12px;"></p></div>`);
+  } else if(s.t==='reward'){
+    STATE.collected[p.id]={side:p.side,lesson:p.lesson,name:p.name,refs:p.refs};
+    render(`${head}<div class="pad fade reward"><span class="gem">${ic('pearl')}</span><h2 style="margin:6px 0;">Du fikk en perle!</h2>
+      <div class="lessonbox">${p.lesson}</div>
+      <button class="btn btn-primary" onclick="renderJourney()">Tilbake til reisen →</button>
+      <button class="btn btn-soft" style="margin-top:10px;" onclick="renderTrophy()">Se troférommet</button></div>`);
+  }
+}
+function answerGuess(el,nameGuess){ const p=STATE.person, fb=document.getElementById('fb');
+  if(nameGuess===p.name){ el.classList.add('right'); fb.style.color='var(--jehova)'; fb.textContent='Riktig!'; setTimeout(next,800); }
+  else { el.classList.add('wrong'); fb.style.color='var(--thread-deep)'; fb.textContent='Ikke helt – se godt på bildet og prøv igjen.'; } }
+function answerQuiz(el,isCorrect){ if(isCorrect){ el.classList.add('right'); document.getElementById('fb').textContent='Riktig!'; setTimeout(next,800); }
+  else { el.classList.add('wrong'); document.getElementById('fb').textContent='Ikke helt – prøv en gang til.'; } }
+function chooseSide(side){ const p=STATE.person, fb=document.getElementById('fb');
+  if(side===p.side){ fb.style.color='var(--jehova)'; fb.textContent=side==='jehova'?'Ja! '+p.name+' lyttet til Jehova.':'Stemmer – '+p.name+' lyttet ikke til Jehova.'; setTimeout(next,1100); }
+  else { fb.style.color='var(--thread-deep)'; fb.textContent='Tenk på hvem han egentlig lyttet til …'; } }
+
+/* ============ PUSLESPILL (fikset layout + ekte former) ============ */
+function renderJigsaw(){
+  const p=STATE.person;
+  render(`${topBar()}<div class="pad fade"><div class="eyebrow">${ic('puzzle')} Puslespill</div>
+    <h3 style="font-size:1.25rem;margin:8px 0 2px;">Pusle fram møtet</h3>
+    <p class="hint">Dra brikkene på plass. Formene må passe sammen.</p>
+    <div id="jstage" class="jig-stage"></div>
+    <p id="jdone" class="jdone">${ic('check')} Ferdig! Godt jobbet!</p>
+    <button id="jnext" class="btn btn-primary" style="margin-top:10px;" onclick="next()">Hvem tror du dette er? →</button></div>`);
+  buildJigsaw(p.img);
+}
+function buildJigsaw(url){
+  const stage=document.getElementById('jstage'); if(!stage) return;
+  const cols=4, rows=2, gap=6;
+  const stageW=stage.clientWidth||340;
+  // Brettet fyller nesten hele bredden – lite luft på sidene
+  const boardW=Math.round(Math.min(stageW*0.96, 460));
+  const boardH=Math.round(boardW*9/16);
+  const w=boardW/cols, h=boardH/rows;
+  const t=Math.round(0.20*Math.max(w,h));          // tapp-margin (rommer formene)
+  const box=w+2*t;
+  // Skuff-brikkene skaleres ned så alle får plass på bredden (brettet forblir stort)
+  const trayScale=Math.min(1,(stageW-(cols-1)*gap)/(cols*box));
+  const sbox=box*trayScale;
+  const trayW=cols*sbox+(cols-1)*gap;
+  const boardLeft=Math.round((stageW-boardW)/2);
+  const sep=Math.max(34,t+16), trayTop=boardH+sep, trayLeft=Math.round((stageW-trayW)/2);
+  stage.style.height=(trayTop+rows*sbox+(rows-1)*gap+8)+'px';
+  stage.innerHTML='';
+
+  const board=document.createElement('div'); board.className='jig-board';
+  board.style.left=boardLeft+'px'; board.style.width=boardW+'px'; board.style.height=boardH+'px';
+  stage.appendChild(board);
+  const line=document.createElement('div'); line.className='jig-tray-line'; line.style.top=(trayTop-sep/2)+'px'; stage.appendChild(line);
+
+  const vEdge=[], hEdge=[];
+  for(let r=0;r<rows;r++){vEdge[r]=[]; for(let c=0;c<cols-1;c++) vEdge[r][c]=Math.random()<0.5;}
+  for(let r=0;r<rows-1;r++){hEdge[r]=[]; for(let c=0;c<cols;c++) hEdge[r][c]=Math.random()<0.5;}
+  const etype=(side,r,c)=>{
+    if(side==='top')    return r===0?'flat':(hEdge[r-1][c]?'blank':'tab');
+    if(side==='bottom') return r===rows-1?'flat':(hEdge[r][c]?'tab':'blank');
+    if(side==='left')   return c===0?'flat':(vEdge[r][c-1]?'blank':'tab');
+    return c===cols-1?'flat':(vEdge[r][c]?'tab':'blank');
+  };
+  const segOf=(type)=>{ if(type==='flat') return [{to:[1,0]}];
+    const s=type==='tab'?1:-1;
+    return [ {to:[0.38,0]},
+             {c:[[0.30,0.11*s],[0.30,0.22*s],[0.50,0.22*s]]},
+             {c:[[0.70,0.22*s],[0.70,0.11*s],[0.62,0]]},
+             {to:[1,0]} ]; };
+  function clipFor(r,c){
+    const edges=[
+      {st:[t,t],     ax:[1,0], nx:[0,-1], len:w, type:etype('top',r,c)},
+      {st:[t+w,t],   ax:[0,1], nx:[1,0],  len:h, type:etype('right',r,c)},
+      {st:[t+w,t+h], ax:[-1,0],nx:[0,1],  len:w, type:etype('bottom',r,c)},
+      {st:[t,t+h],   ax:[0,-1],nx:[-1,0], len:h, type:etype('left',r,c)} ];
+    const map=(e,x,y)=>[ e.st[0]+e.ax[0]*(x*e.len)+e.nx[0]*(y*e.len), e.st[1]+e.ax[1]*(x*e.len)+e.nx[1]*(y*e.len) ];
+    let d='M '+map(edges[0],0,0).map(n=>n.toFixed(1)).join(' ');
+    edges.forEach(e=>segOf(e.type).forEach(seg=>{
+      if(seg.to){ const q=map(e,seg.to[0],seg.to[1]); d+=` L ${q[0].toFixed(1)} ${q[1].toFixed(1)}`; }
+      else { const a=map(e,seg.c[0][0],seg.c[0][1]),b=map(e,seg.c[1][0],seg.c[1][1]),k=map(e,seg.c[2][0],seg.c[2][1]);
+             d+=` C ${a[0].toFixed(1)} ${a[1].toFixed(1)} ${b[0].toFixed(1)} ${b[1].toFixed(1)} ${k[0].toFixed(1)} ${k[1].toFixed(1)}`; }
+    }));
+    return d+' Z';
+  }
+
+  const cells=[]; for(let r=0;r<rows;r++)for(let c=0;c<cols;c++) cells.push({r,c,cx:boardLeft+c*w+w/2,cy:r*h+h/2});
+  const trayOrder=shuffle([...Array(cells.length).keys()]);
+  let placed=0;
+  trayOrder.forEach((cellIdx,q)=>{
+    const cell=cells[cellIdx], r=cell.r, c=cell.c;
+    const homeLeft=trayLeft+(q%cols)*(sbox+gap), homeTop=trayTop+Math.floor(q/cols)*(sbox+gap);
+    const piece=document.createElement('div'); piece.className='jig-piece';
+    piece.style.width=box+'px'; piece.style.height=(h+2*t)+'px';
+    piece.style.left=homeLeft+'px'; piece.style.top=homeTop+'px';
+    piece.style.transformOrigin='top left'; piece.style.transform='scale('+trayScale+')';
+    piece.style.backgroundImage=`url("${url}")`; piece.style.backgroundSize=boardW+'px '+boardH+'px';
+    piece.style.backgroundPosition=`${(t-c*w).toFixed(1)}px ${(t-r*h).toFixed(1)}px`;
+    const dd=clipFor(r,c); piece.style.clipPath=`path('${dd}')`; piece.style.webkitClipPath=`path('${dd}')`;
+    piece._home={left:homeLeft,top:homeTop}; piece._trayScale=trayScale;
+    piece._target={left:boardLeft+c*w - t, top:r*h - t, cx:cell.cx, cy:cell.cy};
+    stage.appendChild(piece);
+    makeDraggable(piece,box,(h+2*t),w,()=>{ placed++; if(placed===cells.length) jigsawDone(); });
+  });
+}
+function makeDraggable(piece,boxW,boxH,w,onPlaced){
+  const halfW=boxW/2, halfH=boxH/2; let sx,sy,sl,st,drag=false;
+  piece.addEventListener('pointerdown',e=>{ if(piece.classList.contains('placed'))return;
+    drag=true; piece.setPointerCapture(e.pointerId); sx=e.clientX; sy=e.clientY;
+    const ts=piece._trayScale||1;                                  // løft til full størrelse, vokser fra midten
+    sl=parseFloat(piece.style.left)-boxW*(1-ts)/2; st=parseFloat(piece.style.top)-boxH*(1-ts)/2;
+    piece.style.left=sl+'px'; piece.style.top=st+'px'; piece.style.transform='scale(1)';
+    piece.style.transition='none'; piece.style.zIndex=99; piece.style.filter='drop-shadow(0 8px 12px rgba(0,0,0,.4))'; });
+  piece.addEventListener('pointermove',e=>{ if(!drag)return;
+    piece.style.left=(sl+e.clientX-sx)+'px'; piece.style.top=(st+e.clientY-sy)+'px'; });
+  piece.addEventListener('pointerup',()=>{ if(!drag)return; drag=false; piece.style.zIndex=''; piece.style.filter='';
+    const bx=parseFloat(piece.style.left)+halfW, by=parseFloat(piece.style.top)+halfH;
+    const dist=Math.hypot(bx-piece._target.cx, by-piece._target.cy);
+    piece.style.transition='left .18s, top .18s, transform .18s';
+    if(dist < w*0.72){ piece.style.left=piece._target.left+'px'; piece.style.top=piece._target.top+'px'; piece.classList.add('placed'); onPlaced(); }
+    else { piece.style.transform='scale('+(piece._trayScale||1)+')'; piece.style.left=piece._home.left+'px'; piece.style.top=piece._home.top+'px'; } });
+}
+function jigsawDone(){
+  const d=document.getElementById('jdone'); if(d)d.style.display='flex';
+  const stage=document.getElementById('jstage');
+  if(stage){ const board=stage.querySelector('.jig-board'), line=stage.querySelector('.jig-tray-line');
+    if(line) line.style.display='none';
+    if(board) stage.style.height=(board.offsetHeight+6)+'px'; }       // fjern tomt skuff-felt
+  const p=STATE.person, n=document.getElementById('jnext');
+  if(p && p.verse && n && !document.getElementById('jverse')){        // fyll tomrommet med et skriftsted
+    const v=document.createElement('div'); v.className='versecard'; v.id='jverse';
+    v.innerHTML=`<div class="q">${ic('book')} «${p.verse.t}»</div><div class="ref">${p.verse.ref}</div>`;
+    n.parentNode.insertBefore(v,n);
+  }
+  if(n){ n.classList.add('pulse'); setTimeout(()=>n.scrollIntoView({behavior:'smooth',block:'center'}),120); }
+}
+
+/* ---------- Troférom ---------- */
+function renderTrophy(){
+  const ids=PERSONS.filter(p=>!p.locked).map(p=>p.id);
+  const cells=ids.map(id=>{ const c=STATE.collected[id];
+    if(c) return `<button class="tcard" onclick="showLesson('${id}')">${ic('pearl')}${c.name}<small>${c.side==='jehova'?'Jehovas side':c.side==='slange'?'Slangens side':'Kul fakta'}</small></button>`;
+    return `<div class="tcard empty"><span class="qm" style="font-family:Fredoka;font-weight:700;font-size:1.6rem;">?</span></div>`;
+  }).join('');
+  const n=Object.keys(STATE.collected).length;
+  render(`${topBar()}<div class="pad fade"><div class="eyebrow">${ic('trophy')} Dine skatter</div>
+    <h2 style="margin:8px 0 2px;">Troférommet</h2><p class="hint">${n} ${n===1?'perle':'perler'} samlet. Trykk på en for å repetere.</p>
+    <div class="trophy-grid">${cells}</div>
+    <div class="spacer" style="height:24px;"></div>
+    <button class="btn btn-primary" onclick="renderJourney()">Tilbake til reisen →</button></div>`);
+}
+function showLesson(id){ const c=STATE.collected[id];
+  modal.innerHTML=`<span class="gem" style="color:var(--gold);display:inline-flex;">${ic('pearl')}</span><h2 style="margin:6px 0;">${c.name}</h2>
+    <div class="lessonbox" style="text-align:left;">${c.lesson}</div>
+    ${c.refs?`<p class="refline" style="justify-content:center;">${ic('book')} ${c.refs}</p>`:''}
+    <button class="btn btn-primary" onclick="closeModal()">Lukk</button>`;
+  modal.querySelector('.gem svg').style.width='52px'; modal.querySelector('.gem svg').style.height='52px';
+  scrim.classList.add('open'); }
+function closeModal(){ scrim.classList.remove('open'); }
+scrim.addEventListener('click',e=>{ if(e.target===scrim) closeModal(); });
+window.addEventListener('resize',()=>{ if(document.getElementById('journey')) buildJourney(); });
+renderStart();
+</script>
+</body>
+</html>
