@@ -122,6 +122,31 @@
   .seal.eden{width:62px;height:62px;background:radial-gradient(circle at 36% 30%, #71C285, #3E8E5A 72%);color:#EAF8EE;}
   .seal.eden .ic svg{width:26px;height:26px;}
   .seal.gateway{background:radial-gradient(circle at 36% 30%, #E8B45A, #B07D26 72%);color:#3A2810;animation:pulseBtn 1.9s ease infinite;}
+  /* Overgang kart 1 → kart 2: innbydende portal-kort (ny start etter flommen) */
+  .gateway-card{position:absolute;left:50%;transform:translateX(-50%);width:min(88%,366px);
+    display:flex;align-items:center;gap:13px;padding:13px 15px;border-radius:20px;border:none;cursor:pointer;z-index:3;
+    text-align:left;color:#43331C;font-family:'Fredoka';
+    background:
+      radial-gradient(130% 120% at 6% 0%, rgba(122,162,210,.5), transparent 52%),
+      radial-gradient(120% 130% at 100% 110%, rgba(160,196,120,.42), transparent 55%),
+      linear-gradient(145deg,#FBEFCF,#F1DEAE);
+    box-shadow:0 12px 26px rgba(58,46,34,.28), inset 0 0 0 2px rgba(255,251,238,.85), inset 0 0 0 6px rgba(176,125,38,.20);
+    animation:gatewayGlow 2.6s ease-in-out infinite;}
+  .gateway-card:active{transform:translateX(-50%) scale(.985);}
+  .gateway-card .gw-medal{position:relative;flex:0 0 auto;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    color:#FBF6E9;background:radial-gradient(circle at 36% 28%, #74BBE4, #2E6FA0 72%);
+    box-shadow:0 5px 12px rgba(46,111,160,.4), inset 0 2px 5px rgba(255,255,255,.45), inset 0 -4px 8px rgba(0,0,0,.22);}
+  .gateway-card .gw-medal::after{content:"";position:absolute;width:52px;height:52px;border-radius:50%;border:2px dashed rgba(255,255,255,.35);}
+  .gateway-card .gw-medal svg{width:26px;height:26px;}
+  .gateway-card .gw-txt{flex:1 1 auto;min-width:0;}
+  .gateway-card .gw-eyebrow{display:block;font-size:.62rem;font-weight:700;letter-spacing:.11em;color:var(--thread-deep);text-transform:uppercase;}
+  .gateway-card .gw-title{display:block;font-size:1.18rem;font-weight:700;line-height:1.12;margin:1px 0;}
+  .gateway-card .gw-sub{display:block;font-size:.66rem;font-weight:700;letter-spacing:.05em;color:#9A7B3F;text-transform:uppercase;}
+  .gateway-card .gw-go{flex:0 0 auto;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-size:1.25rem;line-height:1;color:#fff;background:var(--thread);box-shadow:0 4px 10px rgba(216,68,58,.4);}
+  @keyframes gatewayGlow{
+    0%,100%{box-shadow:0 12px 26px rgba(58,46,34,.28), inset 0 0 0 2px rgba(255,251,238,.85), inset 0 0 0 6px rgba(176,125,38,.20);}
+    50%{box-shadow:0 14px 30px rgba(58,46,34,.30), 0 0 0 4px rgba(232,180,90,.28), inset 0 0 0 2px rgba(255,251,238,.9), inset 0 0 0 6px rgba(176,125,38,.26);}}
   .seal .badge{position:absolute;right:-4px;bottom:-4px;width:28px;height:28px;border-radius:50%;background:#fff;
     display:flex;align-items:center;justify-content:center;box-shadow:0 3px 7px rgba(0,0,0,.22);}
   .seal .badge .ic svg{width:16px;height:16px;}
@@ -748,7 +773,7 @@ function buildJourney(){
   const svg=document.getElementById('thread');
   j.querySelectorAll('.seal,.ribbon').forEach(e=>e.remove());
   const W=j.clientWidth||520, cx=W/2, off=Math.min(W*0.22,104);
-  const top=100, gap=164, transY=top+list.length*gap, H=transY+96; j.style.height=H+'px';
+  const top=100, gap=164, transY=top+list.length*gap, H=transY+(bolk===1?150:96); j.style.height=H+'px';
   const pts=list.map((p,k)=>({x:cx+(k%2?off:-off),y:top+k*gap}));
   let d=`M ${cx} 44 L ${pts[0].x} ${pts[0].y} `;
   for(let k=0;k<pts.length-1;k++){const a=pts[k],b=pts[k+1],my=(a.y+b.y)/2; d+=`C ${a.x} ${my}, ${b.x} ${my}, ${b.x} ${b.y} `;}
@@ -782,10 +807,13 @@ function buildJourney(){
 
   // Overgangsfelt nederst
   if(bolk===1){
-    const g=document.createElement('button'); g.className='seal gateway'; g.style.left=cx+'px'; g.style.top=transY+'px';
-    g.innerHTML=ic('thread'); g.onclick=()=>renderJourney(2); j.appendChild(g);
-    const gr=document.createElement('div'); gr.className='ribbon'; gr.style.left=cx+'px'; gr.style.top=(transY+52)+'px';
-    gr.innerHTML=`Etter flommen →<small>BOLK 2 · PATRIARKENE</small>`; j.appendChild(gr);
+    const card=document.createElement('button'); card.className='gateway-card'; card.style.top=(transY-6)+'px';
+    card.innerHTML=`<span class="gw-medal">${ic('thread')}</span>`
+      +`<span class="gw-txt"><span class="gw-eyebrow">Reisen fortsetter</span>`
+      +`<span class="gw-title">Etter flommen</span>`
+      +`<span class="gw-sub">Bolk 2 · Patriarkene</span></span>`
+      +`<span class="gw-go">→</span>`;
+    card.onclick=()=>renderJourney(2); j.appendChild(card);
   } else {
     const g=document.createElement('div'); g.className='seal locked'; g.style.left=cx+'px'; g.style.top=transY+'px';
     g.innerHTML=ic('lock'); j.appendChild(g);
@@ -1050,20 +1078,37 @@ function buildJigsawImpl(url, imgAspect, im){
   // Slør motivet (bakt inn i pikslene, virker i ALLE nettlesere) – det ferdige bildet røper ikke hvem det er
   const bg = im ? obscureFromImage(im, boardW, boardH) : null;
   if(bg) pieces.forEach(pc=>{ pc.style.backgroundImage='url("'+bg+'")'; });
+  else pieces.forEach(pc=>{                                  // reserve: aldri flate tomme brikker
+    pc.style.backgroundImage='linear-gradient(135deg,#F0C463,#CE933C 52%,#A56C2C)';
+    pc.style.backgroundSize='cover'; });
 }
 /* Sløret versjon av møte-bildet (ansikt ikke gjenkjennelig). Bruker nedskaler→oppskaler
    i stedet for ctx.filter, så det virker i ALLE nettlesere (Safari støtter ikke canvas-blur).
    Tegner HELE bildet (ingen beskjæring) – toppen er alltid med. */
 function obscureFromImage(im, w, h){
   try{
-    const small=Math.max(10, Math.round(w/24));              // bredde på mini-versjon = slørstyrke
-    const sc=document.createElement('canvas'); sc.width=small; sc.height=Math.max(6, Math.round(small*h/w));
-    sc.getContext('2d').drawImage(im, 0, 0, sc.width, sc.height);
+    const small=Math.max(12, Math.round(w/22));              // bredde på mini-versjon = slørstyrke (ansiktet forblir ugjenkjennelig)
+    const sh=Math.max(7, Math.round(small*h/w));
+    const sc=document.createElement('canvas'); sc.width=small; sc.height=sh;
+    const scx=sc.getContext('2d', {willReadFrequently:true});
+    scx.drawImage(im, 0, 0, small, sh);
+    // Løft farge + lysstyrke så brikkene TYDELIG ser ut som et fargerikt bilde
+    // (også mørke motiver), mens selve identiteten fortsatt er sløret bort.
+    try{
+      const id=scx.getImageData(0,0,small,sh), d=id.data;
+      const sat=1.5, bri=1.14, lift=16;
+      for(let i=0;i<d.length;i+=4){
+        const r=d[i], g=d[i+1], b=d[i+2], gray=0.299*r+0.587*g+0.114*b;
+        d[i]  =Math.min(255, lift+bri*(gray+(r-gray)*sat));
+        d[i+1]=Math.min(255, lift+bri*(gray+(g-gray)*sat));
+        d[i+2]=Math.min(255, lift+bri*(gray+(b-gray)*sat));
+      }
+      scx.putImageData(id,0,0);
+    }catch(e){}                                              // f.eks. blokkert getImageData → bruk rå nedskalering
     const cv=document.createElement('canvas'); cv.width=w; cv.height=h;
     const cx=cv.getContext('2d');
     cx.imageSmoothingEnabled=true; cx.imageSmoothingQuality='high';
     cx.drawImage(sc, 0, 0, w, h);                            // oppskalering = mykt slør
-    cx.fillStyle='rgba(40,30,15,0.05)'; cx.fillRect(0,0,w,h); // bitteliten demping
     return cv.toDataURL('image/png');
   }catch(e){ return null; }   // f.eks. blokkert canvas → behold nøytrale brikker
 }
