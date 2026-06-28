@@ -181,11 +181,25 @@ const ICONS = {
 };
 function ic(name, cls){ return `<span class="ic ${cls||''}">${ICONS[name]||''}</span>`; }
 
+/* Introen (begynnelsen): bygger opp kronologisk til den første profetien om de to sidene.
+   Hver slide har et passende skriftsted (utdrag, NV) + kort forklaring. // ALLE vers MÅ BEKREFTES mot jw.org */
 const PROLOG = [
-  { title:"Jehova lager alt", body:"Jehova lagde stjernene, havet, dyrene – og de første menneskene. Han gjorde det fordi han er kjærlig og ville dele livet. Han ønsket at vi skulle leve lykkelig for alltid, som vennene hans." },
-  { title:"Venner med Jehova", body:"De første menneskene bodde i en vakker hage. De var venner med Jehova og snakket med ham hver dag." },
-  { title:"Noe gikk galt", body:"En dag valgte de å høre på slangen i stedet for på Jehova. Det var trist – men Jehova ga ikke opp menneskene." },
-  { title:"Et stort løfte", body:"Med en gang lovte Jehova at det skulle komme en som ordner opp i alt. Det løftet er en rød tråd gjennom HELE Bibelen. Nå skal dere følge den tråden – og finne ut hvem dere møter underveis!" },
+  { title:"Jehova skaper alt",
+    body:"Helt i begynnelsen var det bare Jehova. Han lagde stjernene og solen, jorden og havet, blomster, fugler og alle dyrene. Han gjorde det fordi han er kjærlig og gledet seg til å dele alt det fine.",
+    verse:{ t:"I begynnelsen skapte Gud himmelen og jorden.", ref:"1. Mosebok 1:1" },
+    note:"Alt det fine rundt oss kommer fra Jehova. Han er Skaperen som lager alt – fordi han er glad i oss." },
+  { title:"Mennesker i et paradis",
+    body:"Så skapte Jehova de første menneskene, en mann og en kvinne, og ga dem et nydelig hjem – hagen Eden. Hensikten hans var at de skulle være vennene hans, ta vare på jorden og leve lykkelig i et paradis for alltid.",
+    verse:{ t:"Vær fruktbare og bli mange, fyll jorden …", ref:"1. Mosebok 1:28" },
+    note:"Jehovas hensikt var tydelig: hele jorden skulle bli et paradis, fullt av mennesker som elsker ham og lever lykkelig for alltid." },
+  { title:"Noe trist skjer",
+    body:"Men en dag valgte menneskene å høre på slangen i stedet for på Jehova, og gjorde det han hadde sagt de ikke skulle. Det ødela det fredelige vennskapet – og fra da av ble mennesker syke, gamle og døde.",
+    verse:{ t:"… hun tok av frukten og spiste.", ref:"1. Mosebok 3:6" },
+    note:"De valgte å høre på slangen i stedet for på Jehova. Det brøt vennskapet – men Jehova sluttet aldri å være glad i menneskene." },
+  { title:"Et stort løfte",
+    body:"Med en gang ga Jehova et løfte om hvordan alt skulle bli godt igjen. Han sa at det fra nå av ville være to sider, og at en redningsmann en dag skulle ordne opp i alt det vonde slangen hadde laget.",
+    verse:{ t:"Jeg skal sette fiendskap mellom deg og kvinnen og mellom ditt avkom og hennes avkom.", ref:"1. Mosebok 3:15" },
+    note:"Dette er den røde tråden gjennom hele Bibelen. Fra nå av finnes to sider – Jehovas og slangens. Til slutt vinner Jehovas side, og alt blir godt igjen." },
 ];
 
 const PERSONS = [
@@ -364,6 +378,11 @@ function renderProlog(i){
   render(`<div class="pad fade"><div class="eyebrow">Slik begynner alt &middot; ${i+1}/${PROLOG.length}</div>
     <div class="progress" style="margin-top:10px;"><i style="width:${(i+1)/PROLOG.length*100}%"></i></div>
     <h2 style="font-size:1.9rem;margin:14px 0 12px;">${p.title}</h2><p class="lead">${p.body}</p>
+    ${p.verse?`<div class="versecard introverse" style="margin-top:16px;">
+      <div class="q">${ic('book')} «${p.verse.t}»</div>
+      <div class="ref">${p.verse.ref}</div>
+      ${p.note?`<p class="introverse-note">${p.note}</p>`:''}
+    </div>`:''}
     <div class="spacer" style="height:30px;"></div>
     <button class="btn btn-primary" onclick="${last?'renderJourney()':'renderProlog('+(i+1)+')'}">${last?"Følg tråden →":"Neste →"}</button>
     ${i>0?`<button class="btn btn-soft" style="margin-top:10px;" onclick="renderProlog(${i-1})">← Tilbake</button>`:''}</div>`);
