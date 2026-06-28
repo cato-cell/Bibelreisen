@@ -600,7 +600,29 @@ const PERSONS = [
     verse:{ t:"… kom Rebekka ut med vannkrukken sin på skulderen.", ref:"1. Mosebok 24:15" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
     lesson:"Rebekka valgte Jehovas side. Lærdom: Vennlighet og mot til å si «ja» til Jehova gjør oss til en del av hans hensikt."
   },
-  { id:"jakob",      name:"Jakob",      eraDate:"f. ca. 1858 f.v.t.",    img:"images/17-jakob.webp",      side:"jehova", bolk:2, locked:true },
+  {
+    id:"jakob", name:"Jakob", eraDate:"f. ca. 1858 f.v.t.", img:"images/17-jakob.webp", imgFocus:"60% 22%", side:"jehova", bolk:2,
+    puzzle:true, guessWrong:["Esau","Josef","Samuel"],
+    arrival:"Tråden tar dere til en ensom fjellsti om natten. En ung mann sover med en stein som pute – og drømmer en helt spesiell drøm om en stige som når helt opp til himmelen …",
+    greet:"Hei! Jeg heter Jakob, sønn av Isak og Rebekka. Jeg setter de hellige tingene fra Jehova høyt – og i natt snakket Jehova selv til meg!",
+    story:[
+      "Jakob var sønnesønn av Abraham. I motsetning til broren sin, som ikke brydde seg, satte Jakob de hellige tingene fra Jehova høyt – velsignelsen og løftet betydde alt for ham.",
+      "En natt, da Jakob var alene på reise, drømte han om en stige som nådde fra jorden helt opp til himmelen, med Guds engler på. Øverst sto Jehova selv.",
+      "Jehova gjentok LØFTET til Jakob: gjennom ham og ætten hans skulle alle slekter på jorden bli velsignet. «Jeg er med deg og skal passe på deg overalt,» sa Jehova. Slik gikk den røde tråden videre, fra Isak til Jakob – mot Jesus."
+    ],
+    quiz:[
+      { q:"Hva drømte Jakob om i Betel?", options:["En stige som nådde fra jorden helt opp til himmelen","En stor storm","Et skip på havet"], correct:0,
+        verseAfter:{ t:"Han hadde en drøm, og se, en stige sto på jorden, og toppen nådde opp til himmelen, og Guds engler gikk opp og ned på den.", ref:"1. Mosebok 28:12" } }, // MÅ BEKREFTES mot jw.org
+      { q:"Hvilket løfte gjentok Jehova til Jakob?", options:["At alle slekter på jorden skulle bli velsignet gjennom ætten hans","At han skulle bli rik på gull","At han aldri skulle reise mer"], correct:0,
+        verseAfter:{ t:"… og ved deg og ditt avkom skal alle jordens slekter velsigne seg.", ref:"1. Mosebok 28:14" } }, // LØFTET gjentatt ved Betel – MÅ BEKREFTES mot jw.org
+      { q:"Hva lærer vi om Jehova?", options:["Han er med tjenerne sine overalt hvor de går","At han bare er på ett sted","At han glemmer løftene sine"], correct:0,
+        verseAfter:{ t:"Se, jeg er med deg, og jeg skal bevare deg overalt hvor du går.", ref:"1. Mosebok 28:15" } } // MÅ BEKREFTES mot jw.org
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova legger merke til dem som setter de hellige tingene høyt. Han var med Jakob overalt og førte løftet videre gjennom ham – ett ledd til på veien mot Jesus og paradiset." },
+    refs:"1. Mosebok 28:10–15; Hebreerne 11:21",
+    verse:{ t:"Jakob våknet av søvnen og sa: «Jehova er virkelig på dette stedet!»", ref:"1. Mosebok 28:16" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
+    lesson:"Jakob valgte Jehovas side. Lærdom: Når vi setter Jehovas ting høyt, blir vi en del av løftet – tråden som fører fram til Jesus og paradiset."
+  },
 ];
 
 const STATE = { collected:{}, steps:[], i:0, person:null, started:false, bolk:1 };
