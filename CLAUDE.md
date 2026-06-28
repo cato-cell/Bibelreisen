@@ -270,7 +270,7 @@ Jesu slektslinje.
 | 2 | Gideon | ca. 1200-t f.v.t. | Jehovas side | 🔒 ramme |
 | 3 | Abimelek | ca. 1100-t f.v.t. | Slangens side (grep makten ved svik) | 🔒 ramme |
 | 4 | Samson | ca. 1100-t f.v.t. | Jehovas side | 🔒 ramme |
-| 5 | Delila | ca. 1100-t f.v.t. | Slangens side (forrådte Samson for sølv) | 🔒 ramme |
+| 5 | Dalila | ca. 1100-t f.v.t. | Slangens side (forrådte Samson for sølv) | 🔒 ramme |
 | 6 | Rut | ca. 1100-t f.v.t. | Jehovas side (utlending → Davids/Jesu ætt) | 🔒 ramme |
 
 ### Fokus per kort
@@ -278,15 +278,15 @@ Jesu slektslinje.
 - **Gideon:** «for lite, ikke for mye» — Jehova frelser med få.
 - **Abimelek:** grep makten ved svik for å gjøre seg til konge.
 - **Samson:** stor styrke **fra Jehova** (ikke fra ham selv); sterk, men menneskelig.
-- **Delila:** valgte sølv framfor troskap; forrådte Samson.
+- **Dalila:** valgte sølv framfor troskap; forrådte Samson.
 - **Rut:** utlending som valgte Jehovas side; kom inn i Jesu slektslinje — SIDE
   betyr valg, ikke blodlinje.
 
 ### Doktrineregel (viktig)
-**Abimelek og Delila** har voldelig/mørkt stoff. Hold **både bilde og tekst på
+**Abimelek og Dalila** har voldelig/mørkt stoff. Hold **både bilde og tekst på
 VALGET, ikke utfallet/straffen** («vi viser valget, ikke dommen»). For **Samson:**
 fremhev at styrken kom **fra Jehova**. Versregelen gjelder (person-spesifikt,
-ordrett NV); **Delila/Abimelek** har få vers → hold kortene korte.
+ordrett NV); **Dalila/Abimelek** har få vers → hold kortene korte.
 
 ---
 

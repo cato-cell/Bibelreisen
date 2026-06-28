@@ -797,11 +797,33 @@ const PERSONS = [
   { id:"kaleb", name:"Kaleb", eraDate:"1473 f.v.t.", img:"images/31-kaleb.webp", imgFocus:"55% 20%", side:"jehova", bolk:5, locked:true },
   { id:"rahab", name:"Rahab", eraDate:"1473 f.v.t.", img:"images/32-rahab.webp", imgFocus:"60% 22%", side:"jehova", bolk:5, locked:true },
   /* ===== BOLK 6 – Dommertiden (kart 6). Låst ramme; fylles ett kort av gangen. ===== */
-  { id:"debora", name:"Debora", eraDate:"ca. 1300-t f.v.t.", img:"images/34-debora.webp", imgFocus:"55% 20%", side:"jehova", bolk:6, locked:true },
+  {
+    id:"debora", name:"Debora", eraDate:"ca. 1300-t f.v.t.", img:"images/34-debora.webp", imgFocus:"55% 20%", side:"jehova", bolk:6,
+    puzzle:true, guessWrong:["Sara","Rut","Mirjam"],
+    arrival:"Tråden tar dere til en stor palme i fjellandet. Under den sitter en klok kvinne som folk kommer langveisfra for å få hjelp og råd av – og snart skal hun lede an i en stor sak …",
+    greet:"Hei! Jeg heter Debora. Jeg er profetinne og dommer i Israel, og jeg hjelper folket å høre på Jehova.",
+    story:[
+      "På Deboras tid hadde mange israelitter glemt Jehova, og en hard fiende plaget dem. Men Debora stolte helt på Jehova. Hun var profetinne og dommer, og folk kom til henne for å få hjelp.",
+      "Jehova ga Debora et budskap til hærføreren Barak: nå var tiden inne for å sette folket fri. Debora var modig og sa at Jehova selv ville dra foran dem.",
+      "Barak ville bare dra hvis Debora ble med. Hun ble med, og akkurat som Jehova hadde lovet, vant Israel. Debora viste at en som stoler på Jehova, kan være både modig og sterk."
+    ],
+    quiz:[
+      { q:"Hva var Debora?", options:["Profetinne og dommer i Israel","En dronning i Egypt","En vanlig gjeter"], correct:0 },
+      { q:"Hvor hjalp Debora folket?", options:["Under Debora-palmen, der folk kom for å få dom","I et stort slott","Ombord på et skip"], correct:0,
+        verseAfter:{ t:"Hun pleide å sitte under Debora-palmen … og israelittene gikk opp til henne for å få dom i rettssaker.", ref:"Dommerne 4:5" } }, // verifisert mot NV (nwt_N.pdf)
+      { q:"Hva sa Debora til hærføreren Barak?", options:["«Bryt opp – i dag skal Jehova gi fienden i din hånd!»","«Vent til neste år»","«Gjem deg i fjellet»"], correct:0,
+        verseAfter:{ t:"Debora sa nå til Barak: «Bryt opp, for i dag skal Jehova gi Sisera i din hånd. Jehova drar ut foran deg.»", ref:"Dommerne 4:14" } } // verifisert mot NV (nwt_N.pdf)
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova reiser opp dem han trenger – og gir mot og styrke til alle som stoler på ham, enten det er en mann eller en kvinne. Han svikter aldri dem som følger ham." },
+    refs:"Dommerne 4:4–5; 4:14",
+    verse:{ t:"Debora, en profetinne, Lappidots kone, dømte i Israel på den tiden.", ref:"Dommerne 4:4" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
+    sideQ:"Hvem stolte Debora på?",
+    lesson:"Debora valgte Jehovas side. Lærdom: Når vi stoler på Jehova, gir han oss mot til å gjøre det rette – og han holder alltid det han lover."
+  },
   { id:"gideon", name:"Gideon", eraDate:"ca. 1200-t f.v.t.", img:"images/35-gideon.webp", imgFocus:"55% 20%", side:"jehova", bolk:6, locked:true },
   { id:"abimelek", name:"Abimelek", eraDate:"ca. 1100-t f.v.t.", img:"images/36-abimelek.webp", imgFocus:"55% 22%", side:"slange", bolk:6, locked:true },
   { id:"samson", name:"Samson", eraDate:"ca. 1100-t f.v.t.", img:"images/37-samson.webp", imgFocus:"55% 20%", side:"jehova", bolk:6, locked:true },
-  { id:"delila", name:"Delila", eraDate:"ca. 1100-t f.v.t.", img:"images/38-delila.webp", imgFocus:"55% 22%", side:"slange", bolk:6, locked:true },
+  { id:"dalila", name:"Dalila", eraDate:"ca. 1100-t f.v.t.", img:"images/38-dalila.webp", imgFocus:"55% 22%", side:"slange", bolk:6, locked:true },
   { id:"rut", name:"Rut", eraDate:"ca. 1100-t f.v.t.", img:"images/39-rut.webp", imgFocus:"60% 22%", side:"jehova", bolk:6, locked:true },
 ];
 
