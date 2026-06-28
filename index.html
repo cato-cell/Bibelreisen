@@ -351,7 +351,7 @@ const PERSONS = [
     lesson:"Visste du? Metusjalah levde i 969 år – lengst av alle i Bibelen, og helt til flommen kom. Tråden går fra Enok, gjennom ham, videre til Noah."
   },
   {
-    id:"nefilim", name:"Nefilim", eraDate:"før vannflommen", img:"images/06-nefilim.webp", side:"slange",
+    id:"nefilim", name:"Nefilim", eraDate:"før vannflommen", img:"images/06-nefilim.webp", imgFocus:"62% 14%", side:"slange",
     puzzle:true, guessWrong:["Vanlige menn","Soldater","Bønder"],
     arrival:"Tråden tar dere til en tid da verden var blitt farlig. Bak en stor stein ser dere noen kjempestore menn …",
     greet:"Disse kjempene kalles nefilim. De var kjempestore og kjempesterke – men de brukte styrken til å være slemme og skremme alle rundt seg.",
@@ -369,7 +369,7 @@ const PERSONS = [
     lesson:"Nefilim var på slangens side. Lærdom: Å være stor og sterk betyr ingenting hvis hjertet er slemt."
   },
   {
-    id:"noah", name:"Noah", eraDate:"ca. 2400 f.v.t.", img:"images/07-noah.webp", side:"jehova",
+    id:"noah", name:"Noah", eraDate:"ca. 2400 f.v.t.", img:"images/07-noah.webp", imgFocus:"52% 10%", side:"jehova",
     puzzle:true, guessWrong:["Abraham","Moses","David"],
     arrival:"Tråden lyser fram til en diger trekasse under bygging. Dere hører hamring og saging – en hel familie jobber sammen.",
     greet:"Hei! Jeg heter Noah. Dette er familien min – kona mi, sønnene Sem, Kam og Jafet, og konene deres. Jehova har bedt oss bygge denne store arken. Vil dere hjelpe til?",
@@ -379,9 +379,12 @@ const PERSONS = [
       "Folk lo av dem og trodde ikke på flommen. Men hele familien stolte på Jehova og ga aldri opp. Til slutt reddet Jehova alle åtte – og dyrene også."
     ],
     quiz:[
-      { q:"Hvem bygde arken sammen med Noah?", options:["Hele familien hans – åtte personer","Han bygde den helt alene","Naboene i byen"], correct:0 },
-      { q:"Hvorfor ble Noah og familien reddet?", options:["De lyttet til Jehova og adlød","De var sterkest","De bygde raskest"], correct:0 },
-      { q:"Hva gjorde folk rundt dem?", options:["De lo og trodde ikke på flommen","De hjalp ivrig til","De bygde sine egne arker"], correct:0 }
+      { q:"Hvem bygde arken sammen med Noah?", options:["Hele familien hans – åtte personer","Han bygde den helt alene","Naboene i byen"], correct:0,
+        verseAfter:{ t:"… du og sønnene dine og din kone og dine sønners koner sammen med deg.", ref:"1. Mosebok 6:18" } }, // MÅ BEKREFTES mot jw.org
+      { q:"Hvorfor ble Noah og familien reddet?", options:["De lyttet til Jehova og adlød","De var sterkest","De bygde raskest"], correct:0,
+        verseAfter:{ t:"Og Noah gjorde alt akkurat som Gud hadde befalt ham.", ref:"1. Mosebok 6:22" } }, // MÅ BEKREFTES mot jw.org
+      { q:"Hva gjorde folk rundt dem?", options:["De lo og trodde ikke på flommen","De hjalp ivrig til","De bygde sine egne arker"], correct:0,
+        verseAfter:{ t:"Ved tro bygde Noah en ark til redning for sin familie, og ved troen fordømte han verden.", ref:"Hebreerne 11:7" } } // MÅ BEKREFTES mot jw.org
     ],
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova advarer på forhånd og redder dem som lytter til ham. Han ville at HELE familien skulle holde sammen og bli reddet – ikke bare Noah. Jehova holder alltid løftene sine." },
     refs:"1. Mosebok 6:9–22; 7:1; Hebreerne 11:7",
