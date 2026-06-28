@@ -198,8 +198,23 @@ Som ellers (jf. Skriftstedsregelen): verifiser at hvert vers handler **direkte**
 om personen, 100 % ordrett NV, ingen gjenbruk i samme løkke, ellers
 `// MÅ BEKREFTES`. **Lots kone** har få vers → hold kortet kort.
 
-> **Merk:** Bolk 3 (Ned til Egypt → Job) og Bolk 4 (Ut av Egypt) er allerede
-> implementert i koden (kart 3 og kart 4) med PDF-verifiserte vers.
+---
+
+## Bolk 3 – Ned til Egypt → Job (kart 3, implementert)
+
+Karakterer i kronologisk rekkefølge:
+
+| # | Karakter | Side | Fokus |
+|---|---|---|---|
+| 1 | Jakobs 12 sønner | Faktastopp | Grunnmuren i Israels 12 stammer |
+| 2 | **Levi** | Jehovas side | **Prestelinjen:** Levi-stammen ble satt til side for hellig tjeneste. Levittene/prestene hjalp folket å holde seg trofaste og vernet veien mot Messias. **Levi selv er lite omtalt** – kortet handler om SLEKTENS rolle, **ikke** dramatiske hendelser i Levis eget liv (skriftstedsregelen). |
+| 3 | Juda | Jehovas side | Kongelinjen mot Jesus |
+| 4 | Josef | Jehovas side | Svik → troskap → tilgivelse; Jehova vernet ætten |
+| 5 | Potifars kone | Slangens side | Fristet Josef; han flyktet |
+| 6 | Job | Jehovas side | Lojalitet under den hardeste prøven |
+
+## Bolk 4 – Ut av Egypt (kart 4, implementert)
+Sjifra og Pua, Jokebed, Moses, Aron (Jehovas side) · Farao (slangens side).
 
 ---
 
