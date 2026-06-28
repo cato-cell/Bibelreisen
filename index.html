@@ -1075,40 +1075,22 @@ function buildJigsawImpl(url, imgAspect, im){
     stage.appendChild(piece); pieces.push(piece);
     makeDraggable(piece,box,(h+2*t),w,()=>{ placed++; if(placed===cells.length) jigsawDone(); });
   });
-  // Slør motivet (bakt inn i pikslene, virker i ALLE nettlesere) – det ferdige bildet røper ikke hvem det er
-  const bg = im ? obscureFromImage(im, boardW, boardH) : null;
-  if(bg) pieces.forEach(pc=>{ pc.style.backgroundImage='url("'+bg+'")'; });
-  else pieces.forEach(pc=>{                                  // reserve: aldri flate tomme brikker
-    pc.style.backgroundImage='linear-gradient(135deg,#F0C463,#CE933C 52%,#A56C2C)';
-    pc.style.backgroundSize='cover'; });
+  // Vis det EKTE møte-bildet på brikkene (klart, ikke slør) – brikkene settes sammen til hele bildet
+  pieces.forEach(pc=>{ pc.style.backgroundImage='url("'+url+'")'; });
 }
 /* Sløret versjon av møte-bildet (ansikt ikke gjenkjennelig). Bruker nedskaler→oppskaler
    i stedet for ctx.filter, så det virker i ALLE nettlesere (Safari støtter ikke canvas-blur).
    Tegner HELE bildet (ingen beskjæring) – toppen er alltid med. */
 function obscureFromImage(im, w, h){
   try{
-    const small=Math.max(12, Math.round(w/22));              // bredde på mini-versjon = slørstyrke (ansiktet forblir ugjenkjennelig)
-    const sh=Math.max(7, Math.round(small*h/w));
-    const sc=document.createElement('canvas'); sc.width=small; sc.height=sh;
-    const scx=sc.getContext('2d', {willReadFrequently:true});
-    scx.drawImage(im, 0, 0, small, sh);
-    // Løft farge + lysstyrke så brikkene TYDELIG ser ut som et fargerikt bilde
-    // (også mørke motiver), mens selve identiteten fortsatt er sløret bort.
-    try{
-      const id=scx.getImageData(0,0,small,sh), d=id.data;
-      const sat=1.5, bri=1.14, lift=16;
-      for(let i=0;i<d.length;i+=4){
-        const r=d[i], g=d[i+1], b=d[i+2], gray=0.299*r+0.587*g+0.114*b;
-        d[i]  =Math.min(255, lift+bri*(gray+(r-gray)*sat));
-        d[i+1]=Math.min(255, lift+bri*(gray+(g-gray)*sat));
-        d[i+2]=Math.min(255, lift+bri*(gray+(b-gray)*sat));
-      }
-      scx.putImageData(id,0,0);
-    }catch(e){}                                              // f.eks. blokkert getImageData → bruk rå nedskalering
+    const small=Math.max(10, Math.round(w/24));              // bredde på mini-versjon = slørstyrke
+    const sc=document.createElement('canvas'); sc.width=small; sc.height=Math.max(6, Math.round(small*h/w));
+    sc.getContext('2d').drawImage(im, 0, 0, sc.width, sc.height);
     const cv=document.createElement('canvas'); cv.width=w; cv.height=h;
     const cx=cv.getContext('2d');
     cx.imageSmoothingEnabled=true; cx.imageSmoothingQuality='high';
     cx.drawImage(sc, 0, 0, w, h);                            // oppskalering = mykt slør
+    cx.fillStyle='rgba(40,30,15,0.05)'; cx.fillRect(0,0,w,h); // bitteliten demping
     return cv.toDataURL('image/png');
   }catch(e){ return null; }   // f.eks. blokkert canvas → behold nøytrale brikker
 }
