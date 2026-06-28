@@ -8,3 +8,7 @@ Thumbs.db
 # Local servers / logs
 *.log
 .cache/
+
+# Opphavsrettsbeskyttet kildemateriale – skal ALDRI pushes
+/verktoy/
+*.pdf

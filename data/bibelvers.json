@@ -1,0 +1,16 @@
+{
+  "_les_meg": "Fasit for bibelvers (Ny verden-oversettelsen, norsk). Tekst skal hentes 100 % ORDRETT fra /verktoy/nwt_N.pdf i en LOKAL Claude Code-økt – ikke fra hukommelse, ikke fra jw.org-parafrase. Felt 'tekst' og 'side' fylles lokalt. status: \"❓ ikke hentet\" = mangler ennå; settes til \"✅ hentet fra PDF\" når ordlyd + sidetall er på plass. Spillet skal etter stikkprøve hente vers herfra i stedet for hardkodet i index.html.",
+  "vers": [
+    { "karakter": "Nimrod",     "referanse": "1. Mosebok 10:8-9",  "tekst": "", "side": "", "status": "❓ ikke hentet" },
+    { "karakter": "Abraham",    "referanse": "1. Mosebok 12:2-3",  "tekst": "", "side": "", "status": "❓ ikke hentet" },
+    { "karakter": "Abraham",    "referanse": "1. Mosebok 22:18",   "tekst": "", "side": "", "status": "❓ ikke hentet" },
+    { "karakter": "Sara",       "referanse": "1. Mosebok 18:11-14","tekst": "", "side": "", "status": "❓ ikke hentet" },
+    { "karakter": "Melkisedek", "referanse": "1. Mosebok 14:18-20","tekst": "", "side": "", "status": "❓ ikke hentet" },
+    { "karakter": "Lot",        "referanse": "2. Peter 2:7-8",     "tekst": "", "side": "", "status": "❓ ikke hentet" },
+    { "karakter": "Lots kone",  "referanse": "1. Mosebok 19:26",   "tekst": "", "side": "", "status": "❓ ikke hentet" },
+    { "karakter": "Lots kone",  "referanse": "Lukas 17:32",        "tekst": "", "side": "", "status": "❓ ikke hentet" },
+    { "karakter": "Isak",       "referanse": "1. Mosebok 26:3-4",  "tekst": "", "side": "", "status": "❓ ikke hentet" },
+    { "karakter": "Rebekka",    "referanse": "1. Mosebok 24:18-19","tekst": "", "side": "", "status": "❓ ikke hentet" },
+    { "karakter": "Jakob",      "referanse": "1. Mosebok 28:13-14","tekst": "", "side": "", "status": "❓ ikke hentet" }
+  ]
+}
