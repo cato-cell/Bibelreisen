@@ -127,6 +127,16 @@
   .versecard .q .ic{color:var(--jehova);flex:0 0 auto;margin-top:2px;}
   .versecard .ref{margin-top:8px;font-family:'Fredoka';font-weight:600;font-size:.85rem;color:var(--ink-soft);text-align:right;}
 
+  /* ===== Forside / hero ===== */
+  .hero{text-align:center;}
+  .hero-scene{box-shadow:0 18px 44px rgba(58,46,34,.20), 0 4px 12px rgba(58,46,34,.10);}
+  .hero-text{margin-top:20px;}
+  .hero-title{font-size:2.6rem;margin:8px 0 0;}
+  .hero-rule{display:block;width:64px;height:3px;margin:13px auto;border-radius:99px;background:linear-gradient(90deg,transparent,var(--thread),transparent);}
+  .hero-lead{color:var(--ink-soft);max-width:24em;margin:0 auto;}
+  .introverse{background:linear-gradient(180deg,#FFF6E6,#FBEFD9);border-color:#EBD5A8;margin-top:18px;}
+  .introverse .q{color:var(--thread-deep);} .introverse .q .ic{color:var(--thread);} .introverse .ref{color:var(--ink-soft);}
+
   .scrim{position:fixed;inset:0;background:rgba(58,46,34,.55);display:flex;align-items:center;justify-content:center;padding:18px;z-index:50;opacity:0;pointer-events:none;transition:opacity .25s;}
   .scrim.open{opacity:1;pointer-events:auto;} .modal{background:var(--panel);border-radius:22px;padding:22px;max-width:420px;width:100%;text-align:center;border:1px solid var(--line);}
   .progress{height:7px;border-radius:99px;background:#E7D6B4;overflow:hidden;margin:14px 0 4px;} .progress>i{display:block;height:100%;background:var(--thread);border-radius:99px;transition:width .3s;}
@@ -297,7 +307,16 @@ const PERSONS = [
   { id:"abraham", name:"Abraham", eraDate:"ca. 2000 f.v.t.", img:"images/08-abraham.webp", locked:true },
 ];
 
-const STATE = { collected:{}, steps:[], i:0, person:null };
+const STATE = { collected:{}, steps:[], i:0, person:null, started:false };
+
+/* ---------- Fremdrift (localStorage) ---------- */
+const SAVE_KEY = 'rodetraad.v1';
+function saveState(){ try{ localStorage.setItem(SAVE_KEY, JSON.stringify({ collected:STATE.collected, started:STATE.started })); }catch(e){} }
+function loadState(){ try{ const r=JSON.parse(localStorage.getItem(SAVE_KEY)||'{}');
+  if(r && typeof r==='object'){ STATE.collected=r.collected||{}; STATE.started=!!r.started; } }catch(e){} }
+function markStarted(){ if(!STATE.started){ STATE.started=true; saveState(); } }   // husk at spilleren har begynt
+function hasProgress(){ return STATE.started || Object.keys(STATE.collected).length>0; }
+
 const app=document.getElementById('app'), scrim=document.getElementById('scrim'), modal=document.getElementById('modal');
 function render(html){ app.innerHTML=html; app.firstElementChild?.classList.add('fade'); window.scrollTo(0,0); }
 function esc(s){ return (s||'').replace(/'/g,"\\'"); }
@@ -310,15 +329,35 @@ function sceneImg(src, caption){
 
 /* ---------- Start ---------- */
 function renderStart(){
+  const returning = hasProgress();
+  // Har spilleren startet før? → «Fortsett reisen» rett til kartet. Ellers «Begynn reisen» + «Hopp til reisen».
+  const primary = returning
+    ? `<button class="btn btn-primary" onclick="renderJourney()">Fortsett reisen →</button>`
+    : `<button class="btn btn-primary" onclick="renderProlog(0)">Begynn reisen →</button>`;
+  const secondary = returning
+    ? `<button class="btn btn-soft" style="margin-top:10px;" onclick="renderProlog(0)">Se introen på nytt</button>`
+    : `<button class="btn btn-soft" style="margin-top:10px;" onclick="renderJourney()">Hopp til reisen →</button>`;
   render(`<div class="pad fade">
-    <div class="scene" style="aspect-ratio:4/3;"><img src="${START_IMG}" alt="To søsken finner den lysende boken"></div>
-    <div style="text-align:center;margin-top:18px;"><div class="eyebrow">${ic('thread')} En reise gjennom Bibelen</div>
-      <h1 style="font-size:2.5rem;margin:10px 0;">Den røde tråden</h1>
-      <p class="lead" style="color:var(--ink-soft);max-width:24em;margin:0 auto;">Bli med to søsken som reiser gjennom hele Bibelen – og bli kjent med Jehova.</p></div>
-    <div class="spacer" style="height:24px;"></div>
-    <button class="btn btn-primary" onclick="renderProlog(0)">Begynn reisen →</button></div>`);
+    <div class="hero">
+      <div class="scene hero-scene" style="aspect-ratio:4/3;"><img src="${START_IMG}" alt="To søsken finner den lysende boken"></div>
+      <div class="hero-text">
+        <div class="eyebrow">${ic('thread')} En reise gjennom Bibelen</div>
+        <h1 class="hero-title">Den røde tråden</h1>
+        <span class="hero-rule"></span>
+        <p class="lead hero-lead">Bli med to søsken som reiser gjennom hele Bibelen – og bli kjent med Jehova.</p>
+      </div>
+    </div>
+    <div class="versecard introverse">
+      <div class="q">${ic('thread')} «… mellom ditt avkom og hennes avkom. Han skal knuse hodet ditt …»</div>
+      <div class="ref">1. Mosebok 3:15</div>
+    </div>
+    <div class="spacer" style="height:22px;"></div>
+    ${primary}
+    ${secondary}</div>`);
+  // Verskort over: utdrag av 1. Mos 3:15 (den røde tråden – Jehovas side vs. Slangens side). // MÅ BEKREFTES mot jw.org
 }
 function renderProlog(i){
+  markStarted();
   const p=PROLOG[i], last=i===PROLOG.length-1;
   render(`<div class="pad fade"><div class="eyebrow">Slik begynner alt &middot; ${i+1}/${PROLOG.length}</div>
     <div class="progress" style="margin-top:10px;"><i style="width:${(i+1)/PROLOG.length*100}%"></i></div>
@@ -336,6 +375,7 @@ function topBar(){ const n=Object.keys(STATE.collected).length;
 
 /* ---------- Kartet (atlas) ---------- */
 function renderJourney(){
+  markStarted();
   render(`${topBar()}<div class="pad fade"><div class="eyebrow">${ic('compass')} Følg den røde tråden</div>
     <h2 style="margin:8px 0 4px;">Hvem skjuler seg på neste stopp?</h2>
     <p class="hint">Pusle fram bildet for å finne det ut.</p>
@@ -449,7 +489,7 @@ function renderStep(){
         <button class="side side-s" onclick="chooseSide('slange')">${ic('fork')} Slangens side</button></div>
       <p id="fb" style="font-weight:700;min-height:24px;margin-top:12px;"></p></div>`);
   } else if(s.t==='reward'){
-    STATE.collected[p.id]={side:p.side,lesson:p.lesson,name:p.name,refs:p.refs};
+    STATE.collected[p.id]={side:p.side,lesson:p.lesson,name:p.name,refs:p.refs}; saveState();
     render(`${head}<div class="pad fade reward"><span class="gem">${ic('pearl')}</span><h2 style="margin:6px 0;">Du fikk en perle!</h2>
       <div class="lessonbox">${p.lesson}</div>
       <button class="btn btn-primary" onclick="renderJourney()">Tilbake til reisen →</button>
@@ -606,6 +646,7 @@ function showLesson(id){ const c=STATE.collected[id];
 function closeModal(){ scrim.classList.remove('open'); }
 scrim.addEventListener('click',e=>{ if(e.target===scrim) closeModal(); });
 window.addEventListener('resize',()=>{ if(document.getElementById('journey')) buildJourney(); });
+loadState();
 renderStart();
 </script>
 </body>
