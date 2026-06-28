@@ -88,13 +88,17 @@ sentrum.
 - Legg inn skriftsteder **alle steder der det er naturlig og underbygger det vi
   skal lære** — men alltid i tråd med Skriftstedsregelen over (person-spesifikt)
   og 100 % ordrett NV.
-- **Verskort i puslespill-seksjonen:** når brikkene er ferdige, vises et pent
-  verskort. **Plassering (godkjent av Cato):** rett etter «Ferdig! Godt
-  jobbet!», før «Hvem tror du dette er?»-knappen — fyller tomrommet.
-  - Implementert via valgfritt felt `verse:{ t:"…", ref:"…" }` per person,
-    rendret i `jigsawDone()` (`.versecard`).
-  - Verset hentes fra personens egne `refs` (person-spesifikt). Det ferdige
-    puslebildet røper allerede scenen, så et person-spesifikt vers her er greit.
+- **Ingen spoiler i puslespill/gjettelek (oppdatert, godkjent av Cato):**
+  Møte-motivet skal **ikke røpe identitet** før avsløringen. Både puslebrikkene
+  og gjette-skjermen viser et **slørt** motiv (ansiktet er ikke gjenkjennelig).
+  - Puslespill: sløret er **bakt inn i pikslene** via canvas (`obscureImage()`),
+    så det ferdige bildet forblir uidentifiserbart. Gjette-skjermen bruker
+    `sceneImg(src, caption, true)` (CSS-klassen `.scene.obscure`).
+  - Ved «Ferdig! Godt jobbet!» vises **kun nøytral ros + CTA** «Hvem tror du
+    dette er? →». **Ingen navngivende vers her.**
+- **Navngivende verskort:** det person-spesifikke verset (`verse:{ t, ref }`)
+  vises **etter avsløringen** (i `reveal`-steget, `.versecard`), når identiteten
+  allerede er kjent. Person-spesifikt + 100 % ordrett NV som ellers.
 - Refleksjonsskjermen og trofé-modalen viser bibelreferanser (`refs`).
 
 ---
@@ -102,9 +106,9 @@ sentrum.
 ## Møteløkke per karakter (fast rekkefølge)
 
 1. Ankomsthint (**uten navn**)
-2. Puslespill (+ verskort når ferdig)
-3. Gjettelek (4 valg)
-4. Avsløring + hilsen
+2. Puslespill (slørt motiv; ved ferdig: kun nøytral ros + CTA)
+3. Gjettelek (4 valg; slørt motiv)
+4. Avsløring + hilsen (+ navngivende verskort her)
 5. Fortelling
 6. Quiz (tilfeldig rekkefølge)
 7. Refleksjonsspørsmål
@@ -168,7 +172,8 @@ struktur, kodemønster og kommentarstil.
 - Ekte interlåsende puslespillformer (tabs/blanks, ingen ghost-guide)
 - **Puslebrettet fyller nesten hele bredden;** skuff-brikkene skaleres ned så de
   får plass, og vokser til full størrelse når de løftes
-- Verskort vises når puslespillet er ferdig (`.versecard`)
+- Slørt møte-motiv i puslespill/gjettelek (ingen spoiler); navngivende verskort
+  vises først ved avsløring (`.versecard`)
 - Atlas/pergament-estetikk
 - Voksseglmedaljonger på kartet; faktastopp får **gull-stjerne** (ikke
   hjerte/gaffel)

@@ -34,6 +34,10 @@
 
   .scene{width:100%;aspect-ratio:16/9;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);background:#EADFCB;border:1px solid var(--line);}
   .scene img{width:100%;height:100%;object-fit:cover;display:block;}
+  .scene.obscure{position:relative;}
+  .scene.obscure img{filter:blur(17px) saturate(.9) brightness(.98);transform:scale(1.14);}
+  .scene.obscure::after{content:"?";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    font-family:'Fredoka';font-weight:700;font-size:3rem;color:rgba(255,248,233,.92);text-shadow:0 2px 10px rgba(58,46,34,.5);}
   .ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:8px;padding:14px;color:#9A8763;background:repeating-linear-gradient(135deg,#F3E8D2,#F3E8D2 16px,#ECDFC2 16px,#ECDFC2 32px);}
   .ph .qm{font-family:'Fredoka';font-weight:700;font-size:2.4rem;color:var(--thread);}
   .ph b{font-family:'Fredoka';color:#6E6149;font-size:1rem;} .ph span{font-size:.85rem;} .ph code{font-size:.76rem;background:#fff;padding:2px 7px;border-radius:6px;color:var(--thread-deep);}
@@ -340,9 +344,10 @@ const app=document.getElementById('app'), scrim=document.getElementById('scrim')
 function render(html){ app.innerHTML=html; app.firstElementChild?.classList.add('fade'); window.scrollTo(0,0); }
 function esc(s){ return (s||'').replace(/'/g,"\\'"); }
 function shuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
-function sceneImg(src, caption){
-  if(src && src.startsWith('data:')) return `<div class="scene"><img src="${src}" alt="${caption}"></div>`;
-  return `<div class="scene"><img src="${src}" alt="${caption}"
+function sceneImg(src, caption, obscure){
+  const cls = obscure ? 'scene obscure' : 'scene';   // obscure = slør motivet (ingen spoiler før avsløring)
+  if(src && src.startsWith('data:')) return `<div class="${cls}"><img src="${src}" alt="${caption}"></div>`;
+  return `<div class="${cls}"><img src="${src}" alt="${caption}"
     onerror="this.parentNode.innerHTML='<div class=&quot;ph&quot;><span class=&quot;qm&quot;>?</span><b>${esc(caption)}</b><span>Legg møte-bildet her:</span><code>${src}</code></div>'"></div>`;
 }
 
@@ -472,13 +477,14 @@ function renderStep(){
   } else if(s.t==='guess'){
     const opts=shuffle([p.name,...p.guessWrong]);
     const btns=opts.map(o=>`<button class="opt" onclick="answerGuess(this,'${esc(o)}')">${ic('search')} ${o}</button>`).join('');
-    render(`${head}<div class="pad fade">${img}<div class="eyebrow" style="margin-top:14px;">${ic('search')} Gjett hvem</div>
+    render(`${head}<div class="pad fade">${sceneImg(p.img,'Hvem skjuler seg her?',true)}<div class="eyebrow" style="margin-top:14px;">${ic('search')} Gjett hvem</div>
       <h3 style="font-size:1.25rem;margin:8px 0 14px;">Hvem tror du dette er?</h3>${btns}
       <p id="fb" style="font-weight:700;min-height:24px;"></p></div>`);
   } else if(s.t==='reveal'){
     render(`${head}<div class="pad fade">${img}
       <div style="text-align:center;margin-top:12px;"><span class="chip" style="color:var(--jehova);">${ic('check')} Det er ${p.name}!</span></div>
       <div class="speech">${p.greet}</div>
+      ${p.verse?`<div class="versecard" style="margin-top:14px;"><div class="q">${ic('book')} «${p.verse.t}»</div><div class="ref">${p.verse.ref}</div></div>`:''}
       <div class="spacer" style="height:22px;"></div>
       <button class="btn btn-primary" onclick="next()">Hør historien →</button></div>`);
   } else if(s.t==='story'){
@@ -593,7 +599,7 @@ function buildJigsaw(url){
 
   const cells=[]; for(let r=0;r<rows;r++)for(let c=0;c<cols;c++) cells.push({r,c,cx:boardLeft+c*w+w/2,cy:r*h+h/2});
   const trayOrder=shuffle([...Array(cells.length).keys()]);
-  let placed=0;
+  let placed=0; const pieces=[];
   trayOrder.forEach((cellIdx,q)=>{
     const cell=cells[cellIdx], r=cell.r, c=cell.c;
     const homeLeft=trayLeft+(q%cols)*(sbox+gap), homeTop=trayTop+Math.floor(q/cols)*(sbox+gap);
@@ -601,14 +607,35 @@ function buildJigsaw(url){
     piece.style.width=box+'px'; piece.style.height=(h+2*t)+'px';
     piece.style.left=homeLeft+'px'; piece.style.top=homeTop+'px';
     piece.style.transformOrigin='top left'; piece.style.transform='scale('+trayScale+')';
-    piece.style.backgroundImage=`url("${url}")`; piece.style.backgroundSize=boardW+'px '+boardH+'px';
+    piece.style.backgroundColor='#E7D9BC';           // nøytral brikke til det slørte bildet er klart
+    piece.style.backgroundSize=boardW+'px '+boardH+'px';
     piece.style.backgroundPosition=`${(t-c*w).toFixed(1)}px ${(t-r*h).toFixed(1)}px`;
     const dd=clipFor(r,c); piece.style.clipPath=`path('${dd}')`; piece.style.webkitClipPath=`path('${dd}')`;
     piece._home={left:homeLeft,top:homeTop}; piece._trayScale=trayScale;
     piece._target={left:boardLeft+c*w - t, top:r*h - t, cx:cell.cx, cy:cell.cy};
-    stage.appendChild(piece);
+    stage.appendChild(piece); pieces.push(piece);
     makeDraggable(piece,box,(h+2*t),w,()=>{ placed++; if(placed===cells.length) jigsawDone(); });
   });
+  // Slør motivet permanent (bakt inn i pikslene) – det ferdige puslebildet røper ikke hvem det er
+  obscureImage(url, boardW, boardH, (bg)=>{ if(bg) pieces.forEach(pc=>{ pc.style.backgroundImage='url("'+bg+'")'; }); });
+}
+/* Lager en kraftig sløret versjon av møte-bildet via canvas (ansikt ikke gjenkjennelig). */
+function obscureImage(url, w, h, cb){
+  try{
+    const im=new Image();
+    im.onload=function(){
+      try{
+        const cv=document.createElement('canvas'); cv.width=w; cv.height=h;
+        const cx=cv.getContext('2d');
+        const blur=Math.max(8, Math.round(w/22));
+        cx.filter='blur('+blur+'px) saturate(0.9) brightness(0.97)';
+        cx.drawImage(im, -blur*2, -blur*2, w+blur*4, h+blur*4);   // tegn utenfor kanten så sløret fyller helt
+        cb(cv.toDataURL('image/png'));
+      }catch(e){ cb(null); }    // f.eks. blokkert canvas → behold nøytrale brikker
+    };
+    im.onerror=function(){ cb(null); };
+    im.src=url;
+  }catch(e){ cb(null); }
 }
 function makeDraggable(piece,boxW,boxH,w,onPlaced){
   const halfW=boxW/2, halfH=boxH/2; let sx,sy,sl,st,drag=false;
@@ -633,12 +660,8 @@ function jigsawDone(){
   if(stage){ const board=stage.querySelector('.jig-board'), line=stage.querySelector('.jig-tray-line');
     if(line) line.style.display='none';
     if(board) stage.style.height=(board.offsetHeight+6)+'px'; }       // fjern tomt skuff-felt
-  const p=STATE.person, n=document.getElementById('jnext');
-  if(p && p.verse && n && !document.getElementById('jverse')){        // fyll tomrommet med et skriftsted
-    const v=document.createElement('div'); v.className='versecard'; v.id='jverse';
-    v.innerHTML=`<div class="q">${ic('book')} «${p.verse.t}»</div><div class="ref">${p.verse.ref}</div>`;
-    n.parentNode.insertBefore(v,n);
-  }
+  // Ingen navngivende vers her – kun nøytral ros + CTA. Identitet avsløres først ETTER gjetteleken.
+  const n=document.getElementById('jnext');
   if(n){ n.classList.add('pulse'); setTimeout(()=>n.scrollIntoView({behavior:'smooth',block:'center'}),120); }
 }
 
