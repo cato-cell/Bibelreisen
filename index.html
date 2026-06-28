@@ -210,8 +210,81 @@ const PERSONS = [
     sideQ:"Hvem lyttet Kain til?",
     lesson:"Kain valgte slangens side. Lærdom: Jehova advarer oss fordi han er glad i oss – men vi velger selv."
   },
-  { id:"noah", name:"Noah", eraDate:"ca. 2400 f.v.t.", img:"images/04-noah.webp", locked:true },
-  { id:"abraham", name:"Abraham", eraDate:"ca. 2000 f.v.t.", img:"images/05-abraham.webp", locked:true },
+  {
+    id:"enok", name:"Enok", eraDate:"ca. 3400 f.v.t.", img:"images/04-enok.webp", side:"jehova",
+    puzzle:true, guessWrong:["Noah","Abraham","Moses"],
+    arrival:"Tråden tar dere til en stille sti i morgenlys. En eldre mann går der, ser opp og snakker varmt – som med en god venn.",
+    greet:"Hei! Jeg heter Enok. Jeg liker å vandre og snakke med Jehova – han er den beste vennen min.",
+    story:[
+      "Enok levde i en verden full av slemme mennesker. Men han var annerledes – han «vandret med Jehova». Det betyr at han var Jehovas nære venn og gjorde alt for å glede ham.",
+      "Jehova ga Enok en modig jobb: å si fra til folk at all ondskapen måtte ta slutt. Mange ble sinte, men Enok var modig og fortsatte.",
+      "Enok ble 365 år. Da fiender ville skade ham, lot Jehova ham sovne stille inn – så han slapp å lide. Jehova passet på vennen sin helt til slutt."
+    ],
+    quiz:[
+      { q:"Hva betyr det at Enok «vandret med Jehova»?", options:["Han var Jehovas nære venn og gjorde det Jehova liker","Han gikk lange turer alene","Han bodde i en stor hage"], correct:0 },
+      { q:"Hva gjorde Enok da folk ble sinte på budskapet?", options:["Han var modig og fortsatte","Han ga opp med en gang","Han gjemte seg for alltid"], correct:0 }
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova legger merke til dem som vil være vennene hans, selv når alle andre gjør det onde – og han passer på dem." },
+    refs:"1. Mosebok 5:21–24; Hebreerne 11:5; Judas 14, 15",
+    sideQ:"Hvem lyttet Enok til?",
+    lesson:"Enok valgte Jehovas side. Lærdom: Vi kan være Jehovas nære venn selv når ingen andre er det."
+  },
+  {
+    id:"metusjalah", name:"Metusjalah", eraDate:"ca. 3300 f.v.t.", img:"images/05-metusjalah.webp", side:"fakta", noSide:true,
+    puzzle:true, guessWrong:["Enok","Noah","Adam"],
+    arrival:"Tråden lyser fram til en svært, svært gammel mann som sitter utenfor et telt, omgitt av mange slektninger.",
+    greet:"Hei, små venner! Jeg er Metusjalah. Jeg har levd LENGER enn noe annet menneske som har levd – kan dere gjette hvor lenge?",
+    story:[
+      "Metusjalah ble 969 år gammel – ingen i hele Bibelen har levd lenger!",
+      "Han var sønn av Enok og oldefar til Noah. Slik går den gode tråden videre, fra Enok mot Noah.",
+      "Metusjalah døde akkurat det året den store vannflommen kom. Et langt liv – men det viser at alle mennesker trenger Jehova."
+    ],
+    quiz:[
+      { q:"Hvor gammel ble Metusjalah?", options:["969 år","100 år","500 år"], correct:0 },
+      { q:"Hvem var Metusjalah i slekt med?", options:["Han var Enoks sønn og Noahs oldefar","Han var Abels bror","Han var en konge"], correct:0 }
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova lot menneskene leve lenge i begynnelsen. Men selv et langt liv er ikke nok uten Jehova – det er han som gir liv som varer." },
+    refs:"1. Mosebok 5:21–27",
+    lesson:"Visste du? Metusjalah levde i 969 år – lengst av alle i Bibelen, og helt til flommen kom. Tråden går fra Enok, gjennom ham, videre til Noah."
+  },
+  {
+    id:"nefilim", name:"Nefilim", eraDate:"før vannflommen", img:"images/06-nefilim.webp", side:"slange",
+    puzzle:true, guessWrong:["Vanlige menn","Soldater","Bønder"],
+    arrival:"Tråden tar dere til en tid da verden var blitt farlig. Bak en stor stein ser dere noen kjempestore menn …",
+    greet:"Disse kjempene kalles nefilim. De var kjempestore og kjempesterke – men de brukte styrken til å være slemme og skremme alle rundt seg.",
+    story:[
+      "Nefilim var mye større og sterkere enn vanlige mennesker. Men i stedet for å hjelpe andre, plaget de folk og fylte jorden med vold.",
+      "De var en trussel mot alle som elsket Jehova og ville gjøre det gode. Verden ble et farlig sted å leve."
+    ],
+    quiz:[
+      { q:"Hvordan brukte nefilim styrken sin?", options:["Til å være slemme og skremme andre","Til å hjelpe folk","Til å bygge fine hus"], correct:0 }
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova ser når de sterke gjør de svake vondt. Han lar ikke ondskapen vare for alltid – og snart skulle han gjøre noe med det." },
+    refs:"1. Mosebok 6:1–5",
+    sideQ:"Hvilken side var nefilim på?",
+    lesson:"Nefilim var på slangens side. Lærdom: Å være stor og sterk betyr ingenting hvis hjertet er slemt."
+  },
+  {
+    id:"noah", name:"Noah", eraDate:"ca. 2400 f.v.t.", img:"images/07-noah.webp", side:"jehova",
+    puzzle:true, guessWrong:["Abraham","Moses","David"],
+    arrival:"Tråden lyser fram til en diger trekasse under bygging. Dere hører hamring og saging – en hel familie jobber sammen.",
+    greet:"Hei! Jeg heter Noah. Dette er familien min – kona mi, sønnene Sem, Kam og Jafet, og konene deres. Jehova har bedt oss bygge denne store arken. Vil dere hjelpe til?",
+    story:[
+      "Jehova fortalte Noah at en stor vannflom skulle komme fordi jorden var full av vold. Men han ville redde dem som elsket ham.",
+      "Noah og hele familien – åtte personer – bygde arken sammen i mange, mange år. De saget, hamret og bar tunge planker, side om side.",
+      "Folk lo av dem og trodde ikke på flommen. Men familien lyttet til Jehova og ga aldri opp. Derfor ble de reddet."
+    ],
+    quiz:[
+      { q:"Hvem bygde arken sammen med Noah?", options:["Hele familien hans – åtte personer","Han bygde den helt alene","Naboene i byen"], correct:0 },
+      { q:"Hvorfor ble Noah og familien reddet?", options:["De lyttet til Jehova og adlød","De var sterkest","De bygde raskest"], correct:0 },
+      { q:"Hva gjorde folk rundt dem?", options:["De lo og trodde ikke på flommen","De hjalp ivrig til","De bygde sine egne arker"], correct:0 }
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova advarer på forhånd og redder dem som lytter til ham. Han holder alltid løftene sine." },
+    refs:"1. Mosebok 6:9–22; 7:1; Hebreerne 11:7",
+    sideQ:"Hvem lyttet Noah og familien til?",
+    lesson:"Noah valgte Jehovas side – sammen med hele familien. Lærdom: Når vi lytter til Jehova og holder sammen som familie, passer han på oss."
+  },
+  { id:"abraham", name:"Abraham", eraDate:"ca. 2000 f.v.t.", img:"images/08-abraham.webp", locked:true },
 ];
 
 const STATE = { collected:{}, steps:[], i:0, person:null };
@@ -291,7 +364,10 @@ function buildJourney(){
     seal.style.left=pts[k].x+'px'; seal.style.top=pts[k].y+'px';
     if(p.locked) seal.innerHTML=ic('lock');
     else if(done){ const sd=STATE.collected[p.id].side;
-      seal.innerHTML=ic('pearl')+`<span class="badge" style="color:var(--${sd==='jehova'?'jehova':'other'})">${ic(sd==='jehova'?'heart':'fork')}</span>`; }
+      const badge = sd==='jehova' ? `<span class="badge" style="color:var(--jehova)">${ic('heart')}</span>`
+                  : sd==='slange' ? `<span class="badge" style="color:var(--other)">${ic('fork')}</span>`
+                  : `<span class="badge" style="color:var(--gold-deep)">${ic('star')}</span>`;
+      seal.innerHTML=ic('pearl')+badge; }
     else seal.innerHTML=`<span class="qm">?</span>`;
     if(!p.locked) seal.onclick=()=>startPerson(p.id);
     j.appendChild(seal);
@@ -309,7 +385,8 @@ function startPerson(id){
   (p.story||[]).forEach((_,idx)=>steps.push({t:'story',idx}));
   (p.quiz||[]).forEach((_,idx)=>steps.push({t:'quiz',idx}));
   if(p.reflect) steps.push({t:'reflect'});
-  steps.push({t:'side'},{t:'reward'});
+  if(!p.noSide) steps.push({t:'side'});
+  steps.push({t:'reward'});
   STATE.steps=steps; renderStep();
 }
 function next(){ STATE.i++; renderStep(); }
@@ -488,7 +565,7 @@ function jigsawDone(){
 function renderTrophy(){
   const ids=PERSONS.filter(p=>!p.locked).map(p=>p.id);
   const cells=ids.map(id=>{ const c=STATE.collected[id];
-    if(c) return `<button class="tcard" onclick="showLesson('${id}')">${ic('pearl')}${c.name}<small>${c.side==='jehova'?'Jehovas side':'Slangens side'}</small></button>`;
+    if(c) return `<button class="tcard" onclick="showLesson('${id}')">${ic('pearl')}${c.name}<small>${c.side==='jehova'?'Jehovas side':c.side==='slange'?'Slangens side':'Kul fakta'}</small></button>`;
     return `<div class="tcard empty"><span class="qm" style="font-family:Fredoka;font-weight:700;font-size:1.6rem;">?</span></div>`;
   }).join('');
   const n=Object.keys(STATE.collected).length;
