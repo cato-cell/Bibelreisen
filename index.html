@@ -470,17 +470,19 @@ function buildJigsaw(url){
   const stage=document.getElementById('jstage'); if(!stage) return;
   const cols=4, rows=2, gap=6;
   const stageW=stage.clientWidth||340;
-  let boardW=Math.round(Math.min(stageW*0.72, 340));
-  let boardH=Math.round(boardW*9/16);
-  let w=boardW/cols, h=boardH/rows;
-  let t=Math.round(0.20*Math.max(w,h));          // tapp-margin (rommer formene)
-  let box=w+2*t;
-  let trayW=cols*box+(cols-1)*gap;
-  if(trayW>stageW){ const sc=stageW/trayW; boardW=Math.round(boardW*sc); boardH=Math.round(boardW*9/16);
-    w=boardW/cols; h=boardH/rows; t=Math.round(0.20*Math.max(w,h)); box=w+2*t; trayW=cols*box+(cols-1)*gap; }
+  // Brettet fyller nesten hele bredden – lite luft på sidene
+  const boardW=Math.round(Math.min(stageW*0.96, 460));
+  const boardH=Math.round(boardW*9/16);
+  const w=boardW/cols, h=boardH/rows;
+  const t=Math.round(0.20*Math.max(w,h));          // tapp-margin (rommer formene)
+  const box=w+2*t;
+  // Skuff-brikkene skaleres ned så alle får plass på bredden (brettet forblir stort)
+  const trayScale=Math.min(1,(stageW-(cols-1)*gap)/(cols*box));
+  const sbox=box*trayScale;
+  const trayW=cols*sbox+(cols-1)*gap;
   const boardLeft=Math.round((stageW-boardW)/2);
   const sep=Math.max(34,t+16), trayTop=boardH+sep, trayLeft=Math.round((stageW-trayW)/2);
-  stage.style.height=(trayTop+rows*box+(rows-1)*gap+8)+'px';
+  stage.style.height=(trayTop+rows*sbox+(rows-1)*gap+8)+'px';
   stage.innerHTML='';
 
   const board=document.createElement('div'); board.className='jig-board';
@@ -524,14 +526,15 @@ function buildJigsaw(url){
   let placed=0;
   trayOrder.forEach((cellIdx,q)=>{
     const cell=cells[cellIdx], r=cell.r, c=cell.c;
-    const homeLeft=trayLeft+(q%cols)*(box+gap), homeTop=trayTop+Math.floor(q/cols)*(box+gap);
+    const homeLeft=trayLeft+(q%cols)*(sbox+gap), homeTop=trayTop+Math.floor(q/cols)*(sbox+gap);
     const piece=document.createElement('div'); piece.className='jig-piece';
     piece.style.width=box+'px'; piece.style.height=(h+2*t)+'px';
     piece.style.left=homeLeft+'px'; piece.style.top=homeTop+'px';
+    piece.style.transformOrigin='top left'; piece.style.transform='scale('+trayScale+')';
     piece.style.backgroundImage=`url("${url}")`; piece.style.backgroundSize=boardW+'px '+boardH+'px';
     piece.style.backgroundPosition=`${(t-c*w).toFixed(1)}px ${(t-r*h).toFixed(1)}px`;
     const dd=clipFor(r,c); piece.style.clipPath=`path('${dd}')`; piece.style.webkitClipPath=`path('${dd}')`;
-    piece._home={left:homeLeft,top:homeTop};
+    piece._home={left:homeLeft,top:homeTop}; piece._trayScale=trayScale;
     piece._target={left:boardLeft+c*w - t, top:r*h - t, cx:cell.cx, cy:cell.cy};
     stage.appendChild(piece);
     makeDraggable(piece,box,(h+2*t),w,()=>{ placed++; if(placed===cells.length) jigsawDone(); });
@@ -541,16 +544,18 @@ function makeDraggable(piece,boxW,boxH,w,onPlaced){
   const halfW=boxW/2, halfH=boxH/2; let sx,sy,sl,st,drag=false;
   piece.addEventListener('pointerdown',e=>{ if(piece.classList.contains('placed'))return;
     drag=true; piece.setPointerCapture(e.pointerId); sx=e.clientX; sy=e.clientY;
-    sl=parseFloat(piece.style.left); st=parseFloat(piece.style.top);
+    const ts=piece._trayScale||1;                                  // løft til full størrelse, vokser fra midten
+    sl=parseFloat(piece.style.left)-boxW*(1-ts)/2; st=parseFloat(piece.style.top)-boxH*(1-ts)/2;
+    piece.style.left=sl+'px'; piece.style.top=st+'px'; piece.style.transform='scale(1)';
     piece.style.transition='none'; piece.style.zIndex=99; piece.style.filter='drop-shadow(0 8px 12px rgba(0,0,0,.4))'; });
   piece.addEventListener('pointermove',e=>{ if(!drag)return;
     piece.style.left=(sl+e.clientX-sx)+'px'; piece.style.top=(st+e.clientY-sy)+'px'; });
   piece.addEventListener('pointerup',()=>{ if(!drag)return; drag=false; piece.style.zIndex=''; piece.style.filter='';
     const bx=parseFloat(piece.style.left)+halfW, by=parseFloat(piece.style.top)+halfH;
     const dist=Math.hypot(bx-piece._target.cx, by-piece._target.cy);
-    piece.style.transition='left .18s, top .18s';
+    piece.style.transition='left .18s, top .18s, transform .18s';
     if(dist < w*0.72){ piece.style.left=piece._target.left+'px'; piece.style.top=piece._target.top+'px'; piece.classList.add('placed'); onPlaced(); }
-    else { piece.style.left=piece._home.left+'px'; piece.style.top=piece._home.top+'px'; } });
+    else { piece.style.transform='scale('+(piece._trayScale||1)+')'; piece.style.left=piece._home.left+'px'; piece.style.top=piece._home.top+'px'; } });
 }
 function jigsawDone(){
   const d=document.getElementById('jdone'); if(d)d.style.display='flex';
