@@ -648,6 +648,12 @@ const PERSONS = [
     verse:{ t:"Da våknet Jakob av søvnen og sa: «Jehova er på dette stedet, og jeg visste det ikke.»", ref:"1. Mosebok 28:16" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
     lesson:"Jakob valgte Jehovas side. Lærdom: Når vi setter Jehovas ting høyt, blir vi en del av løftet – tråden som fører fram til Jesus og paradiset."
   },
+  /* ===== BOLK 3 – Ned til Egypt → Job (kart 3). Låst ramme; fylles ett kort av gangen. ===== */
+  { id:"jakobs12", name:"Jakobs 12 sønner", eraDate:"ca. 1770 f.v.t.", img:"images/18-jakobs-12-sonner.webp", imgFocus:"50% 30%", side:"fakta", noSide:true, bolk:3, locked:true },
+  { id:"juda", name:"Juda", eraDate:"f. ca. 1770 f.v.t.", img:"images/19-juda.webp", imgFocus:"60% 18%", side:"jehova", bolk:3, locked:true },
+  { id:"josef", name:"Josef", eraDate:"f. 1767 f.v.t.", img:"images/20-josef.webp", imgFocus:"60% 16%", side:"jehova", bolk:3, locked:true },
+  { id:"potifarskone", name:"Potifars kone", eraDate:"ca. 1750 f.v.t.", img:"images/21-potifars-kone.webp", imgFocus:"55% 22%", side:"slange", bolk:3, locked:true },
+  { id:"job", name:"Job", eraDate:"før 1613 f.v.t.", img:"images/22-job.webp", imgFocus:"60% 20%", side:"jehova", bolk:3, locked:true },
 ];
 
 const STATE = { collected:{}, steps:[], i:0, person:null, started:false, bolk:1 };
@@ -750,11 +756,13 @@ function renderJourney(b){
   if(b){ STATE.bolk=b; saveState(); }
   markStarted();
   const bolk=STATE.bolk||1;
-  const back = bolk===2 ? `<button class="topbtn" style="flex:0 0 auto;align-self:flex-start;margin-bottom:12px;" onclick="renderJourney(1)">${ic('compass')} ← Før flommen</button>` : '';
-  const eyebrow = bolk===1 ? 'Følg den røde tråden' : 'Bolk 2 · Etter flommen';
-  const h2 = bolk===1 ? 'Hvem skjuler seg på neste stopp?' : 'Veien mot løftet';
+  const backTo = bolk===2 ? [1,'← Før flommen'] : bolk===3 ? [2,'← Patriarkene'] : null;
+  const back = backTo ? `<button class="topbtn" style="flex:0 0 auto;align-self:flex-start;margin-bottom:12px;" onclick="renderJourney(${backTo[0]})">${ic('compass')} ${backTo[1]}</button>` : '';
+  const eyebrow = bolk===1 ? 'Følg den røde tråden' : bolk===2 ? 'Bolk 2 · Etter flommen' : 'Bolk 3 · Ned til Egypt';
+  const h2 = bolk===1 ? 'Hvem skjuler seg på neste stopp?' : bolk===2 ? 'Veien mot løftet' : 'Ætten føres videre i Egypt';
   const hint = bolk===1 ? 'Pusle fram bildet for å finne det ut.'
-                        : 'Løftet fra Eden føres videre – Abraham → Isak → Jakob → … → paradiset.';
+             : bolk===2 ? 'Løftet fra Eden føres videre – Abraham → Isak → Jakob → … → paradiset.'
+             : 'Linjen til Jesus vernes – Jakobs sønner → Juda → Josef → … → paradiset.';
   render(`${topBar()}<div class="pad fade">${back}<div class="eyebrow">${ic('compass')} ${eyebrow}</div>
     <h2 style="margin:8px 0 4px;">${h2}</h2>
     <p class="hint">${hint}</p>
@@ -773,7 +781,7 @@ function buildJourney(){
   const svg=document.getElementById('thread');
   j.querySelectorAll('.seal,.ribbon').forEach(e=>e.remove());
   const W=j.clientWidth||520, cx=W/2, off=Math.min(W*0.22,104);
-  const top=100, gap=164, transY=top+list.length*gap, H=transY+(bolk===1?150:96); j.style.height=H+'px';
+  const top=100, gap=164, transY=top+list.length*gap, H=transY+(bolk<3?150:96); j.style.height=H+'px';
   const pts=list.map((p,k)=>({x:cx+(k%2?off:-off),y:top+k*gap}));
   let d=`M ${cx} 44 L ${pts[0].x} ${pts[0].y} `;
   for(let k=0;k<pts.length-1;k++){const a=pts[k],b=pts[k+1],my=(a.y+b.y)/2; d+=`C ${a.x} ${my}, ${b.x} ${my}, ${b.x} ${b.y} `;}
@@ -787,7 +795,9 @@ function buildJourney(){
   const intro=document.createElement('div'); intro.className='seal eden'; intro.style.left=cx+'px'; intro.style.top='44px';
   intro.innerHTML = bolk===1 ? ic('leaf') : ic('thread'); j.appendChild(intro);
   const ir=document.createElement('div'); ir.className='ribbon'; ir.style.left=cx+'px'; ir.style.top='84px';
-  ir.innerHTML = bolk===1 ? `Eden<small>SKAPELSEN · 4026 f.v.t.</small>` : `Etter flommen<small>NY START · 2370 f.v.t.</small>`;
+  ir.innerHTML = bolk===1 ? `Eden<small>SKAPELSEN · 4026 f.v.t.</small>`
+               : bolk===2 ? `Etter flommen<small>NY START · 2370 f.v.t.</small>`
+               : `Jakobs hus<small>ÆTTEN VOKSER · ca. 1795 f.v.t.</small>`;
   j.appendChild(ir);
 
   list.forEach((p,k)=>{
@@ -806,14 +816,17 @@ function buildJourney(){
   });
 
   // Overgangsfelt nederst
-  if(bolk===1){
+  if(bolk<3){
+    const nextBolk=bolk+1;
+    const gwTitle = bolk===1 ? 'Etter flommen' : 'Ned til Egypt';
+    const gwSub   = bolk===1 ? 'Bolk 2 · Patriarkene' : 'Bolk 3 · Egypt & Job';
     const card=document.createElement('button'); card.className='gateway-card'; card.style.top=(transY-6)+'px';
     card.innerHTML=`<span class="gw-medal">${ic('thread')}</span>`
       +`<span class="gw-txt"><span class="gw-eyebrow">Reisen fortsetter</span>`
-      +`<span class="gw-title">Etter flommen</span>`
-      +`<span class="gw-sub">Bolk 2 · Patriarkene</span></span>`
+      +`<span class="gw-title">${gwTitle}</span>`
+      +`<span class="gw-sub">${gwSub}</span></span>`
       +`<span class="gw-go">→</span>`;
-    card.onclick=()=>renderJourney(2); j.appendChild(card);
+    card.onclick=()=>renderJourney(nextBolk); j.appendChild(card);
   } else {
     const g=document.createElement('div'); g.className='seal locked'; g.style.left=cx+'px'; g.style.top=transY+'px';
     g.innerHTML=ic('lock'); j.appendChild(g);
