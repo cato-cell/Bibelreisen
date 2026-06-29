@@ -895,11 +895,114 @@ const PERSONS = [
     lesson:"Farao var på slangens side. Lærdom: Stolthet som nekter å bøye seg for Jehova, fører ingen vei. Jehova er alltid den sterkeste."
   },
   /* ===== BOLK 5 – Sinai → inntoget i det lovede land (kart 5). Låst ramme; fylles ett kort av gangen. ===== */
-  { id:"mosessinai", name:"Moses ved Sinai", eraDate:"1513 f.v.t.", img:"images/28-moses-sinai.webp", imgFocus:"55% 22%", side:"jehova", bolk:5, locked:true },
-  { id:"korah", name:"Korah", eraDate:"ca. 1512 f.v.t.", img:"images/29-korah.webp", imgFocus:"55% 22%", side:"slange", bolk:5, locked:true },
-  { id:"josva", name:"Josva", eraDate:"fra 1473 f.v.t.", img:"images/30-josva.webp", imgFocus:"55% 20%", side:"jehova", bolk:5, locked:true },
-  { id:"kaleb", name:"Kaleb", eraDate:"1473 f.v.t.", img:"images/31-kaleb.webp", imgFocus:"55% 20%", side:"jehova", bolk:5, locked:true },
-  { id:"rahab", name:"Rahab", eraDate:"1473 f.v.t.", img:"images/32-rahab.webp", imgFocus:"60% 22%", side:"jehova", bolk:5, locked:true },
+  {
+    id:"mosessinai", name:"Moses ved Sinai", eraDate:"1513 f.v.t.", img:"images/28-moses-sinai.webp", imgFocus:"55% 22%", side:"jehova", bolk:5,
+    puzzle:true, guessWrong:["Abraham","Josva","Aron"],
+    arrival:"Tråden tar dere til foten av et stort fjell som ryker og buldrer. Oppe på fjellet møter en mann Jehova selv – og kommer ned med to steintavler i hendene …",
+    greet:"Hei, det er meg igjen – Moses! Her ved Sinai-fjellet ga Jehova folket sitt en pakt, og jeg fikk to steintavler med budene hans.",
+    story:[
+      "Etter at Jehova hadde ført folket ut av Egypt, kom de til Sinai-fjellet. Der inngikk Jehova en spesiell avtale – en PAKT – med Israel. Hvis de adlød ham, skulle de bli hans «spesielle eiendom», en hellig nasjon.",
+      "Jehova kalte Moses opp på fjellet og ga ham to steintavler. På dem hadde Jehova selv skrevet budene og lovene som skulle veilede folket.",
+      "Loven holdt Israel rent og atskilt fra alt det gale rundt dem, og lærte dem hva Jehova ønsket. Slik vernet den ætten og pekte fram mot Messias, Jesus, som loven hele tiden ledet mot."
+    ],
+    quiz:[
+      { q:"Hva skulle Israel bli hvis de holdt pakten med Jehova?", options:["Hans spesielle eiendom og en hellig nasjon","De rikeste i verden","Herskere over Egypt"], correct:0,
+        verseAfter:{ t:"… skal dere bli min spesielle eiendom blant alle folkene, for hele jorden tilhører meg.", ref:"2. Mosebok 19:5" } }, // verifisert mot NV (nwt_N.pdf)
+      { q:"Hva ga Jehova Moses på fjellet?", options:["Steintavler med budene","En krone av gull","Et sverd"], correct:0,
+        verseAfter:{ t:"Jehova sa nå til Moses: «Kom opp til meg på fjellet og bli der. Jeg skal gi deg steintavler …»", ref:"2. Mosebok 24:12" } }, // verifisert mot NV (nwt_N.pdf)
+      { q:"Hva lærer vi om Jehova?", options:["Han gir folket sitt veiledning som verner og fører fram mot Messias","Han liker mange regler","Han bryr seg ikke om hvordan vi lever"], correct:0 }
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova satte folket sitt til side som noe spesielt og ga dem veiledning som holdt dem nær ham. Loven vernet ætten og pekte hele tiden fram mot Jesus – den røde tråden mot paradiset." },
+    refs:"2. Mosebok 19:5–6; 24:12; 31:18",
+    verse:{ t:"… ga han ham Vitnesbyrdets to tavler, steintavler som det var skrevet på med Guds finger.", ref:"2. Mosebok 31:18" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
+    sideQ:"Hvem inngikk Israel en pakt med?",
+    lesson:"Moses (ved Sinai) valgte Jehovas side. Lærdom: Jehovas veiledning er en gave som verner oss og holder oss nær ham – og fører hensikten hans trygt videre mot Jesus."
+  },
+  {
+    id:"korah", name:"Korah", eraDate:"ca. 1512 f.v.t.", img:"images/29-korah.webp", imgFocus:"55% 22%", side:"slange", bolk:5,
+    puzzle:true, guessWrong:["Aron","Josva","Kaleb"],
+    arrival:"Tråden tar dere til ørkenleiren. En mann har samlet en stor flokk rundt seg – ikke for å takke Jehova, men for å sette seg opp mot dem Jehova har valgt …",
+    greet:"Jeg heter Korah. Jeg syntes ikke det var rettferdig at Moses og Aron skulle lede – så jeg satte meg opp mot ordningen Jehova hadde valgt.",
+    story:[
+      "Korah var en levitt som tjente ved telthelligdommen. Men han ble misunnelig på Moses og Aron, som Jehova hadde valgt til å lede folket.",
+      "Korah samlet mange menn og gjorde opprør. Han ville ha makten selv og sa at Moses og Aron hadde opphøyd seg for mye. Men i virkeligheten satte han seg opp mot Jehova selv, som hadde bestemt ordningen."
+    ],
+    quiz:[
+      { q:"Hva gjorde Korah galt?", options:["Han gjorde opprør mot ordningen Jehova hadde valgt","Han hjalp Moses og Aron","Han bygde et alter"], correct:0,
+        verseAfter:{ t:"De samlet seg mot Moses og Aron og sa: «Vi har fått nok av dere! … Hvorfor skulle dere da opphøye dere over Jehovas menighet?»", ref:"4. Mosebok 16:3" } } // verifisert mot NV (nwt_N.pdf)
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova bestemmer selv hvem som skal lede folket hans. Den som setter seg opp mot ordningen hans for å skaffe seg makt, velger slangens side – det er egentlig opprør mot Jehova selv." },
+    refs:"4. Mosebok 16:1–3",
+    verse:{ t:"Korah, sønn av Jishar, sønn av Kehat, Levis sønn, slo seg så sammen med Datan og Abiram …", ref:"4. Mosebok 16:1" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
+    sideQ:"Hvem satte Korah seg egentlig opp mot?",
+    lesson:"Korah var på slangens side. Lærdom: Å sette seg opp mot ordningen Jehova har valgt, er å sette seg opp mot Jehova selv. Ydmykhet og respekt er alltid best."
+  },
+  {
+    id:"josva", name:"Josva", eraDate:"fra 1473 f.v.t.", img:"images/30-josva.webp", imgFocus:"55% 20%", side:"jehova", bolk:5,
+    puzzle:true, guessWrong:["Moses","Kaleb","Aron"],
+    arrival:"Tråden tar dere til en modig leder som står klar ved grensen til det lovede land. En stor oppgave venter – men Jehova har nettopp lovet å være med ham …",
+    greet:"Hei! Jeg heter Josva. Etter Moses fikk jeg lede folket inn i det lovede land – og Jehova lovet å være med meg hele veien.",
+    story:[
+      "Josva hadde fulgt Moses trofast i mange år. Da Moses døde, valgte Jehova Josva til å lede folket videre – helt inn i det lovede land.",
+      "Det var en stor og skummel oppgave. Men Jehova sa til Josva at han skulle være modig og sterk, og ikke være redd, for Jehova ville være med ham.",
+      "Josva stolte på Jehova og adlød. Med Jehovas hjelp ledet han folket inn i landet som var lovet ætten – ett skritt nærmere alt Jehova hadde planlagt."
+    ],
+    quiz:[
+      { q:"Hvilken oppgave fikk Josva etter Moses?", options:["Å lede folket inn i det lovede land","Å bygge en by i Egypt","Å bli prest"], correct:0 },
+      { q:"Hva lovte Jehova Josva?", options:["At han ville være med ham overalt hvor han gikk","At han aldri skulle møte fiender","At han skulle bli rik"], correct:0,
+        verseAfter:{ t:"Vær modig og sterk. La deg ikke skremme og bli ikke redd, for Jehova din Gud er med deg overalt hvor du går.", ref:"Josva 1:9" } }, // verifisert mot NV (nwt_N.pdf)
+      { q:"Hva lærer vi om Jehova?", options:["Han er med dem han sender, så vi kan være modige","Han lar oss klare alt alene","Han hjelper bare de fryktløse"], correct:0 }
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova er med dem han gir en oppgave. Når han er med oss, kan vi være modige og sterke selv i det vanskelige – for vi vet at vi ikke står alene." },
+    refs:"Josva 1:1–9",
+    verse:{ t:"Etter at Jehovas tjener Moses var død, sa Jehova til Josva, Nuns sønn, Moses' medhjelper …", ref:"Josva 1:1" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
+    sideQ:"Hvem var med Josva?",
+    lesson:"Josva valgte Jehovas side. Lærdom: Når Jehova gir oss en oppgave, er han med oss. Da kan vi være modige og stole på ham, uansett hvor stort det virker."
+  },
+  {
+    id:"kaleb", name:"Kaleb", eraDate:"1473 f.v.t.", img:"images/31-kaleb.webp", imgFocus:"55% 20%", side:"jehova", bolk:5,
+    puzzle:true, guessWrong:["Josva","Moses","Aron"],
+    arrival:"Tråden tar dere til en redd leir. Tolv speidere er nettopp kommet tilbake fra det lovede land – ti er livredde, men én mann står fram og roper at folket kan klare det …",
+    greet:"Hei! Jeg heter Kaleb. Jeg var en av speiderne som så på det lovede land – og jeg stolte på at Jehova ville gi oss det.",
+    story:[
+      "Moses sendte tolv speidere for å se på det lovede land. Ti av dem kom skjelvende tilbake og sa at folket der var altfor sterke – de våget ikke å dra inn.",
+      "Men Kaleb og Josva var ikke redde. Kaleb prøvde å roe folket og sa: «La oss dra opp med en gang – vi kan helt sikkert klare det!» For han stolte ikke på sin egen styrke, men på Jehova.",
+      "Fordi Kaleb fulgte Jehova helhjertet, lovte Jehova at nettopp han skulle få komme inn i landet. Tro og mot ble belønnet – mens frykten og opprøret falt."
+    ],
+    quiz:[
+      { q:"Hva sa Kaleb da de ti speiderne var redde?", options:["«La oss dra opp – vi kan klare det!»","«La oss snu og dra hjem»","«Vi er for svake»"], correct:0 },
+      { q:"Hva lovte Jehova Kaleb fordi han fulgte ham helhjertet?", options:["At han skulle få komme inn i landet","At han skulle bli konge","At han aldri skulle bli gammel"], correct:0,
+        verseAfter:{ t:"Men fordi min tjener Kaleb hadde en annen innstilling og fortsatte å følge meg helhjertet, skal jeg føre ham inn i det landet han har vært i …", ref:"4. Mosebok 14:24" } }, // verifisert mot NV (nwt_N.pdf)
+      { q:"Hva lærer vi om Jehova?", options:["Han belønner dem som stoler helhjertet på ham","Han liker bare de sterkeste","Han glemmer dem som er modige"], correct:0 }
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova legger merke til dem som stoler helhjertet på ham, og belønner deres tro. Mot som hviler på Jehova – ikke på egen styrke – fører alltid fram." },
+    refs:"4. Mosebok 13:30; 14:24",
+    verse:{ t:"Da prøvde Kaleb å roe ned folket foran Moses ved å si: «La oss dra opp med en gang og innta landet, for vi vil helt sikkert klare å erobre det.»", ref:"4. Mosebok 13:30" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
+    sideQ:"Hvem stolte Kaleb på?",
+    lesson:"Kaleb valgte Jehovas side. Lærdom: Når vi stoler helhjertet på Jehova, kan vi være modige selv om alle andre er redde – og Jehova legger merke til det."
+  },
+  {
+    id:"rahab", name:"Rahab", eraDate:"1473 f.v.t.", img:"images/32-rahab.webp", imgFocus:"60% 22%", side:"jehova", bolk:5,
+    puzzle:true, guessWrong:["Rut","Debora","Sara"],
+    arrival:"Tråden tar dere til en by med høye murer. En kvinne som bor i selve bymuren tar imot to fremmede – og velger modig å stille seg på Jehovas side, selv om hun ikke er israelitt …",
+    greet:"Hei! Jeg heter Rahab. Jeg var ikke født blant Jehovas folk, men jeg hadde hørt om hans store gjerninger – og jeg valgte å tro på ham.",
+    story:[
+      "Rahab bodde i Jeriko og var ikke israelitt. Likevel hadde hun hørt om alt Jehova hadde gjort for folket sitt, og hun forsto at han er den sanne Gud.",
+      "Da to israelittiske speidere kom til byen, skjulte Rahab dem og hjalp dem trygt unna. Hun sa rett ut at Jehova er Gud både i himmelen og på jorden.",
+      "Fordi hun valgte Jehovas side, ble Rahab og familien hennes reddet da Jeriko falt. Senere kom hun til og med inn i Jesu slektslinje – et levende bevis på at det er VALGET som teller, ikke hvilket folk man er født i."
+    ],
+    quiz:[
+      { q:"Hva trodde Rahab om Jehova?", options:["At han er Gud i himmelen og på jorden","At han bare var én av mange guder","At han ikke fantes"], correct:0,
+        verseAfter:{ t:"… for Jehova deres Gud er Gud oppe i himmelen og nede på jorden.", ref:"Josva 2:11" } }, // verifisert mot NV (nwt_N.pdf)
+      { q:"Hva skjedde med Rahab fordi hun valgte Jehovas side?", options:["Hun ble reddet og kom inn i Jesu slektslinje","Hun måtte forlate landet","Hun ble glemt"], correct:0 },
+      { q:"Hva lærer vi om Jehova?", options:["Han tar imot alle som velger hans side, uansett hvor de kommer fra","Han bryr seg bare om dem som er født blant hans folk","Han hører ikke på utlendinger"], correct:0 }
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova ser til hjertet, ikke til hvilket folk man er født i. Rahab var utlending, men valgte hans side – og fikk være med i slektslinjen fram mot Jesus. Side betyr valg, ikke blodlinje." },
+    refs:"Josva 2:8–11; 6:25; Matteus 1:5",
+    verse:{ t:"Salmon ble far til Boas med Rahab; Boas ble far til Obed med Rut; Obed ble far til Isai …", ref:"Matteus 1:5" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
+    sideQ:"Hvem valgte Rahab å tro på?",
+    lesson:"Rahab valgte Jehovas side. Lærdom: Jehova tar imot alle som velger hans side av hele sitt hjerte – uansett hvor de kommer fra. Valget teller, ikke blodlinjen."
+  },
   /* ===== BOLK 6 – Dommertiden (kart 6). Låst ramme; fylles ett kort av gangen. ===== */
   {
     id:"debora", name:"Debora", eraDate:"ca. 1300-t f.v.t.", img:"images/34-debora.webp", imgFocus:"55% 20%", side:"jehova", bolk:6,
