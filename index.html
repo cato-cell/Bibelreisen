@@ -785,11 +785,115 @@ const PERSONS = [
     lesson:"Job valgte Jehovas side. Lærdom: Selv i den hardeste prøven kan vi holde fast ved Jehova – og bevise at slangen tar feil. Jehova glemmer aldri sine lojale."
   },
   /* ===== BOLK 4 – Ut av Egypt → befrielsen (kart 4). Låst ramme; fylles ett kort av gangen. ===== */
-  { id:"sjifrapua", name:"Sjifra og Pua", eraDate:"ca. 1600 f.v.t.", img:"images/23-sjifra-pua.webp", imgFocus:"50% 30%", side:"jehova", bolk:4, locked:true },
-  { id:"jokebed", name:"Jokebed", eraDate:"ca. 1593 f.v.t.", img:"images/24-jokebed.webp", imgFocus:"55% 24%", side:"jehova", bolk:4, locked:true },
-  { id:"moses", name:"Moses", eraDate:"f. 1593 f.v.t.", img:"images/25-moses.webp", imgFocus:"55% 20%", side:"jehova", bolk:4, locked:true },
-  { id:"aron", name:"Aron", eraDate:"f. 1597 f.v.t.", img:"images/26-aron.webp", imgFocus:"55% 20%", side:"jehova", bolk:4, locked:true },
-  { id:"farao", name:"Farao", eraDate:"ca. 1513 f.v.t.", img:"images/27-farao.webp", imgFocus:"55% 22%", side:"slange", bolk:4, locked:true },
+  {
+    id:"sjifrapua", name:"Sjifra og Pua", eraDate:"ca. 1600 f.v.t.", img:"images/23-sjifra-pua.webp", imgFocus:"50% 30%", side:"jehova", bolk:4,
+    puzzle:true, guessWrong:["Mirjam og Jokebed","Rakel og Lea","To egyptiske prinsesser"],
+    arrival:"Tråden tar dere til Egypt, der folket er blitt slaver. To modige kvinner snakker lavt sammen – de har fått en grusom ordre, men de tør å si nei …",
+    greet:"Vi heter Sjifra og Pua. Vi er jordmødre og hjelper babyer til verden. Farao ga oss en fæl befaling – men vi fryktet Jehova mer enn farao.",
+    story:[
+      "Israelittene var blitt mange i Egypt, og farao ble redd for dem. Han befalte jordmødrene Sjifra og Pua å skade de nyfødte guttebarna.",
+      "Men Sjifra og Pua fryktet Jehova mer enn de fryktet farao. De nektet å følge den grusomme ordren, og lot guttene leve.",
+      "Jehova så hva de gjorde, og han velsignet dem. Ved å verne guttebarna var de med på å verne hele folket – det folket som Messias en gang skulle komme gjennom."
+    ],
+    quiz:[
+      { q:"Hva gjorde Sjifra og Pua da farao ga dem en grusom ordre?", options:["De fryktet Jehova og nektet å følge den","De gjorde som farao sa","De rømte fra Egypt"], correct:0,
+        verseAfter:{ t:"Men jordmødrene fryktet den sanne Gud og gjorde ikke som kongen i Egypt hadde sagt til dem. De lot guttebarna leve.", ref:"2. Mosebok 1:17" } }, // verifisert mot NV (nwt_N.pdf)
+      { q:"Hva gjorde Jehova fordi de var modige?", options:["Han velsignet dem","Han glemte dem","Han ble sint"], correct:0,
+        verseAfter:{ t:"Gud velsignet derfor jordmødrene, og folket fortsatte å vokse og ble svært mektig.", ref:"2. Mosebok 1:20" } }, // verifisert mot NV (nwt_N.pdf)
+      { q:"Hva lærer vi om Jehova?", options:["Han legger merke til dem som er modige og gjør det rette","Han hjelper bare de mektige","Han bryr seg ikke om vanlige mennesker"], correct:0 }
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova legger merke til dem som tør å gjøre det rette, selv når det er farlig. Han er glad i dem som frykter ham mer enn de frykter mennesker – og han verner sin hensikt gjennom dem." },
+    refs:"2. Mosebok 1:15–21",
+    verse:{ t:"Senere sa kongen i Egypt til de hebraiske jordmødrene Sjifra og Pua:", ref:"2. Mosebok 1:15" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
+    sideQ:"Hvem fryktet Sjifra og Pua mest?",
+    lesson:"Sjifra og Pua valgte Jehovas side. Lærdom: Det er modig og rett å frykte Jehova mer enn mennesker – og han velsigner dem som gjør det."
+  },
+  {
+    id:"jokebed", name:"Jokebed", eraDate:"ca. 1593 f.v.t.", img:"images/24-jokebed.webp", imgFocus:"55% 24%", side:"jehova", bolk:4,
+    puzzle:true, guessWrong:["Mirjam","Sara","Faraos datter"],
+    arrival:"Tråden tar dere til en mor ved Nilen. Hun har gjemt babyen sin så lenge hun kunne – nå legger hun ham forsiktig i en kurv på vannet, mens storesøsteren holder vakt …",
+    greet:"Hei! Jeg heter Jokebed. Jeg er mor til en liten gutt som farao ville skade – men jeg stolte på at Jehova ville passe på ham.",
+    story:[
+      "Jokebed var mor til en nydelig liten gutt. Men farao hadde befalt at alle hebraiske guttebarn skulle skades. Jokebed var ikke redd farao – hun stolte på Jehova.",
+      "Hun gjemte babyen i tre måneder. Da han ble for stor til å skjules, laget hun en kurv av papyrus, tettet den godt, la gutten i den og satte den i sivet ved Nilen.",
+      "Akkurat som Jokebed håpet, passet Jehova på gutten. Faraos egen datter fant ham og tok ham til seg – og Jokebed fikk til og med passe på sin egen sønn en stund. Den gutten var Moses, som Jehova skulle bruke til å befri folket."
+    ],
+    quiz:[
+      { q:"Hva gjorde Jokebed for å redde babyen sin?", options:["Hun gjemte ham og la ham i en kurv på Nilen","Hun ga ham til farao","Hun rømte til ørkenen"], correct:0,
+        verseAfter:{ t:"Da hun så hvor vakker han var, holdt hun ham skjult i tre måneder.", ref:"2. Mosebok 2:2" } }, // verifisert mot NV (nwt_N.pdf)
+      { q:"Hvor satte Jokebed kurven med babyen?", options:["I sivet ved bredden av Nilen","Høyt oppe i et tre","I en mørk hule"], correct:0,
+        verseAfter:{ t:"… tok hun en kurv av papyrus … Hun la barnet i kurven og satte den i sivet ved bredden av Nilen.", ref:"2. Mosebok 2:3" } }, // verifisert mot NV (nwt_N.pdf)
+      { q:"Hva lærer vi om Jehova?", options:["Han kan passe på dem vi er glad i, når vi stoler på ham","Han hjelper bare voksne","Han bryr seg ikke om babyer"], correct:0 }
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova ser foreldre som handler i tro for å verne barna sine. Han passet på den lille gutten – og brukte ham senere til å befri hele folket. Ingenting kan stoppe Jehovas hensikt." },
+    refs:"2. Mosebok 2:1–10; 6:20",
+    verse:{ t:"Amram tok Jokebed, sin fars søster, til kone. Hun fødte ham Aron og Moses.", ref:"2. Mosebok 6:20" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
+    sideQ:"Hvem stolte Jokebed på?",
+    lesson:"Jokebed valgte Jehovas side. Lærdom: Når vi gjør det rette i tro, kan Jehova passe på dem vi er glad i – og bruke det til noe større enn vi aner."
+  },
+  {
+    id:"moses", name:"Moses", eraDate:"f. 1593 f.v.t.", img:"images/25-moses.webp", imgFocus:"55% 20%", side:"jehova", bolk:4,
+    puzzle:true, guessWrong:["Abraham","Josva","Aron"],
+    arrival:"Tråden tar dere til en hyrde i ørkenen. Foran ham brenner en busk med klare flammer – men busken brenner ikke opp! Og en stemme kaller på ham …",
+    greet:"Hei! Jeg heter Moses. Jehova talte til meg fra en brennende busk og ga meg en stor oppgave: å føre folket hans ut av Egypt.",
+    story:[
+      "Moses vokste opp i Egypt, men måtte flykte til ørkenen og ble gjeter der i mange år. En dag fikk han se noe utrolig: en busk som brant uten å brenne opp.",
+      "Fra busken talte Jehova selv til Moses og ga ham et stort oppdrag: å gå til den mektige farao og føre israelittene ut av slaveriet.",
+      "Moses følte seg liten og redd, men Jehova lovte å være med ham. Moses adlød, og Jehova brukte ham til å befri hele folket. Slik ble Moses et forbilde på den enda større Befrieren, Jesus."
+    ],
+    quiz:[
+      { q:"Hvordan talte Jehova til Moses?", options:["Fra en busk som brant uten å brenne opp","I en drøm om natten","Gjennom en konge"], correct:0 },
+      { q:"Hvilket oppdrag ga Jehova Moses?", options:["Å føre folket ut av Egypt","Å bygge en pyramide","Å bli konge i Egypt"], correct:0,
+        verseAfter:{ t:"Jeg sender deg nå til farao, og du skal føre mitt folk, israelittene, ut av Egypt.", ref:"2. Mosebok 3:10" } }, // verifisert mot NV (nwt_N.pdf)
+      { q:"Hva lærer vi om Jehova?", options:["Han utruster dem han sender, og er med dem","Han sender bare de modige","Han klarer seg uten mennesker"], correct:0 }
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova ser folkets lidelse og gjør noe med det. Han kaller og utruster vanlige mennesker til store oppgaver – og er med dem hele veien. Moses peker fram mot Jesus, den store Befrieren." },
+    refs:"2. Mosebok 3:1–12",
+    verse:{ t:"… ropte han til ham fra tornebusken: «Moses! Moses!» Han svarte: «Her er jeg.»", ref:"2. Mosebok 3:4" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
+    sideQ:"Hvem ga Moses oppdraget?",
+    lesson:"Moses valgte Jehovas side. Lærdom: Jehova kaller og styrker dem han sender. Når han er med oss, kan vi gjøre ting vi aldri trodde var mulig."
+  },
+  {
+    id:"aron", name:"Aron", eraDate:"f. 1597 f.v.t.", img:"images/26-aron.webp", imgFocus:"55% 20%", side:"jehova", bolk:4,
+    puzzle:true, guessWrong:["Moses","Josva","Kaleb"],
+    arrival:"Tråden tar dere til en mann som skal møte broren sin igjen etter mange år – og som snart skal være stemmen hans foran selve farao …",
+    greet:"Hei! Jeg heter Aron, Moses' storebror. Jeg fikk være talsmannen hans – jeg sa høyt det Jehova ga Moses å si.",
+    story:[
+      "Da Jehova ga Moses oppdraget, var Moses redd for å snakke. Da sa Jehova at broren Aron skulle hjelpe ham og være talsmannen hans.",
+      "Aron møtte Moses i ørkenen, og sammen gikk de til israelittene og til farao. Aron sa høyt og tydelig alt det Jehova hadde gitt Moses å si.",
+      "Aron tjente Jehova trofast ved Moses' side. Senere ble han den første øverstepresten – og prestetjenesten pekte fram mot Jesus, vår store Øversteprest."
+    ],
+    quiz:[
+      { q:"Hvilken oppgave fikk Aron?", options:["Å være Moses' talsmann","Å bli konge","Å bygge en ark"], correct:0,
+        verseAfter:{ t:"Han skal tale til folket for deg, og han skal være din talsmann …", ref:"2. Mosebok 4:16" } }, // verifisert mot NV (nwt_N.pdf)
+      { q:"Hva gjorde Aron sammen med Moses?", options:["Fortalte folket alt det Jehova hadde sagt","Gjemte seg for farao","Dro tilbake til ørkenen"], correct:0,
+        verseAfter:{ t:"Aron fortalte dem om alt det Jehova hadde sagt til Moses, og han gjorde tegnene for øynene på folket.", ref:"2. Mosebok 4:30" } }, // verifisert mot NV (nwt_N.pdf)
+      { q:"Hva lærer vi om Jehova?", options:["Han gir oss hjelp og noen å stå sammen med","Han lar oss alltid være alene","Han liker bare de som klarer alt selv"], correct:0 }
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova vet hva vi trenger og gir oss hjelp – ofte gjennom andre mennesker. Han lot Moses og Aron stå sammen, og førte hensikten sin videre mot Jesus, vår Øversteprest." },
+    refs:"2. Mosebok 4:14–16, 27–31",
+    verse:{ t:"… han sa: «Hva med din bror, levitten Aron? Jeg vet at han er flink til å tale …»", ref:"2. Mosebok 4:14" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
+    sideQ:"Hvem tjente Aron?",
+    lesson:"Aron valgte Jehovas side. Lærdom: Jehova gir oss hjelp og noen å stå sammen med. Det er fint å hjelpe hverandre med å tjene ham."
+  },
+  {
+    id:"farao", name:"Farao", eraDate:"ca. 1513 f.v.t.", img:"images/27-farao.webp", imgFocus:"55% 22%", side:"slange", bolk:4,
+    puzzle:true, guessWrong:["Nimrod","Goliat","Kong Saul"],
+    arrival:"Tråden tar dere til en stolt konge på en gulltrone. Moses ber ham slippe folket fritt – men kongen løfter haken og nekter …",
+    greet:"Jeg er farao, Egypts mektige konge. Moses ba meg slippe slavene fri i Jehovas navn – men hvem er Jehova? Jeg ville ikke adlyde.",
+    story:[
+      "Moses og Aron kom til farao med Jehovas beskjed: «Slipp folket mitt fritt!» Men farao var stolt og hovmodig.",
+      "Han sa at han ikke kjente Jehova og ikke ville adlyde. Igjen og igjen nektet han, for han ville ikke bøye seg for noen – ikke engang for Jehova."
+    ],
+    quiz:[
+      { q:"Hva svarte farao da Moses ba ham slippe folket?", options:["At han ikke kjente Jehova og ikke ville adlyde","«Ja, dra med en gang»","«La meg tenke på det»"], correct:0 }
+    ],
+    reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova er mektigere enn enhver stolt konge. Den som hovmodig nekter å bøye seg for ham, velger slangens side – men Jehovas hensikt vinner alltid til slutt." },
+    refs:"2. Mosebok 5:1–2",
+    verse:{ t:"Men farao sa: «Hvem er Jehova? … Jeg kjenner slett ikke Jehova, og jeg vil ikke la Israel dra.»", ref:"2. Mosebok 5:2" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
+    sideQ:"Hvilken side valgte farao?",
+    lesson:"Farao var på slangens side. Lærdom: Stolthet som nekter å bøye seg for Jehova, fører ingen vei. Jehova er alltid den sterkeste."
+  },
   /* ===== BOLK 5 – Sinai → inntoget i det lovede land (kart 5). Låst ramme; fylles ett kort av gangen. ===== */
   { id:"mosessinai", name:"Moses ved Sinai", eraDate:"1513 f.v.t.", img:"images/28-moses-sinai.webp", imgFocus:"55% 22%", side:"jehova", bolk:5, locked:true },
   { id:"korah", name:"Korah", eraDate:"ca. 1512 f.v.t.", img:"images/29-korah.webp", imgFocus:"55% 22%", side:"slange", bolk:5, locked:true },
