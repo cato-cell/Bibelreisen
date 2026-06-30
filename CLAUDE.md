@@ -44,6 +44,42 @@ og hvordan deres frie valg viser at slangen tok feil.**
 
 ---
 
+## Narrativ-bibliotek: Den røde tråden
+
+**Overordnet bue:** Jehova fjerner gjennom Jesus Kristus og Guds rike
+konsekvensene av Eden-opprøret, helliger sitt navn, viser at hans styre er rett,
+og gjennomfører sin opprinnelige hensikt med jorden.
+
+**Innsnevringen (spillets viktigste langsiktige spenning):**
+Avkommet (1. Mos 3:15) → Abraham → Isak → Jakob → Juda → David → Jesus →
+Guds rike → gjenopprettet paradis.
+
+Barnet skal gradvis kunne spørre: Hvem fører løftet videre? Kan linjen brytes?
+Hvilken familie, stamme, kongeslekt? Hvem er den lovte kongen? Hvordan beseires
+slangen?
+
+**Spenningsregel:** spenningen skal komme fra løftet og hindringene i selve
+bibelberetningen – aldri kunstig, aldri ved å skjule etablerte fakta, aldri ved
+å gjøre Jehova uforutsigbar. Den skal bygge tillit til Jehova, ikke frykt.
+
+---
+
+## Den hellige hemmelighet (gradvis avdekking)
+
+1. Mos 3:15 er «bokryggen» som binder hele Bibelen sammen. Mysteriet plantes i
+Eden og avdekkes brikke for brikke. **Aldri avslør hele løsningen for tidlig.**
+
+- Slangen = Satan (Åp 12:9)
+- Kvinnen = Jehovas himmelske organisasjon (Gal 4:26)
+- Slangens avkom = de som viser Satans trekk
+- Kvinnens avkom = først og fremst Jesus, + de 144 000 (Gal 3:16; Åp 14:1)
+- «Hogge i hælen» = Jesu død (helbredet ved oppstandelsen)
+- «Knuse hodet» = endelig tilintetgjørelse av Satan (Hebr 2:14; Rom 16:20) – gjenstår
+
+Hvert milepælstopp legger til ÉN brikke i «hemmeligheten» i Trådrommet.
+
+---
+
 ## Doktrineregler (ufravikelige)
 
 - Bruk **alltid Ny verden-oversettelsen (NV)** for bibelsitater.
@@ -110,6 +146,19 @@ Unntaket gjelder **kun** dette lærdoms-spørsmålet. Alle andre verskort
 
 ---
 
+## Vers-tagging (data/bibelvers.json)
+
+Hvert vers får `nivaa`: `kjerne` (vises), `bakgrunn` (former fortellingen),
+`fordypning` (kun 9–14 år). Ikke press alle vers inn i hovedflyten.
+Ordlyd hentes ALLTID ordrett fra nwt_N.pdf (lokal, .gitignore-et – aldri
+deployes/pushes).
+
+**Nye nøkkelvers å innarbeide (verifiser mot NV):**
+2. Mos 12 + Joh 1:29 (påsken/lammet – KJERNE, Bolk 4), Joh 3:16, Hebr 2:14,
+Rom 16:20, Dan 9:24-27 (fordypning), Esek 21:27 (bakgrunn).
+
+---
+
 ## Møteløkke per karakter (fast rekkefølge)
 
 1. Ankomsthint (**uten navn**)
@@ -129,6 +178,37 @@ Unntaket gjelder **kun** dette lærdoms-spørsmålet. Alle andre verskort
 **Refleksjonsspørsmålet er alltid:** «Hva forteller denne historien om
 Jehova?» — med trykk-for-å-avsløre-svar. Bibelreferanser vises på
 refleksjonsskjermen og i emblem-modalen («Vi har truffet»).
+
+---
+
+## Fire trådfelt (obligatorisk på HVERT kort)
+
+Lagres som strukturerte data – ikke skjult i brødtekst:
+1. Hva skjedde?
+2. Hva viser dette om Jehova?
+3. Hvilket valg / motiv / press var viktig?
+4. Hvordan fører dette den røde tråden videre?
+
+---
+
+## Fire læringsfaser (ryggraden i hvert stopp)
+
+OPPDAG → FORSTÅ → VURDER → KNYTT SAMMEN.
+Fasene er faste; aktivitetene innenfor varierer. Se skilen
+`barne-laeringsdesign` for full pedagogisk standard (stopp-typer,
+aldersdifferensiering, quiz-kvalitet, refleksjonstrapp, repetisjon,
+tilgjengelighet, etisk ramme, kvalitetskontroll).
+
+---
+
+## «Velg side» – fast anker (skal ikke fjernes)
+
+Det binære valget (Jehovas side / Slangens side) er et bevisst pedagogisk anker
+og står fast på hvert relevant stopp. Gjentakelsen former refleksen: alt ender i
+ett valg, og det kloke er alltid Jehova (jf. Joel 3:5 / 2:32 – verifiser ordlyd
+og nummerering i NV). Ingen fremtidig instans skal «nyancere det bort».
+For 9–14 år kan ett kort beat legges FORAN: «Hva gjorde valget vanskelig?»
+Faktastopp (Bibelen taus om troen): ingen sidevelger.
 
 ---
 
@@ -333,6 +413,21 @@ ordrett NV); **Dalila/Abimelek** har få vers → hold kortene korte.
   emblem (kun portrett), delt i seksjoner: venner / dårlige eksempler / fakta
 - Tilfeldig quizrekkefølge, korrekt hover-tilstand, synlig CTA ved
   puslespillferdigstilling
+
+---
+
+## Arkitektur-retning for v2 (ombygging)
+
+- Skill innhold fra presentasjon: flytt kort-data ut av index.html til
+  strukturert data.
+- Aldersdifferensiering: bygg ÉN godt nivåsatt versjon + presentasjonsbryter
+  (opplesning, færre valg, enklere språk) som standard. Full to-modus kun etter
+  at gevinsten er målt på referansestoppet.
+- Puslespill skal lære (kronologi/symbol/kart/årsak/rød-tråd), ikke bare gate.
+- Alt ombyggingsarbeid på egen branch. `bibelreisen.pages.dev` skal alltid være
+  spillbar. Fortsett å bygge nye kort i ny modell parallelt.
+
+**Definition of done per kort** = kvalitetskontroll-lista i `barne-laeringsdesign`.
 
 ---
 
