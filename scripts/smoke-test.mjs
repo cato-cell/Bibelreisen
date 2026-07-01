@@ -58,9 +58,10 @@ const r = await page.evaluate(() => {
     funn.push('BIBELVERS ikke lastet (data/bibelvers.js)');
 
   for (const c of PERSONS) {
-    // 3) versgjenbruk i løkka
+    // 3) versgjenbruk i løkka (reveal + scenevers + quizvers)
     const refs = [];
     if (c.verse) refs.push(c.verse.ref);
+    (c.story || []).forEach(sc => { if (typeof sc === 'object' && sc.verse) refs.push(sc.verse.ref); });
     (c.quiz || []).forEach(q => { if (q.verseAfter) refs.push(q.verseAfter.ref); });
     const dup = refs.filter((x, i) => refs.indexOf(x) !== i);
     if (dup.length) funn.push(`${c.id}: versgjenbruk ${dup.join(', ')}`);

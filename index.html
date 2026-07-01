@@ -196,6 +196,11 @@
   .refline{margin-top:14px;display:flex;align-items:center;gap:8px;color:var(--ink-soft);font-weight:700;font-size:.86rem;}
   .threadline{margin-top:14px;display:flex;align-items:flex-start;gap:8px;background:var(--thread-soft,#FBEEE9);border:1px solid #EBC9BF;border-left:4px solid var(--thread,#D8443A);border-radius:12px;padding:11px 13px;color:#5A2A22;font-weight:700;font-size:.92rem;line-height:1.4;}
   .threadline svg{flex:0 0 auto;margin-top:2px;}
+  .fasechip{display:inline-flex;align-items:center;margin-bottom:8px;padding:4px 12px;border-radius:999px;background:#F2E4C4;border:1px solid var(--gold);color:#7A5A12;font-family:'Fredoka';font-weight:600;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;}
+  .scenetittel{font-size:1.2rem;margin:8px 0 2px;color:#4A3A28;}
+  .traadfelt{display:flex;gap:10px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:10px;line-height:1.45;color:#4A3A28;}
+  .traadfelt svg{flex:0 0 auto;margin-top:3px;color:var(--thread,#D8443A);}
+  .traadfelt b{color:#7A5A12;font-size:.85rem;letter-spacing:.04em;text-transform:uppercase;}
   .ladder{display:flex;flex-direction:column;gap:10px;}
   .rung{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:13px 14px;}
   .rung-q{display:flex;align-items:flex-start;gap:9px;font-weight:800;color:#4A3A28;font-size:1.02rem;line-height:1.35;}
@@ -517,14 +522,25 @@ function startPerson(id){
   const steps=[{t:'arrival'}];
   if(p.puzzle) steps.push({t:'jigsaw'});
   steps.push({t:'guess'},{t:'reveal'});
+  if(p.hook) steps.push({t:'hook'});                                // ny modell: spenningskrok (valgfri)
   (p.story||[]).forEach((_,idx)=>steps.push({t:'story',idx}));
   (p.quiz||[]).forEach((_,idx)=>steps.push({t:'quiz',idx}));
   if(p.reflect) steps.push({t:'reflect'});
+  if(p.hardQ) steps.push({t:'hard'});                               // ny modell: «Hva gjorde valget vanskelig?» (valgfri)
   if(!p.noSide) steps.push({t:'side'});
+  if(p.nymodell && p.traad) steps.push({t:'threadstep'});           // ny modell: KNYTT SAMMEN – trådfeltene (+ Løftelinjen)
   steps.push({t:'reward'});
   STATE.steps=steps; renderStep();
 }
 function next(){ STATE.i++; renderStep(); }
+/* Fire læringsfaser (barne-laeringsdesign). Chip vises kun på ny modell-kort. */
+const FASE_AV_STEG={arrival:'Oppdag',jigsaw:'Oppdag',guess:'Oppdag',reveal:'Oppdag',
+  hook:'Forstå',story:'Forstå',quiz:'Vurder',reflect:'Vurder',hard:'Vurder',
+  side:'Knytt sammen',threadstep:'Knytt sammen',reward:'Knytt sammen'};
+function faseChip(p,s){
+  if(!p.nymodell) return '';
+  const f=FASE_AV_STEG[s.t]; return f?`<span class="fasechip">${f}</span>`:'';
+}
 function renderStep(){
   const p=STATE.person, s=STATE.steps[STATE.i], head=topBar(), img=sceneImg(p.img,'Møtet');
   if(s.t==='arrival'){
@@ -547,10 +563,20 @@ function renderStep(){
       ${p.verse?`<div class="versecard" style="margin-top:14px;"><div class="q">${ic('book')} «${vt(p.name,p.verse.ref,p.verse.t)}»</div><div class="ref">${p.verse.ref}</div></div>`:''}
       <div class="spacer" style="height:22px;"></div>
       <button class="btn btn-primary" onclick="next()">Hør historien →</button></div>`);
+  } else if(s.t==='hook'){
+    // Spenningskrok (ny modell): barnet bærer spørsmålet inn i fortellingen
+    render(`${head}<div class="pad fade">${faseChip(p,s)}<div class="eyebrow">${ic('bulb')} Men vent …</div>
+      <div class="heartbox" style="margin-top:10px;"><div class="q">${p.hook}</div></div>
+      <div class="spacer" style="height:22px;"></div>
+      <button class="btn btn-primary" onclick="next()">Hør historien →</button></div>`);
   } else if(s.t==='story'){
-    const n=(p.story||[]).length;
-    render(`${head}<div class="pad fade">${img}<div class="eyebrow" style="margin-top:14px;">Historien &middot; ${s.idx+1}/${n}</div>
-      <p class="lead" style="margin-top:8px;">${p.story[s.idx]}</p>
+    const n=(p.story||[]).length, item=p.story[s.idx];
+    const txt = typeof item==='string' ? item : item.t;              // scener kan være streng (gamle kort) eller objekt {t, tittel, verse}
+    const tittel = (typeof item==='object' && item.tittel) ? `<h3 class="scenetittel">${item.tittel}</h3>` : '';
+    const sv = (typeof item==='object' && item.verse)
+      ? `<div class="versecard" style="margin-top:14px;"><div class="q">${ic('book')} «${vt(p.name,item.verse.ref,item.verse.t)}»</div><div class="ref">${item.verse.ref}</div></div>` : '';
+    render(`${head}<div class="pad fade">${img}${faseChip(p,s)}<div class="eyebrow" style="margin-top:14px;">${p.nymodell?'Scene':'Historien'} &middot; ${s.idx+1}/${n}</div>
+      ${tittel}<p class="lead" style="margin-top:8px;">${txt}</p>${sv}
       <div class="spacer" style="height:24px;"></div>
       <button class="btn btn-primary" onclick="next()">Videre →</button></div>`);
   } else if(s.t==='quiz'){
@@ -602,6 +628,18 @@ function renderStep(){
       </div>
       <p id="fb" style="font-weight:700;min-height:24px;margin-top:12px;text-align:center;"></p></div>`);
     buildSideChoice();
+  } else if(s.t==='threadstep'){
+    // KNYTT SAMMEN (ny modell): de fire trådfeltene + innsnevringen. (Løftelinjen kobles på her i DEL 3.)
+    const T=p.traad;
+    const felt=(ikon,merk,tekst)=>tekst?`<div class="traadfelt">${ic(ikon)}<div><b>${merk}</b><br>${tekst}</div></div>`:'';
+    render(`${head}<div class="pad fade">${faseChip(p,s)}<div class="eyebrow">${ic('thread')} Den røde tråden</div>
+      <h3 style="font-size:1.3rem;margin:8px 0 12px;">Slik fører ${p.name} tråden videre</h3>
+      ${felt('book','Hva skjedde?',T.skjedde)}
+      ${felt('bulb','Hva viser dette om Jehova?',T.jehova)}
+      ${felt('scales','Hvilket valg var viktig?',T.valg)}
+      ${felt('thread','Hvordan går tråden videre?',T.videre)}
+      <div class="spacer" style="height:20px;"></div>
+      <button class="btn btn-primary" onclick="next()">Videre →</button></div>`);
   } else if(s.t==='reward'){
     STATE.collected[p.id]={side:p.side,lesson:p.lesson,name:p.name,refs:p.refs,img:p.img,imgFocus:p.imgFocus||''}; saveState();
     const heading = p.side==='jehova' ? 'Du fikk en ny venn!' : p.side==='slange' ? 'Et eksempel å lære av' : 'Lagt til i samlingen';

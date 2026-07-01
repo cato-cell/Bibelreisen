@@ -192,21 +192,34 @@ const PERSONS = [
     puzzle:true, guessWrong:["Noah","Moses","David"],
     arrival:"Tråden fører dere til en stor teltleir under en stjerneklar himmel. En gammel mann står utenfor teltet og ser opp på alle stjernene – som om Noen nettopp har gitt ham et stort løfte …",
     greet:"Velkommen! Jeg heter Abraham. Jehova ba meg forlate hjemmet mitt og reise til et land han ville vise meg – og jeg stolte på ham.",
+    nymodell:true,   // REFERANSESTOPP i ny modell (fire læringsfaser). Malen andre kort migreres etter.
+    hook:"Jehova lover Abraham noe stort: slekten hans skal bli et helt folk, og ALLE familier på jorden skal bli velsignet gjennom den. Men vent … Abraham og Sara har ingen barn – og de er gamle. Hvordan i all verden skal løftet kunne skje? Ta med dere spørsmålet inn i historien.",
     story:[
-      "Abraham bodde i en by der folk tilba avguder. Men Abraham elsket Jehova. Da Jehova sa: «Reis til et land jeg skal vise deg», pakket Abraham sammen og dro – uten å vite nøyaktig hvor han skulle. Han stolte helt på Jehova.",
-      "Jehova ga Abraham et stort LØFTE: at slekten hans skulle bli til et stort folk, og at gjennom ætten hans skulle alle familier på jorden bli velsignet. Dette er en del av den røde tråden – for fra Abrahams slekt skulle Redningsmannen, Jesus, en gang komme.",
-      "Abraham måtte vente lenge, og Jehova ba ham om vanskelige ting. Men Abraham adlød hver gang, fordi han trodde Jehova alltid holder det han lover."
+      { tittel:"Dra fra alt",
+        t:"Abraham bodde i byen Ur, der folk tilba avguder. En dag sa Jehova: «Dra bort fra landet ditt til det landet som jeg skal vise deg.» Abraham pakket sammen og dro – uten å vite hvor veien endte. Han stolte helt på Jehova." },
+      { tittel:"Løftet gis",
+        t:"Så ga Jehova Abraham det store LØFTET – hør hvor stort det er:",
+        verse:{ t:"Jeg skal gjøre deg til en stor nasjon. Jeg skal velsigne deg, og jeg skal gjøre navnet ditt stort. Du skal bli til velsignelse for andre. Jeg skal velsigne dem som velsigner deg, og jeg skal forbanne den som forbanner deg, og alle jordens slekter skal bli velsignet gjennom deg.", ref:"1. Mosebok 12:2-3" } }, // verifisert mot NV (nwt_N.pdf)
+      { tittel:"Ventetiden",
+        t:"Men årene gikk – og fortsatt ingen barn. En natt tok Jehova Abraham med ut under stjernehimmelen og lot ham se opp. Kunne han telle stjernene? Så tallrik skulle slekten hans bli! Og Abraham trodde på Jehova.",
+        verse:{ t:"«Se opp mot himmelen og tell stjernene om du kan.» … «Så tallrike skal dine etterkommere bli.» … Abram trodde på Jehova …", ref:"1. Mosebok 15:5-6" } }, // verifisert mot NV (nwt_N.pdf)
+      { tittel:"Isak blir født",
+        t:"Og så – akkurat da Jehova hadde sagt – skjedde det som virket umulig: Sara fødte en sønn, Isak! Abraham var 100 år gammel. Jehova hadde ikke glemt løftet sitt et eneste øyeblikk." },
+      { tittel:"Løftet bekreftes med ed",
+        t:"Senere viste Abraham at han stolte fullt og helt på Jehova, selv i den aller vanskeligste prøven. Da sverget Jehova en ed: Løftet står fast! Gjennom Abrahams ætt skulle alle jordens nasjoner få en velsignelse. Tråden fra Eden hadde nå fått ÉN familie å følge." }
     ],
     quiz:[
+      { q:"Hvorfor virket løftet nesten umulig?", options:["Abraham og Sara hadde ingen barn og var gamle","Abraham var for fattig","Landet var for lite"], correct:0,
+        hint:"Tenk på spørsmålet dere tok med inn i historien – hva manglet Abraham og Sara?" },
       { q:"Hva gjorde Abraham da Jehova ba ham reise?", options:["Han stolte på Jehova og dro av sted","Han ble hjemme","Han ba om en annen plan"], correct:0,
         verseAfter:{ t:"Da dro Abram av sted, akkurat som Jehova hadde sagt til ham …", ref:"1. Mosebok 12:4" } }, // verifisert mot NV (nwt_N.pdf)
-      { q:"Hva lovte Jehova Abraham?", options:["At alle familier på jorden skulle bli velsignet gjennom ætten hans","At han skulle bli rikest av alle","At han aldri skulle bli gammel"], correct:0,
-        verseAfter:{ t:"Og gjennom ditt avkom skal alle jordens nasjoner oppnå en velsignelse fordi du har hørt på meg.", ref:"1. Mosebok 22:18" } }, // LØFTET – MÅ BEKREFTES mot jw.org
+      { q:"Hva lovte Jehova Abraham med ed?", options:["At alle jordens nasjoner skulle få en velsignelse gjennom ætten hans","At han skulle bli rikest av alle","At han aldri skulle bli gammel"], correct:0,
+        verseAfter:{ t:"Og gjennom ditt avkom skal alle jordens nasjoner oppnå en velsignelse fordi du har hørt på meg.", ref:"1. Mosebok 22:18" } }, // LØFTET. verifisert mot NV (nwt_N.pdf)
       { q:"Hva lærer vi om Jehova?", options:["Han holder alltid løftene sine og belønner tro","Han glemmer det han lover","Han liker bare de sterke"], correct:0,
         verseAfter:{ t:"Ved tro var Abraham lydig da Gud kalte ham … Han dro av gårde, enda han ikke visste hvor han skulle.", ref:"Hebreerne 11:8" } } // verifisert mot NV (nwt_N.pdf)
     ],
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova legger store planer og holder alltid løftene sine. Han la merke til Abrahams tro og gjorde ham til en del av den viktigste slekten i historien – den som Jesus kom fra, og som fører fram mot paradiset." },
-    refs:"1. Mosebok 12:1–4; 22:15–18; Hebreerne 11:8",
+    refs:"1. Mosebok 12:1–4; 15:5–6; 22:15–18; Hebreerne 11:8",
     verse:{ t:"Og Jehova sa til Abram: «Dra bort fra landet ditt … til det landet som jeg skal vise deg.»", ref:"1. Mosebok 12:1" }, // navngivende vers ved avsløring. // verifisert mot NV (nwt_N.pdf)
     thread:"Med Abraham får løftet en familie: gjennom hans ætt skal alle folk velsignes – tråden peker rett mot Jesus.",
     trait:"Trofasthet – han holder løftene sine, ledd for ledd.",
