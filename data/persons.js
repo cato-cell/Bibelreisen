@@ -194,19 +194,25 @@ const PERSONS = [
     greet:"Velkommen! Jeg heter Abraham. Jehova ba meg forlate hjemmet mitt og reise til et land han ville vise meg – og jeg stolte på ham.",
     nymodell:true,   // REFERANSESTOPP i ny modell (fire læringsfaser). Malen andre kort migreres etter.
     hook:"Jehova lover Abraham noe stort: slekten hans skal bli et helt folk, og ALLE familier på jorden skal bli velsignet gjennom den. Men vent … Abraham og Sara har ingen barn – og de er gamle. Hvordan i all verden skal løftet kunne skje? Ta med dere spørsmålet inn i historien.",
+    hookEnkel:"Jehova lover Abraham en stor slekt. Men Abraham og Sara har ingen barn. Og de er gamle. Hvordan skal løftet skje? Følg med!",   // enkel visning (presentasjonsbryter)
     story:[
       { tittel:"Dra fra alt",
-        t:"Abraham bodde i byen Ur, der folk tilba avguder. En dag sa Jehova: «Dra bort fra landet ditt til det landet som jeg skal vise deg.» Abraham pakket sammen og dro – uten å vite hvor veien endte. Han stolte helt på Jehova." },
+        t:"Abraham bodde i byen Ur, der folk tilba avguder. En dag sa Jehova: «Dra bort fra landet ditt til det landet som jeg skal vise deg.» Abraham pakket sammen og dro – uten å vite hvor veien endte. Han stolte helt på Jehova.",
+        enkel:"Jehova sa til Abraham: «Dra til et land jeg skal vise deg.» Abraham dro med en gang. Han stolte på Jehova." },
       { tittel:"Løftet gis",
         t:"Så ga Jehova Abraham det store LØFTET – hør hvor stort det er:",
+        enkel:"Så ga Jehova Abraham et stort løfte. Hør:",
         verse:{ t:"Jeg skal gjøre deg til en stor nasjon. Jeg skal velsigne deg, og jeg skal gjøre navnet ditt stort. Du skal bli til velsignelse for andre. Jeg skal velsigne dem som velsigner deg, og jeg skal forbanne den som forbanner deg, og alle jordens slekter skal bli velsignet gjennom deg.", ref:"1. Mosebok 12:2-3" } }, // verifisert mot NV (nwt_N.pdf)
       { tittel:"Ventetiden",
         t:"Men årene gikk – og fortsatt ingen barn. En natt tok Jehova Abraham med ut under stjernehimmelen og lot ham se opp. Kunne han telle stjernene? Så tallrik skulle slekten hans bli! Og Abraham trodde på Jehova.",
+        enkel:"Årene gikk. Fortsatt ingen barn. En natt viste Jehova ham stjernene: «Så mange skal barna dine bli!» Og Abraham trodde på Jehova.",
         verse:{ t:"«Se opp mot himmelen og tell stjernene om du kan.» … «Så tallrike skal dine etterkommere bli.» … Abram trodde på Jehova …", ref:"1. Mosebok 15:5-6" } }, // verifisert mot NV (nwt_N.pdf)
       { tittel:"Isak blir født",
-        t:"Og så – akkurat da Jehova hadde sagt – skjedde det som virket umulig: Sara fødte en sønn, Isak! Abraham var 100 år gammel. Jehova hadde ikke glemt løftet sitt et eneste øyeblikk." },
+        t:"Og så – akkurat da Jehova hadde sagt – skjedde det som virket umulig: Sara fødte en sønn, Isak! Abraham var 100 år gammel. Jehova hadde ikke glemt løftet sitt et eneste øyeblikk.",
+        enkel:"Og så skjedde det! Sara fikk sønnen Isak. Abraham var 100 år. Jehova hadde ikke glemt løftet sitt." },
       { tittel:"Løftet bekreftes med ed",
-        t:"Senere viste Abraham at han stolte fullt og helt på Jehova, selv i den aller vanskeligste prøven. Da sverget Jehova en ed: Løftet står fast! Gjennom Abrahams ætt skulle alle jordens nasjoner få en velsignelse. Tråden fra Eden hadde nå fått ÉN familie å følge." }
+        t:"Senere viste Abraham at han stolte fullt og helt på Jehova, selv i den aller vanskeligste prøven. Da sverget Jehova en ed: Løftet står fast! Gjennom Abrahams ætt skulle alle jordens nasjoner få en velsignelse. Tråden fra Eden hadde nå fått ÉN familie å følge.",
+        enkel:"Abraham stolte på Jehova, også da det var aller vanskeligst. Da sverget Jehova: Løftet står fast! Nå hadde tråden fra Eden fått ÉN familie å følge." }
     ],
     quiz:[
       { q:"Hvorfor virket løftet nesten umulig?", options:["Abraham og Sara hadde ingen barn og var gamle","Abraham var for fattig","Landet var for lite"], correct:0,

@@ -59,6 +59,13 @@ def lonly(s):
     s = s.replace('˚a', 'å').replace('´e', 'é')
     return ''.join(ch for ch in s if ch.isalnum())
 
+def aonly(s):
+    """Kun bokstaver. Fallback for flervers-sitater: PDF-en har versnumre
+    (f.eks. «…for andre.3 Jeg skal…») inni spennet som spillet siterer
+    kontinuerlig. Ordlyden kontrolleres fortsatt bokstav for bokstav."""
+    s = s.replace('˚a', 'å').replace('´e', 'é')
+    return ''.join(ch for ch in s if ch.isalpha())
+
 fasit = json.loads((ROOT / 'data' / 'bibelvers.json').read_text())
 CACHE = {}
 def page(p):
@@ -76,12 +83,13 @@ for v in fasit['vers']:
         feil.append((key, 'mangler side (PDF-sidetall)'))
         continue
     pidx = v['side'] - 1                       # trykt side = pdf-indeks + 1
-    hay = lonly(page(pidx - 1) + page(pidx) + page(pidx + 1))
+    raw3 = page(pidx - 1) + page(pidx) + page(pidx + 1)
+    hay, hay_a = lonly(raw3), aonly(raw3)
     for fx in (x.strip() for x in v['tekst'].split('…')):
         lf = lonly(fx)
         if len(lf) < 6:
             continue
-        if lf not in hay:
+        if lf not in hay and aonly(fx) not in hay_a:
             feil.append((key, f'ordlydsavvik nær s.{v["side"]}: «{fx[:60]}…»'))
             break
 

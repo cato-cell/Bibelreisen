@@ -201,6 +201,9 @@
   .traadfelt{display:flex;gap:10px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:10px;line-height:1.45;color:#4A3A28;}
   .traadfelt svg{flex:0 0 auto;margin-top:3px;color:var(--thread,#D8443A);}
   .traadfelt b{color:#7A5A12;font-size:.85rem;letter-spacing:.04em;text-transform:uppercase;}
+  .topbtn.aktiv{background:var(--jehova-soft);border-color:var(--jehova);color:#2F6B45;}
+  .lesbtn{display:inline-flex;align-items:center;gap:7px;margin-top:10px;background:#FBF1DC;border:1.5px solid var(--gold);color:#7A5A12;border-radius:10px;padding:8px 14px;font-family:'Nunito';font-weight:700;font-size:.9rem;cursor:pointer;}
+  .lesbtn svg{width:16px;height:16px;}
   .ladder{display:flex;flex-direction:column;gap:10px;}
   .rung{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:13px 14px;}
   .rung-q{display:flex;align-items:flex-start;gap:9px;font-weight:800;color:#4A3A28;font-size:1.02rem;line-height:1.35;}
@@ -343,7 +346,36 @@ function markStarted(){ if(!STATE.started){ STATE.started=true; saveState(); } }
 function hasProgress(){ return STATE.started || Object.keys(STATE.collected).length>0; }
 
 const app=document.getElementById('app'), scrim=document.getElementById('scrim'), modal=document.getElementById('modal');
-function render(html){ app.innerHTML=html; app.firstElementChild?.classList.add('fade'); window.scrollTo(0,0); }
+function render(html){ try{ if('speechSynthesis' in window) speechSynthesis.cancel(); }catch(e){} app.innerHTML=html; app.firstElementChild?.classList.add('fade'); window.scrollTo(0,0); }
+
+/* ===== Presentasjonsbryter (DEL 2): opplesning + færre valg + enklere setninger.
+   ÉN innholdsversjon – bryteren justerer kun VISNING. Huskes i egen
+   localStorage-nøkkel (rører aldri rodetraad.v1-fremdriften). ===== */
+const PRES_KEY='rodetraad.presentasjon';
+let ENKEL = (function(){ try{ return localStorage.getItem(PRES_KEY)==='1'; }catch(e){ return false; } })();
+const KAN_LESE = 'speechSynthesis' in window;
+function togglePresentasjon(){
+  ENKEL=!ENKEL; try{ localStorage.setItem(PRES_KEY, ENKEL?'1':'0'); }catch(e){}
+  if(STATE.person && STATE.steps && STATE.steps[STATE.i]) renderStep(); else renderJourney();
+}
+function lesHoyt(){
+  if(!KAN_LESE) return;
+  try{
+    speechSynthesis.cancel();
+    const u=new SpeechSynthesisUtterance(window._LESTEKST||'');
+    u.lang='nb-NO'; u.rate=0.95;
+    const v=speechSynthesis.getVoices().find(v=>/^(nb|no)/i.test(v.lang)); if(v) u.voice=v;
+    speechSynthesis.speak(u);
+  }catch(e){}
+}
+/* Les høyt-knapp for gjeldende skjermtekst. Vises kun i enkel-modus og når nettleseren kan syntetisere tale. */
+function lesBtn(txt){
+  if(!ENKEL || !KAN_LESE || !txt) return '';
+  window._LESTEKST = txt.replace(/<[^>]*>/g,'');
+  return `<button class="lesbtn" onclick="lesHoyt()" aria-label="Les teksten høyt">${ic('book')} Les høyt</button>`;
+}
+/* Enklere tekstvariant der kortet har en (samme innhold, enklere setninger). */
+function eT(obj, felt, enkelFelt){ return (ENKEL && obj && obj[enkelFelt]) ? obj[enkelFelt] : (obj ? obj[felt] : ''); }
 function esc(s){ return (s||'').replace(/'/g,"\\'"); }
 function shuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
 function sceneImg(src, caption, obscure){
@@ -419,7 +451,8 @@ function renderProlog(i){
 function topBar(){
   return `<div class="top">
     <button class="topbtn" onclick="renderJourney()">${ic('compass')} Reisen</button>
-    <button class="topbtn" onclick="renderFriends()">${ic('friends')} Vi har truffet</button></div>`;
+    <button class="topbtn" onclick="renderFriends()">${ic('friends')} Vi har truffet</button>
+    <button class="topbtn${ENKEL?' aktiv':''}" onclick="togglePresentasjon()" aria-pressed="${ENKEL}" title="Enkel visning: opplesning, færre valg, enklere tekst">${ic('bulb')} Enkel</button></div>`;
 }
 /* Rundt emblem: kun personens portrett (side vises av hvilken seksjon det ligger i) */
 function emblemHTML(p){
@@ -547,11 +580,13 @@ function renderStep(){
     render(`${head}<div class="pad fade"><div style="margin-bottom:10px;"><span class="chip">${ic('clock')} ${p.eraDate}</span></div>
       ${mysteryScene()}
       <p class="lead" style="margin-top:16px;">${p.arrival}</p>
+      ${lesBtn(p.arrival)}
       <div class="spacer" style="height:24px;"></div>
       <button class="btn btn-primary" onclick="next()">Pusle fram hvem dere møter →</button></div>`);
   } else if(s.t==='jigsaw'){ renderJigsaw();
   } else if(s.t==='guess'){
-    const opts=shuffle([p.name,...p.guessWrong]);
+    const wrongs = ENKEL ? p.guessWrong.slice(0,1) : p.guessWrong;   // enkel visning: to valg
+    const opts=shuffle([p.name,...wrongs]);
     const btns=opts.map(o=>`<button class="opt" onclick="answerGuess(this,'${esc(o)}')">${ic('search')} ${o}</button>`).join('');
     render(`${head}<div class="pad fade">${sceneImg(p.img,'Møtet',true)}<div class="eyebrow" style="margin-top:14px;">${ic('search')} Gjett hvem</div>
       <h3 style="font-size:1.25rem;margin:8px 0 14px;">Hvem tror du dette er?</h3>${btns}
@@ -565,28 +600,34 @@ function renderStep(){
       <button class="btn btn-primary" onclick="next()">Hør historien →</button></div>`);
   } else if(s.t==='hook'){
     // Spenningskrok (ny modell): barnet bærer spørsmålet inn i fortellingen
+    const hookTxt = eT(p,'hook','hookEnkel');
     render(`${head}<div class="pad fade">${faseChip(p,s)}<div class="eyebrow">${ic('bulb')} Men vent …</div>
-      <div class="heartbox" style="margin-top:10px;"><div class="q">${p.hook}</div></div>
+      <div class="heartbox" style="margin-top:10px;"><div class="q">${hookTxt}</div></div>
+      ${lesBtn(hookTxt)}
       <div class="spacer" style="height:22px;"></div>
       <button class="btn btn-primary" onclick="next()">Hør historien →</button></div>`);
   } else if(s.t==='story'){
     const n=(p.story||[]).length, item=p.story[s.idx];
-    const txt = typeof item==='string' ? item : item.t;              // scener kan være streng (gamle kort) eller objekt {t, tittel, verse}
+    const txt = typeof item==='string' ? item : eT(item,'t','enkel'); // scener kan være streng (gamle kort) eller objekt {t, tittel, verse, enkel}
     const tittel = (typeof item==='object' && item.tittel) ? `<h3 class="scenetittel">${item.tittel}</h3>` : '';
-    const sv = (typeof item==='object' && item.verse)
-      ? `<div class="versecard" style="margin-top:14px;"><div class="q">${ic('book')} «${vt(p.name,item.verse.ref,item.verse.t)}»</div><div class="ref">${item.verse.ref}</div></div>` : '';
+    const vtekst = (typeof item==='object' && item.verse) ? vt(p.name,item.verse.ref,item.verse.t) : '';
+    const sv = vtekst
+      ? `<div class="versecard" style="margin-top:14px;"><div class="q">${ic('book')} «${vtekst}»</div><div class="ref">${item.verse.ref}</div></div>` : '';
     render(`${head}<div class="pad fade">${img}${faseChip(p,s)}<div class="eyebrow" style="margin-top:14px;">${p.nymodell?'Scene':'Historien'} &middot; ${s.idx+1}/${n}</div>
       ${tittel}<p class="lead" style="margin-top:8px;">${txt}</p>${sv}
+      ${lesBtn(txt+(vtekst?' Fra Bibelen: '+vtekst:''))}
       <div class="spacer" style="height:24px;"></div>
       <button class="btn btn-primary" onclick="next()">Videre →</button></div>`);
   } else if(s.t==='quiz'){
     const q=p.quiz[s.idx], n=p.quiz.length;
-    const items=shuffle(q.options.map((o,k)=>({o,correct:k===q.correct})));
+    let alle=q.options.map((o,k)=>({o,correct:k===q.correct}));
+    if(ENKEL) alle=[alle.find(x=>x.correct), alle.find(x=>!x.correct)];  // enkel visning: to valg
+    const items=shuffle(alle);
     const opts=items.map(it=>`<button class="opt quizopt"${q.hint?` data-hint="${esc(q.hint)}"`:''} onclick="answerQuiz(this,${it.correct})">${it.o}</button>`).join('');
     render(`${head}<div class="pad fade">${personMedallion(p)}
       <div class="quizmeta"><span class="eyebrow">${ic('search')} Quiz</span><span class="hint">Spørsmål ${s.idx+1}/${n}</span></div>
       <div class="progress" style="margin:8px 0 14px;"><i style="width:${(s.idx+1)/n*100}%"></i></div>
-      <h3 style="font-size:1.25rem;margin:0 0 14px;">${q.q}</h3>${opts}
+      <h3 style="font-size:1.25rem;margin:0 0 14px;">${q.q}</h3>${lesBtn(q.q)}${opts}
       <p id="fb" style="font-weight:700;color:var(--jehova);min-height:24px;"></p>
       ${q.verseAfter?`<div id="qverse" class="versecard" style="display:none;margin-top:6px;"><div class="q">${ic('book')} «${vt(p.name,q.verseAfter.ref,q.verseAfter.t)}»</div><div class="ref">${q.verseAfter.ref}</div></div>
       <button id="qnext" class="btn btn-primary" style="display:none;margin-top:12px;" onclick="next()">Videre →</button>`:''}</div>`);
@@ -638,6 +679,7 @@ function renderStep(){
       ${felt('bulb','Hva viser dette om Jehova?',T.jehova)}
       ${felt('scales','Hvilket valg var viktig?',T.valg)}
       ${felt('thread','Hvordan går tråden videre?',T.videre)}
+      ${lesBtn([T.skjedde,T.jehova,T.valg,T.videre].filter(Boolean).join(' '))}
       <div class="spacer" style="height:20px;"></div>
       <button class="btn btn-primary" onclick="next()">Videre →</button></div>`);
   } else if(s.t==='reward'){
