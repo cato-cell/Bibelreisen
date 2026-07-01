@@ -267,6 +267,7 @@
   <div id="app"></div>
   <div class="scrim" id="scrim"><div class="modal" id="modal"></div></div>
 <script src="data/persons.js"></script>  <!-- Fase 1: kort-innhold flyttet ut, se data/persons.js -->
+<script src="data/bibelvers.js"></script>  <!-- Fase 1: GENERERT speil av data/bibelvers.json (fasit). Ikke rediger for hånd. -->
 <script>
 /* ===================================================================
    DEN RØDE TRÅDEN – v5
@@ -327,6 +328,10 @@ const PROLOG = [
 
 const STATE = { collected:{}, steps:[], i:0, person:null, started:false, bolk:1 };
 function bolkPersons(b){ return PERSONS.filter(p=>(p.bolk||1)===b); }   // bolk 1 = før flommen, bolk 2 = patriarkene
+/* Vers-tekst: KANONISK kilde er data/bibelvers.json → speilet i window.BIBELVERS
+   (generert av data/gen-bibelvers.mjs). Rediger vers-tekst KUN i fasit-fila.
+   Faller tilbake til inline-teksten i persons.js hvis en nøkkel skulle mangle. */
+function vt(karakter, ref, inline){ const m=window.BIBELVERS; return (m && m[karakter+'|'+ref]) || inline || ''; }
 
 /* ---------- Fremdrift (localStorage) ---------- */
 const SAVE_KEY = 'rodetraad.v1';
@@ -543,7 +548,7 @@ function renderStep(){
     render(`${head}<div class="pad fade">${img}
       <div style="text-align:center;margin-top:12px;"><span class="chip" style="color:var(--jehova);">${ic('check')} Det er ${p.name}!</span></div>
       <div class="speech">${p.greet}</div>
-      ${p.verse?`<div class="versecard" style="margin-top:14px;"><div class="q">${ic('book')} «${p.verse.t}»</div><div class="ref">${p.verse.ref}</div></div>`:''}
+      ${p.verse?`<div class="versecard" style="margin-top:14px;"><div class="q">${ic('book')} «${vt(p.name,p.verse.ref,p.verse.t)}»</div><div class="ref">${p.verse.ref}</div></div>`:''}
       <div class="spacer" style="height:22px;"></div>
       <button class="btn btn-primary" onclick="next()">Hør historien →</button></div>`);
   } else if(s.t==='story'){
@@ -561,7 +566,7 @@ function renderStep(){
       <div class="progress" style="margin:8px 0 14px;"><i style="width:${(s.idx+1)/n*100}%"></i></div>
       <h3 style="font-size:1.25rem;margin:0 0 14px;">${q.q}</h3>${opts}
       <p id="fb" style="font-weight:700;color:var(--jehova);min-height:24px;"></p>
-      ${q.verseAfter?`<div id="qverse" class="versecard" style="display:none;margin-top:6px;"><div class="q">${ic('book')} «${q.verseAfter.t}»</div><div class="ref">${q.verseAfter.ref}</div></div>
+      ${q.verseAfter?`<div id="qverse" class="versecard" style="display:none;margin-top:6px;"><div class="q">${ic('book')} «${vt(p.name,q.verseAfter.ref,q.verseAfter.t)}»</div><div class="ref">${q.verseAfter.ref}</div></div>
       <button id="qnext" class="btn btn-primary" style="display:none;margin-top:12px;" onclick="next()">Videre →</button>`:''}</div>`);
   } else if(s.t==='reflect'){
     // Refleksjonstrapp: 4 trinn, trykk-for-å-avsløre forslag. Trinn 2 og 4 er åpne

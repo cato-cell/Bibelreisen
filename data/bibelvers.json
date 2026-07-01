@@ -1,48 +1,653 @@
 {
-  "_les_meg": "Fasit for bibelvers, hentet ORDRETT fra /verktoy- og repo-PDF-en nwt_N.pdf (Ny verden-oversettelsen, norsk – 2017-revisjonen, studieutgave). 'tekst' = verbatim skrifttekst (fotnote-markører/kryssreferanser fjernet). 'side' = Bibelens trykte sidetall i PDF-en (for stikkprøve). Vers-spenn er slått sammen til løpende tekst; ved spenn-grenser kan ytre «/» tilhøre en større sitatramme i konteksten – se sitert side i PDF. status ✅ = hentet og kontrollert mot PDF.",
+  "_les_meg": "KANONISK FASIT for bibelvers brukt i spillet. Dette er ENESTE sannhet for vers-ordlyd. data/bibelvers.js (window.BIBELVERS) og inline-fallback i data/persons.js genereres/valideres FRA denne fila via data/gen-bibelvers.mjs — rediger ALDRI vers-tekst andre steder. Fase 1: 'tekst' er IDENTISK med det som vises i spillet i dag (utdrag der spillet viser utdrag). 100 % ordrett verifisering mot nwt_N.pdf er en SENERE oppgave. nivaa: kjerne=vises | bakgrunn=former fortellingen | fordypning=9–14 år. Tidligere full-ordrett fasit (med sidetall) ligger i git-historikken.",
   "vers": [
-    { "karakter": "Nimrod", "referanse": "1. Mosebok 10:8-9", "side": 53,
-      "tekst": "Kusj ble også far til Nimrod. Han var den første som ble en mektig mann på jorden. Han ble en mektig jeger i opposisjon til Jehova. Det er derfor folk noen ganger sier om andre: «Han er som Nimrod, en mektig jeger i opposisjon til Jehova.»",
-      "status": "✅ hentet fra PDF" },
-
-    { "karakter": "Abraham", "referanse": "1. Mosebok 12:2-3", "side": "54–55",
-      "tekst": "Jeg skal gjøre deg til en stor nasjon. Jeg skal velsigne deg, og jeg skal gjøre navnet ditt stort. Du skal bli til velsignelse for andre. Jeg skal velsigne dem som velsigner deg, og jeg skal forbanne den som forbanner deg, og alle jordens slekter skal bli velsignet gjennom deg.",
-      "status": "✅ hentet fra PDF" },
-
-    { "karakter": "Abraham", "referanse": "1. Mosebok 22:18", "side": 66,
+    {
+      "referanse": "1. Mosebok 4:2",
+      "tekst": "Abel ble gjeter, og Kain ble jorddyrker.",
+      "karakter": "Abel",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Hebreerne 11:4",
+      "tekst": "På grunn av sin tro fikk han en bekreftelse på at han var rettferdig, for Gud godkjente hans gaver.",
+      "karakter": "Abel",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "2. Korinter 9:7",
+      "tekst": "… for Gud elsker en glad giver.",
+      "karakter": "Abel",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 4:4",
+      "tekst": "Men Abel bar fram noen av de førstefødte i flokken sin … Jehova så med velvilje på Abel og offergaven hans.",
+      "karakter": "Abel",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 4:6",
+      "tekst": "Hvorfor er du så sint og bitter?",
+      "karakter": "Kain",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 4:7",
+      "tekst": "… ligger synden på lur ved døren. Den ønsker å herske over deg, men kommer du til å få kontroll over den?",
+      "karakter": "Kain",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Hebreerne 11:5",
+      "tekst": "… fikk han en bekreftelse på at Gud hadde godkjent ham.",
+      "karakter": "Enok",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Judas 14",
+      "tekst": "Ja, Enok, den sjuende i rekken fra Adam, profeterte også om dem …",
+      "karakter": "Enok",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 5:24",
+      "tekst": "Enok vandret trofast med den sanne Gud. Så var han ikke mer, for Gud tok ham bort.",
+      "karakter": "Enok",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 5:27",
+      "tekst": "Metusjalah levde altså i 969 år, og så døde han.",
+      "karakter": "Metusjalah",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 5:21",
+      "tekst": "Da Enok var 65 år, ble han far til Metusjalah.",
+      "karakter": "Metusjalah",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 5:25",
+      "tekst": "Da Metusjalah var 187 år, ble han far til Lamek.",
+      "karakter": "Metusjalah",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 6:4",
+      "tekst": "På den tiden … levde kjempene på jorden … Dette var de mektige mennene i gammel tid, de som var berømte.",
+      "karakter": "Nefilim",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 6:18",
+      "tekst": "Du skal gå inn i arken sammen med dine sønner, din kone og dine sønners koner.",
+      "karakter": "Noah",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 6:22",
+      "tekst": "Og Noah gjorde alt det Gud hadde befalt ham. Akkurat slik gjorde han.",
+      "karakter": "Noah",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Hebreerne 11:7",
+      "tekst": "Ved tro viste Noah gudsfrykt og bygde en ark … På denne måten kunne familien hans bli reddet. Og ved sin tro viste han at verden fortjente å bli straffet …",
+      "karakter": "Noah",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 7:1",
+      "tekst": "Gå inn i arken, du og hele din familie, for jeg har sett at du er den som er rettferdig i denne generasjonen.",
+      "karakter": "Noah",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 10:9",
+      "tekst": "Han ble en mektig jeger i opposisjon til Jehova.",
+      "karakter": "Nimrod",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 10:10",
+      "tekst": "De første byene i hans rike var Babel … i landet Sinear.",
+      "karakter": "Nimrod",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Jakob 4:6",
+      "tekst": "Gud står de stolte imot, men han viser de ydmyke ufortjent godhet.",
+      "karakter": "Nimrod",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 10:8",
+      "tekst": "Kusj ble også far til Nimrod. Han var den første som ble en mektig mann på jorden.",
+      "karakter": "Nimrod",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 12:4",
+      "tekst": "Da dro Abram av sted, akkurat som Jehova hadde sagt til ham …",
+      "karakter": "Abraham",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 22:18",
       "tekst": "Og gjennom ditt avkom skal alle jordens nasjoner oppnå en velsignelse fordi du har hørt på meg.",
-      "status": "✅ hentet fra PDF" },
-
-    { "karakter": "Sara", "referanse": "1. Mosebok 18:11-14", "side": "60–61",
-      "tekst": "Abraham og Sara var gamle, langt oppe i årene. Sara var forbi den alderen da kvinner kan få barn. Sara begynte derfor å le for seg selv og sa: «Skal jeg virkelig få denne gleden? Jeg er jo utslitt, og min herre er gammel.» Da sa Jehova til Abraham: «Hvorfor lo Sara og sa: ‘Skal jeg virkelig føde, så gammel som jeg er?’ Er det noe som er umulig for Jehova? Jeg skal komme tilbake til deg neste år på denne tiden, og da skal Sara ha en sønn.»",
-      "status": "✅ hentet fra PDF" },
-
-    { "karakter": "Melkisedek", "referanse": "1. Mosebok 14:18-20", "side": 57,
-      "tekst": "Og Melkisedek, kongen i Salem, kom ut med brød og vin. Han var prest for Den Høyeste Gud. Så velsignet han ham og sa: «Velsignet være Abram av Den Høyeste Gud, han som har skapt himmel og jord. Og lovet være Den Høyeste Gud, som har gitt dine undertrykkere i din hånd!» Og Abram ga ham en tiendedel av alt.",
-      "status": "✅ hentet fra PDF" },
-
-    { "karakter": "Lot", "referanse": "2. Peter 2:7-8", "side": 1565,
-      "tekst": "Men han reddet den rettferdige Lot, som var svært plaget av den skamløse oppførselen til de onde menneskene. Ja, denne rettferdige mannen ble dag etter dag pint i sin rettferdige sjel på grunn av de onde gjerningene han så og hørte mens han bodde blant dem.",
-      "status": "✅ hentet fra PDF" },
-
-    { "karakter": "Lots kone", "referanse": "1. Mosebok 19:26", "side": 63,
-      "tekst": "Men Lots kone, som var bak ham, så seg tilbake, og hun ble til en saltstøtte.",
-      "status": "✅ hentet fra PDF" },
-
-    { "karakter": "Lots kone", "referanse": "Lukas 17:32", "side": 1350,
+      "karakter": "Abraham",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Hebreerne 11:8",
+      "tekst": "Ved tro var Abraham lydig da Gud kalte ham … Han dro av gårde, enda han ikke visste hvor han skulle.",
+      "karakter": "Abraham",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 12:1",
+      "tekst": "Og Jehova sa til Abram: «Dra bort fra landet ditt … til det landet som jeg skal vise deg.»",
+      "karakter": "Abraham",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 18:14",
+      "tekst": "Er det noe som er umulig for Jehova? … og da skal Sara ha en sønn.",
+      "karakter": "Sara",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Hebreerne 11:11",
+      "tekst": "Ved tro fikk Sara kraft til å bli gravid … For hun stolte på at Han som hadde gitt løftet, var trofast.",
+      "karakter": "Sara",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Lukas 1:37",
+      "tekst": "For ikke noe som Gud sier, er umulig for ham.",
+      "karakter": "Sara",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 21:2",
+      "tekst": "Sara ble gravid og fødte Abraham en sønn i hans alderdom til den tiden Gud hadde lovt ham.",
+      "karakter": "Sara",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 14:19",
+      "tekst": "Så velsignet han ham og sa: «Velsignet være Abram av Den Høyeste Gud …»",
+      "karakter": "Melkisedek",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 14:20",
+      "tekst": "Og Abram ga ham en tiendedel av alt.",
+      "karakter": "Melkisedek",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Salme 110:4",
+      "tekst": "Du er prest for evig på samme måte som Melkisedek!",
+      "karakter": "Melkisedek",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 14:18",
+      "tekst": "Og Melkisedek, kongen i Salem, kom ut med brød og vin. Han var prest for Den Høyeste Gud.",
+      "karakter": "Melkisedek",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "2. Peter 2:8",
+      "tekst": "… denne rettferdige mannen ble dag etter dag pint i sin rettferdige sjel på grunn av de onde gjerningene …",
+      "karakter": "Lot",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 19:29",
+      "tekst": "Da Gud ødela byene i distriktet, tenkte han … på det han hadde lovt Abraham, og sendte Lot bort …",
+      "karakter": "Lot",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "2. Peter 2:9",
+      "tekst": "Jehova vet … hvordan han skal redde gudfryktige mennesker ut av prøvelser.",
+      "karakter": "Lot",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "2. Peter 2:7",
+      "tekst": "… han reddet den rettferdige Lot, som var svært plaget av den skamløse oppførselen til de onde menneskene.",
+      "karakter": "Lot",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Lukas 17:32",
       "tekst": "Tenk på Lots kone.",
-      "status": "✅ hentet fra PDF" },
-
-    { "karakter": "Isak", "referanse": "1. Mosebok 26:3-4", "side": "71–72",
-      "tekst": "Bo som utlending i dette landet, og jeg skal fortsette å være med deg og velsigne deg, for til deg og til dine etterkommere skal jeg gi alle disse landområdene, og jeg vil oppfylle den eden som jeg sverget overfor din far Abraham: ‘Jeg skal gjøre ditt avkom like tallrikt som himmelens stjerner, og jeg skal gi ditt avkom alle disse landområdene, og gjennom ditt avkom skal alle jordens nasjoner oppnå en velsignelse’.",
-      "status": "✅ hentet fra PDF" },
-
-    { "karakter": "Rebekka", "referanse": "1. Mosebok 24:18-19", "side": 68,
-      "tekst": "Da sa hun: «Drikk, min herre.» Med en gang løftet hun krukken ned fra skulderen og lot ham få drikke. Etter at hun hadde latt ham få drikke, sa hun: «Jeg skal også dra opp vann til kamelene dine, helt til de har drukket ferdig.»",
-      "status": "✅ hentet fra PDF" },
-
-    { "karakter": "Jakob", "referanse": "1. Mosebok 28:13-14", "side": "75–76",
-      "tekst": "Jehova sto over den, og han sa: «Jeg er Jehova, din far Abrahams Gud og Isaks Gud. Dette landet som du ligger på, skal jeg gi til deg og dine etterkommere. Og dine etterkommere skal bli like tallrike som støvkornene på jorden, og du skal bre deg mot vest og mot øst og mot nord og mot sør, og gjennom deg og gjennom ditt avkom skal alle jordens slekter bli velsignet.»",
-      "status": "✅ hentet fra PDF" }
+      "karakter": "Lots kone",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Lukas 9:62",
+      "tekst": "Ingen som har lagt hånden på en plog og ser seg tilbake, er kvalifisert for Guds rike.",
+      "karakter": "Lots kone",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 19:26",
+      "tekst": "Men Lots kone, som var bak ham, så seg tilbake, og hun ble til en saltstøtte.",
+      "karakter": "Lots kone",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 22:9",
+      "tekst": "… Han bandt sin sønn Isak på hender og føtter og la ham på alteret oppå veden.",
+      "karakter": "Isak",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 26:4",
+      "tekst": "… og gjennom ditt avkom skal alle jordens nasjoner oppnå en velsignelse.",
+      "karakter": "Isak",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Hebreerne 11:20",
+      "tekst": "Ved tro var det også at Isak velsignet Jakob og Esau med tanke på det som skulle komme.",
+      "karakter": "Isak",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 21:3",
+      "tekst": "Abraham ga sin nyfødte sønn, som Sara hadde født ham, navnet Isak.",
+      "karakter": "Isak",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 24:19",
+      "tekst": "Jeg skal også dra opp vann til kamelene dine, helt til de har drukket ferdig.",
+      "karakter": "Rebekka",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 24:58",
+      "tekst": "«Vil du dra med denne mannen?» Hun svarte: «Ja, det vil jeg.»",
+      "karakter": "Rebekka",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Ordspråkene 3:6",
+      "tekst": "Tenk på ham på alle dine veier, så skal han gjøre dine stier jevne.",
+      "karakter": "Rebekka",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 24:15",
+      "tekst": "… kom Rebekka ut med vannkrukken sin på skulderen.",
+      "karakter": "Rebekka",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 28:12",
+      "tekst": "I en drøm så han en trapp som førte fra jorden og helt opp til himmelen, og Guds engler gikk opp og ned på den.",
+      "karakter": "Jakob",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 28:14",
+      "tekst": "… og gjennom deg og gjennom ditt avkom skal alle jordens slekter bli velsignet.",
+      "karakter": "Jakob",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 28:15",
+      "tekst": "Jeg er med deg, og jeg vil beskytte deg overalt hvor du går …",
+      "karakter": "Jakob",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 28:16",
+      "tekst": "Da våknet Jakob av søvnen og sa: «Jehova er på dette stedet, og jeg visste det ikke.»",
+      "karakter": "Jakob",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 49:28",
+      "tekst": "Fra disse kommer Israels tolv stammer …",
+      "karakter": "Jakobs 12 sønner",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 35:22",
+      "tekst": "Jakob hadde tolv sønner.",
+      "karakter": "Jakobs 12 sønner",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "4. Mosebok 3:6",
+      "tekst": "Før fram Levis stamme, og still dem foran presten Aron. De skal gjøre tjeneste for ham.",
+      "karakter": "Levi",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "5. Mosebok 10:8",
+      "tekst": "På den tiden skilte Jehova ut Levis stamme til å bære Jehovas paktsark, til å stå framfor Jehova for å gjøre tjeneste for ham …",
+      "karakter": "Levi",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 29:34",
+      "tekst": "Denne gangen kommer mannen min til å bli knyttet til meg … Han fikk derfor navnet Levi.",
+      "karakter": "Levi",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 44:33",
+      "tekst": "La meg bli igjen som slave for min herre i stedet for gutten, så gutten kan dra tilbake sammen med brødrene sine.",
+      "karakter": "Juda",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 49:10",
+      "tekst": "Septeret skal ikke vike fra Juda … før Sjilo kommer, og ham skal folkene adlyde.",
+      "karakter": "Juda",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 49:8",
+      "tekst": "Juda, dine brødre kommer til å lovprise deg. … Din fars sønner skal bøye seg ned for deg.",
+      "karakter": "Juda",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 29:35",
+      "tekst": "Denne gangen skal jeg lovprise Jehova. Derfor ga hun ham navnet Juda.",
+      "karakter": "Juda",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 39:9",
+      "tekst": "Hvordan skulle jeg da kunne gjøre noe så ondt og … synde mot Gud?",
+      "karakter": "Josef",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 39:2",
+      "tekst": "Men Jehova var med Josef. Han ble derfor framgangsrik …",
+      "karakter": "Josef",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 45:5",
+      "tekst": "Gud har nemlig sendt meg i forveien for å redde liv.",
+      "karakter": "Josef",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 45:4",
+      "tekst": "Jeg er Josef, broren deres, som dere solgte til Egypt.",
+      "karakter": "Josef",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 39:12",
+      "tekst": "… han lot kappen bli igjen i hånden hennes og flyktet ut.",
+      "karakter": "Potifars kone",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "1. Mosebok 39:7",
+      "tekst": "Etter dette begynte hans herres kone å kaste lengselsfulle blikk etter Josef …",
+      "karakter": "Potifars kone",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Job 1:22",
+      "tekst": "Gjennom alt dette syndet ikke Job, og han anklaget ikke Gud for å ha gjort noe galt.",
+      "karakter": "Job",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Job 27:5",
+      "tekst": "Helt til jeg dør, skal jeg bevare min integritet!",
+      "karakter": "Job",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Job 42:12",
+      "tekst": "Jehova velsignet den siste delen av Jobs liv mer enn den første …",
+      "karakter": "Job",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Job 1:1",
+      "tekst": "I landet Us bodde det en mann som het Job. Han var en rettferdig mann, en mann med integritet.",
+      "karakter": "Job",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "2. Mosebok 1:17",
+      "tekst": "Men jordmødrene fryktet den sanne Gud og gjorde ikke som kongen i Egypt hadde sagt til dem. De lot guttebarna leve.",
+      "karakter": "Sjifra og Pua",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "2. Mosebok 1:20",
+      "tekst": "Gud velsignet derfor jordmødrene, og folket fortsatte å vokse og ble svært mektig.",
+      "karakter": "Sjifra og Pua",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "2. Mosebok 1:15",
+      "tekst": "Senere sa kongen i Egypt til de hebraiske jordmødrene Sjifra og Pua:",
+      "karakter": "Sjifra og Pua",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "2. Mosebok 2:2",
+      "tekst": "Da hun så hvor vakker han var, holdt hun ham skjult i tre måneder.",
+      "karakter": "Jokebed",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "2. Mosebok 2:3",
+      "tekst": "… tok hun en kurv av papyrus … Hun la barnet i kurven og satte den i sivet ved bredden av Nilen.",
+      "karakter": "Jokebed",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "2. Mosebok 6:20",
+      "tekst": "Amram tok Jokebed, sin fars søster, til kone. Hun fødte ham Aron og Moses.",
+      "karakter": "Jokebed",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "2. Mosebok 3:10",
+      "tekst": "Jeg sender deg nå til farao, og du skal føre mitt folk, israelittene, ut av Egypt.",
+      "karakter": "Moses",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "2. Mosebok 3:4",
+      "tekst": "… ropte han til ham fra tornebusken: «Moses! Moses!» Han svarte: «Her er jeg.»",
+      "karakter": "Moses",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "2. Mosebok 4:16",
+      "tekst": "Han skal tale til folket for deg, og han skal være din talsmann …",
+      "karakter": "Aron",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "2. Mosebok 4:30",
+      "tekst": "Aron fortalte dem om alt det Jehova hadde sagt til Moses, og han gjorde tegnene for øynene på folket.",
+      "karakter": "Aron",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "2. Mosebok 4:14",
+      "tekst": "… han sa: «Hva med din bror, levitten Aron? Jeg vet at han er flink til å tale …»",
+      "karakter": "Aron",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "2. Mosebok 5:2",
+      "tekst": "Men farao sa: «Hvem er Jehova? … Jeg kjenner slett ikke Jehova, og jeg vil ikke la Israel dra.»",
+      "karakter": "Farao",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "2. Mosebok 19:5",
+      "tekst": "… skal dere bli min spesielle eiendom blant alle folkene, for hele jorden tilhører meg.",
+      "karakter": "Moses ved Sinai",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "2. Mosebok 24:12",
+      "tekst": "Jehova sa nå til Moses: «Kom opp til meg på fjellet og bli der. Jeg skal gi deg steintavler …»",
+      "karakter": "Moses ved Sinai",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "2. Mosebok 31:18",
+      "tekst": "… ga han ham Vitnesbyrdets to tavler, steintavler som det var skrevet på med Guds finger.",
+      "karakter": "Moses ved Sinai",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "4. Mosebok 16:3",
+      "tekst": "De samlet seg mot Moses og Aron og sa: «Vi har fått nok av dere! … Hvorfor skulle dere da opphøye dere over Jehovas menighet?»",
+      "karakter": "Korah",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "4. Mosebok 16:1",
+      "tekst": "Korah, sønn av Jishar, sønn av Kehat, Levis sønn, slo seg så sammen med Datan og Abiram …",
+      "karakter": "Korah",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Josva 1:9",
+      "tekst": "Vær modig og sterk. La deg ikke skremme og bli ikke redd, for Jehova din Gud er med deg overalt hvor du går.",
+      "karakter": "Josva",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Josva 1:1",
+      "tekst": "Etter at Jehovas tjener Moses var død, sa Jehova til Josva, Nuns sønn, Moses' medhjelper …",
+      "karakter": "Josva",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "4. Mosebok 14:24",
+      "tekst": "Men fordi min tjener Kaleb hadde en annen innstilling og fortsatte å følge meg helhjertet, skal jeg føre ham inn i det landet han har vært i …",
+      "karakter": "Kaleb",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "4. Mosebok 13:30",
+      "tekst": "Da prøvde Kaleb å roe ned folket foran Moses ved å si: «La oss dra opp med en gang og innta landet, for vi vil helt sikkert klare å erobre det.»",
+      "karakter": "Kaleb",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Josva 2:11",
+      "tekst": "… for Jehova deres Gud er Gud oppe i himmelen og nede på jorden.",
+      "karakter": "Rahab",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Matteus 1:5",
+      "tekst": "Salmon ble far til Boas med Rahab; Boas ble far til Obed med Rut; Obed ble far til Isai …",
+      "karakter": "Rahab",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Dommerne 4:5",
+      "tekst": "Hun pleide å sitte under Debora-palmen … og israelittene gikk opp til henne for å få dom i rettssaker.",
+      "karakter": "Debora",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Dommerne 4:14",
+      "tekst": "Debora sa nå til Barak: «Bryt opp, for i dag skal Jehova gi Sisera i din hånd. Jehova drar ut foran deg.»",
+      "karakter": "Debora",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Dommerne 4:4",
+      "tekst": "Debora, en profetinne, Lappidots kone, dømte i Israel på den tiden.",
+      "karakter": "Debora",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Dommerne 7:2",
+      "tekst": "Jehova sa nå til Gideon: «Du har for mange menn med deg til at jeg kan la dem beseire Midjan. For da ville Israel kanskje skryte … ‘Jeg har beseiret dem på egen hånd.’»",
+      "karakter": "Gideon",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Dommerne 7:7",
+      "tekst": "Jehova sa nå til Gideon: «Jeg skal redde dere med de 300 mennene … og jeg skal gi Midjan i din hånd.»",
+      "karakter": "Gideon",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Dommerne 9:2",
+      "tekst": "«… Hva er best for dere, at alle de 70 sønnene til Jerubbaal hersker over dere, eller at én mann hersker over dere? Husk at jeg er deres eget kjøtt og blod.»",
+      "karakter": "Abimelek",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Dommerne 9:1",
+      "tekst": "Med tiden dro Abimelek, Jerubbaals sønn, til sin mors brødre i Sikem …",
+      "karakter": "Abimelek",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Dommerne 13:25",
+      "tekst": "Med tiden begynte Jehovas ånd å virke på ham i Mahane-Dan, mellom Sora og Esjtaol.",
+      "karakter": "Samson",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Dommerne 16:28",
+      "tekst": "Samson ropte nå til Jehova: «Suverene Herre Jehova, husk på meg og gi meg styrke, det ber jeg deg om …»",
+      "karakter": "Samson",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Dommerne 13:24",
+      "tekst": "Kvinnen fødte senere en sønn og ga ham navnet Samson, og Jehova velsignet gutten mens han vokste opp.",
+      "karakter": "Samson",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Dommerne 16:5",
+      "tekst": "«Du må lokke ut av ham hva det er som gir ham så stor styrke … For dette skal hver av oss gi deg 1100 sølvstykker.»",
+      "karakter": "Dalila",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Dommerne 16:4",
+      "tekst": "Etter dette ble han forelsket i en kvinne i Sorek-dalen. Hun het Dalila.",
+      "karakter": "Dalila",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Rut 4:17",
+      "tekst": "De kalte ham Obed. Han er far til Isai, Davids far.",
+      "karakter": "Rut",
+      "nivaa": "kjerne"
+    },
+    {
+      "referanse": "Rut 1:16",
+      "tekst": "Men Rut sa: «… Ditt folk skal være mitt folk, og din Gud skal være min Gud.»",
+      "karakter": "Rut",
+      "nivaa": "kjerne"
+    }
   ]
 }
