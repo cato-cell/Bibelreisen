@@ -148,7 +148,8 @@ Unntaket gjelder **kun** dette lærdoms-spørsmålet. Alle andre verskort
 - Refleksjonsskjermen og venn-modalen (Mine venner) viser bibelreferanser (`refs`).
 - **Rød tråd eksplisitt (`thread`):** hvert kort har ett kort, barnevennlig
   `thread`-felt – én setning om hvordan personen fører Jehovas hensikt videre.
-  Vises som egen «Den røde tråden:»-linje på refleksjonsskjermen (`.threadline`).
+  Vises som egen «Den røde tråden:»-linje på **belønningsskjermen** (`.threadline`),
+  ETTER «Velg side» – aldri før (den røper hvilken side personen valgte).
   «Hva viser dette om Jehova?» dekkes av refleksjonssvaret (`reflect.a`).
 
 ---
@@ -257,7 +258,7 @@ Faktastopp (Bibelen taus om troen): ingen sidevelger.
 **Abel og Kain er malen.** Alle nye karakterer skal følge nøyaktig samme
 struktur, kodemønster og kommentarstil.
 
-**Neste:** Bolk 2 (kart 2) — se egen seksjon under.
+**Status:** Bolk 1–6 er alle implementert (37 kort). Neste byggefase er v2-ombyggingen (se Arkitektur-retning + v1-grense).
 
 ---
 
@@ -277,15 +278,15 @@ fremdriftslagring beholdes (`STATE.bolk` husker hvilket kart man er på).
 ### Rekkefølge, tid (JV-kronologi) og side
 | # | Karakter | Tid | Side | Status |
 |---|---|---|---|---|
-| 1 | Nimrod | ca. 2200 f.v.t. | Slangens side (valgte feil) | 🔒 ramme |
-| 2 | Abraham | født 2018 f.v.t. | Jehovas side | 🔒 ramme |
-| 3 | Sara | født ca. 2008 f.v.t. | Jehovas side | 🔒 ramme |
-| 4 | Melkisedek | møter Abraham ~1933 f.v.t. | Jehovas side | 🔒 ramme |
-| 5 | Lot | ca. 1919 f.v.t. | Jehovas side | 🔒 ramme |
-| 6 | Lots kone | ca. 1919 f.v.t. | Slangens side (valgte feil) | 🔒 ramme |
-| 7 | Isak | født 1918 f.v.t. | Jehovas side | 🔒 ramme |
-| 8 | Rebekka | giftet 1878 f.v.t. | Jehovas side | 🔒 ramme |
-| 9 | Jakob | født ca. 1858 f.v.t. | Jehovas side (kun tidlig liv) | 🔒 ramme |
+| 1 | Nimrod | ca. 2200 f.v.t. | Slangens side (valgte feil) | ✅ Implementert |
+| 2 | Abraham | født 2018 f.v.t. | Jehovas side | ✅ Implementert |
+| 3 | Sara | født ca. 2008 f.v.t. | Jehovas side | ✅ Implementert |
+| 4 | Melkisedek | møter Abraham ~1933 f.v.t. | Jehovas side | ✅ Implementert |
+| 5 | Lot | ca. 1919 f.v.t. | Jehovas side | ✅ Implementert |
+| 6 | Lots kone | ca. 1919 f.v.t. | Slangens side (valgte feil) | ✅ Implementert |
+| 7 | Isak | født 1918 f.v.t. | Jehovas side | ✅ Implementert |
+| 8 | Rebekka | giftet 1878 f.v.t. | Jehovas side | ✅ Implementert |
+| 9 | Jakob | født ca. 1858 f.v.t. | Jehovas side (kun tidlig liv) | ✅ Implementert |
 
 ### Fokus per kort
 - **Nimrod:** trasset Jehova, bygde Babel for å «gjøre seg et navn».
@@ -328,7 +329,7 @@ Sjifra og Pua, Jokebed, Moses, Aron (Jehovas side) · Farao (slangens side).
 
 ---
 
-## Bolk 5 – Sinai → inntoget i det lovede land
+## Bolk 5 – Sinai → inntoget i det lovede land (kart 5, implementert)
 
 **Hovedtema:** Jehova verner ætten gjennom en hellig nasjon. Ved Sinai gir
 Jehova folket steintavlene og inngår **LOVPAKTEN** — Israel blir hans
@@ -341,11 +342,11 @@ for at ætten skal vokse fram mot Frelseren.
 ### Rekkefølge, tid (JV-kronologi) og side
 | # | Karakter | Tid | Side | Status |
 |---|---|---|---|---|
-| 1 | Moses ved Sinai | 1513 f.v.t. | Jehovas side (Moses' 2. kort: PAKTEN) | 🔒 ramme |
-| 2 | Korah | ca. 1512 f.v.t. | Slangens side (opprør mot ordningen) | 🔒 ramme |
-| 3 | Josva | fra 1473 f.v.t. | Jehovas side | 🔒 ramme |
-| 4 | Kaleb | 1473 f.v.t. | Jehovas side | 🔒 ramme |
-| 5 | Rahab | 1473 f.v.t. | Jehovas side (utlending → Jesu ætt) | 🔒 ramme |
+| 1 | Moses ved Sinai | 1513 f.v.t. | Jehovas side (Moses' 2. kort: PAKTEN) | ✅ Implementert |
+| 2 | Korah | ca. 1512 f.v.t. | Slangens side (opprør mot ordningen) | ✅ Implementert |
+| 3 | Josva | fra 1473 f.v.t. | Jehovas side | ✅ Implementert |
+| 4 | Kaleb | 1473 f.v.t. | Jehovas side | ✅ Implementert |
+| 5 | Rahab | 1473 f.v.t. | Jehovas side (utlending → Jesu ætt) | ✅ Implementert |
 
 ### Fokus per kort
 - **Moses/Sinai:** tavlene + lovpakten; Israel = Jehovas spesielle eiendom,
@@ -364,7 +365,7 @@ hentet **ordrett** fra `nwt_N.pdf` (lokal, `.gitignore`-et).
 
 ---
 
-## Bolk 6 – Dommertiden
+## Bolk 6 – Dommertiden (kart 6, implementert)
 
 **Hovedtema:** Jehova er tålmodig og reiser alltid opp en befrier — men hver
 enkelt må selv velge side. Folket faller fra gang på gang, og Jehova redder dem
@@ -376,12 +377,12 @@ Jesu slektslinje.
 ### Rekkefølge, tid (JV-kronologi) og side
 | # | Karakter | Tid | Side | Status |
 |---|---|---|---|---|
-| 1 | Debora | ca. 1300-t f.v.t. | Jehovas side | 🔒 ramme |
-| 2 | Gideon | ca. 1200-t f.v.t. | Jehovas side | 🔒 ramme |
-| 3 | Abimelek | ca. 1100-t f.v.t. | Slangens side (grep makten ved svik) | 🔒 ramme |
-| 4 | Samson | ca. 1100-t f.v.t. | Jehovas side | 🔒 ramme |
-| 5 | Dalila | ca. 1100-t f.v.t. | Slangens side (forrådte Samson for sølv) | 🔒 ramme |
-| 6 | Rut | ca. 1100-t f.v.t. | Jehovas side (utlending → Davids/Jesu ætt) | 🔒 ramme |
+| 1 | Debora | ca. 1300-t f.v.t. | Jehovas side | ✅ Implementert |
+| 2 | Gideon | ca. 1200-t f.v.t. | Jehovas side | ✅ Implementert |
+| 3 | Abimelek | ca. 1100-t f.v.t. | Slangens side (grep makten ved svik) | ✅ Implementert |
+| 4 | Samson | ca. 1100-t f.v.t. | Jehovas side | ✅ Implementert |
+| 5 | Dalila | ca. 1100-t f.v.t. | Slangens side (forrådte Samson for sølv) | ✅ Implementert |
+| 6 | Rut | ca. 1100-t f.v.t. | Jehovas side (utlending → Davids/Jesu ætt) | ✅ Implementert |
 
 ### Fokus per kort
 - **Debora:** modig profetinne og dommer; ledet folket i tro.
@@ -415,7 +416,7 @@ ordrett NV); **Dalila/Abimelek** har få vers → hold kortene korte.
 | `images/05-metusjalah.webp` | Metusjalah |
 | `images/06-nefilim.webp` | Nefilim |
 | `images/07-noah.webp` | Noah |
-| `images/08-abraham.webp` | Abraham *(mangler)* |
+| `images/10-abraham.webp` | Abraham |
 
 ---
 
