@@ -166,6 +166,24 @@ Rom 16:20, Dan 9:24-27 (fordypning), Esek 21:27 (bakgrunn).
 
 ---
 
+## Versverifisering er en PORT, ikke en oppgave
+
+**Ingen kort merges til main med uverifiserte vers.**
+
+- Hvert vers i et kort skal være markert ✅ verifisert ordrett mot
+  nwt_N.pdf (lokal fasit) FØR kortet kan merges.
+- Status lagres per vers i data/bibelvers.json:
+  `verifisert: true | false` (+ `side` i PDF-en for stikkprøve).
+- Kort med `verifisert: false` på ett eller flere vers = ikke klart
+  for merge. Ingen unntak – dette gjelder også «midlertidige» vers.
+- Eksisterende gjeld: vers som ligger i spillet i dag uten
+  verifisering (bl.a. Metusjalah) skal verifiseres som egen oppgave
+  og markeres. Nye kort får aldri denne gjelden.
+  *(Status: gjelden ble nedbetalt 01.07.2026 – alle 108 vers er
+  verifisert ordrett mot nwt_N.pdf med sidetall.)*
+
+---
+
 ## Møteløkke per karakter (fast rekkefølge)
 
 1. Ankomsthint (**uten navn**)
@@ -440,6 +458,36 @@ ordrett NV); **Dalila/Abimelek** har få vers → hold kortene korte.
   spillbar. Fortsett å bygge nye kort i ny modell parallelt.
 
 **Definition of done per kort** = kvalitetskontroll-lista i `barne-laeringsdesign`.
+
+---
+
+## Barnetesting etter referansestoppet (ikke etter full migrering)
+
+Etter at Fase 2 (Abraham-referansestoppet + Løftelinjen) er ferdig:
+
+- **Test med minst ett barn 5–8 år og ett barn 9–14 år FØR Fase 4–6
+  planlegges videre.**
+- Metode: observasjon, ikke intervju. La barnet spille uten hjelp.
+  Noter: hvor de faller av, hva de hopper over, hva de trykker på
+  som ikke er trykkbart, om refleksjonen faktisk leses, om
+  Løftelinjen forstås.
+- Funnene omprioriterer backloggen. Teori viker for observasjon.
+- Dette punktet kan ikke hoppes over «fordi vi vet hva som kommer».
+
+---
+
+## v1-grense (definisjon av «ferdig nok til å shippe»)
+
+**v1 = Bolk 1–2 i ny modell + Løftelinjen + opplesning
+(presentasjonsbryter).**
+
+- Når v1-grensen er nådd: STOPP ny funksjonsbygging. Test med barn,
+  samle funn, juster – FØR Bolk 3–6 migreres eller nye mekanikker
+  bygges.
+- Nye ideer underveis noteres i en IDEER.md (backlog) i stedet for å
+  utvide scope. Hver bolk skal ikke føde en ny byggefase før v1 er
+  shippet og observert.
+- Formål: unngå evig byggefase. Ship, observer, lær, bygg videre.
 
 ---
 
