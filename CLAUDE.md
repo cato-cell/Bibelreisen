@@ -182,9 +182,14 @@ Rom 16:20, Dan 9:24-27 (fordypning), Esek 21:27 (bakgrunn).
    Seksjonen viser siden; emblemet selv er bare portrettet. (Erstatter tidligere
    perle/troférom.)
 
-**Refleksjonsspørsmålet er alltid:** «Hva forteller denne historien om
-Jehova?» — med trykk-for-å-avsløre-svar. Bibelreferanser vises på
-refleksjonsskjermen og i emblem-modalen («Vi har truffet»).
+**Refleksjonstrapp (4 trinn, trykk-for-å-avsløre forslag):**
+1) Hva gjorde Jehova? 2) Hvorfor tror du han gjorde det?
+3) Hvilken egenskap viser dette? 4) Hva betyr det for oss?
+Trinn 1 bruker `reflect.a`, trinn 3 bruker det korte per-kort-feltet `trait`
+(Jehovas egenskap). Trinn 2 og 4 er **åpne hjertespørsmål uten fasit** – vi
+tvinger aldri fram personlige trosbekjennelser, og «Videre» er aldri gated.
+Bibelreferanser (`refs`) vises på refleksjonsskjermen og i emblem-modalen
+(«Vi har truffet»).
 
 ---
 
