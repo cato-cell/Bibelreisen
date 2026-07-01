@@ -27,15 +27,15 @@ const PERSONS = [
     ],
     quiz:[
       { q:"Hva jobbet Abel med?", options:["Han var gjeter og passet sauer","Han var fisker","Han var snekker"], correct:0,
-        verseAfter:{ t:"Abel ble gjeter, og Kain ble jorddyrker.", ref:"1. Mosebok 4:2" } }, // person-spesifikt. // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"Abel ble gjeter, og Kain ble jorddyrker.", ref:"1. Mosebok 4:2" } }, // person-spesifikt. // verifisert mot NV (nwt_N.pdf)
       { q:"Hvorfor ble Jehova glad i gaven?", options:["Den var gitt i tro, av kjærlighet fra hjertet","Den var størst","Abel var eldst"], correct:0,
-        verseAfter:{ t:"På grunn av sin tro fikk han en bekreftelse på at han var rettferdig, for Gud godkjente hans gaver.", ref:"Hebreerne 11:4" } }, // ordlyd oppgitt av Cato
+        verseAfter:{ t:"På grunn av sin tro fikk han en bekreftelse på at han var rettferdig, for Gud godkjente hans gaver.", ref:"Hebreerne 11:4" } }, // ordlyd fra Cato; verifisert mot NV (nwt_N.pdf)
       { q:"Hva lærer vi om Jehova?", options:["Han ser på hjertet vårt","Han teller gavene","Han liker bare store gaver"], correct:0,
-        verseAfter:{ t:"… for Gud elsker en glad giver.", ref:"2. Korinter 9:7" } } // prinsippvers (ikke person-spesifikt) – ønsket av Cato. // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"… for Gud elsker en glad giver.", ref:"2. Korinter 9:7" } } // prinsippvers (ikke person-spesifikt) – ønsket av Cato. // verifisert mot NV (nwt_N.pdf)
     ],
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova bryr seg om hjertet vårt. Han ser når vi gir og gjør ting av kjærlighet – ikke for å vise oss fram." },
     refs:"1. Mosebok 4:1–8; Hebreerne 11:4",
-    verse:{ t:"Men Abel bar fram noen av de førstefødte i flokken sin … Jehova så med velvilje på Abel og offergaven hans.", ref:"1. Mosebok 4:4" }, // navngivende vers ved avsløring (utdrag). // MÅ BEKREFTES mot jw.org
+    verse:{ t:"Men Abel bar fram noen av de førstefødte i flokken sin … Jehova så med velvilje på Abel og offergaven hans.", ref:"1. Mosebok 4:4" }, // navngivende vers ved avsløring (utdrag). // verifisert mot NV (nwt_N.pdf)
     sideQ:"Hvem lyttet Abel til?",
     thread:"Abel er den første som frivillig valgte Jehova – et tidlig bevis på at slangen tok feil, og løftet fra Eden lever videre.",
     trait:"Rettferdighet – han ser til hjertet, ikke til det ytre.",
@@ -53,10 +53,10 @@ const PERSONS = [
       "Men Kain ville ikke høre på Jehova. Han lot sinnet styre seg, og gjorde noe veldig galt."
     ],
     quiz:[ { q:"Hva ville Jehova at Kain skulle gjøre?", options:["Velge det gode og slutte å være sint","Fortsette å være sint","Gi en større gave"], correct:0,
-      verseAfter:{ t:"Hvorfor er du så sint og bitter?", ref:"1. Mosebok 4:6" } } ], // person-spesifikt (annet enn reveal 4:7). // MÅ BEKREFTES mot jw.org
+      verseAfter:{ t:"Hvorfor er du så sint og bitter?", ref:"1. Mosebok 4:6" } } ], // person-spesifikt (annet enn reveal 4:7). // verifisert mot NV (nwt_N.pdf)
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Selv da Kain var på vei til å velge feil, advarte Jehova ham FØRST – for å hjelpe ham. Jehova gir oss alltid en sjanse til å velge rett." },
     refs:"1. Mosebok 4:1–16",
-    verse:{ t:"… ligger synden på lur ved døren. Den ønsker å herske over deg, men kommer du til å få kontroll over den?", ref:"1. Mosebok 4:7" }, // MÅ BEKREFTES mot jw.org
+    verse:{ t:"… ligger synden på lur ved døren. Den ønsker å herske over deg, men kommer du til å få kontroll over den?", ref:"1. Mosebok 4:7" }, // verifisert mot NV (nwt_N.pdf)
     sideQ:"Hvem lyttet Kain til?",
     thread:"Kain gikk slangens vei, men Jehova lot løftet fra Eden gå videre gjennom en annen sønn.",
     trait:"Tålmodighet – han advarte Kain og ga ham sjansen til å velge rett.",
@@ -75,13 +75,13 @@ const PERSONS = [
     ],
     quiz:[
       { q:"Hva betyr det at Enok «vandret med Jehova»?", options:["Han var Jehovas nære venn og gjorde det Jehova liker","Han gikk lange turer alene","Han bodde i en stor hage"], correct:0,
-        verseAfter:{ t:"… fikk han en bekreftelse på at Gud hadde godkjent ham.", ref:"Hebreerne 11:5" } }, // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"… fikk han en bekreftelse på at Gud hadde godkjent ham.", ref:"Hebreerne 11:5" } }, // verifisert mot NV (nwt_N.pdf)
       { q:"Hva gjorde Enok da folk ble sinte på budskapet?", options:["Han var modig og fortsatte","Han ga opp med en gang","Han gjemte seg for alltid"], correct:0,
-        verseAfter:{ t:"Ja, Enok, den sjuende i rekken fra Adam, profeterte også om dem …", ref:"Judas 14" } } // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"Ja, Enok, den sjuende i rekken fra Adam, profeterte også om dem …", ref:"Judas 14" } } // verifisert mot NV (nwt_N.pdf)
     ],
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova legger merke til dem som vil være vennene hans, selv når alle andre gjør det onde – og han passer på dem." },
     refs:"1. Mosebok 5:21–24; Hebreerne 11:5; Judas 14, 15",
-    verse:{ t:"Enok vandret trofast med den sanne Gud. Så var han ikke mer, for Gud tok ham bort.", ref:"1. Mosebok 5:24" }, // MÅ BEKREFTES mot jw.org
+    verse:{ t:"Enok vandret trofast med den sanne Gud. Så var han ikke mer, for Gud tok ham bort.", ref:"1. Mosebok 5:24" }, // verifisert mot NV (nwt_N.pdf)
     sideQ:"Hvem lyttet Enok til?",
     thread:"Enok gikk trofast med Jehova midt i en ond verden – et bevis på at mennesker kan holde seg på Jehovas side helt fram mot løftet.",
     trait:"Omsorg – han verner vennene sine, som da han tok Enok bort i fred.",
@@ -100,13 +100,13 @@ const PERSONS = [
     ],
     quiz:[
       { q:"Hvor gammel ble Metusjalah?", options:["969 år","100 år","500 år"], correct:0,
-        verseAfter:{ t:"Metusjalah levde altså i 969 år, og så døde han.", ref:"1. Mosebok 5:27" } }, // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"Metusjalah levde altså i 969 år, og så døde han.", ref:"1. Mosebok 5:27" } }, // verifisert mot NV (nwt_N.pdf)
       { q:"Hvem var Metusjalah i slekt med?", options:["Han var Enoks sønn og Noahs oldefar","Han var Abels bror","Han var en konge"], correct:0,
-        verseAfter:{ t:"Da Enok var 65 år, ble han far til Metusjalah.", ref:"1. Mosebok 5:21" } } // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"Da Enok var 65 år, ble han far til Metusjalah.", ref:"1. Mosebok 5:21" } } // verifisert mot NV (nwt_N.pdf)
     ],
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova lot menneskene leve lenge i begynnelsen. Men selv et langt liv er ikke nok uten Jehova – det er han som gir liv som varer." },
     refs:"1. Mosebok 5:21–27",
-    verse:{ t:"Da Metusjalah var 187 år, ble han far til Lamek.", ref:"1. Mosebok 5:25" }, // navngivende vers ved avsløring (alder-verset flyttet til quiz). // MÅ BEKREFTES mot jw.org
+    verse:{ t:"Da Metusjalah var 187 år, ble han far til Lamek.", ref:"1. Mosebok 5:25" }, // navngivende vers ved avsløring (alder-verset flyttet til quiz). // verifisert mot NV (nwt_N.pdf)
     thread:"Metusjalah er et ledd i slektslinjen fra Enok videre til Noah – tråden føres trygt gjennom generasjonene.",
     trait:"Han er kilden til liv – han lot menneskene leve lenge, og gir liv som varer.",
     traad:{ skjedde:"Metusjalah levde lengst av alle, 969 år, og døde i flodåret.", jehova:"At Jehova er kilden til liv – han lot menneskene leve lenge.", valg:"", videre:"Et ledd i slektslinjen fra Enok videre til Noah – tråden føres trygt gjennom generasjonene." },
@@ -126,7 +126,7 @@ const PERSONS = [
     ],
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova ser når de sterke gjør de svake vondt. Han lar ikke ondskapen vare for alltid – og snart skulle han gjøre noe med det." },
     refs:"1. Mosebok 6:1–5",
-    verse:{ t:"På den tiden … levde kjempene på jorden … Dette var de mektige mennene i gammel tid, de som var berømte.", ref:"1. Mosebok 6:4" }, // MÅ BEKREFTES mot jw.org
+    verse:{ t:"På den tiden … levde kjempene på jorden … Dette var de mektige mennene i gammel tid, de som var berømte.", ref:"1. Mosebok 6:4" }, // verifisert mot NV (nwt_N.pdf)
     sideQ:"Hvilken side var nefilim på?",
     thread:"Nefilim viste hvor ille det ble på slangens side – men Jehova bevarte løftet gjennom Noah.",
     trait:"Rettferdighet – han tåler ikke ondskap og setter en grense for den.",
@@ -145,15 +145,15 @@ const PERSONS = [
     ],
     quiz:[
       { q:"Hvem bygde arken sammen med Noah?", options:["Hele familien hans – åtte personer","Han bygde den helt alene","Naboene i byen"], correct:0,
-        verseAfter:{ t:"Du skal gå inn i arken sammen med dine sønner, din kone og dine sønners koner.", ref:"1. Mosebok 6:18" } }, // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"Du skal gå inn i arken sammen med dine sønner, din kone og dine sønners koner.", ref:"1. Mosebok 6:18" } }, // verifisert mot NV (nwt_N.pdf)
       { q:"Hvorfor ble Noah og familien reddet?", options:["De lyttet til Jehova og adlød","De var sterkest","De bygde raskest"], correct:0,
-        verseAfter:{ t:"Og Noah gjorde alt det Gud hadde befalt ham. Akkurat slik gjorde han.", ref:"1. Mosebok 6:22" } }, // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"Og Noah gjorde alt det Gud hadde befalt ham. Akkurat slik gjorde han.", ref:"1. Mosebok 6:22" } }, // verifisert mot NV (nwt_N.pdf)
       { q:"Hva gjorde folk rundt dem?", options:["De lo og trodde ikke på flommen","De hjalp ivrig til","De bygde sine egne arker"], correct:0,
-        verseAfter:{ t:"Ved tro viste Noah gudsfrykt og bygde en ark … På denne måten kunne familien hans bli reddet. Og ved sin tro viste han at verden fortjente å bli straffet …", ref:"Hebreerne 11:7" } } // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"Ved tro viste Noah gudsfrykt og bygde en ark … På denne måten kunne familien hans bli reddet. Og ved sin tro viste han at verden fortjente å bli straffet …", ref:"Hebreerne 11:7" } } // verifisert mot NV (nwt_N.pdf)
     ],
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova advarer på forhånd og redder dem som lytter til ham. Han ville at HELE familien skulle holde sammen og bli reddet – ikke bare Noah. Jehova holder alltid løftene sine." },
     refs:"1. Mosebok 6:9–22; 7:1; Hebreerne 11:7",
-    verse:{ t:"Gå inn i arken, du og hele din familie, for jeg har sett at du er den som er rettferdig i denne generasjonen.", ref:"1. Mosebok 7:1" }, // MÅ BEKREFTES mot jw.org
+    verse:{ t:"Gå inn i arken, du og hele din familie, for jeg har sett at du er den som er rettferdig i denne generasjonen.", ref:"1. Mosebok 7:1" }, // verifisert mot NV (nwt_N.pdf)
     sideQ:"Hvem lyttet Noah og familien til?",
     thread:"Gjennom Noah og familien berget Jehova menneskeslekten gjennom flommen – og løftets ætt lever videre.",
     trait:"Omsorg – han redder dem som lytter, og gir alltid en vei ut.",
@@ -173,15 +173,15 @@ const PERSONS = [
     ],
     quiz:[
       { q:"Hva var Nimrod kjent for?", options:["Han var en mektig jeger som satte seg opp mot Jehova","Han var en snill gjeter","Han bygde en ark"], correct:0,
-        verseAfter:{ t:"Han ble en mektig jeger i opposisjon til Jehova.", ref:"1. Mosebok 10:9" } }, // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"Han ble en mektig jeger i opposisjon til Jehova.", ref:"1. Mosebok 10:9" } }, // verifisert mot NV (nwt_N.pdf)
       { q:"Hvorfor bygde de tårnet i Babel?", options:["For å gjøre seg et navn, uten å bry seg om Jehova","For å takke Jehova","For å gjemme seg for regnet"], correct:0,
-        verseAfter:{ t:"De første byene i hans rike var Babel … i landet Sinear.", ref:"1. Mosebok 10:10" } }, // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"De første byene i hans rike var Babel … i landet Sinear.", ref:"1. Mosebok 10:10" } }, // verifisert mot NV (nwt_N.pdf)
       { q:"Hva lærer vi om Jehova?", options:["Han er størst – ingen stolt plan kan stå seg mot ham","Han liker høye tårn","Han bryr seg ikke"], correct:0,
-        verseAfter:{ t:"Gud står de stolte imot, men han viser de ydmyke ufortjent godhet.", ref:"Jakob 4:6" } } // prinsippvers (lærdoms-unntak). // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"Gud står de stolte imot, men han viser de ydmyke ufortjent godhet.", ref:"Jakob 4:6" } } // prinsippvers (lærdoms-unntak). // verifisert mot NV (nwt_N.pdf)
     ],
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova er mye større enn noen stolt konge eller noe høyt tårn. Når mennesker tror de klarer seg uten ham, kan ingen plan stå seg mot ham – men de ydmyke er han glad i." },
     refs:"1. Mosebok 10:8–10; 11:1–9",
-    verse:{ t:"Kusj ble også far til Nimrod. Han var den første som ble en mektig mann på jorden.", ref:"1. Mosebok 10:8" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
+    verse:{ t:"Kusj ble også far til Nimrod. Han var den første som ble en mektig mann på jorden.", ref:"1. Mosebok 10:8" }, // navngivende vers ved avsløring. // verifisert mot NV (nwt_N.pdf)
     thread:"Nimrod ville gjøre seg et navn mot Jehova, men hensikten gikk videre – snart gjennom en mann som stolte på Jehova: Abraham.",
     trait:"Overhøyhet – ingen som trosser Jehova, kan stoppe hensikten hans.",
     traad:{ skjedde:"Nimrod ble en mektig jeger i opposisjon til Jehova og bygde Babel for å gjøre seg et navn.", jehova:"At ingen som trosser Jehova, kan stoppe hensikten hans.", valg:"Nimrod valgte stolthet og opprør – å gjøre seg selv stor i stedet for å ære Jehova.", videre:"Hensikten gikk likevel videre – snart gjennom en mann som stolte på Jehova: Abraham." },
@@ -199,15 +199,15 @@ const PERSONS = [
     ],
     quiz:[
       { q:"Hva gjorde Abraham da Jehova ba ham reise?", options:["Han stolte på Jehova og dro av sted","Han ble hjemme","Han ba om en annen plan"], correct:0,
-        verseAfter:{ t:"Da dro Abram av sted, akkurat som Jehova hadde sagt til ham …", ref:"1. Mosebok 12:4" } }, // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"Da dro Abram av sted, akkurat som Jehova hadde sagt til ham …", ref:"1. Mosebok 12:4" } }, // verifisert mot NV (nwt_N.pdf)
       { q:"Hva lovte Jehova Abraham?", options:["At alle familier på jorden skulle bli velsignet gjennom ætten hans","At han skulle bli rikest av alle","At han aldri skulle bli gammel"], correct:0,
         verseAfter:{ t:"Og gjennom ditt avkom skal alle jordens nasjoner oppnå en velsignelse fordi du har hørt på meg.", ref:"1. Mosebok 22:18" } }, // LØFTET – MÅ BEKREFTES mot jw.org
       { q:"Hva lærer vi om Jehova?", options:["Han holder alltid løftene sine og belønner tro","Han glemmer det han lover","Han liker bare de sterke"], correct:0,
-        verseAfter:{ t:"Ved tro var Abraham lydig da Gud kalte ham … Han dro av gårde, enda han ikke visste hvor han skulle.", ref:"Hebreerne 11:8" } } // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"Ved tro var Abraham lydig da Gud kalte ham … Han dro av gårde, enda han ikke visste hvor han skulle.", ref:"Hebreerne 11:8" } } // verifisert mot NV (nwt_N.pdf)
     ],
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova legger store planer og holder alltid løftene sine. Han la merke til Abrahams tro og gjorde ham til en del av den viktigste slekten i historien – den som Jesus kom fra, og som fører fram mot paradiset." },
     refs:"1. Mosebok 12:1–4; 22:15–18; Hebreerne 11:8",
-    verse:{ t:"Og Jehova sa til Abram: «Dra bort fra landet ditt … til det landet som jeg skal vise deg.»", ref:"1. Mosebok 12:1" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
+    verse:{ t:"Og Jehova sa til Abram: «Dra bort fra landet ditt … til det landet som jeg skal vise deg.»", ref:"1. Mosebok 12:1" }, // navngivende vers ved avsløring. // verifisert mot NV (nwt_N.pdf)
     thread:"Med Abraham får løftet en familie: gjennom hans ætt skal alle folk velsignes – tråden peker rett mot Jesus.",
     trait:"Trofasthet – han holder løftene sine, ledd for ledd.",
     traad:{ skjedde:"Abraham forlot i tro hjemlandet da Jehova kalte ham, og fikk løftet om at alle folk skal velsignes gjennom hans ætt.", jehova:"At Jehova er trofast og holder løftene sine, ledd for ledd.", valg:"Abraham valgte å adlyde og stole på Jehova, enda han ikke visste hvor han skulle.", videre:"Med Abraham får løftet en familie: gjennom hans ætt skal alle folk velsignes – tråden peker mot Jesus." },
@@ -225,15 +225,15 @@ const PERSONS = [
     ],
     quiz:[
       { q:"Hva lovte Jehova den gamle Sara?", options:["At hun skulle få en sønn","At hun skulle bli dronning","At hun skulle få mye gull"], correct:0,
-        verseAfter:{ t:"Er det noe som er umulig for Jehova? … og da skal Sara ha en sønn.", ref:"1. Mosebok 18:14" } }, // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"Er det noe som er umulig for Jehova? … og da skal Sara ha en sønn.", ref:"1. Mosebok 18:14" } }, // verifisert mot NV (nwt_N.pdf)
       { q:"Hvorfor kunne Sara stole på løftet?", options:["Fordi hun mente at Jehova er trofast","Fordi hun var sterk","Fordi hun var ung"], correct:0,
-        verseAfter:{ t:"Ved tro fikk Sara kraft til å bli gravid … For hun stolte på at Han som hadde gitt løftet, var trofast.", ref:"Hebreerne 11:11" } }, // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"Ved tro fikk Sara kraft til å bli gravid … For hun stolte på at Han som hadde gitt løftet, var trofast.", ref:"Hebreerne 11:11" } }, // verifisert mot NV (nwt_N.pdf)
       { q:"Hva lærer vi om Jehova?", options:["Ingenting er umulig for ham","Han glemmer gamle mennesker","Han liker ikke når noen ler"], correct:0,
-        verseAfter:{ t:"For ikke noe som Gud sier, er umulig for ham.", ref:"Lukas 1:37" } } // prinsippvers (lærdoms-unntak). // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"For ikke noe som Gud sier, er umulig for ham.", ref:"Lukas 1:37" } } // prinsippvers (lærdoms-unntak). // verifisert mot NV (nwt_N.pdf)
     ],
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"For Jehova finnes det ingenting som er umulig. Han holdt løftet til Sara selv når det så helt håpløst ut – og slik førte han den røde tråden videre mot Jesus." },
     refs:"1. Mosebok 18:9–14; 21:1–7; Hebreerne 11:11",
-    verse:{ t:"Sara ble gravid og fødte Abraham en sønn i hans alderdom til den tiden Gud hadde lovt ham.", ref:"1. Mosebok 21:2" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
+    verse:{ t:"Sara ble gravid og fødte Abraham en sønn i hans alderdom til den tiden Gud hadde lovt ham.", ref:"1. Mosebok 21:2" }, // navngivende vers ved avsløring. // verifisert mot NV (nwt_N.pdf)
     thread:"Gjennom den umulige fødselen til Sara førte Jehova løftets ætt videre – ingenting er umulig for ham.",
     trait:"Makt – ingenting er umulig for ham, ikke engang det som virker håpløst.",
     traad:{ skjedde:"Den gamle Sara fikk sønnen Isak, akkurat som Jehova hadde lovt, da det virket umulig.", jehova:"At ingenting er umulig for Jehova, ikke engang det som virker håpløst.", valg:"Sara valgte å stole på at Han som ga løftet, var trofast.", videre:"Gjennom den umulige fødselen førte Jehova løftets ætt videre mot Jesus." },
@@ -251,15 +251,15 @@ const PERSONS = [
     ],
     quiz:[
       { q:"Hva var Melkisedek?", options:["Både konge og prest for Den Høyeste Gud","Bare en vanlig kjøpmann","En soldat"], correct:0,
-        verseAfter:{ t:"Så velsignet han ham og sa: «Velsignet være Abram av Den Høyeste Gud …»", ref:"1. Mosebok 14:19" } }, // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"Så velsignet han ham og sa: «Velsignet være Abram av Den Høyeste Gud …»", ref:"1. Mosebok 14:19" } }, // verifisert mot NV (nwt_N.pdf)
       { q:"Hva gjorde Abraham for Melkisedek?", options:["Ga ham en tiendedel av alt","Tok byen hans","Ba ham om penger"], correct:0,
-        verseAfter:{ t:"Og Abram ga ham en tiendedel av alt.", ref:"1. Mosebok 14:20" } }, // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"Og Abram ga ham en tiendedel av alt.", ref:"1. Mosebok 14:20" } }, // verifisert mot NV (nwt_N.pdf)
       { q:"Hva lærer vi om Jehova?", options:["Han forbereder alt i sin hensikt – fram mot Jesus","At han liker store byer","At han ikke trenger noen"], correct:0,
-        verseAfter:{ t:"Du er prest for evig på samme måte som Melkisedek!", ref:"Salme 110:4" } } // peker mot Jesus. // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"Du er prest for evig på samme måte som Melkisedek!", ref:"Salme 110:4" } } // peker mot Jesus. // verifisert mot NV (nwt_N.pdf)
     ],
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova lot Melkisedek være et lite forhåndsbilde på Jesus – en konge og prest som bringer fred. Slik peker hele Bibelen, ledd for ledd, fram mot Jesus." },
     refs:"1. Mosebok 14:18–20; Salme 110:4; Hebreerne 7:1–3",
-    verse:{ t:"Og Melkisedek, kongen i Salem, kom ut med brød og vin. Han var prest for Den Høyeste Gud.", ref:"1. Mosebok 14:18" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
+    verse:{ t:"Og Melkisedek, kongen i Salem, kom ut med brød og vin. Han var prest for Den Høyeste Gud.", ref:"1. Mosebok 14:18" }, // navngivende vers ved avsløring. // verifisert mot NV (nwt_N.pdf)
     thread:"Melkisedek var konge og prest på én gang – et forbilde på Jesus, som løftet peker fram mot.",
     trait:"Godhet – han velsigner og løfter fram dem som ærer ham.",
     traad:{ skjedde:"Melkisedek, konge og prest for Den Høyeste, kom ut med brød og vin og velsignet Abraham.", jehova:"At Jehova velsigner og løfter fram dem som ærer ham.", valg:"", videre:"Konge og prest på én gang – et forbilde på Jesus, som løftet peker fram mot." },
@@ -277,15 +277,15 @@ const PERSONS = [
     ],
     quiz:[
       { q:"Hvordan hadde Lot det i Sodoma?", options:["Det vonde rundt ham plaget ham hver dag","Han syntes det var helt fint","Han gjorde det samme som de andre"], correct:0,
-        verseAfter:{ t:"… denne rettferdige mannen ble dag etter dag pint i sin rettferdige sjel på grunn av de onde gjerningene …", ref:"2. Peter 2:8" } }, // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"… denne rettferdige mannen ble dag etter dag pint i sin rettferdige sjel på grunn av de onde gjerningene …", ref:"2. Peter 2:8" } }, // verifisert mot NV (nwt_N.pdf)
       { q:"Hva gjorde Jehova for Lot?", options:["Han førte ham trygt ut før byen ble ødelagt","Han glemte ham","Han lot ham bli igjen"], correct:0,
-        verseAfter:{ t:"Da Gud ødela byene i distriktet, tenkte han … på det han hadde lovt Abraham, og sendte Lot bort …", ref:"1. Mosebok 19:29" } }, // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"Da Gud ødela byene i distriktet, tenkte han … på det han hadde lovt Abraham, og sendte Lot bort …", ref:"1. Mosebok 19:29" } }, // verifisert mot NV (nwt_N.pdf)
       { q:"Hva lærer vi om Jehova?", options:["Han vet å redde dem som er trofaste mot ham","Han bryr seg ikke om hvem som er god","Han redder bare de rike"], correct:0,
-        verseAfter:{ t:"Jehova vet … hvordan han skal redde gudfryktige mennesker ut av prøvelser.", ref:"2. Peter 2:9" } } // prinsippvers (lærdoms-unntak). // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"Jehova vet … hvordan han skal redde gudhengivne mennesker ut av prøvelser.", ref:"2. Peter 2:9" } } // prinsippvers (lærdoms-unntak). // verifisert mot NV (nwt_N.pdf)
     ],
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova ser dem som prøver å leve rett selv når alle andre gjør det vonde – og han vet hvordan han skal redde dem ut av vanskeligheter." },
     refs:"1. Mosebok 19:1–29; 2. Peter 2:7–9",
-    verse:{ t:"… han reddet den rettferdige Lot, som var svært plaget av den skamløse oppførselen til de onde menneskene.", ref:"2. Peter 2:7" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
+    verse:{ t:"… han reddet den rettferdige Lot, som var svært plaget av den skamløse oppførselen til de onde menneskene.", ref:"2. Peter 2:7" }, // navngivende vers ved avsløring. // verifisert mot NV (nwt_N.pdf)
     thread:"Jehova reddet den rettferdige Lot – han verner alltid dem som holder seg på hans side mens hensikten går videre.",
     trait:"Rettferdighet – han skiller de gode ut og redder dem.",
     traad:{ skjedde:"Lot holdt seg ren midt i det onde Sodoma og ble reddet ut før byen ble ødelagt.", jehova:"At Jehova ser de rettferdige og vet hvordan han redder dem ut.", valg:"Lot valgte å holde seg ren og plaget seg over ondskapen rundt ham.", videre:"Jehova reddet den rettferdige Lot – han verner dem som holder seg på hans side." },
@@ -302,13 +302,13 @@ const PERSONS = [
     ],
     quiz:[
       { q:"Hva gjorde Lots kone galt?", options:["Hun så seg tilbake mot byen i stedet for å adlyde","Hun gikk for fort","Hun hjalp for mange"], correct:0,
-        verseAfter:{ t:"Tenk på Lots kone.", ref:"Lukas 17:32" } }, // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"Tenk på Lots kone.", ref:"Lukas 17:32" } }, // verifisert mot NV (nwt_N.pdf)
       { q:"Hva lærer vi om Jehova?", options:["Han vil at hjertet vårt skal være helt med ham","At det holder å være nesten lydig","At han liker gamle byer"], correct:0,
-        verseAfter:{ t:"Ingen som har lagt hånden på en plog og ser seg tilbake, er kvalifisert for Guds rike.", ref:"Lukas 9:62" } } // prinsippvers (lærdoms-unntak). // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"Ingen som har lagt hånden på en plog og ser seg tilbake, er kvalifisert for Guds rike.", ref:"Lukas 9:62" } } // prinsippvers (lærdoms-unntak). // verifisert mot NV (nwt_N.pdf)
     ],
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova vil at vi skal stole helt på ham og ikke henge fast i det gamle. Han hadde reddet henne – men hjertet hennes ble igjen i Sodoma." },
     refs:"1. Mosebok 19:15–26; Lukas 17:28–32",
-    verse:{ t:"Men Lots kone, som var bak ham, så seg tilbake, og hun ble til en saltstøtte.", ref:"1. Mosebok 19:26" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
+    verse:{ t:"Men Lots kone, som var bak ham, så seg tilbake, og hun ble til en saltstøtte.", ref:"1. Mosebok 19:26" }, // navngivende vers ved avsløring. // verifisert mot NV (nwt_N.pdf)
     thread:"Lots kone så seg tilbake mot Sodoma – en påminnelse om å holde blikket framover på Jehovas løfte.",
     trait:"Barmhjertighet – han advarer oss så vi kan velge livet.",
     traad:{ skjedde:"Lots kone ble reddet ut av Sodoma, men så seg tilbake og ble til en saltstøtte.", jehova:"At Jehova vil at vi skal stole helt på ham og ikke henge fast i det gamle.", valg:"Hjertet hennes ble igjen i Sodoma – hun valgte det gamle framfor redningen.", videre:"En påminnelse om å holde blikket framover, på Jehovas løfte." },
@@ -326,15 +326,15 @@ const PERSONS = [
     ],
     quiz:[
       { q:"Hvordan reagerte Isak da han skulle bindes?", options:["Han satte seg ikke imot, men stolte på Jehova","Han løp sin vei","Han ble sint på faren"], correct:0,
-        verseAfter:{ t:"… Han bandt sin sønn Isak på hender og føtter og la ham på alteret oppå veden.", ref:"1. Mosebok 22:9" } }, // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"… Han bandt sin sønn Isak på hender og føtter og la ham på alteret oppå veden.", ref:"1. Mosebok 22:9" } }, // verifisert mot NV (nwt_N.pdf)
       { q:"Hvilket løfte gjentok Jehova til Isak?", options:["At alle folk på jorden skulle bli velsignet gjennom ætten hans","At han skulle bli den sterkeste","At han aldri skulle bli gammel"], correct:0,
         verseAfter:{ t:"… og gjennom ditt avkom skal alle jordens nasjoner oppnå en velsignelse.", ref:"1. Mosebok 26:4" } }, // LØFTET gjentatt – MÅ BEKREFTES mot jw.org
       { q:"Hva lærer vi om Jehova?", options:["Han fører løftet sitt trygt videre, slekt etter slekt","At han ombestemmer seg ofte","At han bare bryr seg om de voksne"], correct:0,
-        verseAfter:{ t:"Ved tro var det også at Isak velsignet Jakob og Esau med tanke på det som skulle komme.", ref:"Hebreerne 11:20" } } // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"Ved tro var det også at Isak velsignet Jakob og Esau med tanke på det som skulle komme.", ref:"Hebreerne 11:20" } } // verifisert mot NV (nwt_N.pdf)
     ],
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova fører hensikten sin videre, ledd for ledd. Isaks ydmyke tillit minner om Jesus, som villig ga seg selv – og løftet om velsignelse gikk videre mot ham." },
     refs:"1. Mosebok 21:1–3; 22:1–14; 26:3–4; Hebreerne 11:20",
-    verse:{ t:"Abraham ga sin nyfødte sønn, som Sara hadde født ham, navnet Isak.", ref:"1. Mosebok 21:3" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
+    verse:{ t:"Abraham ga sin nyfødte sønn, som Sara hadde født ham, navnet Isak.", ref:"1. Mosebok 21:3" }, // navngivende vers ved avsløring. // verifisert mot NV (nwt_N.pdf)
     thread:"Til Isak gjentok Jehova løftet – ætten mot Jesus føres videre, ledd for ledd.",
     trait:"Trofasthet – han gjentar og holder løftet sitt, slekt etter slekt.",
     traad:{ skjedde:"Isak lot seg villig binde på alteret, og Jehova gjentok løftet til ham.", jehova:"At Jehova er trofast og gjentar og holder løftet sitt, slekt etter slekt.", valg:"Isak valgte ydmyk tillit og lot seg villig binde.", videre:"Løftet om velsignelse føres videre gjennom Isak, ledd for ledd mot Jesus." },
@@ -352,15 +352,15 @@ const PERSONS = [
     ],
     quiz:[
       { q:"Hva viste at Rebekka hadde et godt hjerte?", options:["Hun ga vann både til mannen og til alle kamelene","Hun ville ha betalt","Hun gjemte seg"], correct:0,
-        verseAfter:{ t:"Jeg skal også dra opp vann til kamelene dine, helt til de har drukket ferdig.", ref:"1. Mosebok 24:19" } }, // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"Jeg skal også dra opp vann til kamelene dine, helt til de har drukket ferdig.", ref:"1. Mosebok 24:19" } }, // verifisert mot NV (nwt_N.pdf)
       { q:"Hva svarte Rebekka da hun ble spurt om å reise?", options:["«Ja, jeg vil dra»","«Nei, jeg blir hjemme»","«Spør meg senere»"], correct:0,
-        verseAfter:{ t:"«Vil du dra med denne mannen?» Hun svarte: «Ja, det vil jeg.»", ref:"1. Mosebok 24:58" } }, // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"«Vil du dra med denne mannen?» Hun svarte: «Ja, det vil jeg.»", ref:"1. Mosebok 24:58" } }, // verifisert mot NV (nwt_N.pdf)
       { q:"Hva lærer vi om Jehova?", options:["Han leder dem som vil følge ham","At han bare hjelper de rike","At han ikke hører bønner"], correct:0,
-        verseAfter:{ t:"Tenk på ham på alle dine veier, så skal han gjøre dine stier jevne.", ref:"Ordspråkene 3:6" } } // prinsippvers (lærdoms-unntak). // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"Tenk på ham på alle dine veier, så skal han gjøre dine stier jevne.", ref:"Ordspråkene 3:6" } } // prinsippvers (lærdoms-unntak). // verifisert mot NV (nwt_N.pdf)
     ],
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova hører bønner og leder dem som vil tjene ham. Rebekkas vennlighet og mot gjorde henne til en viktig del av løftets familie – tråden mot Jesus." },
     refs:"1. Mosebok 24:15–20, 58, 67",
-    verse:{ t:"… kom Rebekka ut med vannkrukken sin på skulderen.", ref:"1. Mosebok 24:15" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
+    verse:{ t:"… kom Rebekka ut med vannkrukken sin på skulderen.", ref:"1. Mosebok 24:15" }, // navngivende vers ved avsløring. // verifisert mot NV (nwt_N.pdf)
     thread:"Rebekka sa modig «jeg vil gå» – og ble mor i slekten som bærer løftet videre.",
     trait:"Omsorg – han leder dem som søker ham.",
     traad:{ skjedde:"Rebekka viste gjestfrihet ved brønnen og sa modig «jeg vil gå» for å bli Isaks kone.", jehova:"At Jehova hører bønner og leder dem som vil tjene ham.", valg:"Rebekka valgte mot og vilje: «Ja, det vil jeg» – hun ville gå.", videre:"Ble mor i slekten som bærer løftet videre mot Jesus." },
@@ -378,15 +378,15 @@ const PERSONS = [
     ],
     quiz:[
       { q:"Hva drømte Jakob om i Betel?", options:["En trapp som nådde fra jorden helt opp til himmelen","En stor storm","Et skip på havet"], correct:0,
-        verseAfter:{ t:"I en drøm så han en trapp som førte fra jorden og helt opp til himmelen, og Guds engler gikk opp og ned på den.", ref:"1. Mosebok 28:12" } }, // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"I en drøm så han en trapp som førte fra jorden og helt opp til himmelen, og Guds engler gikk opp og ned på den.", ref:"1. Mosebok 28:12" } }, // verifisert mot NV (nwt_N.pdf)
       { q:"Hvilket løfte gjentok Jehova til Jakob?", options:["At alle slekter på jorden skulle bli velsignet gjennom ætten hans","At han skulle bli rik på gull","At han aldri skulle reise mer"], correct:0,
         verseAfter:{ t:"… og gjennom deg og gjennom ditt avkom skal alle jordens slekter bli velsignet.", ref:"1. Mosebok 28:14" } }, // LØFTET gjentatt ved Betel – MÅ BEKREFTES mot jw.org
       { q:"Hva lærer vi om Jehova?", options:["Han er med tjenerne sine overalt hvor de går","At han bare er på ett sted","At han glemmer løftene sine"], correct:0,
-        verseAfter:{ t:"Jeg er med deg, og jeg vil beskytte deg overalt hvor du går …", ref:"1. Mosebok 28:15" } } // MÅ BEKREFTES mot jw.org
+        verseAfter:{ t:"Jeg er med deg, og jeg vil beskytte deg overalt hvor du går …", ref:"1. Mosebok 28:15" } } // verifisert mot NV (nwt_N.pdf)
     ],
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova legger merke til dem som setter de hellige tingene høyt. Han var med Jakob overalt og førte løftet videre gjennom ham – ett ledd til på veien mot Jesus og paradiset." },
     refs:"1. Mosebok 28:10–15; Hebreerne 11:21",
-    verse:{ t:"Da våknet Jakob av søvnen og sa: «Jehova er på dette stedet, og jeg visste det ikke.»", ref:"1. Mosebok 28:16" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
+    verse:{ t:"Da våknet Jakob av søvnen og sa: «Jehova er på dette stedet, og jeg visste det ikke.»", ref:"1. Mosebok 28:16" }, // navngivende vers ved avsløring. // verifisert mot NV (nwt_N.pdf)
     thread:"Ved Betel gjentok Jehova løftet til Jakob – gjennom hans tolv sønner vokser folket som fører tråden mot Jesus.",
     trait:"Trofasthet – han fører løftet videre og svikter aldri.",
     traad:{ skjedde:"Jakob verdsatte de hellige tingene, og ved Betel gjentok Jehova løftet til ham i en drøm.", jehova:"At Jehova er med sine overalt og fører løftet videre, uten å svikte.", valg:"Jakob satte de hellige tingene høyt og tok imot løftet.", videre:"Gjennom hans tolv sønner vokser folket som fører tråden mot Jesus." },
@@ -710,7 +710,7 @@ const PERSONS = [
     ],
     quiz:[
       { q:"Hva gjorde Korah galt?", options:["Han gjorde opprør mot ordningen Jehova hadde valgt","Han hjalp Moses og Aron","Han bygde et alter"], correct:0,
-        verseAfter:{ t:"De samlet seg mot Moses og Aron og sa: «Vi har fått nok av dere! … Hvorfor skulle dere da opphøye dere over Jehovas menighet?»", ref:"4. Mosebok 16:3" } } // verifisert mot NV (nwt_N.pdf)
+        verseAfter:{ t:"De samlet seg mot Moses og Aron og sa til dem: «Vi har fått nok av dere! … Hvorfor skulle dere da opphøye dere over Jehovas menighet?»", ref:"4. Mosebok 16:3" } } // verifisert mot NV (nwt_N.pdf)
     ],
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova bestemmer selv hvem som skal lede folket hans. Den som setter seg opp mot ordningen hans for å skaffe seg makt, velger slangens side – det er egentlig opprør mot Jehova selv." },
     refs:"4. Mosebok 16:1–3",
