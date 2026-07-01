@@ -39,7 +39,7 @@ const PERSONS = [
     sideQ:"Hvem lyttet Abel til?",
     thread:"Abel er den første som frivillig valgte Jehova – et tidlig bevis på at slangen tok feil, og løftet fra Eden lever videre.",
     trait:"Rettferdighet – han ser til hjertet, ikke til det ytre.",
-    traad:{ skjedde:"", jehova:"", valg:"", videre:"" },  // 4 trådfelt (CLAUDE.md); fylles i DEL 3 der innholdet finnes
+    traad:{ skjedde:"Abel bar fram sitt beste offer til Jehova, gitt i tro og av et godt hjerte.", jehova:"At Jehova ser til hjertet, ikke til det ytre.", valg:"Abel valgte å gi det aller fineste av kjærlighet – ikke for å vise seg fram.", videre:"Den første som frivillig valgte Jehova – et tidlig bevis på at slangen tok feil, og løftet fra Eden lever videre." },
     lesson:"Abel valgte Jehovas side. Lærdom: Jehova ser til hjertet – gi av kjærlighet."
   },
   {
@@ -60,7 +60,7 @@ const PERSONS = [
     sideQ:"Hvem lyttet Kain til?",
     thread:"Kain gikk slangens vei, men Jehova lot løftet fra Eden gå videre gjennom en annen sønn.",
     trait:"Tålmodighet – han advarte Kain og ga ham sjansen til å velge rett.",
-    traad:{ skjedde:"", jehova:"", valg:"", videre:"" },  // 4 trådfelt (CLAUDE.md); fylles i DEL 3 der innholdet finnes
+    traad:{ skjedde:"Kain ga et offer uten hjertet med, ble misunnelig på broren og lot sinnet styre seg til noe galt.", jehova:"At Jehova er tålmodig – han advarte Kain først for å hjelpe ham.", valg:"Kain ville ikke høre Jehovas vennlige advarsel, men lot sinne og misunnelse råde.", videre:"Kain gikk slangens vei, men Jehova lot løftet fra Eden gå videre gjennom en annen sønn." },
     lesson:"Kain valgte slangens side. Lærdom: Jehova advarer oss fordi han er glad i oss – men vi velger selv."
   },
   {
@@ -85,7 +85,7 @@ const PERSONS = [
     sideQ:"Hvem lyttet Enok til?",
     thread:"Enok gikk trofast med Jehova midt i en ond verden – et bevis på at mennesker kan holde seg på Jehovas side helt fram mot løftet.",
     trait:"Omsorg – han verner vennene sine, som da han tok Enok bort i fred.",
-    traad:{ skjedde:"", jehova:"", valg:"", videre:"" },  // 4 trådfelt (CLAUDE.md); fylles i DEL 3 der innholdet finnes
+    traad:{ skjedde:"Enok vandret med Jehova i en ond verden og forkynte modig at ondskapen måtte ta slutt.", jehova:"At Jehova legger merke til og verner dem som vil være vennene hans.", valg:"Enok valgte å være Jehovas nære venn og tale sant, selv når mange ble sinte.", videre:"Holdt seg trofast på Jehovas side – et bevis på at mennesker kan gjøre det helt fram mot løftet." },
     lesson:"Enok valgte Jehovas side. Lærdom: Vi kan være Jehovas nære venn selv når ingen andre er det."
   },
   {
@@ -109,7 +109,7 @@ const PERSONS = [
     verse:{ t:"Da Metusjalah var 187 år, ble han far til Lamek.", ref:"1. Mosebok 5:25" }, // navngivende vers ved avsløring (alder-verset flyttet til quiz). // MÅ BEKREFTES mot jw.org
     thread:"Metusjalah er et ledd i slektslinjen fra Enok videre til Noah – tråden føres trygt gjennom generasjonene.",
     trait:"Han er kilden til liv – han lot menneskene leve lenge, og gir liv som varer.",
-    traad:{ skjedde:"", jehova:"", valg:"", videre:"" },  // 4 trådfelt (CLAUDE.md); fylles i DEL 3 der innholdet finnes
+    traad:{ skjedde:"Metusjalah levde lengst av alle, 969 år, og døde i flodåret.", jehova:"At Jehova er kilden til liv – han lot menneskene leve lenge.", valg:"", videre:"Et ledd i slektslinjen fra Enok videre til Noah – tråden føres trygt gjennom generasjonene." },
     lesson:"Visste du? Metusjalah levde i 969 år – lengst av alle i Bibelen, og helt til flommen kom. Tråden går fra Enok, gjennom ham, videre til Noah."
   },
   {
@@ -130,7 +130,7 @@ const PERSONS = [
     sideQ:"Hvilken side var nefilim på?",
     thread:"Nefilim viste hvor ille det ble på slangens side – men Jehova bevarte løftet gjennom Noah.",
     trait:"Rettferdighet – han tåler ikke ondskap og setter en grense for den.",
-    traad:{ skjedde:"", jehova:"", valg:"", videre:"" },  // 4 trådfelt (CLAUDE.md); fylles i DEL 3 der innholdet finnes
+    traad:{ skjedde:"Nefilim var mektige menn som brukte styrken sin til vold mot de svake.", jehova:"At Jehova er rettferdig – han tåler ikke ondskap og setter en grense for den.", valg:"De valgte å bruke styrken sin til å skade andre, på slangens side.", videre:"Viste hvor ille det ble på slangens side – men Jehova bevarte løftet gjennom Noah." },
     lesson:"Nefilim var på slangens side. Lærdom: Å være stor og sterk betyr ingenting hvis hjertet er slemt."
   },
   {
@@ -157,7 +157,7 @@ const PERSONS = [
     sideQ:"Hvem lyttet Noah og familien til?",
     thread:"Gjennom Noah og familien berget Jehova menneskeslekten gjennom flommen – og løftets ætt lever videre.",
     trait:"Omsorg – han redder dem som lytter, og gir alltid en vei ut.",
-    traad:{ skjedde:"", jehova:"", valg:"", videre:"" },  // 4 trådfelt (CLAUDE.md); fylles i DEL 3 der innholdet finnes
+    traad:{ skjedde:"Noah bygde arken slik Jehova sa, og han og familien ble reddet gjennom flommen.", jehova:"At Jehova advarer på forhånd og redder hele familien som lytter til ham.", valg:"Noah valgte å adlyde og gjøre alt Jehova befalte, selv om alle andre spottet.", videre:"Gjennom Noah og familien berget Jehova menneskeslekten – og løftets ætt lever videre." },
     lesson:"Noah valgte Jehovas side – sammen med hele familien. Lærdom: Når vi lytter til Jehova og holder sammen som familie, passer han på oss."
   },
   /* ===== BOLK 2 – Etter flommen → patriarkene (kart 2). Ramme; fylles ett kort av gangen. ===== */
@@ -184,7 +184,7 @@ const PERSONS = [
     verse:{ t:"Kusj ble også far til Nimrod. Han var den første som ble en mektig mann på jorden.", ref:"1. Mosebok 10:8" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
     thread:"Nimrod ville gjøre seg et navn mot Jehova, men hensikten gikk videre – snart gjennom en mann som stolte på Jehova: Abraham.",
     trait:"Overhøyhet – ingen som trosser Jehova, kan stoppe hensikten hans.",
-    traad:{ skjedde:"", jehova:"", valg:"", videre:"" },  // 4 trådfelt (CLAUDE.md); fylles i DEL 3 der innholdet finnes
+    traad:{ skjedde:"Nimrod ble en mektig jeger i opposisjon til Jehova og bygde Babel for å gjøre seg et navn.", jehova:"At ingen som trosser Jehova, kan stoppe hensikten hans.", valg:"Nimrod valgte stolthet og opprør – å gjøre seg selv stor i stedet for å ære Jehova.", videre:"Hensikten gikk likevel videre – snart gjennom en mann som stolte på Jehova: Abraham." },
     lesson:"Nimrod valgte slangens side. Lærdom: Å gjøre seg stor på egen hånd fører ingen vei – bare Jehova fortjener et stort navn."
   },
   {
@@ -210,7 +210,7 @@ const PERSONS = [
     verse:{ t:"Og Jehova sa til Abram: «Dra bort fra landet ditt … til det landet som jeg skal vise deg.»", ref:"1. Mosebok 12:1" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
     thread:"Med Abraham får løftet en familie: gjennom hans ætt skal alle folk velsignes – tråden peker rett mot Jesus.",
     trait:"Trofasthet – han holder løftene sine, ledd for ledd.",
-    traad:{ skjedde:"", jehova:"", valg:"", videre:"" },  // 4 trådfelt (CLAUDE.md); fylles i DEL 3 der innholdet finnes
+    traad:{ skjedde:"Abraham forlot i tro hjemlandet da Jehova kalte ham, og fikk løftet om at alle folk skal velsignes gjennom hans ætt.", jehova:"At Jehova er trofast og holder løftene sine, ledd for ledd.", valg:"Abraham valgte å adlyde og stole på Jehova, enda han ikke visste hvor han skulle.", videre:"Med Abraham får løftet en familie: gjennom hans ætt skal alle folk velsignes – tråden peker mot Jesus." },
     lesson:"Abraham valgte Jehovas side. Lærdom: Når vi stoler på Jehova og adlyder, blir vi en del av hans store hensikt – løftet som fører fram til Jesus og paradiset."
   },
   {
@@ -236,7 +236,7 @@ const PERSONS = [
     verse:{ t:"Sara ble gravid og fødte Abraham en sønn i hans alderdom til den tiden Gud hadde lovt ham.", ref:"1. Mosebok 21:2" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
     thread:"Gjennom den umulige fødselen til Sara førte Jehova løftets ætt videre – ingenting er umulig for ham.",
     trait:"Makt – ingenting er umulig for ham, ikke engang det som virker håpløst.",
-    traad:{ skjedde:"", jehova:"", valg:"", videre:"" },  // 4 trådfelt (CLAUDE.md); fylles i DEL 3 der innholdet finnes
+    traad:{ skjedde:"Den gamle Sara fikk sønnen Isak, akkurat som Jehova hadde lovt, da det virket umulig.", jehova:"At ingenting er umulig for Jehova, ikke engang det som virker håpløst.", valg:"Sara valgte å stole på at Han som ga løftet, var trofast.", videre:"Gjennom den umulige fødselen førte Jehova løftets ætt videre mot Jesus." },
     lesson:"Sara valgte Jehovas side. Lærdom: Når Jehova lover noe, kan vi stole på det – selv når det ser helt umulig ut."
   },
   {
@@ -262,7 +262,7 @@ const PERSONS = [
     verse:{ t:"Og Melkisedek, kongen i Salem, kom ut med brød og vin. Han var prest for Den Høyeste Gud.", ref:"1. Mosebok 14:18" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
     thread:"Melkisedek var konge og prest på én gang – et forbilde på Jesus, som løftet peker fram mot.",
     trait:"Godhet – han velsigner og løfter fram dem som ærer ham.",
-    traad:{ skjedde:"", jehova:"", valg:"", videre:"" },  // 4 trådfelt (CLAUDE.md); fylles i DEL 3 der innholdet finnes
+    traad:{ skjedde:"Melkisedek, konge og prest for Den Høyeste, kom ut med brød og vin og velsignet Abraham.", jehova:"At Jehova velsigner og løfter fram dem som ærer ham.", valg:"", videre:"Konge og prest på én gang – et forbilde på Jesus, som løftet peker fram mot." },
     lesson:"Melkisedek valgte Jehovas side. Lærdom: Jehova forbereder alt i sin hensikt – Melkisedek var et bilde på Jesus, vår Konge og Prest."
   },
   {
@@ -288,7 +288,7 @@ const PERSONS = [
     verse:{ t:"… han reddet den rettferdige Lot, som var svært plaget av den skamløse oppførselen til de onde menneskene.", ref:"2. Peter 2:7" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
     thread:"Jehova reddet den rettferdige Lot – han verner alltid dem som holder seg på hans side mens hensikten går videre.",
     trait:"Rettferdighet – han skiller de gode ut og redder dem.",
-    traad:{ skjedde:"", jehova:"", valg:"", videre:"" },  // 4 trådfelt (CLAUDE.md); fylles i DEL 3 der innholdet finnes
+    traad:{ skjedde:"Lot holdt seg ren midt i det onde Sodoma og ble reddet ut før byen ble ødelagt.", jehova:"At Jehova ser de rettferdige og vet hvordan han redder dem ut.", valg:"Lot valgte å holde seg ren og plaget seg over ondskapen rundt ham.", videre:"Jehova reddet den rettferdige Lot – han verner dem som holder seg på hans side." },
     lesson:"Lot valgte Jehovas side. Lærdom: Vi kan holde oss rene og trofaste selv når alle rundt oss gjør det vonde – og Jehova redder dem som gjør det."
   },
   {
@@ -311,7 +311,7 @@ const PERSONS = [
     verse:{ t:"Men Lots kone, som var bak ham, så seg tilbake, og hun ble til en saltstøtte.", ref:"1. Mosebok 19:26" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
     thread:"Lots kone så seg tilbake mot Sodoma – en påminnelse om å holde blikket framover på Jehovas løfte.",
     trait:"Barmhjertighet – han advarer oss så vi kan velge livet.",
-    traad:{ skjedde:"", jehova:"", valg:"", videre:"" },  // 4 trådfelt (CLAUDE.md); fylles i DEL 3 der innholdet finnes
+    traad:{ skjedde:"Lots kone ble reddet ut av Sodoma, men så seg tilbake og ble til en saltstøtte.", jehova:"At Jehova vil at vi skal stole helt på ham og ikke henge fast i det gamle.", valg:"Hjertet hennes ble igjen i Sodoma – hun valgte det gamle framfor redningen.", videre:"En påminnelse om å holde blikket framover, på Jehovas løfte." },
     lesson:"Lots kone valgte slangens side. Lærdom: Det hjelper ikke å komme nesten helt fram – vi må følge Jehova av hele hjertet og ikke se oss tilbake."
   },
   {
@@ -337,7 +337,7 @@ const PERSONS = [
     verse:{ t:"Abraham ga sin nyfødte sønn, som Sara hadde født ham, navnet Isak.", ref:"1. Mosebok 21:3" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
     thread:"Til Isak gjentok Jehova løftet – ætten mot Jesus føres videre, ledd for ledd.",
     trait:"Trofasthet – han gjentar og holder løftet sitt, slekt etter slekt.",
-    traad:{ skjedde:"", jehova:"", valg:"", videre:"" },  // 4 trådfelt (CLAUDE.md); fylles i DEL 3 der innholdet finnes
+    traad:{ skjedde:"Isak lot seg villig binde på alteret, og Jehova gjentok løftet til ham.", jehova:"At Jehova er trofast og gjentar og holder løftet sitt, slekt etter slekt.", valg:"Isak valgte ydmyk tillit og lot seg villig binde.", videre:"Løftet om velsignelse føres videre gjennom Isak, ledd for ledd mot Jesus." },
     lesson:"Isak valgte Jehovas side. Lærdom: Ydmyk tillit til Jehova fører løftet videre – helt fram mot Jesus og paradiset."
   },
   {
@@ -363,7 +363,7 @@ const PERSONS = [
     verse:{ t:"… kom Rebekka ut med vannkrukken sin på skulderen.", ref:"1. Mosebok 24:15" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
     thread:"Rebekka sa modig «jeg vil gå» – og ble mor i slekten som bærer løftet videre.",
     trait:"Omsorg – han leder dem som søker ham.",
-    traad:{ skjedde:"", jehova:"", valg:"", videre:"" },  // 4 trådfelt (CLAUDE.md); fylles i DEL 3 der innholdet finnes
+    traad:{ skjedde:"Rebekka viste gjestfrihet ved brønnen og sa modig «jeg vil gå» for å bli Isaks kone.", jehova:"At Jehova hører bønner og leder dem som vil tjene ham.", valg:"Rebekka valgte mot og vilje: «Ja, det vil jeg» – hun ville gå.", videre:"Ble mor i slekten som bærer løftet videre mot Jesus." },
     lesson:"Rebekka valgte Jehovas side. Lærdom: Vennlighet og mot til å si «ja» til Jehova gjør oss til en del av hans hensikt."
   },
   {
@@ -389,7 +389,7 @@ const PERSONS = [
     verse:{ t:"Da våknet Jakob av søvnen og sa: «Jehova er på dette stedet, og jeg visste det ikke.»", ref:"1. Mosebok 28:16" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
     thread:"Ved Betel gjentok Jehova løftet til Jakob – gjennom hans tolv sønner vokser folket som fører tråden mot Jesus.",
     trait:"Trofasthet – han fører løftet videre og svikter aldri.",
-    traad:{ skjedde:"", jehova:"", valg:"", videre:"" },  // 4 trådfelt (CLAUDE.md); fylles i DEL 3 der innholdet finnes
+    traad:{ skjedde:"Jakob verdsatte de hellige tingene, og ved Betel gjentok Jehova løftet til ham i en drøm.", jehova:"At Jehova er med sine overalt og fører løftet videre, uten å svikte.", valg:"Jakob satte de hellige tingene høyt og tok imot løftet.", videre:"Gjennom hans tolv sønner vokser folket som fører tråden mot Jesus." },
     lesson:"Jakob valgte Jehovas side. Lærdom: Når vi setter Jehovas ting høyt, blir vi en del av løftet – tråden som fører fram til Jesus og paradiset."
   },
   /* ===== BOLK 3 – Ned til Egypt → Job (kart 3). Låst ramme; fylles ett kort av gangen. ===== */
