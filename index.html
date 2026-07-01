@@ -71,7 +71,7 @@
   .opt{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:var(--panel);border:2px solid var(--line);border-radius:14px;padding:15px 16px;margin-bottom:10px;font-family:'Nunito';font-weight:700;font-size:1.02rem;color:#4A3A28;cursor:pointer;}
   .opt{transition:transform .08s ease, border-color .15s ease, background .15s ease, box-shadow .15s ease;}
   @media(hover:hover){ .opt:hover{border-color:var(--gold);background:#FFF7E8;box-shadow:var(--shadow-sm);} }
-  .opt:active{transform:translateY(1px);background:#FFF1D9;border-color:var(--gold);} .opt.wrong{border-color:#E7B4AE;background:#FBEDEB;animation:shake .35s;} .opt.right{border-color:var(--jehova);background:var(--jehova-soft);}
+  .opt:active{transform:translateY(1px);background:#FFF1D9;border-color:var(--gold);} .opt.wrong{border-color:var(--gold);background:#FFF7E8;opacity:.65;} .opt.right{border-color:var(--jehova);background:var(--jehova-soft);}
 
   /* ===== Topp-medaljong + quiz ===== */
   .medallion{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
@@ -660,10 +660,11 @@ const PERSONS = [
       "Og midt i denne flokken gikk den røde tråden videre: gjennom én av sønnene, Juda, skulle løftet føres helt fram til Jesus."
     ],
     quiz:[
-      { q:"Hvor mange sønner hadde Jakob?", options:["Tolv","Sju","Tjuefire"], correct:0,
-        verseAfter:{ t:"Sønnene med Lea var Ruben, Jakobs førstefødte, så Simeon, Levi, Juda, Jissakar og Sebulon.", ref:"1. Mosebok 35:23" } }, // verifisert mot NV (nwt_N.pdf)
-      { q:"Hva ble de tolv sønnene til?", options:["Israels tolv stammer – et helt folk","Tolv konger i hvert sitt land","Tolv egyptiske prester"], correct:0,
-        verseAfter:{ t:"Fra disse kommer Israels tolv stammer …", ref:"1. Mosebok 49:28" } } // verifisert mot NV (nwt_N.pdf)
+      { q:"Hva ble Jakobs tolv sønner til?", options:["Israels tolv stammer – et helt folk","Tolv konger i hvert sitt land","Tolv egyptiske prester"], correct:0,
+        hint:"Tenk på folket Jehova bygde av én familie – Israel ble delt inn i stammer, én for hver sønn.",
+        verseAfter:{ t:"Fra disse kommer Israels tolv stammer …", ref:"1. Mosebok 49:28" } }, // verifisert mot NV (nwt_N.pdf)
+      { q:"Gjennom hvilken av de tolv stammene skulle den lovede kongen (Jesus) komme?", options:["Juda-stammen","Levi-stammen","Ruben-stammen"], correct:0,
+        hint:"Kongelinjen mot Jesus gikk gjennom én bestemt stamme – dere møter ham like etter dette." }
     ],
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova holdt løftet sitt til Abraham og bygde et helt folk av én familie. Steg for steg førte han den røde tråden videre – gjennom Juda-stammen helt fram mot Jesus." },
     refs:"1. Mosebok 35:22–26; 49:28",
@@ -1040,7 +1041,8 @@ const PERSONS = [
     quiz:[
       { q:"Hvorfor ba Jehova Gideon sende de fleste soldatene hjem?", options:["Så folket ikke skulle tro at de vant på egen hånd","Fordi de var late","Fordi det var for varmt"], correct:0,
         verseAfter:{ t:"Jehova sa nå til Gideon: «Du har for mange menn med deg til at jeg kan la dem beseire Midjan. For da ville Israel kanskje skryte … ‘Jeg har beseiret dem på egen hånd.’»", ref:"Dommerne 7:2" } }, // verifisert mot NV (nwt_N.pdf)
-      { q:"Hvor mange menn brukte Jehova til slutt?", options:["Bare 300","Hele hæren","Tusen ryttere"], correct:0 },
+      { q:"Befriere som Gideon reddet folket. Hvem pekte de fram mot?", options:["Den store Befrieren, Jesus","En egyptisk konge","Seg selv"], correct:0,
+        hint:"Tenk på den røde tråden – hver befrier i Bibelen peker fram mot Én som skal redde for alltid." },
       { q:"Hva lærer vi om Jehova?", options:["Han kan frelse med få – det er han som teller","Han trenger alltid en stor hær","Han hjelper bare de mange"], correct:0 }
     ],
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova trenger ikke mange eller sterke for å redde – han frelser med dem som stoler på ham. Da blir det tydelig at æren er hans, ikke vår." },
@@ -1364,7 +1366,7 @@ function renderStep(){
   } else if(s.t==='quiz'){
     const q=p.quiz[s.idx], n=p.quiz.length;
     const items=shuffle(q.options.map((o,k)=>({o,correct:k===q.correct})));
-    const opts=items.map(it=>`<button class="opt quizopt" onclick="answerQuiz(this,${it.correct})">${it.o}</button>`).join('');
+    const opts=items.map(it=>`<button class="opt quizopt"${q.hint?` data-hint="${esc(q.hint)}"`:''} onclick="answerQuiz(this,${it.correct})">${it.o}</button>`).join('');
     render(`${head}<div class="pad fade">${personMedallion(p)}
       <div class="quizmeta"><span class="eyebrow">${ic('search')} Quiz</span><span class="hint">Spørsmål ${s.idx+1}/${n}</span></div>
       <div class="progress" style="margin:8px 0 14px;"><i style="width:${(s.idx+1)/n*100}%"></i></div>
@@ -1410,7 +1412,7 @@ function renderStep(){
 function answerGuess(el,nameGuess){ const p=STATE.person, fb=document.getElementById('fb');
   if(nameGuess===p.name){ el.classList.add('right'); fb.style.color='var(--jehova)'; fb.textContent='Riktig!'; setTimeout(next,800); }
   else { el.classList.add('wrong'); fb.style.color='var(--thread-deep)'; fb.textContent='Ikke helt – se godt på bildet og prøv igjen.'; } }
-function answerQuiz(el,isCorrect){ if(isCorrect){ el.classList.add('right'); const fb=document.getElementById('fb'); if(fb) fb.textContent='Riktig!';
+function answerQuiz(el,isCorrect){ if(isCorrect){ el.classList.add('right'); const fb=document.getElementById('fb'); if(fb){ fb.style.color='var(--jehova)'; fb.textContent='Riktig!'; }
     const qv=document.getElementById('qverse');
     if(qv){                                                          // bekreftende skriftsted etter svar, så «Videre» (ikke auto-videre)
       document.querySelectorAll('.quizopt').forEach(b=>b.disabled=true);
@@ -1418,7 +1420,10 @@ function answerQuiz(el,isCorrect){ if(isCorrect){ el.classList.add('right'); con
       const qn=document.getElementById('qnext'); if(qn){ qn.style.display='block'; qn.classList.add('pulse'); }
       setTimeout(()=>qv.scrollIntoView({behavior:'smooth',block:'center'}),140);
     } else { setTimeout(next,800); } return; }
-  else { el.classList.add('wrong'); document.getElementById('fb').textContent='Ikke helt – prøv en gang til.'; } }
+  else { el.classList.add('wrong'); el.disabled=true;               // demp kun det gale valget (ingen rødt kryss/shake) – barnet prøver videre, mister ingenting
+    const fb=document.getElementById('fb');
+    if(fb){ fb.style.color='var(--thread-deep)';
+      fb.textContent = el.dataset.hint || 'Nesten! Les spørsmålet en gang til og prøv et annet svar – du klarer det.'; } } }
 /* ===== Velg side: dra-og-slipp (mobil-først) + tap-fallback ===== */
 function buildSideChoice(){
   const arena=document.getElementById('sidearena'); if(!arena) return;
