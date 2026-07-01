@@ -239,8 +239,8 @@
   .jig-piece{position:absolute;background-repeat:no-repeat;touch-action:none;cursor:grab;filter:drop-shadow(0 3px 4px rgba(0,0,0,.3));}
   .jig-piece.placed{filter:none;cursor:default;}
   .jdone{display:none;text-align:center;font-family:'Fredoka';font-weight:700;color:var(--jehova);font-size:1.15rem;margin-top:8px;display:none;align-items:center;justify-content:center;gap:8px;}
-  .versecard{background:var(--jehova-soft);border:2px solid #CDE6D3;border-radius:16px;padding:17px 19px;margin-top:14px;text-align:left;}
-  .versecard .q{font-family:'Fredoka';font-weight:600;font-size:1.06rem;color:#2F6B45;line-height:1.52;display:flex;gap:10px;}
+  .versecard{background:var(--jehova-soft);border:2px solid #CDE6D3;border-radius:16px;padding:14px 17px;margin-top:14px;text-align:left;}
+  .versecard .q{font-family:'Fredoka';font-weight:700;font-style:italic;font-size:1.06rem;color:#2F6B45;line-height:1.4;display:flex;gap:10px;}
   .versecard .q .ic{color:var(--jehova);flex:0 0 auto;margin-top:2px;}
   .versecard .ref{margin-top:8px;font-family:'Fredoka';font-weight:600;font-size:.85rem;color:var(--ink-soft);text-align:right;}
 
@@ -585,7 +585,6 @@ function renderStep(){
     render(`${head}<div class="pad fade"><div class="eyebrow">${ic('bulb')} Tenk og snakk sammen</div>
       <p class="hint" style="margin:6px 0 14px;">Gå trappa nedover – tenk selv først, trykk så «Vis et forslag». På hjertespørsmålene finnes ingen fasit.</p>
       <div class="ladder">${rungHTML}</div>
-      ${p.thread?`<div class="threadline">${ic('thread')} <b>Den røde tråden:</b> ${p.thread}</div>`:''}
       ${p.refs?`<p class="refline">${ic('book')} Les selv: ${p.refs}</p>`:''}
       <div class="spacer" style="height:18px;"></div>
       <button class="btn btn-primary" onclick="next()">Videre →</button></div>`);
@@ -612,7 +611,8 @@ function renderStep(){
     const heading = p.side==='jehova' ? 'Du fikk en ny venn!' : p.side==='slange' ? 'Et eksempel å lære av' : 'Lagt til i samlingen';
     render(`${head}<div class="pad fade reward">${emblemHTML(p)}<h2 style="margin:12px 0 6px;">${heading}</h2>
       <div class="lessonbox">${p.lesson}</div>
-      <button class="btn btn-primary" onclick="renderJourney()">Tilbake til reisen →</button>
+      ${p.thread?`<div class="threadline" style="text-align:left;">${ic('thread')} <b>Den røde tråden:</b> ${p.thread}</div>`:''}
+      <button class="btn btn-primary" style="margin-top:14px;" onclick="renderJourney()">Tilbake til reisen →</button>
       <button class="btn btn-soft" style="margin-top:10px;" onclick="renderFriends()">Se hvem vi har truffet</button></div>`);
   }
 }
