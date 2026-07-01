@@ -146,6 +146,10 @@ Unntaket gjelder **kun** dette lærdoms-spørsmålet. Alle andre verskort
   vises **etter avsløringen** (i `reveal`-steget, `.versecard`), når identiteten
   allerede er kjent. Person-spesifikt + 100 % ordrett NV som ellers.
 - Refleksjonsskjermen og venn-modalen (Mine venner) viser bibelreferanser (`refs`).
+- **Rød tråd eksplisitt (`thread`):** hvert kort har ett kort, barnevennlig
+  `thread`-felt – én setning om hvordan personen fører Jehovas hensikt videre.
+  Vises som egen «Den røde tråden:»-linje på refleksjonsskjermen (`.threadline`).
+  «Hva viser dette om Jehova?» dekkes av refleksjonssvaret (`reflect.a`).
 
 ---
 

@@ -194,6 +194,8 @@
   .reflectbox .ans{margin-top:8px;font-weight:600;line-height:1.45;color:#5A3F22;}
   .reflectbox .reveal{margin-top:10px;background:transparent;border:none;color:var(--thread-deep);font-family:'Fredoka';font-weight:600;font-size:.95rem;cursor:pointer;padding:0;text-decoration:underline;}
   .refline{margin-top:14px;display:flex;align-items:center;gap:8px;color:var(--ink-soft);font-weight:700;font-size:.86rem;}
+  .threadline{margin-top:14px;display:flex;align-items:flex-start;gap:8px;background:var(--thread-soft,#FBEEE9);border:1px solid #EBC9BF;border-left:4px solid var(--thread,#D8443A);border-radius:12px;padding:11px 13px;color:#5A2A22;font-weight:700;font-size:.92rem;line-height:1.4;}
+  .threadline svg{flex:0 0 auto;margin-top:2px;}
   .refline .ic{color:var(--thread);}
 
   .trophy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:8px;}
@@ -338,6 +340,7 @@ const PERSONS = [
     refs:"1. Mosebok 4:1–8; Hebreerne 11:4",
     verse:{ t:"Men Abel bar fram noen av de førstefødte i flokken sin … Jehova så med velvilje på Abel og offergaven hans.", ref:"1. Mosebok 4:4" }, // navngivende vers ved avsløring (utdrag). // MÅ BEKREFTES mot jw.org
     sideQ:"Hvem lyttet Abel til?",
+    thread:"Abel er den første som frivillig valgte Jehova – et tidlig bevis på at slangen tok feil, og løftet fra Eden lever videre.",
     lesson:"Abel valgte Jehovas side. Lærdom: Jehova ser til hjertet – gi av kjærlighet."
   },
   {
@@ -356,6 +359,7 @@ const PERSONS = [
     refs:"1. Mosebok 4:1–16",
     verse:{ t:"… ligger synden på lur ved døren. Den ønsker å herske over deg, men kommer du til å få kontroll over den?", ref:"1. Mosebok 4:7" }, // MÅ BEKREFTES mot jw.org
     sideQ:"Hvem lyttet Kain til?",
+    thread:"Kain gikk slangens vei, men Jehova lot løftet fra Eden gå videre gjennom en annen sønn.",
     lesson:"Kain valgte slangens side. Lærdom: Jehova advarer oss fordi han er glad i oss – men vi velger selv."
   },
   {
@@ -378,6 +382,7 @@ const PERSONS = [
     refs:"1. Mosebok 5:21–24; Hebreerne 11:5; Judas 14, 15",
     verse:{ t:"Enok vandret trofast med den sanne Gud. Så var han ikke mer, for Gud tok ham bort.", ref:"1. Mosebok 5:24" }, // MÅ BEKREFTES mot jw.org
     sideQ:"Hvem lyttet Enok til?",
+    thread:"Enok gikk trofast med Jehova midt i en ond verden – et bevis på at mennesker kan holde seg på Jehovas side helt fram mot løftet.",
     lesson:"Enok valgte Jehovas side. Lærdom: Vi kan være Jehovas nære venn selv når ingen andre er det."
   },
   {
@@ -399,6 +404,7 @@ const PERSONS = [
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova lot menneskene leve lenge i begynnelsen. Men selv et langt liv er ikke nok uten Jehova – det er han som gir liv som varer." },
     refs:"1. Mosebok 5:21–27",
     verse:{ t:"Da Metusjalah var 187 år, ble han far til Lamek.", ref:"1. Mosebok 5:25" }, // navngivende vers ved avsløring (alder-verset flyttet til quiz). // MÅ BEKREFTES mot jw.org
+    thread:"Metusjalah er et ledd i slektslinjen fra Enok videre til Noah – tråden føres trygt gjennom generasjonene.",
     lesson:"Visste du? Metusjalah levde i 969 år – lengst av alle i Bibelen, og helt til flommen kom. Tråden går fra Enok, gjennom ham, videre til Noah."
   },
   {
@@ -417,6 +423,7 @@ const PERSONS = [
     refs:"1. Mosebok 6:1–5",
     verse:{ t:"På den tiden … levde kjempene på jorden … Dette var de mektige mennene i gammel tid, de som var berømte.", ref:"1. Mosebok 6:4" }, // MÅ BEKREFTES mot jw.org
     sideQ:"Hvilken side var nefilim på?",
+    thread:"Nefilim viste hvor ille det ble på slangens side – men Jehova bevarte løftet gjennom Noah.",
     lesson:"Nefilim var på slangens side. Lærdom: Å være stor og sterk betyr ingenting hvis hjertet er slemt."
   },
   {
@@ -441,6 +448,7 @@ const PERSONS = [
     refs:"1. Mosebok 6:9–22; 7:1; Hebreerne 11:7",
     verse:{ t:"Gå inn i arken, du og hele din familie, for jeg har sett at du er den som er rettferdig i denne generasjonen.", ref:"1. Mosebok 7:1" }, // MÅ BEKREFTES mot jw.org
     sideQ:"Hvem lyttet Noah og familien til?",
+    thread:"Gjennom Noah og familien berget Jehova menneskeslekten gjennom flommen – og løftets ætt lever videre.",
     lesson:"Noah valgte Jehovas side – sammen med hele familien. Lærdom: Når vi lytter til Jehova og holder sammen som familie, passer han på oss."
   },
   /* ===== BOLK 2 – Etter flommen → patriarkene (kart 2). Ramme; fylles ett kort av gangen. ===== */
@@ -465,6 +473,7 @@ const PERSONS = [
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova er mye større enn noen stolt konge eller noe høyt tårn. Når mennesker tror de klarer seg uten ham, kan ingen plan stå seg mot ham – men de ydmyke er han glad i." },
     refs:"1. Mosebok 10:8–10; 11:1–9",
     verse:{ t:"Kusj ble også far til Nimrod. Han var den første som ble en mektig mann på jorden.", ref:"1. Mosebok 10:8" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
+    thread:"Nimrod ville gjøre seg et navn mot Jehova, men hensikten gikk videre – snart gjennom en mann som stolte på Jehova: Abraham.",
     lesson:"Nimrod valgte slangens side. Lærdom: Å gjøre seg stor på egen hånd fører ingen vei – bare Jehova fortjener et stort navn."
   },
   {
@@ -488,6 +497,7 @@ const PERSONS = [
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova legger store planer og holder alltid løftene sine. Han la merke til Abrahams tro og gjorde ham til en del av den viktigste slekten i historien – den som Jesus kom fra, og som fører fram mot paradiset." },
     refs:"1. Mosebok 12:1–4; 22:15–18; Hebreerne 11:8",
     verse:{ t:"Og Jehova sa til Abram: «Dra bort fra landet ditt … til det landet som jeg skal vise deg.»", ref:"1. Mosebok 12:1" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
+    thread:"Med Abraham får løftet en familie: gjennom hans ætt skal alle folk velsignes – tråden peker rett mot Jesus.",
     lesson:"Abraham valgte Jehovas side. Lærdom: Når vi stoler på Jehova og adlyder, blir vi en del av hans store hensikt – løftet som fører fram til Jesus og paradiset."
   },
   {
@@ -511,6 +521,7 @@ const PERSONS = [
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"For Jehova finnes det ingenting som er umulig. Han holdt løftet til Sara selv når det så helt håpløst ut – og slik førte han den røde tråden videre mot Jesus." },
     refs:"1. Mosebok 18:9–14; 21:1–7; Hebreerne 11:11",
     verse:{ t:"Sara ble gravid og fødte Abraham en sønn i hans alderdom til den tiden Gud hadde lovt ham.", ref:"1. Mosebok 21:2" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
+    thread:"Gjennom den umulige fødselen til Sara førte Jehova løftets ætt videre – ingenting er umulig for ham.",
     lesson:"Sara valgte Jehovas side. Lærdom: Når Jehova lover noe, kan vi stole på det – selv når det ser helt umulig ut."
   },
   {
@@ -534,6 +545,7 @@ const PERSONS = [
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova lot Melkisedek være et lite forhåndsbilde på Jesus – en konge og prest som bringer fred. Slik peker hele Bibelen, ledd for ledd, fram mot Jesus." },
     refs:"1. Mosebok 14:18–20; Salme 110:4; Hebreerne 7:1–3",
     verse:{ t:"Og Melkisedek, kongen i Salem, kom ut med brød og vin. Han var prest for Den Høyeste Gud.", ref:"1. Mosebok 14:18" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
+    thread:"Melkisedek var konge og prest på én gang – et forbilde på Jesus, som løftet peker fram mot.",
     lesson:"Melkisedek valgte Jehovas side. Lærdom: Jehova forbereder alt i sin hensikt – Melkisedek var et bilde på Jesus, vår Konge og Prest."
   },
   {
@@ -557,6 +569,7 @@ const PERSONS = [
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova ser dem som prøver å leve rett selv når alle andre gjør det vonde – og han vet hvordan han skal redde dem ut av vanskeligheter." },
     refs:"1. Mosebok 19:1–29; 2. Peter 2:7–9",
     verse:{ t:"… han reddet den rettferdige Lot, som var svært plaget av den skamløse oppførselen til de onde menneskene.", ref:"2. Peter 2:7" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
+    thread:"Jehova reddet den rettferdige Lot – han verner alltid dem som holder seg på hans side mens hensikten går videre.",
     lesson:"Lot valgte Jehovas side. Lærdom: Vi kan holde oss rene og trofaste selv når alle rundt oss gjør det vonde – og Jehova redder dem som gjør det."
   },
   {
@@ -577,6 +590,7 @@ const PERSONS = [
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova vil at vi skal stole helt på ham og ikke henge fast i det gamle. Han hadde reddet henne – men hjertet hennes ble igjen i Sodoma." },
     refs:"1. Mosebok 19:15–26; Lukas 17:28–32",
     verse:{ t:"Men Lots kone, som var bak ham, så seg tilbake, og hun ble til en saltstøtte.", ref:"1. Mosebok 19:26" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
+    thread:"Lots kone så seg tilbake mot Sodoma – en påminnelse om å holde blikket framover på Jehovas løfte.",
     lesson:"Lots kone valgte slangens side. Lærdom: Det hjelper ikke å komme nesten helt fram – vi må følge Jehova av hele hjertet og ikke se oss tilbake."
   },
   {
@@ -600,6 +614,7 @@ const PERSONS = [
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova fører hensikten sin videre, ledd for ledd. Isaks ydmyke tillit minner om Jesus, som villig ga seg selv – og løftet om velsignelse gikk videre mot ham." },
     refs:"1. Mosebok 21:1–3; 22:1–14; 26:3–4; Hebreerne 11:20",
     verse:{ t:"Abraham ga sin nyfødte sønn, som Sara hadde født ham, navnet Isak.", ref:"1. Mosebok 21:3" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
+    thread:"Til Isak gjentok Jehova løftet – ætten mot Jesus føres videre, ledd for ledd.",
     lesson:"Isak valgte Jehovas side. Lærdom: Ydmyk tillit til Jehova fører løftet videre – helt fram mot Jesus og paradiset."
   },
   {
@@ -623,6 +638,7 @@ const PERSONS = [
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova hører bønner og leder dem som vil tjene ham. Rebekkas vennlighet og mot gjorde henne til en viktig del av løftets familie – tråden mot Jesus." },
     refs:"1. Mosebok 24:15–20, 58, 67",
     verse:{ t:"… kom Rebekka ut med vannkrukken sin på skulderen.", ref:"1. Mosebok 24:15" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
+    thread:"Rebekka sa modig «jeg vil gå» – og ble mor i slekten som bærer løftet videre.",
     lesson:"Rebekka valgte Jehovas side. Lærdom: Vennlighet og mot til å si «ja» til Jehova gjør oss til en del av hans hensikt."
   },
   {
@@ -646,6 +662,7 @@ const PERSONS = [
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova legger merke til dem som setter de hellige tingene høyt. Han var med Jakob overalt og førte løftet videre gjennom ham – ett ledd til på veien mot Jesus og paradiset." },
     refs:"1. Mosebok 28:10–15; Hebreerne 11:21",
     verse:{ t:"Da våknet Jakob av søvnen og sa: «Jehova er på dette stedet, og jeg visste det ikke.»", ref:"1. Mosebok 28:16" }, // navngivende vers ved avsløring. // MÅ BEKREFTES mot jw.org
+    thread:"Ved Betel gjentok Jehova løftet til Jakob – gjennom hans tolv sønner vokser folket som fører tråden mot Jesus.",
     lesson:"Jakob valgte Jehovas side. Lærdom: Når vi setter Jehovas ting høyt, blir vi en del av løftet – tråden som fører fram til Jesus og paradiset."
   },
   /* ===== BOLK 3 – Ned til Egypt → Job (kart 3). Låst ramme; fylles ett kort av gangen. ===== */
@@ -669,6 +686,7 @@ const PERSONS = [
     reflect:{ q:"Hva forteller denne historien om Jehova?", a:"Jehova holdt løftet sitt til Abraham og bygde et helt folk av én familie. Steg for steg førte han den røde tråden videre – gjennom Juda-stammen helt fram mot Jesus." },
     refs:"1. Mosebok 35:22–26; 49:28",
     verse:{ t:"Jakob hadde tolv sønner.", ref:"1. Mosebok 35:22" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
+    thread:"Jakobs tolv sønner ble Israels tolv stammer – grunnmuren i folket løftet føres videre gjennom, helt til Jesus.",
     lesson:"Visste du? Jakobs tolv sønner ble til Israels tolv stammer – grunnmuren i hele folket Jehova valgte. Og gjennom Juda-stammen kom til slutt Jesus."
   },
   {
@@ -692,6 +710,7 @@ const PERSONS = [
     refs:"1. Mosebok 29:34; 4. Mosebok 3:6–8; 5. Mosebok 10:8",
     verse:{ t:"Denne gangen kommer mannen min til å bli knyttet til meg … Han fikk derfor navnet Levi.", ref:"1. Mosebok 29:34" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
     sideQ:"Hvilken side ble Levi-slekten satt til side for å tjene?",
+    thread:"Levi-slekten ble satt til side som prester – de vernet tilbedelsen og veien mot Messias.",
     lesson:"Levi var på Jehovas side. Lærdom: Jehova sørger alltid for at folket hans får hjelp til å holde seg trofaste – og fører hensikten sin trygt videre mot Jesus."
   },
   {
@@ -716,6 +735,7 @@ const PERSONS = [
     refs:"1. Mosebok 29:35; 44:18–34; 49:8–10",
     verse:{ t:"Denne gangen skal jeg lovprise Jehova. Derfor ga hun ham navnet Juda.", ref:"1. Mosebok 29:35" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
     sideQ:"Hvem sin side endte Juda på?",
+    thread:"Fra Juda-stammen skulle kongelinjen komme – tråden går herfra til kong David og til slutt Jesus.",
     lesson:"Juda valgte Jehovas side. Lærdom: Jehova kan forandre hjertet vårt og bruke oss i sin store hensikt – fra Juda-stammen kom kong David og til slutt Jesus."
   },
   {
@@ -740,6 +760,7 @@ const PERSONS = [
     refs:"1. Mosebok 37; 39; 45:4–8; 50:20",
     verse:{ t:"Jeg er Josef, broren deres, som dere solgte til Egypt.", ref:"1. Mosebok 45:4" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
     sideQ:"Hvem holdt Josef seg trofast mot?",
+    thread:"Jehova brukte Josef til å berge hele familien i Egypt – og bevarte ætten som bærer løftet.",
     lesson:"Josef valgte Jehovas side. Lærdom: Når vi holder oss trofaste mot Jehova selv i vanskelige tider, er han med oss – og kan bruke oss i sin store hensikt."
   },
   {
@@ -759,6 +780,7 @@ const PERSONS = [
     refs:"1. Mosebok 39:7–12",
     verse:{ t:"Etter dette begynte hans herres kone å kaste lengselsfulle blikk etter Josef …", ref:"1. Mosebok 39:7" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
     sideQ:"Hvilken side var Potifars kone på?",
+    thread:"Josef flyktet fra det gale hos Potifars kone, og Jehova vernet ham så tråden kunne gå videre.",
     lesson:"Potifars kone var på slangens side. Lærdom: Det er aldri verdt å lokke andre – eller la oss selv lokkes – til å gjøre det Jehova hater."
   },
   {
@@ -783,6 +805,7 @@ const PERSONS = [
     refs:"Job 1; 2; 27:5; 42:10–17",
     verse:{ t:"I landet Us bodde det en mann som het Job. Han var en rettferdig mann, en mann med integritet.", ref:"Job 1:1" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
     sideQ:"Hvem holdt Job seg trofast mot?",
+    thread:"Jobs troskap under den hardeste prøven viser at mennesker kan holde fast ved Jehova – akkurat det slangen sa var umulig.",
     lesson:"Job valgte Jehovas side. Lærdom: Selv i den hardeste prøven kan vi holde fast ved Jehova – og bevise at slangen tar feil. Jehova glemmer aldri sine lojale."
   },
   /* ===== BOLK 4 – Ut av Egypt → befrielsen (kart 4). Låst ramme; fylles ett kort av gangen. ===== */
@@ -807,6 +830,7 @@ const PERSONS = [
     refs:"2. Mosebok 1:15–21",
     verse:{ t:"Senere sa kongen i Egypt til de hebraiske jordmødrene Sjifra og Pua:", ref:"2. Mosebok 1:15" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
     sideQ:"Hvem fryktet Sjifra og Pua mest?",
+    thread:"Sjifra og Pua vernet guttebarna – og Jehova bevarte folket som bærer løftet.",
     lesson:"Sjifra og Pua valgte Jehovas side. Lærdom: Det er modig og rett å frykte Jehova mer enn mennesker – og han velsigner dem som gjør det."
   },
   {
@@ -830,6 +854,7 @@ const PERSONS = [
     refs:"2. Mosebok 2:1–10; 6:20",
     verse:{ t:"Amram tok Jokebed, sin fars søster, til kone. Hun fødte ham Aron og Moses.", ref:"2. Mosebok 6:20" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
     sideQ:"Hvem stolte Jokebed på?",
+    thread:"Jokebed berget babyen Moses – og Jehova reddet befrieren som skulle føre folket ut.",
     lesson:"Jokebed valgte Jehovas side. Lærdom: Når vi gjør det rette i tro, kan Jehova passe på dem vi er glad i – og bruke det til noe større enn vi aner."
   },
   {
@@ -852,6 +877,7 @@ const PERSONS = [
     refs:"2. Mosebok 3:1–12",
     verse:{ t:"… ropte han til ham fra tornebusken: «Moses! Moses!» Han svarte: «Her er jeg.»", ref:"2. Mosebok 3:4" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
     sideQ:"Hvem ga Moses oppdraget?",
+    thread:"Jehova kalte Moses til å føre folket ut av slaveriet – et stort skritt videre mot løftets land og ætten.",
     lesson:"Moses valgte Jehovas side. Lærdom: Jehova kaller og styrker dem han sender. Når han er med oss, kan vi gjøre ting vi aldri trodde var mulig."
   },
   {
@@ -875,6 +901,7 @@ const PERSONS = [
     refs:"2. Mosebok 4:14–16, 27–31",
     verse:{ t:"… han sa: «Hva med din bror, levitten Aron? Jeg vet at han er flink til å tale …»", ref:"2. Mosebok 4:14" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
     sideQ:"Hvem tjente Aron?",
+    thread:"Aron ble den første øverstepresten – prestetjenesten peker fram mot Jesus, vår store Øversteprest.",
     lesson:"Aron valgte Jehovas side. Lærdom: Jehova gir oss hjelp og noen å stå sammen med. Det er fint å hjelpe hverandre med å tjene ham."
   },
   {
@@ -893,6 +920,7 @@ const PERSONS = [
     refs:"2. Mosebok 5:1–2",
     verse:{ t:"Men farao sa: «Hvem er Jehova? … Jeg kjenner slett ikke Jehova, og jeg vil ikke la Israel dra.»", ref:"2. Mosebok 5:2" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
     sideQ:"Hvilken side valgte farao?",
+    thread:"Faraos stolthet kunne ikke stoppe Jehova – hensikten gikk videre, og folket ble fritt.",
     lesson:"Farao var på slangens side. Lærdom: Stolthet som nekter å bøye seg for Jehova, fører ingen vei. Jehova er alltid den sterkeste."
   },
   /* ===== BOLK 5 – Sinai → inntoget i det lovede land (kart 5). Låst ramme; fylles ett kort av gangen. ===== */
@@ -917,6 +945,7 @@ const PERSONS = [
     refs:"2. Mosebok 19:5–6; 24:12; 31:18",
     verse:{ t:"… ga han ham Vitnesbyrdets to tavler, steintavler som det var skrevet på med Guds finger.", ref:"2. Mosebok 31:18" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
     sideQ:"Hvem inngikk Israel en pakt med?",
+    thread:"Ved Sinai ga Jehova loven som holdt folket rent og pekte fram mot Messias.",
     lesson:"Moses (ved Sinai) valgte Jehovas side. Lærdom: Jehovas veiledning er en gave som verner oss og holder oss nær ham – og fører hensikten hans trygt videre mot Jesus."
   },
   {
@@ -936,6 +965,7 @@ const PERSONS = [
     refs:"4. Mosebok 16:1–3",
     verse:{ t:"Korah, sønn av Jishar, sønn av Kehat, Levis sønn, slo seg så sammen med Datan og Abiram …", ref:"4. Mosebok 16:1" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
     sideQ:"Hvem satte Korah seg egentlig opp mot?",
+    thread:"Korah gjorde opprør mot Jehovas ordning – men Jehova bevarte prestelinjen som fører mot Jesus.",
     lesson:"Korah var på slangens side. Lærdom: Å sette seg opp mot ordningen Jehova har valgt, er å sette seg opp mot Jehova selv. Ydmykhet og respekt er alltid best."
   },
   {
@@ -958,6 +988,7 @@ const PERSONS = [
     refs:"Josva 1:1–9",
     verse:{ t:"Etter at Jehovas tjener Moses var død, sa Jehova til Josva, Nuns sønn, Moses' medhjelper …", ref:"Josva 1:1" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
     sideQ:"Hvem var med Josva?",
+    thread:"Josva førte folket inn i det lovede land – enda et løfte oppfylt på veien mot Jesus.",
     lesson:"Josva valgte Jehovas side. Lærdom: Når Jehova gir oss en oppgave, er han med oss. Da kan vi være modige og stole på ham, uansett hvor stort det virker."
   },
   {
@@ -980,6 +1011,7 @@ const PERSONS = [
     refs:"4. Mosebok 13:30; 14:24",
     verse:{ t:"Da prøvde Kaleb å roe ned folket foran Moses ved å si: «La oss dra opp med en gang og innta landet, for vi vil helt sikkert klare å erobre det.»", ref:"4. Mosebok 13:30" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
     sideQ:"Hvem stolte Kaleb på?",
+    thread:"Kalebs helhjertede tro ble belønnet – Jehova fører de trofaste inn i det han har lovet.",
     lesson:"Kaleb valgte Jehovas side. Lærdom: Når vi stoler helhjertet på Jehova, kan vi være modige selv om alle andre er redde – og Jehova legger merke til det."
   },
   {
@@ -1002,6 +1034,7 @@ const PERSONS = [
     refs:"Josva 2:8–11; 6:25; Matteus 1:5",
     verse:{ t:"Salmon ble far til Boas med Rahab; Boas ble far til Obed med Rut; Obed ble far til Isai …", ref:"Matteus 1:5" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
     sideQ:"Hvem valgte Rahab å tro på?",
+    thread:"Rahab, en utlending, valgte Jehovas side og kom inn i Jesu slektslinje – side betyr valg, ikke blodlinje.",
     lesson:"Rahab valgte Jehovas side. Lærdom: Jehova tar imot alle som velger hans side av hele sitt hjerte – uansett hvor de kommer fra. Valget teller, ikke blodlinjen."
   },
   /* ===== BOLK 6 – Dommertiden (kart 6). Låst ramme; fylles ett kort av gangen. ===== */
@@ -1026,6 +1059,7 @@ const PERSONS = [
     refs:"Dommerne 4:4–5; 4:14",
     verse:{ t:"Debora, en profetinne, Lappidots kone, dømte i Israel på den tiden.", ref:"Dommerne 4:4" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
     sideQ:"Hvem stolte Debora på?",
+    thread:"Gjennom Debora reddet Jehova folket – han reiser alltid opp befriere som peker mot den store Befrieren.",
     lesson:"Debora valgte Jehovas side. Lærdom: Når vi stoler på Jehova, gir han oss mot til å gjøre det rette – og han holder alltid det han lover."
   },
   {
@@ -1049,6 +1083,7 @@ const PERSONS = [
     refs:"Dommerne 7:2, 7",
     verse:{ t:"Jehova sa nå til Gideon: «Jeg skal redde dere med de 300 mennene … og jeg skal gi Midjan i din hånd.»", ref:"Dommerne 7:7" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
     sideQ:"Hvem ga Gideon seieren?",
+    thread:"Med bare 300 mann viste Jehova at han frelser – befriere som Gideon peker fram mot Jesus.",
     lesson:"Gideon valgte Jehovas side. Lærdom: Jehova kan gjøre store ting med små midler – det viktigste er at vi stoler på ham, ikke på vår egen styrke."
   },
   {
@@ -1068,6 +1103,7 @@ const PERSONS = [
     refs:"Dommerne 9:1–2",
     verse:{ t:"Med tiden dro Abimelek, Jerubbaals sønn, til sin mors brødre i Sikem …", ref:"Dommerne 9:1" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
     sideQ:"Hvilken side valgte Abimelek?",
+    thread:"Abimelek grep makten ved svik – men Jehovas hensikt lot seg ikke stoppe av slangens vei.",
     lesson:"Abimelek var på slangens side. Lærdom: Å gripe makt og ære for seg selv, i stedet for å følge Jehova, fører aldri til noe godt."
   },
   {
@@ -1091,6 +1127,7 @@ const PERSONS = [
     refs:"Dommerne 13:24–25; 16:28",
     verse:{ t:"Kvinnen fødte senere en sønn og ga ham navnet Samson, og Jehova velsignet gutten mens han vokste opp.", ref:"Dommerne 13:24" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
     sideQ:"Hvem ga Samson styrken hans?",
+    thread:"Jehova ga Samson styrke til å redde folket – enda en befrier på veien mot den endelige Redningsmannen.",
     lesson:"Samson valgte Jehovas side. Lærdom: Styrken vår kommer fra Jehova – ikke fra oss selv. Når vi ber ham om hjelp, gir han oss kraft til å gjøre det rette."
   },
   {
@@ -1110,6 +1147,7 @@ const PERSONS = [
     refs:"Dommerne 16:4–5",
     verse:{ t:"Etter dette ble han forelsket i en kvinne i Sorek-dalen. Hun het Dalila.", ref:"Dommerne 16:4" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
     sideQ:"Hvilken side valgte Dalila?",
+    thread:"Dalila valgte sølv framfor troskap – men tråden mot Jesus gikk likevel videre.",
     lesson:"Dalila var på slangens side. Lærdom: Ingenting – ikke engang mye penger – er verdt å svikte det som er rett. Vær trofast mot Jehova og mot andre."
   },
   {
@@ -1132,6 +1170,7 @@ const PERSONS = [
     refs:"Rut 1:16; 4:17",
     verse:{ t:"Men Rut sa: «… Ditt folk skal være mitt folk, og din Gud skal være min Gud.»", ref:"Rut 1:16" }, // navngivende vers ved avsløring. Verifisert mot NV (nwt_N.pdf)
     sideQ:"Hvem valgte Rut å følge?",
+    thread:"Rut, en utlending, valgte Jehovas side og ble oldemor til kong David – rett inn i Jesu slektslinje.",
     lesson:"Rut valgte Jehovas side. Lærdom: Det er valget vårt som teller, ikke hvor vi kommer fra. Alle som velger Jehova av hjertet, hører til hos ham."
   },
 ];
@@ -1378,6 +1417,7 @@ function renderStep(){
     render(`${head}<div class="pad fade"><div class="eyebrow">${ic('bulb')} Tenk og snakk sammen</div>
       <div class="heartbox"><div class="q">${ic('bulb')} ${p.reflect.q}</div>
         <div id="ans" style="display:none;margin-top:8px;">${p.reflect.a}</div></div>
+      ${p.thread?`<div class="threadline">${ic('thread')} <b>Den røde tråden:</b> ${p.thread}</div>`:''}
       ${p.refs?`<p class="refline">${ic('book')} Les selv: ${p.refs}</p>`:''}
       <div class="spacer" style="height:18px;"></div>
       <button class="btn btn-soft" id="rev" onclick="document.getElementById('ans').style.display='block';this.style.display='none';document.getElementById('rnext').style.display='block';">Tenk litt … vis et forslag</button>
